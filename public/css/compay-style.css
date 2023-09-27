@@ -44,8 +44,8 @@
 
 @media (max-width: 768px) {
     .content-body {
-        width: 300px;
-        height: 300px;
+        width: 250px;
+        height: 250px;
     }
 }
 
@@ -76,9 +76,9 @@
     z-index: 100;
 }
 
-@media (max-width: 768px) {
-    .icon .imgbox {
-        transform-origin: 200px;
+@media (max-width: 576px) {
+    .content-body .icon .imgbox {
+        transform-origin: 160px;
     }
 }
 

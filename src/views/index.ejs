@@ -9,7 +9,7 @@
                 </div>
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
-                        <h2 class="display-1 text-white mb-md-4 animated zoomIn">Solução imobiliária criativa e inovadora para o seu sonho
+                        <h2 class="display-1 text-white mb-md-4 animated zoomIn text-hero">Solução imobiliária criativa e inovadora para o seu sonho
                         </h2>
                         <a href="/about" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Saiba
                                 mais</a>
@@ -23,7 +23,7 @@
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
                         </h5>
-                        <h2 class="display-1 text-white mb-md-4 animated zoomIn">Construimos residências de alto padrão com valor acrescentado
+                        <h2 class="display-1 text-white mb-md-4 animated zoomIn text-hero">Construimos residências de alto padrão com valor acrescentado
                         </h2>
                         <a href="/about" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Saiba
                                 mais</a>
@@ -35,7 +35,7 @@
                 <img class="w-100" src="/assets/img/m3.jpeg" alt="Image">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
-                        <h2 class="display-1 text-white mb-md-4 animated zoomIn">Apostamos na agricultura como forma de diversificar a economia nacional
+                        <h2 class="display-1 text-white mb-md-4 animated zoomIn text-hero">Apostamos na agricultura como forma de diversificar a economia nacional
                         </h2>
                         <a href="/about" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Saiba
                                 mais</a>
@@ -99,8 +99,8 @@
     <!-- Facts Start -->
 
     <!-- About Start -->
-    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="container py-5">
+    <div class="container-fluid wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
             <div class="row g-5">
                 <div class="col-lg-7">
                     <div class="section-title position-relative pb-3 mb-5">
@@ -111,8 +111,8 @@
 
 
                     </p>
-                    <p class="mb-4"> Com mais 5.400 funcionários, o BOAVIDA detém um capital humano por género divido em 91% masculinos e 9% femininos, com uma percentagem de idades dos 18 aos 25 anos, que representa 16,54%, tendo também 77,10% entre 27 e 45 anos e 6,36%
-                        acima dos 46 anos de idade.
+                    <p class="mb-4"> Com mais 5.400 funcionários, o BOAVIDA detém um capital humano por género dividido em 91% masculinos e 9% femininos, com uma percentagem de idades dos 18 aos 25 anos, que representa 16,54%, tendo também 77,10% entre 27 e 45 anos e
+                        6,36% acima dos 46 anos de idade.
                     </p>
                     <div class="row g-0 mb-3">
                         <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
@@ -288,118 +288,57 @@
             <div class="row ">
                 <div class="col-lg-7 p-2">
                     <div class="owl-carousel main-carousel position-relative">
-                        <div class="position-relative overflow-hidden" style="height: 500px;">
-                            <img class="img-fluid h-100" src="/assets/img/news/capacete-dourado/1.jpg" style="object-fit: cover;">
-                            <div class="overlay">
-                                <div class="mb-2">
-                                    <a href="/new/1" class="badge badge-info text-uppercase font-weight-semi-bold p-2 mr-2" href="">Evento</a>
-                                    <a href="/new/1" class="text-white" href="">Ago 25, 2023</a>
-                                </div>
-                                <a href="/new/1" class="h2 m-0 text-white text-uppercase font-weight-bold" href="">
-                                    NOAH RECONHECE MÉRITO DOS SEUS FUNCIONÁRIOS | GRUPO BOAVIDA 
+                        <% smollNews.forEach(function(item) { %>
+                            <div class="position-relative overflow-hidden" style="height: 500px;">
+                                <img class="img-fluid h-100" src="<%= item?.image %>" style="object-fit: cover;">
+                                <div class="overlay">
+                                    <div class="mb-2">
+                                        <a href="/new/1" class="badge badge-info text-uppercase font-weight-semi-bold p-2 mr-2" href="">
+                                            <%= item?.typeOfNew %>
+                                        </a>
+                                        <a href="/new/1" class="text-white" href="">
+                                            <%= item?.datePublished %>
+                                        </a>
+                                    </div>
+                                    <a href="/new/1" class="h2 m-0 text-white text-uppercase font-weight-bold" href="">
+                                        <%= item?.title %>
                                     </a>
-                            </div>
-                        </div>
-
-                        <div class="position-relative overflow-hidden" style="height: 500px;">
-                            <img class="img-fluid w-100 h-100" src="/assets/img/news/feira-saude/1.jpg" style="object-fit: cover;">
-                            <div class="overlay">feira-saude
-                                <div class="mb-2">
-                                    <a href="/new/2" class="badge badge-info text-uppercase font-weight-semi-bold p-2 mr-2" href="">FEIRA</a>
-                                    <a href="/new/2" class="text-white" href="">Jan 01, 2022</a>
                                 </div>
-                                <a href="/new/2" class="h2 m-0 text-white text-uppercase font-weight-bold" href="">
-                                        GRUPO BOAVIDA REALIZA FEIRA DA SAÚDE.</a>
                             </div>
-                        </div>
-
-                        <div class="position-relative overflow-hidden" style="height: 500px;">
-                            <img class="img-fluid h-100" src="/assets/img/news/m1.jpg" style="object-fit: cover;">
-                            <div class="overlay">
-                                <div class="mb-2">
-                                    <a href="/new/3" class="badge badge-info text-uppercase font-weight-semi-bold p-2 mr-2" href="">Evento</a>
-                                    <a href="/new/3" class="text-white" href="">Jan 01, 2022</a>
-                                </div>
-                                <a href="/new/3" class="h2 m-0 text-white text-uppercase font-weight-bold" href="">FESTIVAL DA MULHER
-                                    | GRUPO BOAVIDA</a>
-                            </div>
-                        </div>
-                        <div class="position-relative overflow-hidden" style="height: 500px;">
-                            <img class="img-fluid h-100" src="/assets/img/news/museu-visita/4.jpg" style="object-fit: cover;">
-                            <div class="overlay">
-                                <div class="mb-2">
-                                    <a href="/new/4" class="badge badge-info text-uppercase font-weight-semi-bold p-2 mr-2" href="">Excursão</a>
-                                    <a href="/new/4" class="text-white" href="">Jan 01, 2022</a>
-                                </div>
-                                <a href="/new/4" class="h2 m-0 text-white text-uppercase font-weight-bold" href="MUSEU">MUSEU DE
-                                    HISTÓRIA MILITAR</a>
-                            </div>
-                        </div>
+                            <% }) %>
                     </div>
                 </div>
 
                 <div class="col-lg-5 px-1">
                     <div class="row mx-0">
-                        <div class="col-md-6 p-1">
-                            <div class="position-relative overflow-hidden" style="height: 250px;">
-                                <a href="/new/4">
-                                    <img class="img-fluid h-100" src="/assets/img/news/museu-visita/1.jpg" style="object-fit: cover;">
-                                    <div class="overlay">
-                                        <div class="mb-2">
-                                            <a href="/new/4" class="badge badge-info text-uppercase font-weight-semi-bold p-2 mr-2" href="">Excursão</a>
-                                            <a href="/new/4" class="text-white" href=""><small>Jul 01, 2024</small></a>
-                                        </div>
-                                        <a href="/new/4" class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">MUSEU DE
-                                        HISTÓRIA MILITAR</a>
-                                    </div>
+                        <% smollNews.forEach(function(item) { %>
+                            <div class="col-md-6 p-1">
+                                <div class="position-relative overflow-hidden" style="height: 250px;">
+                                    <a href="/new/4">
+                                        <img class="img-fluid h-100"  src="<%= item?.image %>" style="object-fit: cover;">
+                                        <div class="overlay">
+                                            <div class="mb-2">
+                                                <a href="/new/4" class="badge badge-info text-uppercase font-weight-semi-bold p-2 mr-2" href="">
+                                                    <%= item?.typeOfNew %>
+                                                </a>
+                                    <a href="/new/4" class="text-white" href=""><small> <%= item?.datePublished %></small></a>
+                                </div>
+                                <a href="/new/4" class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">
+                                    <%= item?.title %>
                                 </a>
                             </div>
-                        </div>
-                        <div class="col-md-6 p-1">
-                            <div class="position-relative overflow-hidden" style="height: 250px;">
-                                <img class="img-fluid w-100 h-100" src="/assets/img/news/feira-saude/1.jpg" style="object-fit: cover;">
-                                <div class="overlay">
-                                    <div class="mb-2">
-                                        <a href="/new/2" class="badge badge-info text-uppercase font-weight-semi-bold p-2 mr-2" href="">FEIRA</a>
-                                        <a href="/new/2" class="text-white" href=""><small>25 de Fev de 2023</small></a>
-                                    </div>
-                                    <a href="/new/2" class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">GRUPO BOAVIDA REALIZA FEIRA DA SAÚDE</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 px-1">
-                            <div class="position-relative overflow-hidden" style="height: 250px;">
-                                <img class="img-fluid w-100 h-100" src="/assets/img/news/dia-mulher/m1.jpg" style="object-fit: cover;">
-                                <div class="overlay">
-                                    <div class="mb-2">
-                                        <a href="/new/3" class="badge badge-info text-uppercase font-weight-semi-bold p-2 mr-2" href="">EVENTO</a>
-                                        <a href="/new/3" class="text-white" href=""><small>31 de Mar de 2023</small></a>
-                                    </div>
-                                    <a href="/new/3" class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">FESTIVAL
-                                        DA MULHER | GRUPO BOAVIDA</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 px-1">
-                            <div class="position-relative overflow-hidden" style="height: 250px;">
-                                <img class="img-fluid w-100 h-100" src='/assets/img/news/casa-propria/1.jpg' style=" object-fit: cover; ">
-                                <div class="overlay ">
-                                    <div class="mb-2 ">
-                                        <a href="/new/6" class="badge badge-info text-uppercase font-weight-semi-bold p-2 mr-2 " href=" ">EVENTO</a>
-                                        <a href="/new/6" class="text-white " href=" "><small>07 de Abril de 20233</small></a>
-                                    </div>
-                                    <a href="/new/6" class="h6 m-0 text-white text-uppercase font-weight-semi-bold " href=" ">GRUPO BOA VIDA PARTICIPA DA FEIRA DA “CASA PRÓPRIA”</a>
-                                </div>
-                            </div>
-                        </div>
+                            </a>
                     </div>
                 </div>
-            </div>
-            <div class="new-btn ">
-                <a href="/news " class="btn btn-primary py-2 px-2 mt-3 wow zoomIn " data-wow-delay="0.9s ">Saiba
-                    mais</a>
+                <% }) %>
             </div>
         </div>
+    </div>
+    <div class="new-btn ">
+        <a href="/news " class="btn btn-primary py-2 px-2 mt-3 wow zoomIn " data-wow-delay="0.9s ">Saiba
+                    mais</a>
+    </div>
+    </div>
     </div>
 
     <!-- Main News Slider End -->
