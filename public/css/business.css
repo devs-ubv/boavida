@@ -1,0 +1,179 @@
+#hero {
+    background-image: linear-gradient(to top, transparent 1%, #1f3667 90%), url('/assets/verenapol/m5.png');
+    background-size: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation-name: breatheAnimation;
+    animation-direction: alternate-reverse;
+    animation-play-state: running;
+    animation-duration: 30s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    margin-top: 10px;
+}
+
+#hero:before {
+    content: '';
+    background: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+#hero .container {
+    padding-top: 72px;
+    position: relative;
+    text-align: center;
+}
+
+#hero .play-btn {
+    width: 94px;
+    height: 94px;
+    margin: 0 auto;
+    background: radial-gradient(#032b63 50%, rgba(0, 48, 153, 0.4) 52%);
+    border-radius: 50%;
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
+
+#hero .play-btn::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-40%) translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 15px solid #fff;
+    z-index: 100;
+    transition: all 400ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+#hero .play-btn::before {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    animation-delay: 0s;
+    animation: pulsate-btn 3s;
+    animation-direction: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps;
+    opacity: 1;
+    border-radius: 50%;
+    border: 5px solid rgba(204, 84, 5, 0.7);
+    top: -15%;
+    left: -15%;
+    background: rgba(198, 16, 0, 0);
+}
+
+#hero .play-btn:hover::after {
+    border-left: 15px solid #032b63;
+    transform: scale(20);
+}
+
+#hero .play-btn:hover::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-40%) translateY(-50%);
+    width: 0;
+    height: 0;
+    border: none;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 15px solid #fff;
+    z-index: 200;
+    animation: none;
+    border-radius: 0;
+}
+
+@media (min-width: 1024px) {
+    #hero {
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width: 768px) {
+    #hero h1 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+    #hero h2 {
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 30px;
+    }
+}
+
+@keyframes pulsate-btn {
+    0% {
+        transform: scale(0.6, 0.6);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1, 1);
+        opacity: 0;
+    }
+}
+
+.project-construct {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.icon-project {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.busiss-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes breatheAnimation {
+    0% {
+        background-image: linear-gradient(to bottom, transparent 1%, #1f3667 90%), url("/assets/img/verenapol/m1.png");
+        transform: scale(1.1);
+        background-size: 200%;
+        transition: 0s;
+    }
+    20% {
+        background-image: linear-gradient(to bottom, transparent 1%, #1f3667 90%), url("/assets/img/verenapol/m2.png");
+        transform: scale(1.1);
+    }
+    40% {
+        background-image: linear-gradient(to bottom, transparent 1%, #1f3667 90%), url("/assets/img/verenapol/m3.png");
+        transform: scale(1.1);
+        background-size: 200%;
+    }
+    50% {
+        background-image: linear-gradient(to bottom, transparent 1%, #1f3667 90%), url("/assets/img/verenapol/m4.png");
+        transform: scale(1.1);
+    }
+    90% {
+        background-image: linear-gradient(to bottom, transparent 1%, #1f3667 90%), url("/assets/img/verenapol/m5.png");
+        transform: scale(1.1);
+    }
+    100% {
+        background-image: linear-gradient(to bottom, transparent 1%, #1f3667 90%), url("/assets/img/verenapol/m6.png");
+        transform: scale(1.1);
+    }
+}

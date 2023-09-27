@@ -1,0 +1,20 @@
+{
+    "name": "project-ubv",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "start": "node index",
+        "dev": "nodemon src/index.ts",
+        "test": "jest",
+        "vercel-build": "echo hello"
+    },
+    "dependencies": {
+        "body-parser": "^1.20.2",
+        "cors": "^2.8.5",
+        "dotenv": "^16.3.1",
+        "ejs": "^3.1.9",
+        "express": "^4.18.2",
+        "nodemon": "^3.0.1"
+    }
+}

@@ -1,0 +1,220 @@
+<%- include('./partials/head'); -%>
+    <link href="/assets/css/header-hero.css" rel="stylesheet" />
+    <link href="/assets/css/Business.css" rel="stylesheet" />
+    <link href="/assets/css/compay-style.css" rel="stylesheet" />
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('<%= company?.banner %>');  background-attachment: fixed;">
+        <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li>Sobre</li>
+            </ol>
+            <div class="company-hero">
+                <h2>Principais empresas do Grupo Boavida</h2>
+                <h5>Criamos diversas soluções nos últimos anos, actuando directamente nos seguintes sectores: imobiliário, agrícola, industrial e muito mais, com a criação de empresas que dão resposta a estes segmentos de negócio. Clica nos icons para saber
+                    mais
+                </h5>
+            </div>
+
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+
+    <div class="container-fluid py-5 wow fadeInUp content-compay" data-wow-delay="0.1s">
+        <div class="container border-bottom shadow-sm  rounded compy-content ">
+            <div class="content-body">
+                <div class="icon">
+                    <a href="/company/0" class="imgbox imgbx" data-id="content1" id="imgbx2" style="--i: 2">
+                        <img src="/assets/img/logo-session/m1.svg" alt="m4" />
+                    </a>
+
+                    <a href="/company/1" class="imgbox imgbx" data-id="content2" id="imgbx3" style="--i: 3">
+                        <img src="/assets/img/logo-session/m2.svg" alt="m3" />
+                    </a>
+
+                    <a href="/company/2" class="imgbox imgbx" data-id="content3" id="imgbx4" style="--i: 4">
+                        <img src="/assets/img/logo-session/m3.svg" alt="m4" />
+                    </a>
+                    <a href="/company/3" class="imgbox imgbx" data-id="content4" id="imgbx5" style="--i: 5">
+                        <img src="/assets/img/logo-session/m4.svg" alt="m6" />
+                    </a>
+
+                    <a href="/company/4" class="imgbox imgbx" data-id="content5" id="imgbx6" style="--i:6">
+                        <img src="/assets/img/logo-session/m5.svg" alt="m7" />
+                    </a>
+
+                    <a href="/company/5" class="imgbox imgbx" data-id="content6" id="imgbx7" style="--i: 7">
+                        <img src="/assets/img/logo-session/m6.svg" alt="m8" />
+                    </a>
+
+                </div>
+                <div class="content">
+                    <div class="contentbx" id="content1">
+                        <div class="card-box">
+                            <div class="imgbox">
+                                <img width="400" src="/assets/img/logo-session/m1.svg" alt="m9" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contentbx" id="content2">
+                        <div class="card-box">
+                            <div class="imgbox">
+                                <img width="400" height="400" src="/assets/img/logo-session/m2.svg" alt="m2" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contentbx" id="content3">
+                        <div class="card-box">
+                            <div class="imgbox">
+                                <img width="400" src="/assets/img/logo-session/m3.svg" alt="m3" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contentbx" id="content4">
+                        <div class="card-box">
+                            <div class="imgbox">
+                                <img width="400" src="/assets/img/logo-session/m4.svg" alt="mb-4" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contentbx" id="content5">
+                        <div class="card-box">
+                            <div class="imgbox">
+                                <img width="400" src="/assets/img/logo-session/m5.svg" alt="m5" />
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="contentbx" id="content6">
+                        <div class="card-box">
+                            <div class="imgbox">
+                                <img width="400" src="/assets/img/logo-session/m6.svg" alt="m6" />
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-lg-6" style="padding-top: 5rem;">
+                <div class="">
+                    <div class="section-title position-relative pb-3 mb-5">
+                        <h2 class="mb-0">
+                            <%= company?.highlightText %>
+                        </h2>
+                    </div>
+                    <div class="owl-carousel main-carousel ">
+                        <% company?.slides.forEach(function(item) { %>
+                            <div class="position-relative overflow-hidden ">
+                                <div class=""> <img class="img-fluid" src="<%= item?.src %>" style="object-fit: cover;"></div>
+                                <div class="overlay">
+                                    <div class="mb-2">
+                                        <a class="badge badge-info text-uppercase font-weight-semi-bold p-2 mr-2" href="">Evento</a>
+                                        <a class="text-white" href="">Jan 01, 2022</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <% }); %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Featured News Slider Start -->
+    <div class="container border-bottom shadow-sm p-3 mb-5  rounded">
+        <div class=" row row row-cols-1 row-cols-md-2 ">
+            <div class="col-12 col-sm-6 col-lg-6 ">
+                <div class="section-title position-relative pb-3 mb-5 ">
+                    <h5 class="fw-bold text-primary text-uppercase "></h5>
+                    <h1 class="mb-0 ">
+                        <%= company?.highlightText %>
+                    </h1>
+                </div>
+                <% company?.projectContent.forEach(function(item) { %>
+                    <p class="mb-4 ">
+                        <%=item?.p%>
+                    </p>
+                    <% }); %>
+
+
+
+                        <div class="row g-0 mb-1 ">
+                            <div class="row gy-3 ">
+                                <div class="position-relative pb-1 mb-1 ">
+                                    <h5 class="fw-bold text-primary text-uppercase "></h5>
+                                    <h3 class="mb-0 ">
+                                        Lista de actividades
+                                    </h3>
+                                </div>
+
+                                <%company?.list.forEach(function(item) { %>
+                                    <span class="mb-1 col-lg-4 ">
+                                        <i class="fa fa-check-circle text-primary me-1 "></i>
+                                        <%=item?.li%>
+                                    </span>
+                                    <% }); %>
+
+
+
+                            </div>
+                        </div>
+            </div>
+            <% if (company?.busness) { %>
+                <div class="col-12 col-sm-6 col-lg-6 ">
+                    <div class="section-title position-relative pb-3 mb-5 ">
+                        <h5 class="fw-bold text-primary text-uppercase ">objectivo
+                        </h5>
+
+                    </div>
+                    <div>
+                        <h5 class="fw-bold text-primary text-uppercase ">MISSÃO
+                        </h5>
+
+                        <p class="mb-4 ">
+                            <%= company?.busness?.mission %>
+                        </p>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold text-primary text-uppercase ">VISÃO
+                        </h5>
+
+                        <p class="mb-4 ">
+                            <%= company?.busness?.vision %>
+                        </p>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold text-primary text-uppercase ">VALORES
+                        </h5>
+                        <p class="mb-4 ">
+                            <%= company?.busness?.value %>
+                        </p>
+                    </div>
+                </div>
+
+                <% } %>
+        </div>
+    </div>
+
+    <!-- Featured News Slider End -->
+    <%- include('./partials/footer'); -%>
+        <script>
+            let imgbox = document.querySelectorAll(".imgbox ");
+            let contentbx = document.querySelectorAll(".contentbx ");
+            for (let i = 0; i < imgbox.length; i++) {
+                imgbox[i].addEventListener("mouseover ", function() {
+
+                    for (let i = 0; i < contentbx.length; i++) {
+                        contentbx[i].className = 'contentbx'
+                    }
+                    document.getElementById(this.dataset.id).className = "contentbx active ";
+                    for (let i = 0; i < imgbox.length; i++) {
+                        imgbox[i].className = 'imgbox';
+                    }
+                    this.className = 'imgbox active';
+                })
+            }
+        </script>
+
+        <script>

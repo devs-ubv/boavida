@@ -1,0 +1,95 @@
+<%- include('./partials/head'); -%>
+    <link href="assets/css/contact.css" rel="stylesheet">
+    <!-- About Start -->
+    <link href="/assets/css/header.css" rel="stylesheet">
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/assets/img/banner/Banner_SAC_1.png');">
+        <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+
+            <h2>Contacto</h2>
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li>Sobre</li>
+            </ol>
+
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+    <!-- ======= Contact Section ======= -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <section id="contact" class="contact">
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row gy-4">
+                    <div class="col-lg-6">
+                        <div class="info-item  d-flex flex-column justify-content-center align-items-center">
+                            <i class="bi bi-map"></i>
+                            <h3>Encontre-nós</h3>
+                            <p>Agola-Via Expresso, Belas Urbanização Boa Vida</p>
+                        </div>
+                    </div>
+                    <!-- End Info Item -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="info-item d-flex flex-column justify-content-center align-items-center">
+                            <i class="bi bi-envelope"></i>
+                            <h3>E-mail</h3>
+                            <p>geral@boavidaimoveis.co.ao</p>
+                        </div>
+                    </div>
+                    <!-- End Info Item -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="info-item  d-flex flex-column justify-content-center align-items-center">
+                            <i class="bi bi-telephone"></i>
+                            <h3>Entre com contacto</h3>
+                            <p>921635262/ 923 982 415 / 914 956 381</p>
+                        </div>
+                    </div>
+                    <!-- End Info Item -->
+
+                </div>
+
+                <div class="row gy-4 mt-1">
+
+                    <div class="col-lg-6 ">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.9705861019693!2d13.214477875815358!3d-8.974853592336103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a521f28dbf07e05%3A0xc1b45c57d9661cff!2sUrbaniza%C3%A7%C3%A3o%20Boa%20Vida!5e0!3m2!1spt-PT!2sao!4v1684925539738!5m2!1spt-PT!2sao"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <!-- End Google Maps -->
+
+                    <div class="col-lg-6">
+                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                            <div class="row gy-4">
+                                <div class="col-lg-6 form-group">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Seu Nome" required>
+                                </div>
+                                <div class="col-lg-6 form-group">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Seu Email" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Assunto" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" name="message" rows="5" placeholder="Mensagem" required></textarea>
+                            </div>
+                            <div class="my-3">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                            </div>
+                            <div class="text-center"><button class="btn-primary" type="submit">Enviar</button></div>
+                        </form>
+                    </div>
+                    <!-- End Contact Form -->
+
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <!-- End Contact Section -->
+    <!--footer -->
+    <%- include('./partials/footer'); -%>
+        <!-- footer -->

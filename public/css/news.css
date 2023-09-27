@@ -1,0 +1,142 @@
+/******* Bootstrap Theming ********/
+
+@import "bootstrap/scss/bootstrap";
+
+/********** Template CSS ************/
+
+.main-carousel .owl-dots {
+    position: absolute;
+    top: 30px;
+    right: 25px;
+    width: 100%;
+    height: 20px;
+    text-align: right;
+}
+
+.main-carousel .owl-dot {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    width: 20px;
+    height: 20px;
+    background: var(--light);
+    transition: .5s;
+}
+
+.main-carousel .owl-dot.active {
+    width: 40px;
+    background: var(--primary);
+}
+
+.tranding-carousel .owl-nav {
+    position: absolute;
+    width: auto;
+    height: 30px;
+    top: calc(50% - 15px);
+    right: -7px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 1;
+}
+
+.tranding-carousel .owl-nav .owl-prev,
+.tranding-carousel .owl-nav .owl-next {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin: 0 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+    background: transparent;
+    border: 1px solid var(--light);
+    font-size: 16px;
+    transition: .3s;
+}
+
+.tranding-carousel .owl-nav .owl-prev:hover,
+.tranding-carousel .owl-nav .owl-next:hover {
+    color: var(--light);
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.tranding-carousel.bg-white .owl-nav .owl-next {
+    margin-right: 22px;
+}
+
+.tranding-carousel.bg-white .owl-nav .owl-prev,
+.tranding-carousel.bg-white .owl-nav .owl-next {
+    border-color: var(--secondary);
+}
+
+.news-carousel .owl-nav {
+    position: absolute;
+    width: auto;
+    height: 30px;
+    top: -60px;
+    right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.news-carousel .owl-nav .owl-prev,
+.news-carousel .owl-nav .owl-next {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin: 0 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid var(--secondary);
+    font-size: 16px;
+    transition: .3s;
+}
+
+.news-carousel .owl-nav .owl-prev:hover,
+.news-carousel .owl-nav .owl-next:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 30px;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    background: linear-gradient(to bottom, rgba(256, 256, 256, 0), rgba(30, 32, 36, 1));
+    z-index: 1;
+}
+
+@media (min-width: 768px) {
+    .news-lg {
+        height: 350px;
+    }
+    .news-lg .border {
+        border-left: none !important;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .news-lg .border {
+        border-top: none !important;
+    }
+}
+
+.new-btn {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
