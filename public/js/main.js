@@ -135,6 +135,8 @@
         $('.drawn-menu').slideToggle();
     })
 
+    //////////////////////////////////7Hero video 
+
     $(".popup-close").click(function() {
         var video = document.getElementById('discover'); // O
         video.pause(); // Pausa a reprodução do vídeo
@@ -153,4 +155,6 @@
         });
         video.play(); // Inicia a reprodução do vídeo
     })
+
+
 })(jQuery);
