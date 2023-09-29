@@ -99,8 +99,9 @@
     <!-- Topbar End -->
     <!-- Navbar & Carousel Start -->
     <div class="container-fluid position-relative p-0">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-dark px-5 py-0 py-lg-0" id="navbar">
+
+        <nav class="navbar navbar-expand-lg navbar-dark px-5 py-0 py-lg-0" id="navbar">
+            <div class="container">
                 <a href="/" class="navbar-brand p-0 blue-logo">
                     <img width="150" src="/assets/img/logos/blue-logo.png" />
                 </a>
@@ -108,8 +109,8 @@
                     <img width="150" src="/assets/img/logos/white-logo.png" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="fa fa-bars"></span>
-            </button>
+                    <span class="fa fa-bars"></span>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
                         <a href="/" class="nav-item nav-link <%= data?.path==='/' ? 'active' : '' %>">Home</a>
@@ -118,14 +119,14 @@
 
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle <%= data?.path==='/business-unit/real-state' || data?.path==='/company/'+data?.pathName || data?.path==='/business-unit/leadership-institutel' ? 'active' : '' %>" data-bs-toggle="dropdown">Negócios
-                        </a>
+                            </a>
                             <div class="dropdown-menu m-0">
                                 <a href="/business-unit/real-state" class="dropdown-item <%= data?.path==='/business-unit/real-state' ? 'active' : '' %>">
-                                Incorporação Imobiliária</a>
+                                    Incorporação Imobiliária</a>
                                 <a href="/company/0" class="dropdown-item <%= data?.path==='/company/'+data?.pathName ? 'active' : '' %>">
-                                Empresa do Grupo</a>
+                                    Empresa do Grupo</a>
                                 <a href="/business-unit/leadership-institutel" class="dropdown-item <%= data?.path==='/business-unit/leadership-institutel' ? 'active' : '' %>">
-                                Instituto de Liderança</a>
+                                    Instituto de Liderança</a>
                             </div>
                         </div>
                         <a href="/contact" class="nav-item nav-link <%= data?.path==='/contact' ? 'active' : '' %>"> Contacto</a>
@@ -136,5 +137,5 @@
                         <a href="#" class="btn btn-primary py-2 px-4 ms-3">Acesso</a>
                     </div>
                 </div>
-            </nav>
-        </div>
+            </div>
+        </nav>

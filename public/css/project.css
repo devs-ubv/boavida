@@ -44,7 +44,7 @@
 
 .services-project {
     width: 100%;
-    background-color: #000;
+    background-color: var(--dark);
     display: flex;
     justify-content: space-between;
 }

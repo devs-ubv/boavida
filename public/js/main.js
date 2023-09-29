@@ -134,4 +134,23 @@
     $(".linguagem").click(function() {
         $('.drawn-menu').slideToggle();
     })
+
+    $(".popup-close").click(function() {
+        var video = document.getElementById('discover'); // O
+        video.pause(); // Pausa a reprodução do vídeo
+        video.currentTime = 0;
+        $('.popup-video').css({
+            display: 'none'
+        });
+
+    })
+
+
+    $("#play-video").click(function() {
+        var video = document.getElementById('discover'); // O
+        $('.popup-video').css({
+            display: 'block'
+        });
+        video.play(); // Inicia a reprodução do vídeo
+    })
 })(jQuery);
