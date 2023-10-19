@@ -121,7 +121,7 @@
                 items: 6
             },
             992: {
-                items: 8
+                items: 6
             }
         }
     });
@@ -138,22 +138,23 @@
     //////////////////////////////////7Hero video 
 
     $(".popup-close").click(function() {
-        var video = document.getElementById('discover'); // O
-        video.pause(); // Pausa a reprodução do vídeo
-        video.currentTime = 0;
+
         $('.popup-video').css({
             display: 'none'
         });
+
+        window.location.href = '/'
 
     })
 
 
     $("#play-video").click(function() {
-        var video = document.getElementById('discover'); // O
         $('.popup-video').css({
             display: 'block'
         });
-        video.play(); // Inicia a reprodução do vídeo
+    })
+    $('#play-video-imob').click(() => {
+        alert("O video ainda não está disponível. Logo em breve será lançado")
     })
 
 

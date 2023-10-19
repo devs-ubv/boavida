@@ -2,7 +2,7 @@ const project = [{
         idCompany: 1,
         highlightText: "VERENAPOL (EMPRESA, SECTOR IMOBILIÁRIO)",
         projectTitle: "Princípais projectos realizados",
-        banner: "/assets/img/verenapol/5.jpg",
+        banner: "/assets/img/verenapol/1.jpg",
         projectContent: [{
                 p: "A VERENAPOL é uma empresa do Grupo- BOA VIDA, vocacionada para administração e gestão de Condomínios Residenciais, Edifícios, Centros Comerciais e Industriais e áreas afins.",
             },
@@ -27,24 +27,21 @@ const project = [{
             },
         ],
         slides: [{
-                src: "/assets/img/verenapol/3.jpg",
-                alt: "Image 1 for carousel",
-            },
-            {
                 src: "/assets/img/verenapol/1.jpg",
-                alt: "Image 2 for carousel",
+                alt: "Image 1 for carousel",
             },
             {
                 src: "/assets/img/verenapol/2.jpg",
                 alt: "Image 2 for carousel",
             },
+
         ],
     },
     {
         idCompany: 2,
         highlightText: "GRAMAPOL (EMPRESA, SECTOR INDUSTRIAL 1111)",
         projectTitle: "Princípais projectos realizados",
-        banner: "/assets/img/gramapol/m2.png",
+        banner: "/assets/img/gramapol/1.png",
         busness: {
             mission: "Transformar e comercializar rochas ornamentais com maior celeridade e qualidade nos processos internos, visando a satisfação dos nossos clientes e a garantia do retorno de rentabilidade sobre o capital investido.",
             value: "Satisfação do cliente 2. Profissionalismo 3. Espírito de equipa 4. Resiliência 5. Servir com humildade 6. Liderar pelo exemplo",
@@ -74,36 +71,28 @@ const project = [{
             },
         ],
         slides: [{
-                src: "/assets/img/gramapol/m5.png",
+                src: "/assets/img/gramapol/4.png",
                 alt: "Image 3 for carousel",
             },
             {
-                src: "/assets/img/gramapol/m4.png",
+                src: "/assets/img/gramapol/2.png",
 
                 alt: "Image 1 for carousel",
             },
             {
-                src: "/assets/img/gramapol/m3.png",
+                src: "/assets/img/gramapol/3.png",
                 alt: "Image 2 for carousel",
             },
             {
-                src: "/assets/img/gramapol/m2.png",
+                src: "/assets/img/gramapol/4.png",
                 alt: "Image 3 for carousel",
             },
             {
-                src: "/assets/img/gramapol/m7.jpeg",
+                src: "/assets/img/gramapol/5.png",
                 alt: "Image 3 for carousel",
             },
             {
-                src: "/assets/img/gramapol/m8.jpeg",
-                alt: "Image 3 for carousel",
-            },
-            {
-                src: "/assets/img/gramapol/m9.jpeg",
-                alt: "Image 3 for carousel",
-            },
-            {
-                src: "/assets/img/gramapol/m10.jpeg",
+                src: "/assets/img/gramapol/6.png",
                 alt: "Image 3 for carousel",
             },
         ],
@@ -177,7 +166,7 @@ const project = [{
         idCompany: 4,
         highlightText: "NOAH (EMPRESA, SECTOR INDUSTRIAL)",
         projectTitle: "Princípais projectos realizados",
-        banner: "/assets/img/noah/m3.jpg",
+        banner: "/assets/img/noah/2.jpg",
         busness: {
             mission: "Comprometidos com a satisfação dos clientes, criamos produtos e serviços inovadores para proporcionar melhor qualidade de vida",
 
@@ -205,77 +194,62 @@ const project = [{
             },
         ],
         slides: [{
-                src: "/assets/img/noah/m1.jpg",
+                src: "/assets/img/noah/1.jpg",
                 alt: "Image 3 for carousel",
             },
             {
-                src: "/assets/img/noah/m2.jpg",
+                src: "/assets/img/noah/2.jpg",
                 alt: "Image 3 for carousel",
             },
             {
-                src: "/assets/img/noah/m3.jpg",
+                src: "/assets/img/noah/3.jpg",
                 alt: "Image 3 for carousel",
             },
             {
-                src: "/assets/img/noah/m4.jpg",
+                src: "/assets/img/noah/4.jpg",
                 alt: "Image 3 for carousel",
             },
             {
-                src: "/assets/img/noah/m5.jpeg",
+                src: "/assets/img/noah/5.jpg",
                 alt: "Image 3 for carousel",
             },
             {
-                src: "/assets/img/noah/m6.jpeg",
+                src: "/assets/img/noah/6.jpg",
                 alt: "Image 3 for carousel",
             },
             {
-                src: "/assets/img/noah/m7.jpg",
+                src: "/assets/img/noah/7.jpg",
                 alt: "Image 3 for carousel",
             },
             {
-                src: "/assets/img/noah/m8.jpg",
+                src: "/assets/img/noah/8.jpg",
                 alt: "Image 3 for carousel",
             },
             {
-                src: "/assets/img/noah/m9.jpeg",
+                src: "/assets/img/noah/9.jpg",
                 alt: "Image 3 for carousel",
             },
             {
-                src: "/assets/img/noah/m10.jpg",
+                src: "/assets/img/noah/10.jpg",
                 alt: "Image 3 for carousel",
             },
             {
-                src: "/assets/img/noah/m11.jpg",
+                src: "/assets/img/noah/11.jpg",
                 alt: "Image 3 for carousel",
             },
             {
-                src: "/assets/img/noah/m12.jpeg",
+                src: "/assets/img/noah/12.jpg",
                 alt: "Image 3 for carousel",
             },
             {
-                src: "/assets/img/noah/m13.jpeg",
+                src: "/assets/img/noah/13.jpg",
                 alt: "Image 3 for carousel",
             },
             {
-                src: "/assets/img/noah/m14.jpeg",
+                src: "/assets/img/noah/14.jpg",
                 alt: "Image 3 for carousel",
             },
-            {
-                src: "/assets/img/noah/m15.jpeg",
-                alt: "Image 3 for carousel",
-            },
-            {
-                src: "/assets/img/noah/m16.jpeg",
-                alt: "Image 3 for carousel",
-            },
-            {
-                src: "/assets/img/noah/m17.jpeg",
-                alt: "Image 3 for carousel",
-            },
-            {
-                src: "/assets/img/noah/m18.jpeg",
-                alt: "Image 3 for carousel",
-            },
+
         ],
     },
 
@@ -327,7 +301,7 @@ const project = [{
 
     {
         idCompany: 6,
-        banner: "/assets/img/marcepol/m7.jpeg",
+        banner: "/assets/img/marcepol/m3.png",
         highlightText: "MARCEPOL (EMPRESA, SECTOR INDUSTRIAL)",
         projectContent: [{
                 p: "A MARCEPOL, LDA é uma empresa de transformação de madeira e fornecimento de tábuas para fabricação de mobílias.",
@@ -344,35 +318,35 @@ const project = [{
 
         ],
         slides: [{
-                src: "/assets/img/marcepol/m1.jpeg",
+                src: "/assets/img/marcepol/m1.png",
                 alt: "Image 1 for carousel",
             },
             {
-                src: "/assets/img/marcepol/m2.jpeg",
+                src: "/assets/img/marcepol/m2.png",
                 alt: "Image 2 for carousel",
             },
             {
-                src: "/assets/img/marcepol/m3.jpeg",
+                src: "/assets/img/marcepol/m3.png",
                 alt: "Image 3 for carousel",
             },
             {
-                src: "/assets/img/marcepol/m4.jpeg",
+                src: "/assets/img/marcepol/m4.png",
                 alt: "Image 3 for carousel",
             },
             {
-                src: "/assets/img/marcepol/m5.jpeg",
+                src: "/assets/img/marcepol/m5.png",
                 alt: "Image 3 for carousel",
             },
             {
-                src: "/assets/img/marcepol/m6.jpeg",
+                src: "/assets/img/marcepol/m6.png",
                 alt: "Image 3 for carousel",
             },
             {
-                src: "/assets/img/marcepol/m7.jpeg",
+                src: "/assets/img/marcepol/m7.jpg",
                 alt: "Image 3 for carousel",
             },
             {
-                src: "/assets/img/marcepol/m8.jpeg",
+                src: "/assets/img/marcepol/m8.jpg",
                 alt: "Image 3 for carousel",
             },
         ],
@@ -523,7 +497,88 @@ const leadership = {
 }
 
 const news = [{
-        id: 1,
+        id: 7,
+        title: 'MULHERES PARTICIPAM EM MASSA NA PALESTRA SOBRE CANCRO DA MAMA E DANÇA ZUMBA | GRUPO BOAVIDA DA',
+        image: '/assets/img/news/lecture/1.jpg',
+        datePublished: '13 de Outubro de 2023',
+        typeOfNew: 'Evento ',
+        photos: [{
+                id: 1,
+                image: '/assets/img/news/lecture/1.jpg',
+                description: 'MULHERES PARTICIPAM EM MASSA NA PALESTRA SOBRE CANCRO DA MAMA ',
+            },
+            {
+                id: 2,
+                image: '/assets/img/news/lecture/2.jpg',
+                description: 'MULHERES PARTICIPAM EM MASSA NA PALESTRA SOBRE CANCRO DA MAMA ',
+            },
+            {
+                id: 3,
+                image: '/assets/img/news/lecture/3.jpg',
+                description: 'MULHERES PARTICIPAM EM MASSA NA PALESTRA SOBRE CANCRO DA MAMA ',
+            },
+            {
+                id: 4,
+                image: '/assets/img/news/lecture/4.jpg',
+                description: 'MULHERES PARTICIPAM EM MASSA NA PALESTRA SOBRE CANCRO DA MAMA ',
+            },
+            {
+                id: 5,
+                image: '/assets/img/news/lecture/5.jpg',
+                description: 'MULHERES PARTICIPAM EM MASSA NA PALESTRA SOBRE CANCRO DA MAMA ',
+            },
+            {
+                id: 6,
+                image: '/assets/img/news/lecture/6.jpg',
+                description: 'MULHERES PARTICIPAM EM MASSA NA PALESTRA SOBRE CANCRO DA MAMA ',
+            },
+            {
+                id: 7,
+                image: '/assets/img/news/lecture/7.jpg',
+                description: 'MULHERES PARTICIPAM EM MASSA NA PALESTRA SOBRE CANCRO DA MAMA ',
+            },
+            {
+                id: 8,
+                image: '/assets/img/news/lecture/8.jpg',
+                description: 'MULHERES PARTICIPAM EM MASSA NA PALESTRA SOBRE CANCRO DA MAMA ',
+            },
+            {
+                id: 9,
+                image: '/assets/img/news/lecture/9.jpg',
+                description: 'MULHERES PARTICIPAM EM MASSA NA PALESTRA SOBRE CANCRO DA MAMA ',
+            },
+            {
+                id: 10,
+                image: '/assets/img/news/lecture/10.jpg',
+                description: 'MULHERES PARTICIPAM EM MASSA NA PALESTRA SOBRE CANCRO DA MAMA ',
+            },
+            {
+                id: 11,
+                image: '/assets/img/news/lecture/11.jpg',
+                description: 'MULHERES PARTICIPAM EM MASSA NA PALESTRA SOBRE CANCRO DA MAMA ',
+            },
+        ],
+        content: [{
+                id: 1,
+                paragraph: 'Em alusão ao Outubro Rosa, os departamentos de Responsabilidade Social, Capital Humano, Administrativo e Comunicação e Imagem, realizaram hoje, sexta-feira, 13/10, pelas 15h, uma palestra subordinada aos cuidados, tratamento e prevenção sobre o Cancro da Mama que contou com a participação de mais de 100 mulheres dos diferentes departamentos da empresa e duas Dras. especialistas convidadas, nomeadamente a Dra. Silvia Semedo da UNISAÚDE e a Dra. Sílvia Semedo da MD Clínica, que abordarem sobre a doença.',
+            },
+            {
+                id: 2,
+                paragraph: 'O evento contou já na parte final com um momento de ginástica, dirigido por profissional de zumba que levou as mulheres presentes a exercícios de dança zumba, para descontrair e perder alguma caloria.',
+            },
+            {
+                id: 3,
+                paragraph: 'Foi um evento digno de realce, a contar pelos benefícios gerados quer pelos conhecimentos adquiridos quer pelo exercício feito.',
+            },
+            {
+                id: 4,
+                paragraph: 'O momento cultural foi abrilhantado pela assinalável voz da cantora Vissolela Republicano, que levou o público ao delírio.',
+            },
+
+        ],
+    },
+    {
+        id: 6,
         title: 'NOAH RECONHECE MÉRITO DOS SEUS FUNCIONÁRIOS | GRUPO BOAVIDA',
         image: '/assets/img/news/capacete-dourado/1.jpg',
         datePublished: '25 de Agosto de 2023',
@@ -587,7 +642,7 @@ const news = [{
         ],
     },
     {
-        id: 2,
+        id: 5,
         title: 'GRUPO BOAVIDA REALIZA FEIRA DA SAÚDE ',
         image: '/assets/img/news/feira-saude/1.jpg',
         datePublished: '25 de Fevereiro de 2023',
@@ -638,7 +693,7 @@ const news = [{
         ],
     },
     {
-        id: 3,
+        id: 4,
         title: 'FESTIVAL DA MULHER | GRUPO BOAVIDA',
         image: '/assets/img/news/dia-mulher/m1.jpg',
         datePublished: '31 de Março de 2023',
@@ -681,14 +736,14 @@ const news = [{
         ],
     },
     {
-        id: 4,
+        id: 3,
         title: 'MUSEU DE HISTÓRIA MILITAR',
-        image: '/assets/img/news/museu-visita/1.jpg',
+        image: '/assets/img/news/museu-visita/1.png',
         datePublished: '04 de Fevereiro de 2023',
         typeOfNew: 'EXCURSÃO',
         photos: [{
                 id: 1,
-                image: '/assets/img/news/museu-visita/1.jpg',
+                image: '/assets/img/news/museu-visita/1.png',
                 description: 'MUSEU DE HISTÓRIA MILITAR',
             },
             {
@@ -733,7 +788,7 @@ const news = [{
         ],
     },
     {
-        id: 5,
+        id: 2,
         title: 'GRUPO BOAVIDA FAZ LANÇAMENTO DA 2ª EDIÇÃO DO PROJECTO DE ALFABETIZAÇÃO E REFORÇO ESCOLAR',
         image: '/assets/img/news/alfabetizacao/1.jpg',
         datePublished: ' de Janeiro de 2023',
@@ -798,7 +853,7 @@ const news = [{
         ],
     },
     {
-        id: 6,
+        id: 1,
         title: 'GRUPO BOA VIDA PARTICIPA DA FEIRA DA “CASA PRÓPRIA”',
         image: '/assets/img/news/casa-propria/1.jpg',
         datePublished: '07 de Abril de 2023',

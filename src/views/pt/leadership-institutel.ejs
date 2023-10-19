@@ -1,0 +1,89 @@
+<%- include('./partials/head'); -%>
+    <link href="/assets/css/header-hero.css" rel="stylesheet" />
+    <link href="/assets/css/Business.css" rel="stylesheet" />
+    <link href="/assets/css/compay-style.css" rel="stylesheet" />
+    <!-- ======= Header ======= -->
+    <!-- ======= Breadcrumbs ======= -->
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('<%= leadership?.banner %>');">
+        <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li>Sobre</li>
+            </ol>
+            <div class="company-hero">
+                <h2>INSTITUTO DE LIDERANÇA</h2>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+
+
+    <!-- About Start -->
+    <div class="container-fluid py-1 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5 ">
+            <div class="row g-5">
+                <div class="col-lg-5" style="min-height: 500px;">
+                    <div class="owl-carousel main-carousel ">
+                        <% leadership?.slides.forEach(function(item) { %>
+                            <div class="position-relative overflow-hidden">
+                                <div class="items-galary"> <img class="img-fluid" src="<%= item?.src %>" style="object-fit: cover;"></div>
+                                <div class="overlay">
+                                    <div class="mb-2">
+                                        <a class="badge badge-info text-uppercase font-weight-semi-bold p-2 mr-2" href="">Evento</a>
+                                        <a class="text-white" href="">Jan 01, 2022</a>
+                                    </div>
+                                    <a class="h2 m-0 text-white text-uppercase font-weight-bold" href="">FESTIVAL DA
+                                            MULHER
+                                            | GRUPO BOAVIDA</a>
+                                </div>
+                            </div>
+
+                            <% }); %>
+                    </div>
+                    <p class="pt-5 mb-4">Foi idealizado para capacitar os lideres, dotando-os de habilidades emocionais, comportamentais e psíquicas de modo a ajudá-los na melhoria da performance profissional e pessoal a todos os níveis de actuação.</p>
+                    <p class="mb-2">Compreendemos que o mundo evolui consideravelmente todos os dias, independentemente dos sectores do mundo corporativo global e torna-se extremamente importante a adequação das habilidades cognitivas e não cognitivas para melhor atender
+                        às necessidade vigentes e a superação dos desafios, visando a maximização da obtenção de resultados desejados em todas as áreas da vida.</p>
+                    <p class="mb-2">O Instituto desenvolve acções de formação, palestras, treinamentos, consultoria, coaching, workshops, seminários e fóruns.</p>
+                </div>
+                <div class="col-lg-7">
+                    <div class="section-title position-relative pb-3 mb-5">
+                        <h1 class="mb-0">INSTITUTO DE LIDERANÇA</h1>
+                    </div>
+                    <p class="mb-4">Foi idealizado para capacitar os lideres, dotando-os de habilidades emocionais, comportamentais e psíquicas de modo a ajudá-los na melhoria da performance profissional e pessoal a todos os níveis de actuação.
+                    </p>
+                    <div>
+                        <h5 class="fw-bold text-primary text-uppercase">MISSÃO
+                        </h5>
+
+                        <p class="mb-4">Transformar vidas, carreiras e negócios para o alcance da alta performance com a mais alta assertividade.
+                        </p>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold text-primary text-uppercase">VISÃO
+                        </h5>
+
+                        <p class="mb-4">Ser a maior referência institucional de capacitação e desenvolvimento de líderes de Angola e África.
+                        </p>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold text-primary text-uppercase">VALORES
+                        </h5>
+                        <p class="mb-4">O Instituto desenvolve acções de formação, palestras, treinamentos, consultoria, coaching, workshops, seminários e fóruns.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Main News Slider Start -->
+
+
+
+    <!-- Featured News Slider End -->
+
+    <%- include('./partials/footer'); -%>

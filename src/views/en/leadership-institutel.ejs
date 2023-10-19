@@ -1,0 +1,83 @@
+<%- include('./partials/head'); -%>
+    <link href="/assets/css/header-hero.css" rel="stylesheet" />
+    <link href="/assets/css/Business.css" rel="stylesheet" />
+    <link href="/assets/css/compay-style.css" rel="stylesheet" />
+    <!-- ======= Header ======= -->
+    <!-- ======= Breadcrumbs ======= -->
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('<%= leadership?.banner %>');">
+        <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li>other</li>
+            </ol>
+            <div class="company-hero">
+                <h2>LEADERSHIP INSTITUTE</h2>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+
+
+    <!-- About Start -->
+    <div class="container-fluid py-1 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5 ">
+            <div class="row g-5">
+                <div class="col-lg-5" style="min-height: 500px;">
+                    <div class="owl-carousel main-carousel ">
+                        <% leadership?.slides.forEach(function(item) { %>
+                            <div class="position-relative overflow-hidden">
+                                <div class="items-galary"> <img class="img-fluid" src="<%= item?.src %>" style="object-fit: cover;"></div>
+                                <div class="overlay">
+                                    <div class="mb-2">
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <% }); %>
+                    </div>
+                    <p class="pt-5 mb-4">It is designed to empower leaders, equipping them with emotional, behavioral and psychological skills to help them improve their professional and personal performance at all levels.</p>
+                    <p class="mb-2">The Institute runs training courses, lectures, training sessions, consultancy, coaching, workshops, seminars and forums.</p>
+                </div>
+                <div class="col-lg-7">
+                    <div class="section-title position-relative pb-3 mb-5">
+                        <h1 class="mb-0">INSTITUTE OF LEADERSHIP</h1>
+                    </div>
+                    <p class="mb-4">It is designed to empower leaders, equipping them with emotional, behavioral and psychological skills to help them improve their professional and personal performance at all levels.
+                    </p>
+                    <div>
+                        <h5 class="fw-bold text-primary text-uppercase">OUR MISSION
+                        </h5>
+
+                        <p class="mb-4">Transforming lives, careers and businesses to achieve high performance with the highest assertiveness.
+                        </p>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold text-primary text-uppercase">VISION
+                        </h5>
+
+                        <p class="mb-4">To be the biggest institutional reference for training and developing leaders in Angola and Africa.
+                        </p>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold text-primary text-uppercase">VALUES
+                        </h5>
+                        <p class="mb-4">The Institute runs training courses, lectures, training sessions, consultancy, coaching, workshops, seminars and forums.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Main News Slider Start -->
+
+
+
+    <!-- Featured News Slider End -->
+
+    <%- include('./partials/footer'); -%>

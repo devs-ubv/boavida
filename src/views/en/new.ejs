@@ -1,0 +1,154 @@
+<%- include('./partials/head'); -%>
+    <link rel="stylesheet" href="/assets/css/header.css">
+    <!-- ======= Header ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url(' <%= featured?.image %>');">
+        <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+            <h2>Notícia</h2>
+            <ol>
+                <li><a href="index.html">Home</a></li>
+                <li>Notícia</li>
+            </ol>
+
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+
+
+    <!-- Breaking News Start -->
+    <div class="container-fluid wow fadeInUp py-2" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row align-items-center bg-dark">
+                <div class="col-12">
+                    <div class="d-flex justify-content-between">
+                        <div class="bg-info text-dark text-center font-weight-medium py-2" style="width: 270px;">
+                            Breaking news</div>
+                        <div class="owl-carousel tranding-carousel position-relative d-inline-flex align-items-center ml-3 py-2 px-4" style="width: calc(100% - 270px); padding-right: 90px;">
+                            <div class="text-truncate"><a class="text-white text-uppercase font-weight-semi-bold" href="">EXCURSION:    <%= featured?.title %> / <%= featured?.datePublished %> %></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breaking News End -->
+
+    <!-- News With Sidebar Start -->
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- News Detail Start -->
+                    <div class="position-relative mb-3">
+                        <div class="col-lg-12 p-2">
+                            <div class="owl-carousel main-carousel position-relative">
+                                <% featured?.photos.forEach(function(item, index) { %>
+                                    <% if (index <= 4) { %>
+                                        <div class="position-relative overflow-hidden" style="height: 500px;">
+                                            <img class="img-fluid h-100" src="<%= item?.image %>" style="object-fit: cover;">
+                                            <div class="overlay">
+                                                <div class="mb-2">
+                                                    <a a href="/en/new/<%= item?.id %>" class="badge badge-info text-uppercase font-weight-semi-bold p-2 mr-2" href="">FEIRA</a>
+                                                    <a a href="/en/new/<%= item?.id %>" class="text-white" href="">
+                                                        <%= item?.datePublished %>
+                                                    </a>
+                                                </div>
+                                                <a a href="/en/new/<%= item?.id %>" class="h2 m-0 text-white text-uppercase font-weight-bold" href="">
+                                                    <%= item?.description %>
+                                                </a>
+                                            </div>
+                                        </div>
+
+
+                                        <% }%>
+
+                                            <% }); %>
+                            </div>
+                        </div>
+                        <div class="bg-white  py-3">
+                            <div class="mb-3">
+                                <span><%= featured?.typeOfNew %></span>
+                                <span><%= featured?.datePublished %></span>
+                            </div>
+                            <div class="mb-3">
+                                <h3 class="text-uppercase font-weight-bold mb-3">
+                                    <%= featured?.title %>E</h3>
+                            </div>
+                            <% featured?.content.forEach(function(item) { %>
+                                <p class="mb-3">
+                                    <%= item?.paragraph %>
+                                </p>
+                                <% }); %>
+                        </div>
+
+                    </div>
+                    <!-- News Detail End -->
+
+                    <!-- Comment List Start -->
+                    <div class="mb-3">
+
+                    </div>
+                    <!-- Comment List End -->
+
+                    <!-- Comment Form Start -->
+                    <div class="mb-3">
+
+                    </div>
+                    <!-- Comment Form End -->
+                </div>
+
+                <div class="col-lg-4">
+
+                    <!-- Popular News Start -->
+
+                    <!-- Popular News End -->
+
+                    <!-- Newsletter Start -->
+
+                    <!-- Newsletter End -->
+
+                    <!-- Tags Start -->
+                    <div class="mb-3">
+                        <div class="bg-white border border-top-0 p-3">
+                            <div class="d-flex flex-wrap m-n1">
+                                <a href="" class="btn btn-sm btn-primary m-1">Other news</a>
+                                <a href="" class="btn btn-sm btn-primary m-1">Videos</a>
+                                <a href="" class="btn btn-sm btn-primary m-1">Events</a>
+                                <a href="" class="btn btn-sm btn-primary m-1">Interviews</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 px-1">
+                        <div class="row mx-0">
+                            <div class="col-md-12 p-1">
+                                <% news?.forEach(function(item) { %>
+                                    <div class="position-relative overflow-hidden" style="height: 150px;">
+                                        <a href="/en/new/<%= item?.id %>">
+                                        <img class="img-fluid w-100 h-100" src=" <%= item?.image %>" style="object-fit: cover;">
+                                        <div class="overlay">
+                                            <div class="mb-2">
+                                                <a  href="/en/new/<%= item?.id %>" class="badge badge-info text-uppercase font-weight-semi-bold p-2 mr-2"><%= item?.datePublished %></a>
+                                        <a href="/en/new/<%= item?.id %>" class="text-white"><small><span> <%= item?.typeOfNew %></span></small></a>
+                                    </div>
+                                    <a href="/en/new/<%= item?.id %>" class="h6 m-0 text-white text-uppercase font-weight-semi-bold">
+                                        <%= item?.title %>
+                                    </a>
+                            </div>
+                            </a>
+                        </div>
+                        <% }); %>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Tags End -->
+        </div>
+    </div>
+    </div>
+    </div>
+    <!-- News With Sidebar End -->
+
+
+
+
+    <%- include('./partials/footer'); -%>

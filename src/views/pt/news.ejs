@@ -1,0 +1,119 @@
+<%- include('./partials/head'); -%>
+    <link href="/assets/css/header.css" rel="stylesheet">
+    <!-- ======= Header ======= -->
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/assets/img/banner/breadcrumbs-bg.jpg');">
+        <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
+            <ol>
+                <li><a href="index.html">Home</a></li>
+                <li>Sobre</li>
+            </ol>
+
+            <h2>Notícias</h2>
+            <h3 class="text-light">Fique por dentro das principais notícias sobre o Grupo Boavida.
+            </h3>
+
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+
+
+    <!-- Main News Slider Start -->
+    <div class="container-fluid wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+
+            <div class="row ">
+                <div class="col-lg-7 p-2">
+                    <div class="owl-carousel main-carousel position-relative">
+                        <% smollNews.forEach(function(item) { %>
+                            <div class="position-relative overflow-hidden" style="height: 500px;">
+                                <img class="img-fluid h-100" src="<%= item?.image %>" style="object-fit: cover;">
+                                <div class="overlay">
+                                    <div class="mb-2">
+                                        <a href="/noticia/<%= item?.id %>" class="badge badge-info text-uppercase font-weight-semi-bold p-2 mr-2">
+                                            <%= item?.datePublished %>
+                                        </a>
+                                        <a href="/noticia/<%= item?.id %>" class="text-white">
+                                            <%= item?.typeOfNew %>
+                                        </a>
+                                    </div>
+                                    <a href="/noticia/<%= item?.id %>" href="/noticia/<%= item?.id %>" class="h2 m-0 text-white text-uppercase font-weight-bold" href="">
+                                        <%= item?.title %>
+                                    </a>
+                                </div>
+                            </div>
+                            <% }); %>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 px-1">
+                    <div class="mb-3 py-2">
+                        <div class="bg-white border border-top-0 p-3">
+                            <div class="d-flex flex-wrap m-n1">
+                                <a href="" class="btn btn-sm btn-primary m-1">Outras novidades</a>
+                                <a href="video" class="btn btn-sm btn-primary m-1">Videos</a>
+                                <!--           <a href="" class="btn btn-sm btn-primary m-1">Eventos</a>
+                                <a href="" class="btn btn-sm btn-primary m-1">Intrevistas</a> -->
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row mx-0">
+                        <% smollNews.forEach(function(item) { %>
+                            <div class="col-md-6 p-1">
+                                <div class="position-relative overflow-hidden" style="height: 200px;">
+                                    <img class="img-fluid w-100 h-100" src="<%= item?.image %>" style="object-fit: cover;">
+                                    <div class="overlay">
+                                        <div class="mb-2">
+                                            <a href="/noticia/<%= item?.id %>" class="badge badge-info text-uppercase font-weight-semi-bold p-2 mr-2" href="">
+                                                <%= item?.datePublished %>
+                                            </a>
+                                            <a href="/noticia/<%= item?.id %>" class="text-white" href="/noticia/<%= item?.id %>"><small> <%= item?.datePublished %></small></a>
+                                        </div>
+                                        <a href="/noticia/<%= item?.id %>" class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">
+                                            <%= item?.title %>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }); %>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <!-- Featured News Slider Start -->
+    <div class="container-fluid pt-5 mb-3">
+        <div class="container">
+            <div class="p-10">
+                <h4 class="m-0 text-uppercase font-weight-bold">Notícias em distaque</h4>
+            </div>
+            <div class="owl-carousel news-carousel carousel-item-4 position-relative">
+                <% fullNews?.forEach(function(item) { %>
+                    <div class="position-relative overflow-hidden" style="height: 300px;">
+                        <img class="img-fluid h-100" src="<%= item?.image %>" style="object-fit: cover;">
+                        <div class="overlay">
+                            <div class="mb-2">
+                                <a href="/noticia/<%= item?.id %>" class="badge badge-info text-uppercase font-weight-semi-bold p-2 mr-2">
+                                    <%= item?.typeOfNew %>
+                                </a>
+                                <a href="/noticia/<%= item?.id %>" class="text-white"><small><%= item?.datePublished %></small></a>
+                            </div>
+                            <a href="/noticia/<%= item?.id %>" class="h6 m-0 text-white text-uppercase font-weight-semi-bold">
+                                <%= item?.title %>
+                            </a>
+                        </div>
+                    </div>
+                    <% }); %>
+            </div>
+        </div>
+    </div>
+    <!-- Featured News Slider End -->
+    <%- include('./partials/footer'); -%>
