@@ -1,0 +1,357 @@
+<%- include('./partials/head'); -%>
+    <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="banner-video">
+                    <video className='absolute top-0 left-0 w-full h-full object-cover z-0' autoPlay loop muted playsInline>
+                            <source src='/assets/img/banner/banner.mp4' type='video/mp4' />
+                        </video>
+                </div>
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 900px;">
+                        <h2 class="display-1 text-white mb-md-4 animated zoomIn text-hero">Creative and innovative real estate solution for your dream
+                        </h2>
+                        <div>
+                            <a id="play-video" class="glightbox play-btn mb-4"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="popup-video">
+                <div class="popup-close">
+                    <div class="p-close">
+                        <span class="close">x</span>
+                    </div>
+                </div>
+                <div>
+                    <video id="discover" className='absolute top-40 left-40 w-50 h-50 z-0' controls>
+                        <source src='/assets/img/banner/boavida-video.mp4'  type='video/mp4' />
+                    </video>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img class="w-100" src="/assets/img/m3.jpg" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 900px;">
+                        </h5>
+                        <h2 class="display-1 text-white mb-md-4 animated zoomIn text-hero">We build high-end homes with added value
+                        </h2>
+                        <a href="/about" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Learn more</a>
+                        <a href="/contact" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="w-100" src="/assets/img/m3.jpeg" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 900px;">
+                        <h2 class="display-1 text-white mb-md-4 animated zoomIn text-hero">We are betting on agriculture as a way of diversifying the national economy
+                        </h2>
+                        <a href="/about" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Learn more</a>
+                        <a href="/contact" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contact us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#header-carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+    </div>
+    </div>
+    <!-- Navbar & Carousel End -->
+    <!-- Facts Start -->
+    <div class="container-fluid facts py-5 pt-lg-0">
+        <div class="container py-5 pt-lg-0">
+            <div class="row gx-0">
+                <div class="col-lg-4 wow zoomIn" data-wow-delay="0.1s">
+                    <div class="bg-primary shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
+                        <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
+                            <i class="fa fa-users text-primary"></i>
+                        </div>
+                        <div class="ps-4">
+                            <h5 class="text-white mb-0">Over 5,363 direct employees</h5>
+                            <h1 class="text-white mb-0" data-toggle="counter-up">5.363</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 wow zoomIn" data-wow-delay="0.3s">
+                    <div class="bg-light shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
+                        <div class="bg-primary d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
+                            <i class="fa fa-building text-white"></i>
+                        </div>
+                        <div class="ps-4">
+                            <h5 class="text-primary mb-0">Over 27 years in the Angolan market</h5>
+                            <h1 class="mb-0" data-toggle="counter-up">27</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 wow zoomIn" data-wow-delay="0.6s">
+                    <div class="bg-primary shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
+                        <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
+                            <i class="bi bi-cash-stack"></i>
+                        </div>
+                        <div class="ps-4">
+                            <h5 class="text-white mb-0">Over 500 Million USD in projects</h5>
+                            <h1 class="text-white mb-0" data-toggle="counter-up">500</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Facts Start -->
+
+    <!-- About Start -->
+    <div class="container-fluid wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-7">
+                    <div class="section-title position-relative pb-3 mb-5">
+                        <h5 class="fw-bold text-primary text-uppercase">ABOUT BOAVIDA GROUP</h5>
+                        <h1 class="mb-0">We have been serving Angola for over 27 years with the best services</h1>
+                    </div>
+                    <p class="mb-4">BoaVida is a business group incorporated under Angolan law with more than 27 years' of experience in the domestic market. Its portfolio includes developments in various sectors, with real estate as its main core business.
+
+
+                    </p>
+                    <p class="mb-4">With more than 5,400 employees, BOAVIDA's human capital is divided by gender into 91% male and 9% female, with a percentage of ages between 18 and 25 representing 16.54%, 77.10% between 27 and 45 and 6.36% over the age of 46.
+                    </p>
+                    <div class="row g-0 mb-3">
+                        <div class="col-sm-6 wow zoomIn" data-wow-delay="0.2s">
+                            <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>Winner</h5>
+                            <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>Professional staff</h5>
+                        </div>
+                        <div class="col-sm-6 wow zoomIn" data-wow-delay="0.4s">
+                            <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>24/24 support, 5 days a week</h5>
+                            <h5 class="mb-3"><i class="fa fa-check text-primary me-3"></i>Quality of service</h5>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-4 wow fadeIn" data-wow-delay="0.6s">
+                        <div>
+                            <a id="play-video-imob" class="glightbox play-btn mb-4"></a>
+                        </div>
+                        <div class="ps-4">
+                            <h5 class="mb-2">
+                                Watch Video</h5>
+                        </div>
+                    </div>
+                    <a href="/about" class="btn btn-primary py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Learn more</a>
+                </div>
+                <div class="col-lg-5" style="min-height: 500px;">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s" src="/assets/img/historia.jpg" style="object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+    <!-- Vendor Start -->
+
+    <!-- Service Start -->
+    <div class="container-fluid py-2 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative mb-5 mx-auto" style="max-width: 600px;">
+                <h5 class="fw-bold text-primary text-uppercase">OUR SERVICES</h5>
+                <h1 class="mb-0">We have a diverse range of businesses</h1>
+            </div>
+            <!-- Service End -->
+            <div class="container-fluid py-2 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="container py-5 mb-5">
+                    <div class="bg-white">
+                        <div class="owl-carousel vendor-carousel">
+                            <img src="/assets/img/logos/l-1.png" alt="l-1">
+                            <img src="/assets/img/logos/l-2.png" alt="l-2">
+                            <img src="/assets/img/logos/l-3.png" alt="l-3">
+                            <img src="/assets/img/logos/l-4.png" alt="l-4">
+                            <img src="/assets/img/logos/l-5.png" alt="l-5">
+                            <img src="/assets/img/logos/l-6.png" alt="l-6">
+                            <img src="/assets/img/logos/l-7.png" alt="l-7">
+                            <img src="/assets/img/logos/l-8.png" alt="l-8">
+                            <img src="/assets/img/logos/l-9.png" alt="l-9">
+                            <img src="/assets/img/logos/l-10.png" alt="l-10">
+                            <img src="/assets/img/logos/l-11.png" alt="l-11">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </diV>
+    </div>
+    <div class="container-fluid services-project wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5 mb-5">
+            <div class="tabs position-relative">
+                <ul>
+                    <li class="business_unit active">Real Estate Developments</li>
+                    <li class="boavidacompay">Companies Of Group </li>
+                    <li class="leadership_institute">Institute of Leadership</li>
+                </ul>
+            </div>
+            <div class="grid">
+                <div class="row row-cols-1 row-cols-md-2  g-5 py-3" id="business_unit">
+                    <div clas="col-12 col-sm-6 col-lg-6 fadeInUp" data-wow-delay="0.1s">
+                        <div class="section-title position-relative pb-3 mb-5">
+                            <h5 class="fw-bold  text-uppercase">Real Estate Developments</h5>
+                            <h1 class="mb-0">The Real Estate Developments</h1>
+                        </div>
+                        <p class="mb-4 mb-4 py-7 px-0  wow zoomIn">The BOAVIDA Group identifies, evaluates, plans and implements projects in the real estate sector in Angola. Ensuring the complete management of the entire real estate development value chain in an integrated, complete and professional
+                            manner.
+                        </p>
+                        <p class="mb-4 mb-4 py-7 px-0  wow zoomIn">With a vast diversification of businesses, the BOAVIDA Group has an experienced team with Angolan know-how and has already delivered more than 5,000 units...</p>
+
+                        <div>
+                            <a href="/en/unidade-de-negocios/incorporacao-imobiliaria" class="btn btn-primary border border-primary py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Learn more</a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-6 fadeInUp" data-wow-delay="0.1s">
+                        <img src="/assets/img/project/m4.jpg" class="img-fluid wow zoomIn" />
+                    </div>
+                </div>
+
+                <div class="row row-cols-1 row-cols-md-2  g-5 py-3" id="boavidacompay">
+                    <div clas="col-12 col-sm-6 col-lg-6 fadeInUp" data-wow-delay="0.1s">
+                        <div class="section-title position-relative pb-3 mb-5">
+                            <h5 class="fw-bold  text-uppercase">COMPANIES OF THE GROUP</h5>
+                            <h1 class="mb-0">We invest in the most varied sectors of the national economy.</h1>
+                        </div>
+                        <p class="mb-4 mb-4 py-7 px-0  wow zoomIn">The Boavida Group is also active in the human resources, security and other services sector, with a focus on innovation in management.</p>
+                        <p class="mb-4 mb-4 py-7 px-0  wow zoomIn">On the road to diversifying the economy, the Boa Vida Group is committed to fostering local development by differentiating its various segments...
+                            <div>
+                                <a href="/en/company/0" class="btn btn-primary border border-primary py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Learn more</a>
+                            </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-6 fadeInUp" data-wow-delay="0.1s">
+                        <img src="/assets/img/project/m1.jpg" class="img-fluid img-fluid wow zoomIn" />
+                    </div>
+                </div>
+
+
+
+
+                <div class="row row-cols-1 row-cols-md-2  g-5 py-3" id="leadership_institute">
+                    <div clas="col-12 col-sm-6 col-lg-6 fadeInUp" data-wow-delay="0.1s">
+                        <div class="section-title position-relative pb-3 mb-5">
+                            <h5 class="fw-bold  text-uppercase">INSTITUTE OF LEADERSHIP</h5>
+                            <h1 class="mb-0">Create agents of change</h1>
+                        </div>
+                        <p class="mb-4 py-7 px-0 mt-3 wow zoomIn">The institute is designed to train leaders, equipping them with emotional, behavioral and psychological skills to help them improve their professional and personal performance at all levels. We understand that the world evolves
+                            considerably every day, regardless of...</p>
+                        <div>
+                            <a href="/en/unidade-de-negocios/outras" class="btn btn-primary border border-primary py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Learn more</a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-lg-6 fadeInUp" data-wow-delay="0.1s">
+                        <img src="/assets/img/project/m3.jpg" class="img-fluid wow zoomIn" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Start -->
+    <div class="container-fluid py-2 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="section-title text-center position-relative mb-5 mx-auto" style="max-width: 600px;">
+                <h5 class="fw-bold text-primary text-uppercase">The latest news</h5>
+                <h1 class="mb-0">All the news from Grupo Boavida
+                </h1>
+            </div>
+            <!-- Service End -->
+        </div>
+    </div>
+
+
+
+    <!-- Breaking News Start -->
+    <div class="container-fluid wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+
+            <div class="row align-items-center bg-dark">
+                <div class="col-12">
+                    <div class="d-flex justify-content-between">
+                        <div class="bg-info text-dark text-center font-weight-medium py-2" style="width: 270px;">
+                            Breaking news</div>
+                        <div class="owl-carousel tranding-carousel position-relative d-inline-flex align-items-center ml-3 py-2 px-4" style="width: calc(100% - 270px); padding-right: 90px;">
+                            <div class="text-truncate"><a class="text-white text-uppercase font-weight-semi-bold">EXCURSION: MILITARY HISTORY MUSEUM 04/02/2023</a></div>
+                            <div class="text-truncate"><a class="text-white text-uppercase font-weight-semi-bold">WOMEN'S FESTIVAL | BOAVIDA GROUP 03/31/2023</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breaking News End -->
+
+    <!-- Main News Slider Start -->
+    <div class="container-fluid wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row ">
+                <div class="col-lg-7 p-2">
+                    <div class="owl-carousel main-carousel position-relative">
+                        <% smollNews.forEach(function(item) { %>
+                            <div class="position-relative overflow-hidden" style="height: 500px;">
+                                <img class="img-fluid h-100" src="<%= item?.image %>" style="object-fit: cover;">
+                                <div class="overlay">
+                                    <div class="mb-2">
+                                        <a href="/en/new/<%= item?.id %>" class="badge badge-info text-uppercase font-weight-semi-bold p-2 mr-2">
+                                            <%= item?.typeOfNew %>
+                                        </a>
+                                        <a href="/en/new/<%= item?.id %>" class="text-white">
+                                            <%= item?.datePublished %>
+                                        </a>
+                                    </div>
+                                    <a href="/en/new/<%= item?.id %>" class="h2 m-0 text-white text-uppercase font-weight-bold">
+                                        <%= item?.title %>
+                                    </a>
+                                </div>
+                            </div>
+                            <% }) %>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 px-1">
+                    <div class="row mx-0">
+                        <% smollNews.forEach(function(item) { %>
+                            <div class="col-md-6 p-1">
+                                <div class="position-relative overflow-hidden" style="height: 250px;">
+                                    <a href="/en/new/<%= item?.id %>">
+                                        <img class="img-fluid h-100"  src="<%= item?.image %>" style="object-fit: cover;">
+                                        <div class="overlay">
+                                            <div class="mb-2">
+                                                <a href="/en/new/<%= item?.id %>" class="badge badge-info text-uppercase font-weight-semi-bold p-2 mr-2" href="">
+                                                    <%= item?.typeOfNew %>
+                                                </a>
+                                    <a href="/en/new/<%= item?.id %>" class="text-white" href=""><small> <%= item?.datePublished %></small></a>
+                                </div>
+                                <a href="/en/new/<%= item?.id %>" class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">
+                                    <%= item?.title %>
+                                </a>
+                            </div>
+                            </a>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+    <div class="new-btn ">
+        <a href="/news " class="btn btn-primary py-2 px-2 mt-3 wow zoomIn " data-wow-delay="0.9s ">Saiba
+                    mais</a>
+    </div>
+    </div>
+    </div>
+
+
+
+    <!-- Main News Slider End -->
+    <!--footer -->
+    <%- include('./partials/footer'); -%>
+        <!-- footer -->

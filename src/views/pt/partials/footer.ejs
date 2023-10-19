@@ -1,0 +1,147 @@
+<!-- Footer Start -->
+<div class="container-fluid bg-dark pt-5 px-sm-3 px-md-5 mt-5">
+    <div class="row py-4">
+        <div class="col-lg-3 col-md-6 mb-5">
+            <h5 class="mb-4 text-white text-uppercase font-weight-bold">Localização</h5>
+            <p class="font-weight-medium"><i class="fa fa-map-marker-alt mr-2"></i> Via Express,Luanda, Angola</p>
+            <p class="font-weight-medium"><i class="fa fa-phone-alt mr-2"></i> (+244) 931 251 965</p>
+            <p class="font-weight-medium"><i class="fa fa-envelope mr-2"></i> geral@grupoboavida.co.ao</p>
+            <h6 class="mt-4 mb-3 text-white text-uppercase font-weight-bold">Encontra-nos</h6>
+
+            <div class="d-flex justify-content-start gap-2">
+
+                <a class="btn btn-lg btn-primary rounded-circle" href="https://www.facebook.com/BoavidaGrupo" target="_blank"><i
+                            class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-lg btn-primary rounded-circle" href="https://www.linkedin.com/company/grupo-boavida" target="_blank"><i
+                            class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-lg btn-primary rounded-circle" href="https://www.instagram.com/grupoboavida/" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                <a class="btn btn-lg btn-primary rounded-circle" href="https://www.youtube.com/c/grupoboavida/videos" target="_blank"><i
+                                class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+
+            <h5 class="mb-4 text-white text-uppercase font-weight-bold">NOTÍCIAS POPULARES</h5>
+            <% news3?.forEach(function(item) { %>
+                <div class="mb-3">
+                    <div class="mb-2">
+                        <a href="/noticia/<%= item?.id %>" class="badge badge-info text-uppercase font-weight-semi-bold p-1 mr-2" href="">
+                            <%= item?.typeOfNew %>
+                        </a>
+                        <a href="/noticia/<%= item?.id %>" class="text-body" href=""><small><%= item?.datePublished %></small></a>
+                    </div>
+                    <a href="/noticia/<%= item?.id %>" class="small text-body text-uppercase font-weight-medium" href="/noticia/<%= item?.id %>">
+                        <%=item?.title%>
+                    </a>
+                </div>
+                <%})%>
+
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+            <h5 class="mb-4 text-white text-uppercase font-weight-bold">Páginas</h5>
+            <div class="m-n1">
+                <a href="" class="btn btn-sm btn-light m-1">Política de Privacidade</a>
+                <a href="" class="btn btn-sm btn-light m-1">Politica de segurança</a>
+                <a href="" class="btn btn-sm btn-light m-1">Termos de uso</a>
+                <a href="https://www.google.com/maps/place/Urbaniza%C3%A7%C3%A3o+Boa+Vida/@-8.9748589,13.2170528,15z/data=!4m6!3m5!1s0x1a521f28dbf07e05:0xc1b45c57d9661cff!8m2!3d-8.9748589!4d13.2170528!16s%2Fg%2F11jh_9fxdk?entry=ttu" target="_blank" class="btn btn-sm btn-light m-1">Site Map</a>
+                <a href="/sobre-nos" class="btn btn-sm btn-light m-1">Sobre </a>
+                <a href="https://recrutamento.grupoboavida.co.ao/" class="btn btn-sm btn-light m-1">Recrutamento</a>
+                <a href="/contacto" class="btn btn-sm btn-light m-1">Contacto</a>
+                <a href="/noticias" class="btn btn-sm btn-light m-1">Notícias</a>
+                <a href="/unidade-de-negocios/incorporacao-imobiliaria" class="btn btn-sm btn-light m-1">Negócios
+                    </a>
+                <a href="https://sac-suporte.onrender.com/" class="btn btn-sm btn-light m-1">SAC
+                    </a>
+
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-5">
+            <h5 class="mb-4 text-white text-uppercase font-weight-bold">Empresas</h5>
+            <div class="row row-cols-2 row-cols-md-3  g-2 py-2">
+                <a class="col-4 col-sm-6 col-lg-4 mb-3 footer-logos">
+                    <img src="/assets/img/logos/l-1.png" alt="l-1">
+                </a>
+                <a class="col-4 col-sm-4 col-lg-4 mb-3 footer-logos">
+                    <img src="/assets/img/logos/l-3.png" alt="l-1">
+                </a>
+                <a class="col-4 col-sm-4 col-lg-4 mb-3 footer-logos">
+                    <img src="/assets/img/logos/l-5.png" alt="l-1">
+                </a>
+                <a class="col-4 col-sm-4 col-lg-4 mb-3 footer-logos">
+                    <img src="/assets/img/logos/l-6.png" alt="l-1">
+                </a>
+                <a class="col-4 col-sm-4 col-lg-4 mb-3 footer-logos">
+                    <img src="/assets/img/logos/l-7.png" alt="l-1">
+                </a>
+                <a class="col-4 col-sm-4 col-lg-4 mb-3 footer-logos">
+                    <img src="/assets/img/logos/l-8.png" alt="l-1">
+                </a>
+                <a class="col-4 col-sm-4 col-lg-4 mb-3 footer-logos">
+                    <img src="/assets/img/logos/l-9.png" alt="l-1">
+                </a>
+                <a href="https://cidadeboavida.co.ao/" target="_blank" class="col-4 col-sm-4 col-lg-6 mb-3 footer-logos">
+                    <img src="/assets/img/logos/l-10.png" alt="l-1">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid py-4 px-sm-3 px-md-5" style="background: #111111;">
+    <p class="m-0 text-center">&copy; <a href="#">grupoboavida</a> 2023 -Todos Direitos Reservados<br>
+    </p>
+</div>
+<!-- Footer End -->
+
+
+
+<!-- Back to Top -->
+<a href="navbar" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/lib/wow/wow.min.js"></script>
+<script src="/assets/lib/easing/easing.min.js"></script>
+<script src="/assets/lib/waypoints/waypoints.min.js"></script>
+<script src="/assets/lib/counterup/counterup.min.js"></script>
+<script src="/assets/lib/owlcarousel/owl.carousel.min.js"></script>
+<!-- Vendor JS Files -->
+<script src="/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="/assets/vendor/aos/aos.js"></script>
+<script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="/assets/vendor/php-email-form/validate.js"></script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        coverflowEffect: {
+            rotate: 15,
+            stretch: 0,
+            depth: 300,
+            modifier: 1,
+            slideShadows: true,
+        },
+        loop: true,
+    });
+</script>
+
+<!-- fim Swiper JS -->
+
+
+
+<!-- Template Javascript -->
+<script src="/assets/js/main.js"></script>
+<script src="/assets/js/project.js"></script>
+<script src="/assets/js/news.js"></script>
+
+
+</body>
+
+</html>
