@@ -605,12 +605,25 @@ h6,
     padding-left: 10px;
 }
 
-@media (min-width: 767.98px) {
+.compy-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.compy-footer {
+    cursor: pointer;
+}
+
+@media (max-width: 767.98px) {
+    .compy-footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
     .footer-about {
         margin-bottom: -75px;
     }
-}
-
-.footer-logos img {
-    width: 100px;
 }
