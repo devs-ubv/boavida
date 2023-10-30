@@ -1,9 +1,7 @@
 const express = require("express");
-
-const bodyParser = "body-parser";
 const cors = require('cors');
 const path = require('path');
-const { defaultPages, enRouter, plRouter } = require('./routes/index');
+const { defaultPages, adminRouter, enRouter, } = require('./routes/index');
 const { news } = require("./utils/projectEn");
 const app = express();
 require('dotenv').config();
@@ -18,7 +16,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(defaultPages);
+app.use(adminRouter);
 app.use(enRouter);
+
 
 app.use((req, res, next) => {
     const data = {

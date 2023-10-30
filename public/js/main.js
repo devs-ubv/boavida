@@ -134,24 +134,36 @@
     $(".linguagem").click(function() {
         $('.drawn-menu').slideToggle();
     })
-
-    //////////////////////////////////7Hero video 
-
-    $(".popup-close").click(function() {
-
-        $('.popup-video').css({
-            display: 'none'
-        });
-
-        window.location.href = '/'
-
-    })
-
-
     $("#play-video").click(function() {
         $('.popup-video').css({
             display: 'block'
         });
+        var player = getVimeoPlayer();
+        player.play();
+    })
+    $('#play-video-imob').click(() => {
+        alert("O video ainda não está disponível. Logo em breve será lançado")
+    })
+
+    //////////////////////////////////7Hero video 
+    function getVimeoPlayer() {
+        return new Vimeo.Player(document.getElementById('meu-video-vimeo'));
+    }
+    $(".popup-close").click(function() {
+        $('.popup-video').css({
+            display: 'none'
+        });
+        var player = getVimeoPlayer();
+        player.setCurrentTime(0); // Define o tempo de reprodução para zero
+        player.pause(); // Pausa o vídeo
+
+    })
+    $("#playvideo").click(function() {
+        $('.popup-video').css({
+            display: 'block'
+        });
+        var player = getVimeoPlayer();
+        player.play();
     })
     $('#play-video-imob').click(() => {
         alert("O video ainda não está disponível. Logo em breve será lançado")

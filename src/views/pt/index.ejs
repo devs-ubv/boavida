@@ -1,18 +1,41 @@
 <%- include('./partials/head'); -%>
+    <style>
+        /* Estilize o contêiner que envolve o vídeo do Vimeo */
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            /* Opcional: você pode ajustar a largura conforme necessário */
+            height: 0;
+            /* A altura será calculada com base na proporção do vídeo */
+            padding-top: 56.25%;
+            /* Proporção de 16:9 (para vídeos widescreen) */
+        }
+        /* Estilize o elemento iframe para preencher o contêiner */
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Para preencher o contêiner mantendo a proporção */
+        }
+    </style>
     <div id="header-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div class="banner-video">
-                    <video className='absolute top-0 left-0 w-full h-full object-cover z-0' autoPlay loop muted playsInline>
-                            <source src='/assets/img/banner/banner.mp4' type='video/mp4' />
-                        </video>
+                    <div class="video-container" className='absolute top-0 left-0 w-full h-full object-cover z-0'><iframe className='absolute top-0 left-0 w-full h-full object-cover z-0' src="https://player.vimeo.com/video/857513284?h=57cc608be0&autoplay=1&loop=1&muted=1&playsinline=1&quality=1080p" frameborder="0" allow="autoplay; fullscreen;"
+                            allowfullscreen></iframe></div>
                 </div>
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
                         <h2 class="display-1 text-white mb-md-4 animated zoomIn text-hero">Solução imobiliária criativa e inovadora para o seu sonho
                         </h2>
                         <div>
-                            <a id="play-video" class="glightbox play-btn mb-4"></a>
+                            <a id="playvideo" class="glightbox play-btn mb-4"></a>
                         </div>
                     </div>
                 </div>
@@ -25,7 +48,9 @@
                     </div>
                 </div>
                 <div id="discover" class="video absolute top-40 left-40  z-0">
-                    <iframe width="100%" height="100%" id="video_id" src="https://www.youtube.com/embed/N4x-n5DeCiI?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="video-container" className='absolute top-0 left-0 w-full h-full object-cover z-0'>
+                        <iframe className='absolute top-0 left-0 w-full h-full object-cover z-0' id="meu-video-vimeo" src="https://player.vimeo.com/video/857513284?h=57cc608be0&autoplay=0&loop=1&muted=0&playsinline=1&quality=1080p" frameborder="0" allow="fullscreen; picture-in-picture"
+                            allowfullscreen></iframe></div>
                 </div>
             </div>
 
@@ -147,6 +172,7 @@
                     <a href="/about" class="btn btn-primary py-3 px-5 mt-3 wow zoomIn" data-wow-delay="0.9s">Saiba
                         mais</a>
                 </div>
+
                 <div class="col-lg-5" style="min-height: 500px;">
                     <div class="position-relative h-100">
                         <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s" src="/assets/img/historia.jpg" style="object-fit: cover;">
@@ -350,8 +376,6 @@
     </div>
     </div>
     </div>
-
-
 
     <!-- Main News Slider End -->
     <!--footer -->
