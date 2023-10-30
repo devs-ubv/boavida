@@ -12,4 +12,5 @@ module.exports = {
     async findOne(req, res) {
         res.render("admin/index");
     },
+    
 }

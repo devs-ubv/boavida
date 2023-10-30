@@ -12,4 +12,8 @@ adminRouter.get("/dashboard/new/:newId", pageController.findOne);
 //------------------------user //
 adminRouter.get("/dashboard/user", userController.userPage);
 
+
+//------------------------login //
+adminRouter.get("/dashboard/login", userController.loginPage);
+
 module.exports = adminRouter;
