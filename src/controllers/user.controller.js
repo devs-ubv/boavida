@@ -10,7 +10,9 @@ module.exports = {
     loginPage(req, res) {
         res.render("admin/login");
     },
-
+    userRegister(req, res) {
+        res.render("admin/userRegister");
+    },
     async new(req, res) {
         res.render("admin/register");
     },
