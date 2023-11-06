@@ -1,3 +1,11 @@
-tbody tr td i {
+.ebs .recentOrders {
+    max-width: 600px;
+}
+
+.ebs .recentOrders .userTableUA {
+}
+
+.eb .recentOrders .userTableUA tbody tr td a {
     color: #000;
+    font-size: 20px;
 }
