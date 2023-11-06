@@ -9,7 +9,11 @@ adminRouter.get("/dashboard/new/:newId", pageController.findOne);
 
 
 
-//------------------------user //
+//------------------------user //--------------------------
 adminRouter.get("/dashboard/user", userController.userPage);
+adminRouter.get("/dashboard/accesslevel", userController.accessLevel);
+
+//------------------------login //-------------------------
+adminRouter.get("/login", userController.loginPage);
 
 module.exports = adminRouter;
