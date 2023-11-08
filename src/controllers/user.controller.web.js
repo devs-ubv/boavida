@@ -12,6 +12,7 @@ module.exports = {
     loginPage(req, res) {
         res.render("admin/login");
     },
+    
     async accessLevel(req, res) {
         try {
             const { limit, page, search } = req.query;
@@ -20,8 +21,9 @@ module.exports = {
         } catch (e) {
             return res.status(409).send(e.message);
         }
-
     },
+    
+
     async new(req, res) {
         res.render("admin/register");
     },

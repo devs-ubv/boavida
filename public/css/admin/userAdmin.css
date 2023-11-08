@@ -75,13 +75,19 @@
     float: right;
     font-size: 28px;
     font-weight: bold;
+    margin-right: 10px;
   }
   
   .close:hover,
   .close:focus {
-    color: #000;
+    color: white;
+    color: #ccc;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  .modal-content {
+    border-radius: 10px;
   }
   
   .modal-header {
@@ -89,9 +95,16 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 5px;
     background-color: #091E3E;
     color: white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .modal-footer {
+    border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px;
   }
   
   .modal-body form {
@@ -114,25 +127,32 @@
 .modal-body input {
     border: 1px solid #ccc;
     border-radius: 1px;
-    padding: 10px;
-    font-size: 14px;
+    padding: 12px;
     color: #000;
     margin-bottom: 10px;
+    outline: none;
+    font-weight: 300;
+    font-size: 13px;
 }
 
-.modal-body .nomes, .pass {
-    display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.modal-body .nomes input, .pass input {
-    width: 49%;
+.modal-body input:focus {
+    border: 1px solid #091E3E;
 }
 
 .modal-body .tamanho {
     width: 65%;
+}
+
+.modal-body .nomes, .modal-body .pass {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-body .nomes input, .modal-body .pass input {
+  width: 100%;
 }
 
 .modal-body .tamanho .select {
@@ -142,13 +162,17 @@
     align-items: center;
 }
 
-
 .modal-body .tamanho select {
     border: 1px solid #000;
     border-radius: 2px;
+    outline: none;
     padding: 10px;
     width: 100%;
     gap: 20px;
+}
+
+.modal-body .tamanho select:focus {
+    border: 1px solid #091E3E;
 }
 
 .modal-body .tamanho select option {
@@ -158,26 +182,42 @@
     border-radius: 1px;
     font-size: 14px;
 }
-  
-  .modal-footer {
-    padding: 2px 16px;
-    background-color: #091E3E;
-    color: white;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-  }
 
-  .modal-footer button {
-    border: 3px solid #091E3E;
-    border-radius: 2px;
-    background-color: #fff;
-    font-size: 14px;
-    color: #000;
-    cursor: pointer;
-    font-weight: 500;
-    padding: 10px;
-  }
+.modal-body .radio {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 20px;
+    background-color: #f00;
+}
+
+.modal-body .sub-radio {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: row;
+}
+  
+.modal-footer {
+  padding: 20px;
+  background-color: #fff;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-footer button {
+  border: none;
+  border-radius: 2px;
+  background-color: #091E3E;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 15px;
+}
 
 
 /* Fim da Estilização do Modal para cadastro de usuario */
