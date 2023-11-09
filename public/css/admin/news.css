@@ -1,4 +1,62 @@
 .news {
     padding: 10px;
     width: 100%;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.news h3 {
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #000;
+}
+
+.news input {
+    outline: none;
+}
+
+.news .inputs .sub-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.news .inputs .sub-input input {
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: 400;
+    width: 350px;
+}
+
+.news .inputs .sub-input input:focus {
+    border: 1px solid #091E3E;
+}
+
+.inputs .ficheiros {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.inputs .ficheiros .sub-fich {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.inputs .ficheiros .sub-fich input {
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff;
+    font-size: 13px;
+    font-weight: 400;
+    width: 350px;
 }
