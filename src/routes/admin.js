@@ -7,11 +7,12 @@ adminRouter.get("/dashboard/new", pageController.findAll);
 adminRouter.get("/dashboard/new/:newId", pageController.findOne);
 
 
-
-
 //------------------------user //--------------------------
 adminRouter.get("/dashboard/user", userController.userPage);
 adminRouter.get("/dashboard/accesslevel", userController.accessLevel);
+
+//------------------------news //--------------------------
+adminRouter.get("/dashboard/news", userController.newsPage);
 
 //------------------------login //-------------------------
 adminRouter.get("/login", userController.loginPage);

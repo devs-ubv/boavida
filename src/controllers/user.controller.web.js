@@ -12,6 +12,9 @@ module.exports = {
     loginPage(req, res) {
         res.render("admin/login");
     },
+    newsPage(req, res) {
+        res.render("admin/news");
+    },
     
     async accessLevel(req, res) {
         try {

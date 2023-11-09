@@ -1,0 +1,45 @@
+<%- include('./partials/head'); -%>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <%- include('./partials/sidebar'); -%>
+            <!-- ========================= Main ==================== -->
+            <div class="main">
+
+                <%- include('./partials/nav'); -%>
+                    <!-- ======================= conteúdo do usuario ================== -->
+                <div class="news">
+                    <h3>
+                        Adicione ou edite as notícias do site
+                    </h3>
+
+                    <div class="">
+                        <form action="">
+                            <input type="Text" placeholder="Titulo da Notícia">
+                            <input type="text" placeholder="Tipo de Notícia">
+                            <input type="file" placeholder="Primeira Imagem da Notícia">
+                            <input type="file" placeholder="Segunda Imagem da Notícia">
+                            <input type="file" placeholder="Terceira Imagem da Notícia">
+                            <input type="file" placeholder="Quarta Imagem da Notícia">
+                            <input type="file" placeholder="Quinta Imagem da Notícia">
+                        </form>
+                    </div>
+
+                    <script>
+                        tinymce.init({
+                          selector: 'textarea',
+                          toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+                          tinycomments_mode: 'embedded',
+                          tinycomments_author: 'Author name',
+                          mergetags_list: [
+                            { value: 'First.Name', title: 'Grupo BOAVIDA' },
+                            { value: 'Email', title: 'geral@grupoboavida.co.ao' },
+                          ],
+                          menubar: '', });
+                      </script>
+                      <textarea placeholder="Type Here...">
+                        
+                      </textarea>
+            </div>
+    </div>
+
+    <%- include('./partials/footer'); -%>
