@@ -4,6 +4,8 @@ const path = require('path');
 const { defaultPages, adminRouter, enRouter, authRouter } = require('./routes/index');
 const { news } = require("./utils/projectEn");
 const app = express();
+/* Importar o módulo do expressSession   */
+const expressSession = require('express-session');
 require('dotenv').config();
 /* setar as variáveis 'view engine' e 'views' do express */
 app.set("view engine", "ejs");
@@ -11,6 +13,12 @@ app.set('views', 'src/views');
 
 /* configurar o middleware express.static */
 app.use('/assets', express.static(path.join(__dirname, '../public')));
+/* configurar o middleware de expressSession */
+app.use(expressSession({
+    secret: 'hahah',
+    resave: false,
+    saveUninitialized: false
+}));
 
 app.use(cors());
 app.use(express.json());

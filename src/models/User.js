@@ -54,7 +54,7 @@ module.exports = {
         });
     },
     delete(id) {
-        const sql = "DELETE FROM Atendimentos WHERE id=?";
+        const sql = "DELETE FROM tb_users WHERE id=?";
         return new Promise(async function(resolve, reject) {
             connection.query(sql, id, (erro, result) => {
                 if (erro) {

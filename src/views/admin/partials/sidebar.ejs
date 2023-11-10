@@ -16,57 +16,62 @@
                 <span class="title">Dashboard</span>
             </a>
         </li>
+        <% if (session.type=='admin') { %>
+            <li>
 
-        <li>
-            <a href="/dashboard/user">
-                <span class="icon">
-                    <ion-icon name="people-outline"></ion-icon>
-                </span>
-                <span class="title">Usuários</span>
-            </a>
-        </li>
+                <% console.log(session) %>
 
-        <li>
-            <a href="#">
-                <span class="icon">
+                    <a href="/dashboard/user">
+                        <span class="icon">
+                <ion-icon name="people-outline"></ion-icon>
+            </span>
+                        <span class="title">Usuários</span>
+                    </a>
+            </li>
+
+            <% } %>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
                     <ion-icon name="newspaper-outline"></ion-icon>
                 </span>
-                <span class="title">Noticias</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <span class="icon">
+                        <span class="title">Noticias</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon">
                     <ion-icon name="videocam-outline"></ion-icon>
                 </span>
-                <span class="title">Vídeo</span>
-            </a>
-        </li>
+                        <span class="title">Vídeo</span>
+                    </a>
+                </li>
 
-        <li>
-            <a href="#">
-                <span class="icon">
+                <li>
+                    <a href="#">
+                        <span class="icon">
                     <ion-icon name="help-outline"></ion-icon>
                 </span>
-                <span class="title">Ajuda</span>
-            </a>
-        </li>
+                        <span class="title">Ajuda</span>
+                    </a>
+                </li>
 
-        <li>
-            <a href="#">
-                <span class="icon">
+                <li>
+                    <a href="#">
+                        <span class="icon">
                     <ion-icon name="settings-outline"></ion-icon>
                 </span>
-                <span class="title">Definições</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <span class="icon">
+                        <span class="title">Definições</span>
+                    </a>
+                </li>
+                <li id="btn-logout">
+                    <a href="#">
+                        <span class="icon">
                     <ion-icon name="log-out-outline"></ion-icon>
-                </span>
-                <span class="title">Sign Out</span>
-            </a>
-        </li>
+                </span >
+                        <span class="title">Sign Out</span>
+                    </a>
+                </li>
     </ul>
 </div>

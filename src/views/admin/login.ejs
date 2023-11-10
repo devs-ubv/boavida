@@ -1,21 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/admin/login.css">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/login.css">
+
+    <!-- Template Stylesheet -->
+    <link href="/assets/css/style.css" rel="stylesheet" />
     <title>Login - Adminstrador</title>
 </head>
+
 <body>
-    <div class="login">
-        <img src="/assets/img/logos/white-logo.png" alt="Logo Grupo Boa Vida">
-        <form action="">
-            <p class="tittle">ÁREA ADMINISTRATIVA</p>
-            <input type="text" placeholder="Email">
-            <input type="text" placeholder="Senha">
-            <button type="submit">Enviar</button>
-            <p class="ess">Esqueceu a sua senha <a href="#">Clique Aqui</a></p>
-        </form>
+    <div class="container-fluid wow fadeInUp" data-wow-delay="0.1s">
+        <section id="contact" class="contact">
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="login">
+                    <div class="col-lg-6 php-email-form">
+                        <div class="login-logo"> <img src="/assets/img/logos/blue-logo.png" alt="Logo Grupo Boa Vida"></div>
+                        <form role="form" id="login-form" class="">
+                            <p class="tittle">ÁREA ADMINISTRATIVA</p>
+                            <div class="form-group">
+                                <label for="">Nome de usuário</label>
+                                <input type="text" class="form-control" name="email" placeholder="Seu e-email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Senha</label>
+                                <input type="password" class="form-control" name="password" placeholder="Password" required autocomplete="0">
+                            </div>
+                            <p class="ess">Esqueceu a sua senha <a href="#">Clique Aqui</a></p>
+                            <div class="my-3">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                            </div>
+                            <div class="text-center"><button class="btn-primary" id="btn-login" type="submit">Enviar</button></div>
+                        </form>
+                    </div>
+                    <!-- End Contact Form -->
+                </div>
+            </div>
+        </section>
     </div>
+    <!-- End Contact Section -->
+    <!--footer -->
+    <%- include('./partials/footer'); -%>
+        <!-- footer -->
 </body>
+
 </html>
