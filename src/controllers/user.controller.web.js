@@ -6,7 +6,12 @@ module.exports = {
     },
 
     userPage(req, res) {
-        res.render("admin/user");
+        if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
+            res.render("admin/user", { session: req.session.user });
+        } else {
+            res.redirect("/login")
+        }
+      
     },
 
     loginPage(req, res) {
@@ -17,10 +22,13 @@ module.exports = {
     },
     
     async accessLevel(req, res) {
+        
         try {
+            if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
             const { limit, page, search } = req.query;
             const permission = await Permission.findAll({ limit, page, search });
-            res.render("admin/accesslevel", { permission });
+            res.render("admin/accesslevel", {session: req.session.user,  permission });
+            }
         } catch (e) {
             return res.status(409).send(e.message);
         }

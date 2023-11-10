@@ -26,15 +26,28 @@ module.exports = {
                 type: user.type,
                 active: user.active
             }
+
             req.session.autorizado = true;
             req.session.user = session;
 
+
+
             if (req.session.autorizado && req.session.user.type == 'admin') {
-                res.render("admin/index");
+
+                return res.send({
+                    auth: req.session.autorizado
+                });
+
             } else if (req.session.autorizado && req.session.user.type == 'manager') {
-                res.render("admin/index");
+                return res.send({
+                    auth: req.session.autorizado
+                });
+
             } else if (req.session.autorizado && req.session.user.type == 'assistant') {
-                res.render("admin/index");
+                return res.send({
+                    auth: req.session.autorizado
+                });
+
             } else {
                 res.end("Falha na autenticação")
             }
@@ -43,4 +56,12 @@ module.exports = {
             return res.status(409).send(e.message);
         }
     },
+    async logout(req, res) {
+        req.session.destroy(function(err) {
+            if(!req.session) return  res.send({
+                logout: true
+            })
+           
+        })
+    }
 };
