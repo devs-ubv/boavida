@@ -20,8 +20,10 @@ authRouter.delete("/permission/:id", permissionController.deleteHandler);
 
 //////all action from user //////////////////////////////////////
 authRouter.post("/register", multer(upload).single('userProfile'), userController.addHandler);
+authRouter.delete("/user/file/:filename", userController.deleteHanlerFile);
 authRouter.get("/user", userController.findAllUserHandler);
 authRouter.get("/user/:id", userController.getUserById);
 authRouter.put("/user/:id", userController.updateHandler);
 authRouter.delete("/user/:id", userController.deleteHanler);
+
 module.exports = authRouter;
