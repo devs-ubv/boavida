@@ -1,6 +1,5 @@
 const { hash } = require("bcrypt");
 const User = require("../models/User");
-const { use } = require("../app");
 
 module.exports = {
     async addHandler(req, res) {

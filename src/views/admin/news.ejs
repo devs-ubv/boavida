@@ -41,19 +41,31 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <textarea placeholder="Type Here...">
-                        
-                                    </textarea>
+                                    <textarea id="meu-editor" placeholder="Type Here..."></textarea>
                                 </div>
                                 <div class="modal-footer">
-                                    <button class="btn"></button>
+                                    <button onclick="apresentar()">Adicionar Notícia</button>
+                                    <script>
+                                        function apresentar() {me avi
+                                            // Obtém o conteúdo do TinyMCE
+                                            var conteudo = tinymce.get('meu-editor').getContent();
+                
+                                            // Visualiza o conteúdo (pode ser exibido em um alert, console.log, ou em algum outro elemento na página)
+                                            console.log("Conteúdo do TinyMCE:", conteudo);
+                
+                                            // Exibe o conteúdo em algum lugar na página (por exemplo, em um elemento com o ID 'conteudo-exibido')
+                                            document.getElementById('conteudo-exibido').innerHTML = "Conteúdo do TinyMCE: " + conteudo;
+                                        }
+                                    </script>
+                                    
                                 </div>
+                                
                             </div>
                         </div>
                         <!-- ======= Apresentação das Notícias ======= -->
                         <div class="notices">
                             <div class="notice">
-                                
+                                <div id="conteudo-exibido">Conteudo</div>
                             </div>
                         </div>
                     </div>
@@ -62,7 +74,7 @@
 
                     <script>
                         tinymce.init({
-                        selector: 'textarea',
+                        selector: 'textarea#meu-editor',
                         toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
                         tinycomments_mode: 'embedded',
                         tinycomments_author: 'Author name',
@@ -92,7 +104,10 @@
                             modal.style.display = "none";
                           }
                         }
-                      </script>
+
+                        
+                    </script>
+                    
                       
             </div>
     </div>
