@@ -1,6 +1,6 @@
 const { hash } = require("bcrypt");
-const User = require("../models/User");
-const Permission = require("../models/Permission");
+const User = require("../../models/User");
+const Permission = require("../../models/Permission");
 
 module.exports = {
     async findAllPermissionHandler(req, res) {

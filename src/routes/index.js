@@ -3,6 +3,10 @@ const defaultPages = require("../routes/pages");
 const plRouter = require("../routes/pages");
 const adminRouter = require("../routes/admin");
 const authRouter = require("../routes/auth");
+const newRouter = require("../routes/new");
+const contentRouter = require("../routes/content");
+
+
 
 
 
@@ -11,5 +15,7 @@ module.exports = {
     defaultPages,
     plRouter,
     adminRouter,
-    authRouter
+    authRouter,
+    newRouter,
+    contentRouter
 }

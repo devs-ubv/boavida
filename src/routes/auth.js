@@ -1,9 +1,9 @@
 const express = require("express");
 const authController = require("../controllers/auth.controller");
-const userController = require("../controllers/user.controller");
-const permissionController = require("../controllers/permission.controller");
+const userController = require("../controllers/Api/user");
+const permissionController = require("../controllers/Api/permission");
 const multer = require('multer');
-const uploadConfigFoto = require('../utils/upload');
+const uploadConfigFoto = require('../utils/uploadUser');
 const upload = multer(uploadConfigFoto);
 
 

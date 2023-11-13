@@ -1,55 +1,48 @@
-const { hash } = require("bcrypt");
-const User = require("../models/User");
 const path = require('path');
 const fs = require('fs');
+const Content = require("../../models/Content");
 
 module.exports = {
     async addHandler(req, res) {
         try {
             const value = req.body;
-            const file = req.file;
-            const passwordHashed = await hash(value.password, 8);
-            value.password = passwordHashed;
-            value.userProfile = file.filename;
-            const user = await User.add(value);
-            return res.send(user);
+            const content = await Content.add(value);
+            return res.send(content);
         } catch (e) {
             return res.status(409).send(e.message);
         }
-
     },
-    async findAllUserHandler(req, res) {
+    async findAllContentHandler(req, res) {
         try {
             const { limit, page, search } = req.query;
-            const user = await User.findAll({ page, limit, search });
-            const allUser = user.map(objeto => {
-                delete objeto.password;
+            const content = await Content.findAll({ page, limit, search });
+            const allContent = content.map(objeto => {
                 return { ...objeto };
             });
-            return res.send(allUser);
+            return res.send(allContent);
         } catch (e) {
             return res.status(409).send(e.message);
         }
     },
 
-    async getUserById(req, res) {
+    async getContentById(req, res) {
         try {
             const id = parseInt(req.params.id);
-            const user = await User.findById(id);
+            const user = await Content.findById(id);
             if (!user) return res.send({
-                message: "Não foi encontrado nenhum usuário"
+                message: "Não foi encontrado nenhuma contentícia"
             });
             return res.send(user);
         } catch (e) {
             return res.status(409).send(e.message);
         }
     },
-    async updateHandler(req, res) {
+    async updateContentHandler(req, res) {
         try {
             const id = parseInt(req.params.id);
             const value = req.body;
-            const user = await User.update(id, value);
-            return res.send(user);
+            const content = await Content.update(id, value);
+            return res.send(content);
         } catch (e) {
             return res.status(409).send(e.message);
         }
@@ -57,8 +50,8 @@ module.exports = {
     async deleteHanler(req, res) {
         try {
             const id = parseInt(req.params.id);
-            const user = await User.delete(id);
-            return res.send(user);
+            const content = await Content.delete(id);
+            return res.send(content);
         } catch (e) {
             return res.status(409).send(e.message);
         }
@@ -67,9 +60,7 @@ module.exports = {
         try {
             const filename = req.params.filename;
             console.log(filename);
-            const filepath = path.resolve(__dirname, '..', '..', 'public', 'img', 'user', filename);
-            console.log(filename);
-
+            const filepath = path.resolve(__dirname, '..', '..', 'public', 'img', 'Contents', filename);
             fs.unlink(filepath, function (err) {
                 if (err) {
                     res.status(500).send('Ocorreu um erro ao excluir o arquivo');
@@ -82,12 +73,5 @@ module.exports = {
         } catch (e) {
             return res.status(409).send(e.message);
         }
-    },
-    userPage(req, res) {
-        res.render("admin/user");
-    },
-
-    async new(req, res) {
-        res.render("admin/register");
     },
 }

@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require('cors');
 const path = require('path');
-const { defaultPages, adminRouter, enRouter, authRouter } = require('./routes/index');
+const { defaultPages, adminRouter, enRouter, authRouter, newRouter, contentRouter } = require('./routes/index');
 const { news } = require("./utils/projectEn");
 const app = express();
 /* Importar o módulo do expressSession   */
@@ -27,6 +27,9 @@ app.use(defaultPages);
 app.use(adminRouter);
 app.use(enRouter);
 app.use(authRouter);
+app.use(newRouter);
+app.use(contentRouter);
+
 
 
 app.use((req, res, next) => {
