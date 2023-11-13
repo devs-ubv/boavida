@@ -29,11 +29,11 @@
   /* Estilização do Modal para cadastro de usuario */
 
 /* The Modal (background) */
-.modal {
+.modal-user {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 20px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -44,18 +44,19 @@
   }
   
   /* Modal Content */
-  .modal-content {
+  .modal-content-user {
     position: relative;
     background-color: #fefefe;
     margin: auto;
     padding: 0;
     border: 1px solid #888;
-    width: 50%;
+    width: 40%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
+    border-radius: 10px;
   }
   
   /* Add Animation */
@@ -86,9 +87,7 @@
     cursor: pointer;
   }
 
-  .modal-content {
-    border-radius: 10px;
-  }
+
   
   .modal-header {
     display: flex;
@@ -135,15 +134,66 @@
     font-size: 13px;
 }
 
+
+.registerTop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+}
+
+
+#picture__input {
+  display: none;
+}
+
+.picture {
+  width: 120px;
+  height: 120px;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #091E3E;
+  border: 2px dashed #091E3E;
+  cursor: pointer;
+  font-family: sans-serif;
+  transition: color 300ms ease-in-out, background 300ms ease-in-out;
+  outline: none;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.picture:hover {
+  color: #091E3E;
+  background: #ccc;
+}
+
+.picture__img {
+  max-width: 100%;
+}
+
+
+
 .modal-body input:focus {
     border: 1px solid #091E3E;
 }
 
 .modal-body .tamanho {
-    width: 65%;
+    width: 100%;
 }
 
-.modal-body .nomes, .modal-body .pass {
+.modal-body .nomes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-body .pass {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
