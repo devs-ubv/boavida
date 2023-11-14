@@ -241,3 +241,30 @@
   max-width: 30%;
   margin: 5px;
 }
+
+/* ------------------------ Estilização da Tabela ---------------------- */
+
+#newsList {
+  border-collapse: collapse;
+  width: 100%;
+  
+}
+
+#newsList td {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+#newsList tr:hover {
+  background-color: #091E3E;
+  color: #fff;
+}
+
+#newsList th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #fff;
+  color: #000;
+  padding: 15px;
+}
