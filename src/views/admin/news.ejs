@@ -14,35 +14,104 @@
                     </div>
                     <div class="cardHeader">
                         <!-- ======= Modal para criação do usuário ======= -->
-                        <div id="myModal" class="modal">
+                        <div id="myModal" class="modal-news">
                             <!-- Modal content -->
-                            <div class="modal-content"> 
+                            <div class="modal-content-news"> 
+
                                 <div class="modal-header">
                                     <h2>Criar Nova Notícia</h2>
                                     <span class="close">&times;</span>
                                 </div>
+
                                 <div class="modal-body">
                                     <h2>Adicionar Nova Notícia</h2>
                                     <div class="inputs">
+
                                         <div class="sub-input">
                                             <input type="Text" placeholder="Titulo da Notícia">
                                             <input type="text" placeholder="Tipo de Notícia">
+                                        </div>  
+                                        <!-- ======= Carregar a imagem de capa da Noticia ======= -->
+                                        <div class="newsNover">
+                                            <label class="picture-news" for="picture__input-newsCover" tabIndex="0">
+                                                <span class="picture__image-newsCover"></span>
+                                            </label>
+                                            <input type="file" name="picture__input-newsCover" id="picture__input-newsCover">
+                                            <script>
+                                                const inputFileCover = document.querySelector("#picture__input-newsCover");
+                                                const pictureImageCover = document.querySelector(".picture__image-newsCover");
+                                                const pictureImageCoverTxt = "Carregar a Imagem de Capa da Notícia";
+                                                pictureImageCover.innerHTML = pictureImageCoverTxt;
+                                                inputFileCover.addEventListener("change", function (e) {
+                                                const inputTarget = e.target;
+                                                const file = inputTarget.files[0];
+                                                if (file) {
+                                                    const reader = new FileReader();
+                                                    reader.addEventListener("load", function (e) {
+                                                    const readerTarget = e.target;
+                                                    const img = document.createElement("img");
+                                                    img.src = readerTarget.result;
+                                                    img.classList.add("picture__img-newsCover");
+                                                    pictureImageCover.innerHTML = "";
+                                                    pictureImageCover.appendChild(img);
+                                                    });
+                                                    reader.readAsDataURL(file);
+                                                    console.log(file);
+                                                } else {
+                                                    pictureImageCover.innerHTML = pictureImageCoverTxt;
+                                                }
+                                                });
+
+                                            </script>
                                         </div>
-                                        <div class="ficheiros">
-                                            <div class="sub-fich">
-                                                <input type="file" placeholder="Primeira Imagem da Notícia">
-                                                <input type="file" placeholder="Segunda Imagem da Notícia">
-                                                <input type="file" placeholder="Terceira Imagem da Notícia">
-                                            </div>
-                                            <div class="sub-fich">
-                                                <input type="file" placeholder="Quarta Imagem da Notícia">
-                                                <input type="file" placeholder="Quinta Imagem da Notícia">
-                                                <input type="file" placeholder="Sexta Imagem da Notícia">
-                                            </div>
-                                        </div>
+                                        <!-- ======= Carregar as imagens secundarias da Noticia ======= -->
+                                        <div class="newsNover">
+                                            <label class="picture-news" for="picture__input-news" tabIndex="0">
+                                                <span class="texto"></span>
+                                                <span class="picture__image-news"></span>
+                                            </label>
+                                            <input type="file" name="picture__input-news" id="picture__input-news">
+                                            <script>
+                                                const inputFile = document.querySelector("#picture__input-news");
+
+                                                const pictureImage = document.querySelector(".picture__image-news");
+                                                const pictureImageTxt = "";
+                                                pictureImage.innerHTML = pictureImageTxt;
+
+                                                const pictureImageSec = document.querySelector(".texto");
+                                                const pictureImageSecTxt = "Carregar as outras imagens da Notícia";
+                                                pictureImageSec.innerHTML = pictureImageSecTxt;
+
+                                                inputFile.addEventListener("change", function (e) {
+                                                const inputTarget = e.target;
+                                                const file = inputTarget.files[0];
+                                                if (file) {
+                                                    const reader = new FileReader();
+                                                    reader.addEventListener("load", function (e) {
+                                                        const readerTarget = e.target;
+                                                        const img = document.createElement("img");
+                                                        img.src = readerTarget.result;
+                                                        img.classList.add("picture__img-news");
+                                                        /* ---------------- RESOLVIDO ------------ */
+                                                        pictureImageSec.innerHTML = "";
+                                                        
+
+                                                        pictureImage.appendChild(img);
+                                                    });
+                                                    reader.readAsDataURL(file);
+                                                    console.log(file);
+                                                } else {
+                                                    pictureImage.innerHTML = pictureImageTxt;
+                                                }
+                                                });
+
+                                            </script>
+                                        </div>    
+
                                     </div>
                                     <textarea id="meu-editor" placeholder="Type Here..."></textarea>
                                 </div>
+
                                 <div class="modal-footer">
                                     <button onclick="apresentar()">Adicionar Notícia</button>
                                     <script>
@@ -57,7 +126,6 @@
                                             document.getElementById('conteudo-exibido').innerHTML = "Conteúdo do TinyMCE: " + conteudo;
                                         }
                                     </script>
-                                    
                                 </div>
                                 
                             </div>

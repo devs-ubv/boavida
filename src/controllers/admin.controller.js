@@ -1,5 +1,5 @@
 module.exports = {
-    /*
+ 
     indexPage(req, res) {
     
         if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
@@ -7,11 +7,8 @@ module.exports = {
         } else {
             res.redirect("/login")
         }
-    */
-
-    async indexPage(req, res) {
-        res.render("admin/index");
     },
+   
     async new(req, res) {
         res.render("admin/index");
     },

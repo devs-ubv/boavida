@@ -6,14 +6,13 @@ module.exports = {
     },
 
     userPage(req, res) {
-        /* 
+        
         if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
             res.render("admin/user", { session: req.session.user });
         } else {
             res.redirect("/login")
         }
-        */
-        res.render("admin/user");
+     
     },
 
     loginPage(req, res) {
@@ -24,7 +23,7 @@ module.exports = {
     },
     
     async accessLevel(req, res) {
-        /* 
+      
         try {
             if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
             const { limit, page, search } = req.query;
@@ -34,8 +33,6 @@ module.exports = {
         } catch (e) {
             return res.status(409).send(e.message);
         }
-        */
-        res.render("admin/accesslevel");
     },
     
 

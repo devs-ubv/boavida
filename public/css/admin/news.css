@@ -33,8 +33,8 @@
 .news .inputs .sub-input {
     display: flex;
     flex-direction: row;
-    justify-content: start;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-wrap: nowrap;
     align-items: center;
     gap: 10px;
 }
@@ -42,45 +42,31 @@
 .news .inputs .sub-input input {
     border: 1px solid #ccc;
     padding: 10px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 400;
-    width: 350px;
+    width: 100%;
 }
 
 .news .inputs .sub-input input:focus {
     border: 1px solid #091E3E;
 }
 
-.inputs .ficheiros {
+.inputs {
     display: flex;
-    flex-direction: row;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.inputs .ficheiros .sub-fich {
-    display: flex;
-    gap: 10px;
     flex-direction: column;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-.inputs .ficheiros .sub-fich input {
-    border: 1px solid #ccc;
-    padding: 10px;
-    background-color: #fff;
-    font-size: 13px;
-    font-weight: 400;
-    width: 350px;
-}
+
 
 /* MODAL */
-.modal {
+.modal-news {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 20px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -91,18 +77,19 @@
   }
   
   /* Modal Content */
-  .modal-content {
+  .modal-content-news {
     position: relative;
     background-color: #fefefe;
     margin: auto;
     padding: 0;
     border: 1px solid #888;
-    width: 50%;
+    width: 70%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
+    border-radius: 10px;
   }
   
   /* Add Animation */
@@ -132,10 +119,6 @@
     text-decoration: none;
     cursor: pointer;
   }
-
-  .modal-content {
-    border-radius: 10px;
-  }
   
   .modal-header {
     display: flex;
@@ -150,7 +133,7 @@
 }
 
 .modal-body {
-    padding: 10px;
+    padding: 30px;
     display: flex;
     justify-content: center;
     flex-direction: column; 
@@ -186,3 +169,75 @@
     font-weight: 500;
     padding: 15px;
   }
+
+  
+/* ------------------------ Estilização das outras imagens ---------------------- */
+
+#picture__input-newsCover {
+  display: none;
+}
+
+.picture-newsCover {
+  width: 100%;
+  height: 250px;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #091E3E;
+  border: 2px dashed #091E3E;
+  cursor: pointer;
+  font-family: sans-serif;
+  transition: color 300ms ease-in-out, background 300ms ease-in-out;
+  outline: none;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.picture-newsCover:hover {
+  color: #091E3E;
+  background: #ccc;
+}
+
+.picture__img-newsCover {
+  max-width: 100%;
+}
+
+
+/* ------------------------ Estilização das outras imagens ---------------------- */
+
+
+#picture__input-news {
+  display: none;
+}
+
+.picture-news {
+  width: 100%;
+  height: 300px;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #091E3E;
+  border: 2px dashed #091E3E;
+  cursor: pointer;
+  font-family: sans-serif;
+  transition: color 300ms ease-in-out, background 300ms ease-in-out;
+  outline: none;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.picture-news:hover {
+  color: #091E3E;
+  background: #ccc;
+}
+
+.picture__img-news {
+  max-width: 30%;
+  margin: 5px;
+}
