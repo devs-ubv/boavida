@@ -33,7 +33,7 @@
 
                                             <div class="modal-body">
 
-                                                <form action="">
+                                                <form action="" id="registrationForm">
 
                                                     <p class="tittle">Preencha o Formulário</p>
                                                     <div class="registerTop">
@@ -76,47 +76,73 @@
                                                         </div>
 
                                                         <div class="tamanho nomes">
-                                                            <input class="input" type="text" placeholder="Digite o Nome">
-                                                            <input class="input" type="text" placeholder="Digite o Sobrenome">
+                                                            <input class="input" type="text" id="firstName" name="firstName" required placeholder="Digite o Nome">
+                                                            <input class="input" type="text" id="lastName" name="lastName" required placeholder="Digite o Sobrenome">
                                                         </div>
                                                     </div>
 
-                                                    <input class="tamanho" type="email" placeholder="Digite o endereço de Email">
+                                                    <input class="tamanho" type="email" id="email" name="email" required placeholder="Digite o endereço de Email">
                                                     
                                                     <div class="tamanho pass">
-                                                        <input type="password" placeholder="Password">
-                                                        <input type="password" placeholder="Confirmar Password">
+                                                        <input type="password" id="password" name="password" required placeholder="Password">
+                                                        <input type="password" id="passConfirm" name="passConfirm" placeholder="Confirmar Password">
                                                     </div>
 
-                                                    <div class="tamanho select">
-                                                        <div style="margin-top: 5px;">
-                                                            <label class="label" for="dep">Departamento:</label>
-                                                            <select name="dep" id="cars">
-                                                                <option value="admin">Administrativo</option>
-                                                                <option value="tic">Tecnologia</option>
-                                                                <option value="adv">Marketing</option>
-                                                                <option value="comun">Comunicação</option>
-                                                            </select>
-                                                        </div>
-                                                        
+                                                    <div class="tamanho select">                             
                                                         <div style="margin-top: 15px;">
-                                                            <label class="label" for="acs">Nivel de Acesso:</label>
-                                                            <select name="acs" id="cars">
-                                                                <option value="Super">Super Administrador</option>
-                                                                <option value="admin">Administrador</option>
-                                                                <option value="edit">Editor</option>
-                                                                <option value="valid">Validador</option>
+                                                            <label class="label" for="permissionId">Nivel de Acesso:</label>
+                                                            <select id="permissionId" name="permissionId">
+                                                                <option value="1">Super Administrador</option>
+                                                                <option value="2">Administrador</option>
+                                                                <option value="3">Editor</option>
+                                                                <option value="4">Validador</option>
                                                             </select>
                                                         </div>
                                                     </div>
+
+                                                    <button type="button" id="registerButton">Cadastrar</button>
                                                 </form>
+                                                                <!--
+                    ----------------------------------- LOGICA PARA REGISTAR DADOS DO USUARIO------------------------------------
+                                                                -->
+                                                <script>
+                                                    document.addEventListener("DOMContentLoaded", function () {
+                                                        // Adicione um ouvinte de evento ao botão de registro
+                                                        document.getElementById("registerButton").addEventListener("click", function () {
+                                                            // Chame a função de registro passando o formulário como argumento
+                                                            registerData(document.getElementById("registrationForm"));
+                                                        });
+                                                    });
 
+                                                    function registerData(form) {
+                                                        // Crie um objeto FormData com os dados do formulário
+                                                        var formData = new FormData(form);
+
+                                                        // Faça uma solicitação POST para a API
+                                                        fetch('/register', {
+                                                            method: 'POST',
+                                                            body: formData
+                                                        })
+                                                        .then(response => {
+                                                            if (!response.ok) {
+                                                                throw new Error('Erro na solicitação!');
+                                                            }
+                                                            return response.json();
+                                                        })
+                                                        .then(responseData => {
+                                                            console.log('Dados registrados com sucesso:', responseData);
+                                                            // Faça algo com a resposta, se necessário
+                                                        })
+                                                        .catch(error => {
+                                                            console.error('Erro:', error);
+                                                            // Lide com o erro adequadamente
+                                                        });
+                                                    }
+                                                </script>
                                             </div>
 
-                                            <div class="modal-footer">
-                                                    <button>Cadastrar</button>
-                                            </div>
                                             
+                                        
                                         </div>
                                     </div>
                                     
@@ -149,7 +175,7 @@
                                     </script>
                                 </div>
     
-                                <table class="userTable">
+                                <table class="userTable" border="1">
                                     <thead>
                                         <tr>
                                             <td>Nível de Acesso</td>
@@ -161,70 +187,7 @@
                                         </tr>
                                     </thead>
     
-                                    <tbody>
-                                        <tr>
-                                            <td>Admin</td>
-                                            <td>Eduardo</td>
-                                            <td>de Brito</td>
-                                            <td>eduardo370@outlook.pt</td>
-                                            <td>Tecnologia de Informação</td>
-                                            <td>Programador Junior</td>
-                                        </tr>
-    
-                                        <tr>
-                                            <td>Editor</td>
-                                            <td>Eduardo</td>
-                                            <td>de Brito</td>
-                                            <td>eduardo370@outlook.pt</td>
-                                            <td>Tecnologia de Informação</td>
-                                            <td>Programador Junior</td>
-                                        </tr>
-    
-                                        <tr>
-                                            <td>Gerenciador</td>
-                                            <td>Eduardo</td>
-                                            <td>de Brito</td>
-                                            <td>eduardo370@outlook.pt</td>
-                                            <td>Tecnologia de Informação</td>
-                                            <td>Programador Junior</td>
-                                        </tr>
-    
-                                        <tr>
-                                            <td>Moderador</td>
-                                            <td>Eduardo</td>
-                                            <td>de Brito</td>
-                                            <td>eduardo370@outlook.pt</td>
-                                            <td>Tecnologia de Informação</td>
-                                            <td>Programador Junior</td>
-                                        </tr>
-    
-                                        <tr>
-                                            <td>Admin</td>
-                                            <td>Eduardo</td>
-                                            <td>de Brito</td>
-                                            <td>eduardo370@outlook.pt</td>
-                                            <td>Tecnologia de Informação</td>
-                                            <td>Programador Junior</td>
-                                        </tr>
-    
-                                        <tr>
-                                            <td>Admin</td>
-                                            <td>Eduardo</td>
-                                            <td>de Brito</td>
-                                            <td>eduardo370@outlook.pt</td>
-                                            <td>Tecnologia de Informação</td>
-                                            <td>Programador Junior</td>
-                                        </tr>
-    
-                                        <tr>
-                                            <td>Admin</td>
-                                            <td>Eduardo</td>
-                                            <td>de Brito</td>
-                                            <td>eduardo370@outlook.pt</td>
-                                            <td>Tecnologia de Informação</td>
-                                            <td>Programador Junior</td>
-                                        </tr>
-    
+                                    <tbody id="data-table-body">
                                         <tr>
                                             <td>Admin</td>
                                             <td>Eduardo</td>
@@ -235,6 +198,64 @@
                                         </tr>
                                     </tbody>
                                 </table>
+
+<!--
+                    ----------------------------------- LOGICA PARA LISTAR OS USUARIOS------------------------------------
+                                                                -->
+
+                                <script>
+                                    // Função para fazer a requisição à API
+                                    function fetchData() {
+                                        // Substitua a URL abaixo pela URL da sua API
+                                    
+                                        fetch('/user?page=0&limit=8')
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            // Chama a função para preencher a tabela com os dados recebidos
+                                            populateTable(data);
+                                            console.log(data);
+                                        })
+                                        .catch(error => console.error('Erro ao buscar dados da API:', error));
+                                    }
+                                        
+                                   
+
+                                    // Função para preencher a tabela com os dados
+                                    function populateTable(data) {
+                                        var tableBody = document.getElementById('data-table-body');
+
+                                        // Limpa qualquer conteúdo existente na tabela
+                                        tableBody.innerHTML = '';
+
+                                        // Itera sobre os dados e os adiciona à tabela
+                                        data.forEach(item => {
+                                            var row = tableBody.insertRow();
+                                            var cell1 = row.insertCell(0);
+                                            var cell2 = row.insertCell(1);
+                                            var cell3 = row.insertCell(2);
+                                            var cell4 = row.insertCell(3);
+                                            var cell5 = row.insertCell(4);
+                                            var cell6 = row.insertCell(5);
+                                            // Adicione mais células conforme necessário
+
+                                            cell1.textContent = item.id;
+                                            cell2.textContent = item.firstName;
+                                            cell3.textContent = item.lastName;
+                                            cell4.textContent = item.email;
+                                            cell5.textContent = item.role;
+                                            cell6.textContent = item.type;
+                                            // Preencha mais células conforme necessário
+                                        });
+                                    }
+
+                                    // Chama a função para buscar os dados quando a página carregar
+                                    fetchData();
+                                </script>
+
+
+
+
+
                             </div>
                         </div>
                         

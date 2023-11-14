@@ -1,6 +1,7 @@
 const connection = require('../database/connection')
 
 module.exports = {
+
     findAll({ page = 0, limit = 1, search: text }) {
         console.log(text)
         return new Promise(async function(resolve, reject) {
@@ -21,14 +22,14 @@ module.exports = {
             });
         });
     },
+
     add(user) {
         return new Promise(async function(resolve, reject) {
             const sql = `SELECT * FROM tb_users WHERE email='${user.email}'`;
             connection.query(sql, (err, result) => {
                 if (err) reject(err);
                 if (!result[0]) {
-                    const sql = "INSERT INTO tb_users SET ?";
-                    connection.query(sql, user, (err, result) => {
+                    connection.query("INSERT INTO tb_users SET ?", user, (err, result) => {
                         if (err) reject(err);
                         console.log(err);
                         resolve(result[0]);
@@ -39,6 +40,7 @@ module.exports = {
             });
         });
     },
+
     update(id, values) {
         const sql = "UPDATE tb_users SET ? WHERE id=?";
         console.log(id, values);
@@ -53,6 +55,7 @@ module.exports = {
             });
         });
     },
+
     delete(id) {
         const sql = "DELETE FROM tb_users WHERE id=?";
         return new Promise(async function(resolve, reject) {

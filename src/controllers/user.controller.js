@@ -10,6 +10,7 @@ module.exports = {
             value.password = passwordHashed;
             value.userProfile = file.filename;
             const user = await User.add(value);
+            console.log(value);
             return res.send(user);
         } catch (e) {
             return res.status(409).send(e.message);
