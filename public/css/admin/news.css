@@ -228,6 +228,7 @@
   transition: color 300ms ease-in-out, background 300ms ease-in-out;
   outline: none;
   overflow: hidden;
+  overflow-y: scroll;
   border-radius: 10px;
   margin-bottom: 20px;
 }
@@ -239,15 +240,18 @@
 
 .picture__img-news {
   max-width: 30%;
+  height: 200px;
   margin: 5px;
 }
+
+
 
 /* ------------------------ Estilização da Tabela ---------------------- */
 
 #newsList {
   border-collapse: collapse;
   width: 100%;
-  
+
 }
 
 #newsList td {
