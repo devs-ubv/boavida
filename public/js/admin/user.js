@@ -1,25 +1,35 @@
-// Get the modal
-var modal = document.getElementById("myModal");
+$(document).ready(function() {
+    $("#registerButton").click((event) => {
+        event.preventDefault();
+        let dateForm = $("#registrationForm").serializeObject();
+        const file = $('#picture__input')[0].files[0];
+        
+        var formData = new FormData();
+       
+        formData.append('firstName', dateForm.firstName);
+        formData.append('lastName', dateForm.lastName);
+        formData.append('email', dateForm.email);
+        formData.append('password', dateForm.password);
+        formData.append('permissionId', dateForm.permissionId);
+        formData.append('userProfile', file);
+        formData.append('fullName', `${dateForm?.firstName} ${dateForm?.lastName}`);       
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+            $.ajax({
+                url: "/register",
+                method: "post",
+                data: formData,
+                processData: false,  // Não processar os dados
+                contentType: false,  // Não configurar automaticamente o Content-Type
+                success: function(data) {
+                    console.log("Resultado no Jquery: ",data)
+                },
+                error: function(e) {
+                    $("#msg").css("color", "#ff0000");
+                    $("#senha").val("");
+                    $("#msg").html(e.responseText);
+                }
+            });
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+        })
 
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+    });

@@ -33,7 +33,7 @@
 
                                             <div class="modal-body">
 
-                                                <form action="" id="registrationForm">
+                                                <form id="registrationForm">
 
                                                     <p class="tittle">Preencha o Formulário</p>
                                                     <div class="registerTop">
@@ -105,40 +105,7 @@
                                                                 <!--
                     ----------------------------------- LOGICA PARA REGISTAR DADOS DO USUARIO------------------------------------
                                                                 -->
-                                                <script>
-                                                    document.addEventListener("DOMContentLoaded", function () {
-                                                        // Adicione um ouvinte de evento ao botão de registro
-                                                        document.getElementById("registerButton").addEventListener("click", function () {
-                                                            // Chame a função de registro passando o formulário como argumento
-                                                            registerData(document.getElementById("registrationForm"));
-                                                        });
-                                                    });
-
-                                                    function registerData(form) {
-                                                        // Crie um objeto FormData com os dados do formulário
-                                                        var formData = new FormData(form);
-
-                                                        // Faça uma solicitação POST para a API
-                                                        fetch('/register', {
-                                                            method: 'POST',
-                                                            body: formData
-                                                        })
-                                                        .then(response => {
-                                                            if (!response.ok) {
-                                                                throw new Error('Erro na solicitação!');
-                                                            }
-                                                            return response.json();
-                                                        })
-                                                        .then(responseData => {
-                                                            console.log('Dados registrados com sucesso:', responseData);
-                                                            // Faça algo com a resposta, se necessário
-                                                        })
-                                                        .catch(error => {
-                                                            console.error('Erro:', error);
-                                                            // Lide com o erro adequadamente
-                                                        });
-                                                    }
-                                                </script>
+                                               
                                             </div>
 
                                             
@@ -208,7 +175,7 @@
                                     function fetchData() {
                                         // Substitua a URL abaixo pela URL da sua API
                                     
-                                        fetch('/user?page=0&limit=8')
+                                        fetch('/user?page=0&limit=25')
                                         .then(response => response.json())
                                         .then(data => {
                                             // Chama a função para preencher a tabela com os dados recebidos
