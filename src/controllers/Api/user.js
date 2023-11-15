@@ -1,5 +1,7 @@
 const { hash } = require("bcrypt");
-const User = require("../models/User");
+const User = require("../../models/User");
+const path = require('path');
+const fs = require('fs');
 
 module.exports = {
     async addHandler(req, res) {
@@ -62,11 +64,24 @@ module.exports = {
             return res.status(409).send(e.message);
         }
     },
-    userPage(req, res) {
-        res.render("admin/user");
-    },
+    async deleteHanlerFile(req, res) {
+        try {
+            const filename = req.params.filename;
+            console.log(filename);
+            const filepath = path.resolve(__dirname, '..', '..', 'public', 'img', 'user', filename);
+            console.log(filename);
 
-    async new(req, res) {
-        res.render("admin/register");
+            fs.unlink(filepath, function (err) {
+                if (err) {
+                    res.status(500).send('Ocorreu um erro ao excluir o arquivo');
+                } else {
+
+                    res.send('Arquivo excluído com sucesso');
+                }
+            })
+
+        } catch (e) {
+            return res.status(409).send(e.message);
+        }
     },
 }

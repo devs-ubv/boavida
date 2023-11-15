@@ -12,7 +12,6 @@ module.exports = {
         } else {
             res.redirect("/login")
         }
-     
     },
 
     loginPage(req, res) {

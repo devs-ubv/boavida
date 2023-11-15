@@ -107,10 +107,6 @@ module.exports = {
     },
 
     sacPage(req, res) {
-        res.redirect("https://sac-suporte.onrender.com/");
+        res.redirect("https://sac.grupoboavida.co.ao/");
     }
-
-
-
-
 }
