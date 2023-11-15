@@ -13,7 +13,6 @@ $(document).ready(function() {
         formData.append('permissionId', dateForm.permissionId);
         formData.append('userProfile', file);
         formData.append('fullName', `${dateForm?.firstName} ${dateForm?.lastName}`);       
-
             $.ajax({
                 url: "/register",
                 method: "post",
@@ -29,7 +28,37 @@ $(document).ready(function() {
                     $("#msg").html(e.responseText);
                 }
             });
-
         })
+        function fetchData(){
+        $.ajax({
+            url: '/user?page=0&limit=25',
+            method: 'GET',
+            success: function(response) {
+                populateTable(response);
+            },
+            error: function(e) {
+              console.log(e.responseText);
+            }
+          });
+        }
+        function populateTable(data) {
+            $.each(data, function (index, item) {
+                var imageTag = '<img src="/assets/img/user/' + item.userProfile + '" alt="Imagem" style="width:50px; height:50px;">';
+                $('.userTable tbody').append(
+                    '<tr>' +
+                    '<td>' +(index+1) + '</td>' +
+                    '<td>' +item.firstName +' '+ item.lastName + '</td>' +
+                    '<td>' +item.email + '</td>' +
+                    '<td>' +item.role + '</td>' +
+                    '<td>' +item.type + '</td>' +
+                    '<td>' + imageTag + '</td>' +
+                    '</tr>'
+                );
+            });
+        }
 
+        // Chama a função para buscar os dados quando a página carregar
+        fetchData();
     });
+
+

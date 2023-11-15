@@ -12,8 +12,8 @@
                         <div class="navigationTab">
                             <a href="user">Utilizadores do Sistema</a>
                             <a href="accesslevel">Níveis de Acesso</a>
-                            
-                            
+
+
                         </div>
 
                         <div class="eb details">
@@ -24,7 +24,7 @@
                                     <!-- ======= Modal para criação do usuário ======= -->
                                     <div id="myModal" class="modal-user">
                                         <!-- Modal content -->
-                                        <div class="modal-content-user"> 
+                                        <div class="modal-content-user">
 
                                             <div class="modal-header">
                                                 <h2>Cadastro de Novo Usuário</h2>
@@ -48,30 +48,29 @@
                                                                 const pictureImageTxt = "Escolha uma Imagem";
                                                                 pictureImage.innerHTML = pictureImageTxt;
 
-                                                                inputFile.addEventListener("change", function (e) {
-                                                                const inputTarget = e.target;
-                                                                const file = inputTarget.files[0];
+                                                                inputFile.addEventListener("change", function(e) {
+                                                                    const inputTarget = e.target;
+                                                                    const file = inputTarget.files[0];
 
-                                                                if (file) {
-                                                                    const reader = new FileReader();
+                                                                    if (file) {
+                                                                        const reader = new FileReader();
 
-                                                                    reader.addEventListener("load", function (e) {
-                                                                    const readerTarget = e.target;
+                                                                        reader.addEventListener("load", function(e) {
+                                                                            const readerTarget = e.target;
 
-                                                                    const img = document.createElement("img");
-                                                                    img.src = readerTarget.result;
-                                                                    img.classList.add("picture__img");
+                                                                            const img = document.createElement("img");
+                                                                            img.src = readerTarget.result;
+                                                                            img.classList.add("picture__img");
 
-                                                                    pictureImage.innerHTML = "";
-                                                                    pictureImage.appendChild(img);
-                                                                    });
+                                                                            pictureImage.innerHTML = "";
+                                                                            pictureImage.appendChild(img);
+                                                                        });
 
-                                                                    reader.readAsDataURL(file);
-                                                                } else {
-                                                                    pictureImage.innerHTML = pictureImageTxt;
-                                                                }
+                                                                        reader.readAsDataURL(file);
+                                                                    } else {
+                                                                        pictureImage.innerHTML = pictureImageTxt;
+                                                                    }
                                                                 });
-
                                                             </script>
                                                         </div>
 
@@ -82,13 +81,13 @@
                                                     </div>
 
                                                     <input class="tamanho" type="email" id="email" name="email" required placeholder="Digite o endereço de Email">
-                                                    
+
                                                     <div class="tamanho pass">
                                                         <input type="password" id="password" name="password" required placeholder="Password">
                                                         <input type="password" id="passConfirm" name="passConfirm" placeholder="Confirmar Password">
                                                     </div>
 
-                                                    <div class="tamanho select">                             
+                                                    <div class="tamanho select">
                                                         <div style="margin-top: 15px;">
                                                             <label class="label" for="permissionId">Nivel de Acesso:</label>
                                                             <select id="permissionId" name="permissionId">
@@ -102,46 +101,46 @@
 
                                                     <button type="button" id="registerButton">Cadastrar</button>
                                                 </form>
-                                                                <!--
+                                                <!--
                     ----------------------------------- LOGICA PARA REGISTAR DADOS DO USUARIO------------------------------------
                                                                 -->
-                                               
+
                                             </div>
 
-                                            
-                                        
+
+
                                         </div>
                                     </div>
-                                    
+
                                     <script>
                                         // Get the modal
                                         var modal = document.getElementById("myModal");
-                                        
+
                                         // Get the button that opens the modal
                                         var btn = document.getElementById("myBtn");
-                                        
+
                                         // Get the <span> element that closes the modal
                                         var span = document.getElementsByClassName("close")[0];
-                                        
+
                                         // When the user clicks the button, open the modal 
                                         btn.onclick = function() {
-                                          modal.style.display = "block";
+                                            modal.style.display = "block";
                                         }
-                                        
+
                                         // When the user clicks on <span> (x), close the modal
                                         span.onclick = function() {
-                                          modal.style.display = "none";
+                                            modal.style.display = "none";
                                         }
-                                        
+
                                         // When the user clicks anywhere outside of the modal, close it
                                         window.onclick = function(event) {
-                                          if (event.target == modal) {
-                                            modal.style.display = "none";
-                                          }
+                                            if (event.target == modal) {
+                                                modal.style.display = "none";
+                                            }
                                         }
                                     </script>
                                 </div>
-    
+
                                 <table class="userTable" border="1">
                                     <thead>
                                         <tr>
@@ -153,79 +152,14 @@
                                             <td>Função</td>
                                         </tr>
                                     </thead>
-    
-                                    <tbody id="data-table-body">
-                                        <tr>
-                                            <td>Admin</td>
-                                            <td>Eduardo</td>
-                                            <td>de Brito</td>
-                                            <td>eduardo370@outlook.pt</td>
-                                            <td>Tecnologia de Informação</td>
-                                            <td>Programador Junior</td>
-                                        </tr>
+
+                                    <tbody>
+
                                     </tbody>
                                 </table>
-
-<!--
-                    ----------------------------------- LOGICA PARA LISTAR OS USUARIOS------------------------------------
-                                                                -->
-
-                                <script>
-                                    // Função para fazer a requisição à API
-                                    function fetchData() {
-                                        // Substitua a URL abaixo pela URL da sua API
-                                    
-                                        fetch('/user?page=0&limit=25')
-                                        .then(response => response.json())
-                                        .then(data => {
-                                            // Chama a função para preencher a tabela com os dados recebidos
-                                            populateTable(data);
-                                            console.log(data);
-                                        })
-                                        .catch(error => console.error('Erro ao buscar dados da API:', error));
-                                    }
-                                        
-                                   
-
-                                    // Função para preencher a tabela com os dados
-                                    function populateTable(data) {
-                                        var tableBody = document.getElementById('data-table-body');
-
-                                        // Limpa qualquer conteúdo existente na tabela
-                                        tableBody.innerHTML = '';
-
-                                        // Itera sobre os dados e os adiciona à tabela
-                                        data.forEach(item => {
-                                            var row = tableBody.insertRow();
-                                            var cell1 = row.insertCell(0);
-                                            var cell2 = row.insertCell(1);
-                                            var cell3 = row.insertCell(2);
-                                            var cell4 = row.insertCell(3);
-                                            var cell5 = row.insertCell(4);
-                                            var cell6 = row.insertCell(5);
-                                            // Adicione mais células conforme necessário
-
-                                            cell1.textContent = item.id;
-                                            cell2.textContent = item.firstName;
-                                            cell3.textContent = item.lastName;
-                                            cell4.textContent = item.email;
-                                            cell5.textContent = item.role;
-                                            cell6.textContent = item.type;
-                                            // Preencha mais células conforme necessário
-                                        });
-                                    }
-
-                                    // Chama a função para buscar os dados quando a página carregar
-                                    fetchData();
-                                </script>
-
-
-
-
-
                             </div>
                         </div>
-                        
+
                         <div class="pagination">
                             <p>Página » </p>
                             <a href="#">1</a>

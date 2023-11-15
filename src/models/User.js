@@ -31,11 +31,10 @@ module.exports = {
                 if (!result[0]) {
                     connection.query("INSERT INTO tb_users SET ?", user, (err, result) => {
                         if (err) reject(err);
-                        console.log("Resultado no Model: ",result);
                         resolve(result);
                     });
                 } else {
-                    reject({ message: "Username already exists." });
+                    reject({ message: " Este e-mail já está registrado. Por favor, use um e-mail diferente." });
                 }
             });
         });
