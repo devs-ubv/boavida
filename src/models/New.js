@@ -29,23 +29,23 @@ module.exports = {
                         });
                       }
                 
-                      const noticia = newsMap.get(id);
+                      const allNews = newsMap.get(id);
                 
                       // Adiciona parágrafo se existir
-                      if (paragraph && !noticia.content.some(c => c.paragraph === paragraph)) {
-                        noticia.content.push({paragraph});
+                      if (paragraph && !allNews.content.some(c => c.paragraph === paragraph)) {
+                        allNews.content.push({paragraph});
                       }
                 
                       // Adiciona foto se existir
-                      if (image && !noticia.photos.some(foto => foto.image === image)) {
-                        noticia.photos.push({ image });
+                      if (image && !allNews.photos.some(foto => foto.image === image)) {
+                        allNews.photos.push({ image });
                       }
                     });
                 
                     // Converte o Map para um array de notícias
-                    const noticias = Array.from(newsMap.values());
+                    const allNewss = Array.from(newsMap.values());
         
-                resolve(Object.values(noticias));
+                resolve(Object.values(allNewss));
             });
         });
     },
@@ -55,30 +55,41 @@ module.exports = {
             const sql = `SELECT n.id, n.typeOfNew, n.title, n.datePublished, n.cover, n.createdAt, nc.paragraph, ph.image FROM tb_new as n LEFT JOIN tb_new_content as nc ON n.id = nc.newId LEFT JOIN tb_photo as ph ON n.id= ph.newId where n.id=${id}`;
             connection.query(sql, (err, result) => {
                 if (err) reject(err);
-                const news = {};
+                const newsMap = new Map();
+
                 result.forEach(row => {
-                    const { typeOfNew, title, datePublished, cover, createdAt, paragraph, image, } = row;
-                    if (!news[title]) {
-                        news[title] = {
-                            title,
-                            typeOfNew,
-                            datePublished,
-                            cover,
-                            createdAt,
-                            content: [],
-                            photos: []
-                        };
-                    }
-
-                    if (paragraph) {
-                        news[title].content.push({ paragraph });
-                    }
-
-                    if (image) {
-                        news[title].photos.push({ image });
-                    }
+                    const { id, typeOfNew, title, datePublished, cover, createdAt, paragraph, image, } = row;
+            
+                  // Se a notícia ainda não foi adicionada ao mapa, adiciona ela
+                  if (!newsMap.has(id)) {
+                    newsMap.set(id, {
+                        id,
+                        title,
+                        typeOfNew,
+                        datePublished,
+                        cover,
+                        createdAt,
+                        content: [],
+                        photos: []
+                    });
+                  }
+            
+                  const allNews = newsMap.get(id);
+            
+                  // Adiciona parágrafo se existir
+                  if (paragraph && !allNews.content.some(c => c.paragraph === paragraph)) {
+                    allNews.content.push({paragraph});
+                  }
+            
+                  // Adiciona foto se existir
+                  if (image && !allNews.photos.some(foto => foto.image === image)) {
+                    allNews.photos.push({ image });
+                  }
                 });
-                resolve(news);
+            
+                // Converte o Map para um array de notícias
+                const allNewss = Array.from(newsMap.values());
+                resolve(allNewss[0]);
             });
         });
     },
