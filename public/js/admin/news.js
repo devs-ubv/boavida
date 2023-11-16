@@ -71,7 +71,6 @@ function fetchData(){
         url: '/new?page=0&limit=150',
         method: 'GET',
         success: function(response) {
-            console.log(response);
             populateTable(response);
             
         },
@@ -83,7 +82,6 @@ function fetchData(){
     
     function populateTable(data) {
         $.each(data, function (index, item) {
-            console.log(item);
             var imageTag = item.cover? '<img src="/assets/img/news/' + item.cover + '" alt="Imagem" style="width:50px; height:50px;">':
             '<img src="/assets/img/news/new-prototype.jpg" alt="Imagem" style="width:50px; height:50px;">';
 

@@ -55,14 +55,8 @@ $(document).ready(function() {
         function populateTable(data) {
             $.each(data, function (index, item) {
                 
-
-
                 var imageTag = item.userProfile? '<img src="/assets/img/user/' + item.userProfile + '" alt="Imagem" style="width:50px; height:50px;">':
                 '<img src="/assets/img/user/profile.jpeg" alt="Imagem" style="width:50px; height:50px;">';
-
-                console.log(imageTag);
-
-
 
                 $('#userList tbody').append(
                     '<tr>' +

@@ -10,121 +10,42 @@
                     <div class="cont">
 
                         <div class="navigationTab">
-                            <a href="user">Utilizadores do Sistema</a>
-                            <a href="accesslevel">Níveis de Acesso</a>
+                            <div>
+                                <a href="user">Utilizadores do Sistema</a>
+                                <a href="accesslevel">Níveis de Acesso</a>
+                            </div>
+                            <button id="myBtn" class="btn">Criar Novo Nivel de Acesso</button>
                         </div>
-
-                        <div class="ebs details">
-                            <div class="recentOrders">
-                                <div class="cardHeader">
-                                    <h2>Niveis de Acesso</h2>
-                                    <button id="myBtn" class="btn">Criar Novo Nivel de Acesso</button>
-                                    <!-- ======= Modal para criação do usuário ======= -->
-                                    <div id="myModal" class="modal-accessLevel">
-                                        <!-- Modal content -->
-                                        <div class="modal-content-accessLevel">
-                                            <div class="modal-header">
-                                                <h2></h2>
-                                                <span class="close">&times;</span>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form action="">
-                                                    <p class="tittle">Preencha o Formulário</p>
-                                                    <input class="tamanho" type="text" placeholder="Digite o Descritivo do Nivel de Acesso">
-                                                </form>
-                                            </div>
+                        <div class="cardHeader">
+                            <div id="myModal" class="modal-accessLevel">
+                                <div class="modal-content-accessLevel">
+                                    <div class="modal-header">
+                                        <h2></h2>
+                                        <span class="close">&times;</span>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="">
+                                            <p class="tittle">Preencha o Formulário</p>
+                                            <input class="tamanho" type="text" placeholder="Digite o Descritivo do Nivel de Acesso">
                                             <div class="modal-footer">
                                                 <button>Cadastrar</button>
                                             </div>
-                                        </div>
+                                        </form>
                                     </div>
-                                    <script>
-                                        // Get the modal
-                                        var modal = document.getElementById("myModal");
-
-                                        // Get the button that opens the modal
-                                        var btn = document.getElementById("myBtn");
-
-                                        // Get the <span> element that closes the modal
-                                        var span = document.getElementsByClassName("close")[0];
-
-                                        // When the user clicks the button, open the modal 
-                                        btn.onclick = function() {
-                                            modal.style.display = "block";
-                                        }
-
-                                        // When the user clicks on <span> (x), close the modal
-                                        span.onclick = function() {
-                                            modal.style.display = "none";
-                                        }
-
-                                        // When the user clicks anywhere outside of the modal, close it
-                                        window.onclick = function(event) {
-                                            if (event.target == modal) {
-                                                modal.style.display = "none";
-                                            }
-                                        }
-                                    </script>
                                 </div>
-
-                                <table class="userTableUA">
-                                    <thead>
-                                        <tr>
-                                            <td>ID</td>
-                                            <td>Nível de Acesso</td>
-                                            <td>Acções</td>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-                                        <tr>
-                                            <td>#1</td>
-                                            <td>Super Admin</td>
-                                            <td>
-                                                <a href="#"><i class="bi bi-pencil-square"></i></a>
-                                                <a href="#"><i class="bi bi-x-circle"></i></a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>#2</td>
-                                            <td>Admin</td>
-                                            <td>
-                                                <a href=""><i class="bi bi-pencil-square"></i></a>
-                                                <a href=""><i class="bi bi-x-circle"></i></a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>#3</td>
-                                            <td>Editor</td>
-                                            <td>
-                                                <a href=""><i class="bi bi-pencil-square"></i></a>
-                                                <a href=""><i class="bi bi-x-circle"></i></a>
-                                            </td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>#4</td>
-                                            <td>Comunicador</td>
-                                            <td>
-                                                <a href=""><i class="bi bi-pencil-square"></i></a>
-                                                <a href=""><i class="bi bi-x-circle"></i></a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
                             </div>
                         </div>
-
-                        <div class="pagination">
-                            <p>Página » </p>
-                            <a href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#">4</a>
-                            <a href="#">5</a>
+                        <div class="tableAcessLevel">
+                            <h1>Níveis de Acesso Existentes</h1>
+                            <table id="acessLevel">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>NIVEL DE ACESSO</th>
+                                    <th colspan="3" style="text-align: center;">AÇÃO</th>
+                                </tr>                                        
+                            </table> 
                         </div>
+                        
                     </div>
             </div>
     </div>
