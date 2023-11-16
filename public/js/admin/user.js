@@ -37,7 +37,7 @@ $(document).ready(function() {
                 populateTable(response);
             },
             error: function(e) {
-              console.log(e.responseText);
+              $("#error").html(e.responseText);
             }
           });
         }

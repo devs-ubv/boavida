@@ -8,6 +8,7 @@ module.exports = {
             const value = req.body;
             const file = req.file;
             value.cover = file.filename;
+            
             const not = await New.add(value);
             return res.send(not);
         } catch (e) {
