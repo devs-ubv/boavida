@@ -16,120 +16,45 @@
                         <!-- ======= Modal para criação do usuário ======= -->
                         <div id="myModal" class="modal-news">
                             <!-- Modal content -->
-                            <div class="modal-content-news"> 
-
+                            <div class="modal-content-news">
                                 <div class="modal-header">
                                     <h2>Criar Nova Notícia</h2>
                                     <span class="close">&times;</span>
                                 </div>
-
                                 <div class="modal-body">
                                     <h2>Adicionar Nova Notícia</h2>
-                                    <div class="inputs">
-
+                                    <form class="inputs" id="news-form">
                                         <div class="sub-input">
-                                            <input type="Text" placeholder="Titulo da Notícia">
-                                            <input type="text" placeholder="Tipo de Notícia">
+                                            <input type="Text" name="title" placeholder="Titulo da Notícia">
+                                        </div> 
+                                        <div class="sub-input">
+                                            <input type="text" name="typeOfNew" placeholder="Tipo de Notícia">
+                                            <input type="date" name="datePublished">
                                         </div>  
                                         <!-- ======= Carregar a imagem de capa da Noticia ======= -->
-                                        <div class="newsNover">
+                                        <div class="newsCover">
                                             <label class="picture-newsCover" for="picture__input-newsCover" tabIndex="0">
                                                 <span class="picture__image-newsCover"></span>
                                             </label>
-                                            <input type="file" name="picture__input-newsCover" id="picture__input-newsCover">
-                                            <script>
-                                                const inputFileCover = document.querySelector("#picture__input-newsCover");
-                                                const pictureImageCover = document.querySelector(".picture__image-newsCover");
-                                                const pictureImageCoverTxt = "Carregar a Imagem de Capa da Notícia";
-                                                pictureImageCover.innerHTML = pictureImageCoverTxt;
-                                                inputFileCover.addEventListener("change", function (e) {
-                                                const inputTarget = e.target;
-                                                const file = inputTarget.files[0];
-                                                if (file) {
-                                                    const reader = new FileReader();
-                                                    reader.addEventListener("load", function (e) {
-                                                    const readerTarget = e.target;
-                                                    const img = document.createElement("img");
-                                                    img.src = readerTarget.result;
-                                                    img.classList.add("picture__img-newsCover");
-                                                    pictureImageCover.innerHTML = "";
-                                                    pictureImageCover.appendChild(img);
-                                                    });
-                                                    reader.readAsDataURL(file);
-                                                    console.log(file);
-                                                } else {
-                                                    pictureImageCover.innerHTML = pictureImageCoverTxt;
-                                                }
-                                                });
-
-                                            </script>
+                                            <input type="file" name="cover" id="picture__input-newsCover">
                                         </div>
                                         <!-- ======= Carregar as imagens secundarias da Noticia ======= -->
-                                        <div class="newsNover">
+                                        <div class="newsCover">
                                             <label class="picture-news" for="picture__input-news" tabIndex="0">
                                                 <span class="texto"></span>
-                                                <span class="picture__image-news">
-                                                    
-                                                </span>
+                                                <span class="picture__image-news"></span>
                                             </label>
-                                            <input type="file" name="picture__input-news" id="picture__input-news" multiple>
-                                            <script>
-                                                const inputFile = document.querySelector("#picture__input-news");
-
-                                                const pictureImage = document.querySelector(".picture__image-news");
-                                                const pictureImageTxt = "";
-                                                pictureImage.innerHTML = pictureImageTxt;
-
-                                                const pictureImageSec = document.querySelector(".texto");
-                                                const pictureImageSecTxt = "Carregar as outras imagens da Notícia";
-                                                pictureImageSec.innerHTML = pictureImageSecTxt;
-
-                                                inputFile.addEventListener("change", function (e) {
-                                                const inputTarget = e.target;
-                                                const file = inputTarget.files;
-                                                console.log(file);
-                                                for (let index = 0; index < file.length; index++) {
-                                                    const element = file[index];
-                                                    if (element) {
-                                                    const reader = new FileReader();
-                                                    reader.addEventListener("load", function (e) {
-                                                        const readerTarget = e.target;
-                                                        const img = document.createElement("img");
-                                                        const l_span = document.createElement("span");
-                                                        img.src = readerTarget.result;
-                                                        img.classList.add("picture__img-news");
-                                                        pictureImageSec.innerHTML = "";
-                                                        pictureImage.appendChild(img);
-                                                    });
-                                                    reader.readAsDataURL(element);
-                                                    console.log(element);
-                                                } else {
-                                                    pictureImage.innerHTML = pictureImageTxt;
-                                                  }
-                                                }
-                                                });
-
-                                            </script>
-                                        </div>    
-
-                                    </div>
-                                    <textarea id="meu-editor" placeholder="Type Here..."></textarea>
+                                            <input type="file" name="photos" id="picture__input-news" multiple>
+                                        </div>
+                                        
+                                    </form>
+                                    
                                 </div>
-
-                                <div class="modal-footer">
-                                    <button onclick="apresentar()">Adicionar Notícia</button>
-                                    <script>
-                                        function apresentar() {
-                                            // Obtém o conteúdo do TinyMCE
-                                            var conteudo = tinymce.get('meu-editor').getContent();
-                
-                                            // Visualiza o conteúdo (pode ser exibido em um alert, console.log, ou em algum outro elemento na página)
-                                            console.log(conteudo);
-                
-                                            // Exibe o conteúdo em algum lugar na página (por exemplo, em um elemento com o ID 'conteudo-exibido')
-                                            document.getElementById('conteudo-exibido').innerHTML = "Conteúdo do TinyMCE: " + conteudo;
-                                        }
-                                    </script>
+                                
+                                
+                                
+                                <div class="modal-footer">  
+                                    <button id="btn-register-new">Adicionar Notícia</button>
                                 </div>
                                 
                             </div>
@@ -137,105 +62,22 @@
                         <!-- ======= Apresentação das Notícias ======= -->
                         <div class="notices">
                             <div class="notice">
-                                
                                 <div class="tableNews">
+                                    <h1>Noticias Existentes</h1>
                                     <table id="newsList">
                                         <tr>
-                                            <th>Data</th>
-                                            <th>Título</th>
-                                            <th>Tipo</th>
-                                            <th>Descrição</th>
-                                            <th>Acções</th>
-                                        </tr>
-                                        <tr>
-                                            <td>Alfreds Futterkiste</td>
-                                            <td>Maria Anders</td>
-                                            <td>Germany</td>
-                                            <td>Maria Anders</td>
-                                            <td>
-                                                <i class="bi bi-box-arrow-up-right"></i>
-                                                <i class="bi bi-pencil-square"></i>
-                                                <i class="bi bi-trash3"></i>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Berglunds snabbköp</td>
-                                            <td>Christina Berglund</td>
-                                            <td>Sweden</td>
-                                            <td>Christina Berglund</td>
-                                            <td>
-                                                <i class="bi bi-box-arrow-up-right"></i>
-                                                <i class="bi bi-pencil-square"></i>
-                                                <i class="bi bi-trash3"></i>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Centro comercial Moctezuma</td>
-                                            <td>Francisco Chang</td>
-                                            <td>Mexico</td>
-                                            <td>Francisco Chang</td>
-                                            <td>
-                                                <i class="bi bi-box-arrow-up-right"></i>
-                                                <i class="bi bi-pencil-square"></i>
-                                                <i class="bi bi-trash3"></i>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ernst Handel</td>
-                                            <td>Roland Mendel</td>
-                                            <td>Austria</td>
-                                            <td>Roland Mendel</td>
-                                            <td>
-                                                <i class="bi bi-box-arrow-up-right"></i>
-                                                <i class="bi bi-pencil-square"></i>
-                                                <i class="bi bi-trash3"></i>
-                                            </td>
-                                        </tr>
+                                            <th>ID</th>
+                                            <th>CAPA</th>
+                                            <th>TITULO</th>
+                                            <th>TIPO</th>
+                                            <th>DATA DE PUBLICAÇÃO</th>
+                                            <th colspan="3" style="text-align: center;">AÇÃO</th>
+                                        </tr>                                        
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    
-
-                    <script>
-                        tinymce.init({
-                        selector: 'textarea#meu-editor',
-                        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-                        tinycomments_mode: 'embedded',
-                        tinycomments_author: 'Author name',
-                        mergetags_list: [
-                          { value: 'First.Name', title: 'Grupo BOAVIDA' },
-                          { value: 'Email', title: 'geral@grupoboavida.co.ao' },
-                        ],
-                        menubar: '', });
-
-                        // Get the modal
-                        var modal = document.getElementById("myModal");
-                        // Get the button that opens the modal
-                        var btn = document.getElementById("myBtn");
-                        // Get the <span> element that closes the modal
-                        var span = document.getElementsByClassName("close")[0];
-                        // When the user clicks the button, open the modal 
-                        btn.onclick = function() {
-                          modal.style.display = "block";
-                        }
-                        // When the user clicks on <span> (x), close the modal
-                        span.onclick = function() {
-                          modal.style.display = "none";
-                        }
-                        // When the user clicks anywhere outside of the modal, close it
-                        window.onclick = function(event) {
-                          if (event.target == modal) {
-                            modal.style.display = "none";
-                          }
-                        }
-
-                        
-                    </script>
-                    
-                      
             </div>
     </div>
 

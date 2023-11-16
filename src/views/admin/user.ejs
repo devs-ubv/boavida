@@ -10,155 +10,76 @@
                     <div class="cont">
 
                         <div class="navigationTab">
-                            <a href="user">Utilizadores do Sistema</a>
-                            <a href="accesslevel">Níveis de Acesso</a>
+                            <div>
+                                <a href="user">Utilizadores do Sistema</a>
+                                <a href="accesslevel">Níveis de Acesso</a>
+                            </div>
+                            <button id="myBtn">Adicionar Novo Usuário</button>
+                        </div>    
 
+                        <div class="cardHeader">
+                            
+                            
+                            <!-- ======= Modal para criação do usuário ======= -->
+                            <div id="myModal" class="modal-user">
+                                <!-- Modal content -->
+                                <div class="modal-content-user">
 
-                        </div>
-
-                        <div class="eb details">
-                            <div class="recentOrders">
-                                <div class="cardHeader">
-                                    <h2>Usuários Cadastrados</h2>
-                                    <button id="myBtn" class="btn">Adicionar Novo Usuário</button>
-                                    <!-- ======= Modal para criação do usuário ======= -->
-                                    <div id="myModal" class="modal-user">
-                                        <!-- Modal content -->
-                                        <div class="modal-content-user">
-
-                                            <div class="modal-header">
-                                                <h2>Cadastro de Novo Usuário</h2>
-                                                <span class="close">&times;</span>
-                                            </div>
-
-                                            <div class="modal-body">
-
-                                                <form id="registrationForm">
-
-                                                    <p class="tittle">Preencha o Formulário</p>
-                                                    <div class="registerTop">
-                                                        <div>
-                                                            <label class="picture" for="picture__input" tabIndex="0">
-                                                                <span class="picture__image"></span>
-                                                            </label>
-                                                            <input type="file" name="picture__input" id="picture__input">
-                                                            <script>
-                                                                const inputFile = document.querySelector("#picture__input");
-                                                                const pictureImage = document.querySelector(".picture__image");
-                                                                const pictureImageTxt = "Escolha uma Imagem";
-                                                                pictureImage.innerHTML = pictureImageTxt;
-
-                                                                inputFile.addEventListener("change", function(e) {
-                                                                    const inputTarget = e.target;
-                                                                    const file = inputTarget.files[0];
-
-                                                                    if (file) {
-                                                                        const reader = new FileReader();
-
-                                                                        reader.addEventListener("load", function(e) {
-                                                                            const readerTarget = e.target;
-
-                                                                            const img = document.createElement("img");
-                                                                            img.src = readerTarget.result;
-                                                                            img.classList.add("picture__img");
-
-                                                                            pictureImage.innerHTML = "";
-                                                                            pictureImage.appendChild(img);
-                                                                        });
-
-                                                                        reader.readAsDataURL(file);
-                                                                    } else {
-                                                                        pictureImage.innerHTML = pictureImageTxt;
-                                                                    }
-                                                                });
-                                                            </script>
-                                                        </div>
-
-                                                        <div class="tamanho nomes">
-                                                            <input class="input" type="text" id="firstName" name="firstName" required placeholder="Digite o Nome">
-                                                            <input class="input" type="text" id="lastName" name="lastName" required placeholder="Digite o Sobrenome">
-                                                        </div>
-                                                    </div>
-
-                                                    <input class="tamanho" type="email" id="email" name="email" required placeholder="Digite o endereço de Email">
-
-                                                    <div class="tamanho pass">
-                                                        <input type="password" id="password" name="password" required placeholder="Password">
-                                                        <input type="password" id="passConfirm" name="passConfirm" placeholder="Confirmar Password">
-                                                    </div>
-
-                                                    <div class="tamanho select">
-                                                        <div style="margin-top: 15px;">
-                                                            <label class="label" for="permissionId">Nivel de Acesso:</label>
-                                                            <select id="permissionId" name="permissionId">
-                                                                <option value="1">Super Administrador</option>
-                                                                <option value="2">Administrador</option>
-                                                                <option value="3">Editor</option>
-                                                                <option value="4">Validador</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-
-                                                    <button type="button" id="registerButton">Cadastrar</button>
-                                                </form>
-                                                <!--
-                    ----------------------------------- LOGICA PARA REGISTAR DADOS DO USUARIO------------------------------------
-                                                                -->
-
-                                            </div>
-
-
-
-                                        </div>
+                                    <div class="modal-header">
+                                        <h2>Cadastro de Novo Usuário</h2>
+                                        <span class="close" id="close">&times;</span>
                                     </div>
 
-                                    <script>
-                                        // Get the modal
-                                        var modal = document.getElementById("myModal");
-
-                                        // Get the button that opens the modal
-                                        var btn = document.getElementById("myBtn");
-
-                                        // Get the <span> element that closes the modal
-                                        var span = document.getElementsByClassName("close")[0];
-
-                                        // When the user clicks the button, open the modal 
-                                        btn.onclick = function() {
-                                            modal.style.display = "block";
-                                        }
-
-                                        // When the user clicks on <span> (x), close the modal
-                                        span.onclick = function() {
-                                            modal.style.display = "none";
-                                        }
-
-                                        // When the user clicks anywhere outside of the modal, close it
-                                        window.onclick = function(event) {
-                                            if (event.target == modal) {
-                                                modal.style.display = "none";
-                                            }
-                                        }
-                                    </script>
+                                    <div class="modal-body">
+                                        <form id="registrationForm">
+                                            <p class="tittle">Preencha o Formulário</p>
+                                            <div class="registerTop">
+                                                <div>
+                                                    <label class="picture" for="picture__input" tabIndex="0">
+                                                        <span class="picture__image"></span>
+                                                    </label>
+                                                    <input type="file" name="picture__input" id="picture__input">
+                                                </div>
+                                                <div class="tamanho nomes">
+                                                    <input class="input" type="text" id="firstName" name="firstName" required placeholder="Digite o Nome">
+                                                    <input class="input" type="text" id="lastName" name="lastName" required placeholder="Digite o Sobrenome">
+                                                </div>
+                                            </div>
+                                            <input class="tamanho" type="email" id="email" name="email" required placeholder="Digite o endereço de Email">
+                                            <div class="tamanho pass">
+                                                <input type="password" id="password" name="password" required placeholder="Password">
+                                                <input type="password" id="passConfirm" name="passConfirm" placeholder="Confirmar Password">
+                                            </div>
+                                            <div class="tamanho select">
+                                                <div style="margin-top: 15px;">
+                                                    <label class="label" for="permissionId">Nivel de Acesso:</label>
+                                                    <select id="permissionId" name="permissionId">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <button type="button" id="registerButton">Cadastrar</button>
+                                        </form>
+                                    </div>
                                 </div>
-
-                                <table class="userTable" border="1">
-                                    <thead>
-                                        <tr>
-                                            <td>Nível de Acesso</td>
-                                            <td>Nome</td>
-                                            <td>Sobrenome</td>
-                                            <td>Email</td>
-                                            <td>Departamento</td>
-                                            <td>Função</td>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-
-                                    </tbody>
-                                </table>
                             </div>
                         </div>
+
+                        <div class="userTable">
+                            <h1>Usuários Cadastrados</h1>
+                            <table id="userList">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>FOTO DE PERFIL</th>
+                                    <th>NOME</th>
+                                    <th>EMAIL</th>
+                                    <th>NÍVEL DE ACESSO</th>
+                                    <th colspan="3" style="text-align: center;">AÇÕES</th>
+                                </tr>   
+                                 
+                            </table>
+                        </div>
+
+                          
 
                         <div class="pagination">
                             <p>Página » </p>

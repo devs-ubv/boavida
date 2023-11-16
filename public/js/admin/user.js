@@ -1,4 +1,7 @@
 $(document).ready(function() {
+    
+    /* ------------------ REGISTO DE NOVO USUARIO -------------------------- */
+
     $("#registerButton").click((event) => {
         event.preventDefault();
         let dateForm = $("#registrationForm").serializeObject();
@@ -15,20 +18,27 @@ $(document).ready(function() {
         formData.append('fullName', `${dateForm?.firstName} ${dateForm?.lastName}`);       
             $.ajax({
                 url: "/register",
-                method: "post",
+                method: "POST",
                 data: formData,
                 processData: false,  // Não processar os dados
                 contentType: false,  // Não configurar automaticamente o Content-Type
                 success: function(data) {
                     console.log("Resultado no Jquery: ",data)
+                    $("#firstName").val("");
+                    $("#lastName").val("");
+                    $("#email").val("");
+                    $("#password").val("");
+                    $("#passConfirm").val("");
                 },
                 error: function(e) {
                     $("#msg").css("color", "#ff0000");
-                    $("#senha").val("");
                     $("#msg").html(e.responseText);
                 }
             });
         })
+
+        /* ------------------ LISTAGEM DE TODOS USUARIOS -------------------------- */
+        
         function fetchData(){
         $.ajax({
             url: '/user?page=0&limit=25',
@@ -41,24 +51,62 @@ $(document).ready(function() {
             }
           });
         }
+        
         function populateTable(data) {
             $.each(data, function (index, item) {
-                var imageTag = '<img src="/assets/img/user/' + item.userProfile + '" alt="Imagem" style="width:50px; height:50px;">';
-                $('.userTable tbody').append(
+                
+
+
+                var imageTag = item.userProfile? '<img src="/assets/img/user/' + item.userProfile + '" alt="Imagem" style="width:50px; height:50px;">':
+                '<img src="/assets/img/user/profile.jpeg" alt="Imagem" style="width:50px; height:50px;">';
+
+                console.log(imageTag);
+
+
+
+                $('#userList tbody').append(
                     '<tr>' +
-                    '<td>' +(index+1) + '</td>' +
-                    '<td>' +item.firstName +' '+ item.lastName + '</td>' +
-                    '<td>' +item.email + '</td>' +
-                    '<td>' +item.role + '</td>' +
-                    '<td>' +item.type + '</td>' +
-                    '<td>' + imageTag + '</td>' +
+                        '<td>' +(index+1) + '</td>' +
+                        '<td>' + imageTag + '</td>' +
+                        '<td>' +item.firstName +' '+ item.lastName + '</td>' +
+                        '<td>' +item.email + '</td>' +
+                        '<td>' +item.role + '</td>' +
+                        '<td> <a href="#"> <i class="bi bi-box-arrow-up-right"></i> </a> </td>' +
+                        '<td> <a href="#"> <i class="bi bi-pencil-square"></i> </a></td>' +
+                        '<td> <a href="#"> <i class="bi bi-trash3"></i></a> </td>' +
                     '</tr>'
                 );
             });
         }
-
         // Chama a função para buscar os dados quando a página carregar
         fetchData();
+
+
+        /* ------------------ LISTAGEM DE TODOS NIVEIS DE ACESSO NO SELECT-OPTION -------------------------- */
+
+        function fetchDataAccess(){
+            $.ajax({
+                url: '/permission?page=0&limit=15',
+                method: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    populateTableAccess(response);
+                },
+                error: function(e) {
+                  console.log(e.responseText);
+                }
+              });
+            }
+            function populateTableAccess(data) {
+                $.each(data, function (index, item) {
+                    $('#permissionId').append(
+                        '<option value="'+ item.id +'">' + item.role + '</option>'                       
+                    );
+                });
+            }
+            // Chama a função para buscar os dados quando a página carregar
+            fetchDataAccess();
+
     });
 
 
