@@ -4,7 +4,6 @@ module.exports = {
     findAll({ page = 0, limit = 1, search: text }) {
         return new Promise(async function (resolve, reject) {
             const sql = `SELECT n.id, n.typeOfNew, n.title, n.datePublished, n.cover, n.createdAt, nc.paragraph, ph.image FROM tb_new as n LEFT JOIN tb_new_content as nc ON n.id = nc.newId LEFT JOIN tb_photo as ph ON n.id= ph.newId 
-            
             ORDER BY n.createdAt DESC
     LIMIT ${limit} OFFSET ${page}`
             

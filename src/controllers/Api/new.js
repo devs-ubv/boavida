@@ -6,10 +6,11 @@ module.exports = {
     async addHandler(req, res) {
         try {
             const value = req.body;
-            const file = req.file;
-            value.cover = file.filename;
-            const not = await New.add(value);
-            return res.send(not);
+            console.log(value);
+           /* const file = req.file;
+             value.cover = file.filename;
+            const not = await New.add(value);*/
+            return res.send(value); 
         } catch (e) {
             return res.status(409).send(e.message);
         }
