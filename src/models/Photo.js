@@ -16,7 +16,7 @@ module.exports = {
             const sql = `SELECT * FROM tb_photo WHERE id=${id}`;
             connection.query(sql, (err, result) => {
                 if (err) reject(err);
-                resolve(result[0]);
+                resolve(result);
             });
         });
     },

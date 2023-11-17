@@ -7,10 +7,11 @@ module.exports = {
         try {
             const value = req.body;
             const file = req.file;
-            console.log(value, file);
-             /* value.cover = file.filename;
-            const not = await New.add(value);*/
-            return res.send(value); 
+             value.cover = file.filename;
+             value.userId = req.session?.user.id;
+            const not = await New.add(value);
+            console.log(not);
+            return res.send(not); 
         } catch (e) {
             return res.status(409).send(e.message);
         }

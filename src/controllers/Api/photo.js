@@ -6,9 +6,9 @@ module.exports = {
     async addHandler(req, res) {
         try {
             const value = req.body;
-            
             const file = req.file;
             value.image = file.filename;
+            console.log(value);
             const image = await Photo.add(value);
             return res.send(image);
         } catch (e) {
