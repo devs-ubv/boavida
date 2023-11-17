@@ -12,6 +12,7 @@ $(document).ready(function() {
             url: '/new?page=0&limit=150',
             method: 'GET',
             success: function(response) {
+                console.log(response);
                 populateTable(response);
                 
             },

@@ -71,18 +71,6 @@ $(document).ready(function() {
               .catch(error => {
                 console.error('Erro ao enviar arquivo:', error);
               });
-
-           /*  $.ajax({
-                url: "/new",
-                method: "POST",
-                data: formData,
-                success: function(data) {
-                    console.log("Sucesso, Resultado no Jquery: ",data);
-                },
-                error: function(e) {
-                    console.log("Erro ao Cadastrar");
-                }
-            }); */
             
         form_1.style.display = "none";
         form_2.style.display = "block";
