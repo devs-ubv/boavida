@@ -1,7 +1,9 @@
 $(document).ready(function() {
 
     var alertMessage = document.querySelector("#alerta");
+    var message = document.querySelector("#alerta-pass");
     alertMessage.style.display = "none";
+    message.style.display = "none";
     
     /* ------------------ REGISTO DE NOVO USUARIO -------------------------- */
 
@@ -10,19 +12,30 @@ $(document).ready(function() {
         let dateForm = $("#registrationForm").serializeObject();
         const file = $('#picture__input')[0].files[0];
 
-        if(!dateForm.firstName|| !dateForm.lastName || !dateForm.email || !dateForm.password || dateForm.permissionId ) {
+        if(dateForm.firstName=="" || dateForm.lastName=="" || dateForm.email=="" || dateForm.password=="" || dateForm.permissionId=="" || dateForm.passConfirm=="" ) {
+            
             alertMessage.style.display = "flex";
-        }else{
+            setTimeout(function() {
+                alertMessage.style.display = "none";
+            }, 4000);
+
+        }else if(dateForm.password != dateForm.passConfirm){
         
-            var formData = new FormData();
+            message.style.display = "flex";
+            setTimeout(function() {
+                message.style.display = "none";
+            }, 4000);
+                
+            }else {
+                var formData = new FormData();
         
-            formData.append('firstName', dateForm.firstName);
-            formData.append('lastName', dateForm.lastName);
-            formData.append('email', dateForm.email);
-            formData.append('password', dateForm.password);
-            formData.append('permissionId', dateForm.permissionId);
-            formData.append('userProfile', file);
-            formData.append('fullName', `${dateForm?.firstName} ${dateForm?.lastName}`);       
+                formData.append('firstName', dateForm.firstName);
+                formData.append('lastName', dateForm.lastName);
+                formData.append('email', dateForm.email);
+                formData.append('password', dateForm.password);
+                formData.append('permissionId', dateForm.permissionId);
+                formData.append('userProfile', file);
+                formData.append('fullName', `${dateForm?.firstName} ${dateForm?.lastName}`);       
                 $.ajax({
                     url: "/register",
                     method: "POST",
@@ -36,6 +49,7 @@ $(document).ready(function() {
                         $("#email").val("");
                         $("#password").val("");
                         $("#passConfirm").val("");
+                        pictureImage.innerHTML = "Escolha uma Imagem de Perfil";
                     },
                     error: function(e) {
                         $("#msg").css("color", "#ff0000");

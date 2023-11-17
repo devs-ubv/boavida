@@ -43,14 +43,14 @@
                                                     <input type="file" name="picture__input" id="picture__input">
                                                 </div>
                                                 <div class="tamanho nomes">
-                                                    <input class="input" type="text" id="firstName" name="firstName" required placeholder="Digite o Nome">
-                                                    <input class="input" type="text" id="lastName" name="lastName" required placeholder="Digite o Sobrenome">
+                                                    <input class="input" type="text" id="firstName" name="firstName" required autocomplete="off" placeholder="Digite o Primeiro Nome">
+                                                    <input class="input" type="text" id="lastName" name="lastName" required autocomplete="off" placeholder="Digite o Sobrenome">
                                                 </div>
                                             </div>
-                                            <input class="tamanho" type="email" id="email" name="email" required placeholder="Digite o endereço de Email">
+                                            <input class="tamanho" type="email" id="email" name="email" required autocomplete="off" placeholder="Digite o endereço de Email">
                                             <div class="tamanho pass">
-                                                <input type="password" id="password" name="password" required placeholder="Password">
-                                                <input type="password" id="passConfirm" name="passConfirm" placeholder="Confirmar Password">
+                                                <input type="password" id="password" name="password" required autocomplete="off" placeholder="Senha">
+                                                <input type="password" id="passConfirm" name="passConfirm" autocomplete="off" placeholder="Confirmar Senha">
                                             </div>
                                             <div class="tamanho select">
                                                 <div style="margin-top: 15px;">
@@ -63,6 +63,12 @@
                                                 <span id="alerta" style="width: 100%; margin-top: 10px; background-color: #f00; display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 10px; border-radius: 2px; padding: 15px; color: #fff;">
                                                     <i class="bi bi-exclamation-circle"></i>
                                                     <p>Por Favor preencha todos os campos</p>
+                                                </span>
+                                            </div>
+                                            <div class="tamanho">
+                                                <span id="alerta-pass" style="width: 100%; margin-top: 10px; background-color: #FFB02E; display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 10px; border-radius: 2px; padding: 15px; color: #091e3e;">
+                                                    <i class="bi bi-exclamation-circle"></i>
+                                                    <p>Por Favor verifique se as senhas coincidem</p>
                                                 </span>
                                             </div>
                                             <button type="button" id="registerButton">Cadastrar</button>
