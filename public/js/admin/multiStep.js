@@ -1,6 +1,9 @@
 $(document).ready(function() {
     /* ------------------ MULTI STEP PROGRESSIVE FORM FOR NEWS REGISTER -------------------------- */
 
+    var alertMessage = document.querySelector("#alerta");
+    alertMessage.style.display = "none";
+
     var form_1 = document.querySelector(".form_1");
     var form_2 = document.querySelector(".form_2");
 
@@ -15,6 +18,8 @@ $(document).ready(function() {
 
     var form_2_progessbar = document.querySelector(".form_2_progessbar");
     var form_3_progessbar = document.querySelector(".form_3_progessbar");
+
+    
 
     var modal_wrapper = document.querySelector(".modal_wrapper");
     var shadow = document.querySelector(".shadow");
@@ -42,7 +47,7 @@ $(document).ready(function() {
         console.log(clean(conteudoQuill));
         dataForm.content = conteudoQuill;
         if(!dataForm.title || !dataForm.typeOfNew || !dataForm.datePublished || !clean(conteudoQuill) ) {
-            return alert("Preencha todos os campos!");
+            alertMessage.style.display = "flex";
         }else{
             
             var formData = new FormData();
