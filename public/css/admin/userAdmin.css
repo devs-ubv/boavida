@@ -338,6 +338,11 @@
 #userList tr:hover {
   background-color: #091E3E;
   color: #fff;
+  cursor: pointer;
+}
+
+#userList tr:hover .bi {
+  color: #fff;
 }
 
 #userList th {
@@ -352,4 +357,14 @@
 #userList td img {
   border-radius: 50%;
   border: 2px solid #091e3e;
+}
+
+#userList td a {
+  text-decoration: none;
+  color: #091E3E;
+  font-size: 16px;
+}
+
+#userList td a i:hover {
+  color: #fff;
 }
