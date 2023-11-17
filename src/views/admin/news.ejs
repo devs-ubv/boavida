@@ -13,7 +13,7 @@
                         <button id="myBtn" class="btn">Adicionar Nova Notícia</button>
                     </div>
                     <div class="cardHeader">
-                        <!-- ======= Modal para criação do usuário ======= -->
+                    <!-- ======= Modal para criação do usuário ======= -->
                         <div id="myModal" class="modal-news">
                             <!-- Modal content -->
                             <div class="modal-content-news">
@@ -22,41 +22,88 @@
                                     <span class="close">&times;</span>
                                 </div>
                                 <div class="modal-body">
-                                    <h2>Adicionar Nova Notícia</h2>
-                                    <form class="inputs" id="news-form">
-                                        <div class="sub-input">
-                                            <input type="Text" name="title" placeholder="Titulo da Notícia">
-                                        </div> 
-                                        <div class="sub-input">
-                                            <input type="text" name="typeOfNew" placeholder="Tipo de Notícia">
-                                            <input type="date" name="datePublished">
-                                        </div>  
-                                        <!-- ======= Carregar a imagem de capa da Noticia ======= -->
-                                        <div class="newsCover">
-                                            <label class="picture-newsCover" for="picture__input-newsCover" tabIndex="0">
-                                                <span class="picture__image-newsCover"></span>
-                                            </label>
-                                            <input type="file" name="cover" id="picture__input-newsCover">
+
+                                    <div class="wrapper">
+                                        <div class="header">
+                                            <ul>
+                                                <li class="active form_1_progessbar">
+                                                    <div>
+                                                        <p>1</p>
+                                                    </div>
+                                                </li>
+                                                <li class="form_2_progessbar">
+                                                    <div>
+                                                        <p>2</p>
+                                                    </div>
+                                                </li>
+                                            </ul>
                                         </div>
-                                        <!-- ======= Carregar as imagens secundarias da Noticia ======= -->
-                                        <div class="newsCover">
-                                            <label class="picture-news" for="picture__input-news" tabIndex="0">
-                                                <span class="texto"></span>
-                                                <span class="picture__image-news"></span>
-                                            </label>
-                                            <input type="file" name="photos" id="picture__input-news" multiple>
+                                        <div class="form_wrap">
+                                            <div class="form_1 data_info">
+                                                <h2>Cadastrar Nova Notícia</h2>
+                                                <form id="news-register">
+                                                    <div class="form_container">
+                                                        <div class="input_wrap">
+                                                            <label for="title">Título da Notícia</label>
+                                                            <input type="text" name="title" class="input">
+                                                        </div>
+                                                        <div class="input_wrap">
+                                                            <label for="typeOfNew">Tipo de Notícia</label>
+                                                            <input type="text" name="typeOfNew" class="input">
+                                                        </div>
+                                                        <div class="input_wrap">
+                                                            <label for="datePublished">Data da Notícia</label>
+                                                            <input type="date" name="datePublished" class="input">
+                                                        </div>
+                                                        <div class="input_wrap newsCover">
+                                                            <label class="picture-newsCover" for="picture__input-newsCover" tabIndex="0">
+                                                                <span class="picture__image-newsCover"></span>
+                                                            </label>
+                                                            <input type="file" name="cover" id="picture__input-newsCover" class="input">
+                                                        </div>
+                                                        <div class="input_wrap">
+                                                            <div id="editor" style="height: 300px;">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="form_2 data_info" style="display: none;">
+                                                <h2>Adicione Imagens Complementares</h2>
+                                                <form>
+                                                    <div class="form_container">
+                                                        <div class="input_wrap news">
+                                                            <label class="picture-news" for="picture__input-news" tabIndex="0">
+                                                                <span class="texto"></span>
+                                                                <span class="picture__image-news"></span>
+                                                            </label>
+                                                            <input type="file" name="photos" id="picture__input-news" class="input" multiple>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
+                                        <div class="btns_wrap">
+                                            <div class="common_btns form_1_btns">
+                                                <button type="button" class="btn_next">Proximo <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
+                                            </div>
+                                            <div class="common_btns form_2_btns" style="display: none;">
+                                                <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Anterior</button>
+                                                <button type="button" class="btn_next">Concluir</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                     
-                                    </form>
+                                    <div class="modal_wrapper">
+                                        <div class="shadow"></div>
+                                        <div class="success_wrap">
+                                            <span class="modal_icon"><ion-icon name="checkmark-sharp"></ion-icon></span>
+                                            <p>A Notícia foi adicionada com sucesso.</p>
+                                        </div>
+                                    </div>
                                     
                                 </div>
-                                
-                                
-                                
-                                <div class="modal-footer">  
-                                    <button id="btn-register-new">Adicionar Notícia</button>
-                                </div>
-                                
+                                                                
                             </div>
                         </div>
                         <!-- ======= Apresentação das Notícias ======= -->

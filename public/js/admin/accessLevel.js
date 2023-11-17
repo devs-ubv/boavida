@@ -1,5 +1,26 @@
 $(document).ready(function() {
 
+    /* ------------------ REGISTO DE NOVO USUARIO -------------------------- */
+
+    $("#acessLevelBtn").click((event) => {
+        event.preventDefault();
+        let dateForm = $("#acessLevelRegister").serializeObject();
+        
+            $.ajax({
+                url: "/permission",
+                method: "POST",
+                data: dateForm,
+                success: function(data) {
+                    console.log("Resultado no Jquery: ",data)
+                    $("#role").val("");
+                },
+                error: function(e) {
+                    $("#msg").css("color", "#ff0000");
+                    $("#msg").html(e.responseText);
+                }
+            }); 
+        })
+
 /* ---------------------------- LISTAGEM DE TODAS AS NOTICIAS NOTICIA ---------------------- */
 function fetchData(){
     $.ajax({
