@@ -10,7 +10,7 @@ module.exports = {
         if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
             res.render("admin/user", { session: req.session.user });
         } else {
-            res.redirect("/login")
+            res.redirect("/login");
         }
     },
 

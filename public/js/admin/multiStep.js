@@ -140,5 +140,5 @@ $(document).ready(function() {
 
     shadow.addEventListener("click", function(){
         modal_wrapper.classList.remove("active");
-    })
+    });
 })

@@ -36,7 +36,7 @@ $(document).ready(function() {
                     '<td>' +item.datePublished + '</td>' +
                     '<td> <a href="#"> <i class="bi bi-box-arrow-up-right"></i> </a> </td>' +
                     '<td> <a href="#"> <i class="bi bi-pencil-square"></i> </a></td>' +
-                    '<td> <a href="#"> <i class="bi bi-trash3"></i></a> </td>' +
+                    '<td> <a id="delete_New" href="#"> <i class="bi bi-trash3"></i></a> </td>' +
                 '</tr>'
             );
         });
@@ -99,6 +99,18 @@ $(document).ready(function() {
         pictureImage.innerHTML = pictureImageTxt;
     }
     }
+    });
+
+//-----------------------------------------------------------------------------------------------------------------------
+//------------------------------------------- MODAL PARA DELETAR NOTICIAS------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+    
+    $("#delete_New").on("click", function () {
+        $("#modal_Delete_New").show();
+    });
+
+    $("#modal_Delete_New #close_Modal_Delete").on("click", function () {
+        $("#modal_Delete_New").hide();
     });
 
 })
