@@ -7,21 +7,21 @@
 
                 <%- include('./partials/nav'); -%>
                     <!-- ======================= conteúdo do usuario ================== -->
-                <div class="news">
-                    <div class="tittle">
-                        <h3>Adicione ou edite as notícias do site</h3>
-                        <button id="myBtn" class="btn">Adicionar Nova Notícia</button>
-                    </div>
-                    <div class="cardHeader">
-                    <!-- ======= Modal para criação do usuário ======= -->
-                        <div id="myModal" class="modal-news">
-                            <!-- Modal content -->
-                            <div class="modal-content-news">
-                                <div class="modal-header">
-                                    <h2>Criar Nova Notícia</h2>
-                                    <span class="close">&times;</span>
-                                </div>
-                                <div class="modal-body">
+                    <div class="news">
+                        <div class="tittle">
+                            <h3>Adicione ou edite as notícias do site</h3>
+                            <button id="myBtn" class="btn">Adicionar Nova Notícia</button>
+                        </div>
+                        <div class="cardHeader">
+                            <!-- ======= Modal para criação do usuário ======= -->
+                            <div id="myModal" class="modal-news">
+                                <!-- Modal content -->
+                                <div class="modal-content-news">
+                                    <div class="modal-header">
+                                        <h2>Criar Nova Notícia</h2>
+                                        <span class="close">&times;</span>
+                                    </div>
+                                    <div class="modal-body">
 
                                     <div class="wrapper">
                                         <div class="header">
@@ -57,10 +57,11 @@
                                                             <label class="picture-newsCover" for="picture__input-newsCover" tabIndex="0">
                                                                 <span class="picture__image-newsCover"></span>
                                                             </label>
-                                                            <input type="file" name="cover" id="picture__input-newsCover" class="input">
-                                                        </div>
-                                                        <div class="input_wrap">
-                                                            <div id="editor" style="height: 300px;">
+                                                                <input type="file" name="cover" id="picture__input-newsCover" class="input">
+                                                            </div>
+                                                            <div class="input_wrap">
+                                                                <div id="editor" style="height: 300px;">
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="input_wrap">
@@ -93,10 +94,21 @@
                                                                 <span class="texto"></span>
                                                                 <span class="picture__image-news"></span>
                                                             </label>
-                                                            <input type="file" name="photos" id="picture__input-news" class="input" multiple>
+                                                                <input type="file" name="photos" id="picture__input-news" class="input" multiple>
+                                                                <input type="hidden" name="newId" id="id_new">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </form>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="btns_wrap">
+                                                <div class="common_btns form_1_btns">
+                                                    <button type="button" class="btn_next">Proximo <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
+                                                </div>
+                                                <div class="common_btns form_2_btns" style="display: none;">
+                                                    <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Anterior</button>
+                                                    <button type="button" class="btn_next">Concluir</button>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="btns_wrap">
@@ -108,18 +120,10 @@
                                                 <button type="button" class="btn_next btnFinish">Concluir</button>
                                             </div>
                                         </div>
+
                                     </div>
-                                    
-                                    <div class="modal_wrapper">
-                                        <div class="shadow"></div>
-                                        <div class="success_wrap">
-                                            <span class="modal_icon"><ion-icon name="checkmark-sharp"></ion-icon></span>
-                                            <p>A Notícia foi adicionada com sucesso.</p>
-                                        </div>
-                                    </div>
-                                    
+
                                 </div>
-                                                                
                             </div>
                         </div>
                         <!-- ======= Apresentação das Notícias ======= -->
@@ -153,6 +157,5 @@
                         </div>
                     </div>
             </div>
-    </div>
 
-    <%- include('./partials/footer'); -%>
+            <%- include('./partials/footer'); -%>

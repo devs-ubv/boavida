@@ -29,11 +29,11 @@ module.exports = {
     async getNewById(req, res) {
         try {
             const id = parseInt(req.params.id);
-            const user = await New.findById(id);
-            if (!user) return res.send({
+            const newResult = await New.findById(id);
+            if (!newResult) return res.send({
                 message: "Não foi encontrado nenhuma notícia"
             });
-            return res.send(user);
+            return res.send(newResult);
         } catch (e) {
             return res.status(409).send(e.message);
         }

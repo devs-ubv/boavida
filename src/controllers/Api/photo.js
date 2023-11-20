@@ -7,8 +7,8 @@ module.exports = {
         try {
             const value = req.body;
             const file = req.file;
+            console.log(file);
             value.image = file.filename;
-            console.log(value);
             const image = await Photo.add(value);
             return res.send(image);
         } catch (e) {
