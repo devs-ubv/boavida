@@ -68,17 +68,17 @@ $(document).ready(function () {
                  <img src="/assets/img/news/${data?.cover}"/>
               <div>
               <div>
-                     <h3>${data?.title}</h3>
+                    <h3>${data?.title}</h3>
               <div>
               <div>
-                  <span>${data?.typeOfNew}</span>  <span>${data?.datePublished}</span>
+                    <span>${data?.typeOfNew}</span>  <span>${data?.datePublished}</span>
               <div>
             `
         );
        $.each(data?.content, function (index, item) {
             $('.header-new').append(
                 `
-                   <p>${item}<p/>
+                    <p>${item}<p/>
                 `
             )
         });
@@ -88,7 +88,7 @@ $(document).ready(function () {
 
                 $('.new-photos-content').append(
                     `
-                         ${imageTag}
+                        ${imageTag}
 
                     `
                 )

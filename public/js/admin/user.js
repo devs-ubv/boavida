@@ -13,18 +13,14 @@ $(document).ready(function() {
         const file = $('#picture__input')[0].files[0];
 
         if(dateForm.firstName=="" || dateForm.lastName=="" || dateForm.email=="" || dateForm.password=="" || dateForm.permissionId=="" || dateForm.passConfirm=="" ) {
-            
-            alertMessage.style.display = "flex";
-            setTimeout(function() {
-                alertMessage.style.display = "none";
-            }, 4000);
+
+            $("#alerta").delay(100).fadeIn("slow");
+            $("#alerta").delay(3000).fadeOut("slow");
 
         }else if(dateForm.password != dateForm.passConfirm){
         
-            message.style.display = "flex";
-            setTimeout(function() {
-                message.style.display = "none";
-            }, 4000);
+            $("#alerta-pass").delay(100).fadeIn("slow");
+            $("#alerta-pass").delay(3000).fadeOut("slow");
                 
             }else {
                 var formData = new FormData();
