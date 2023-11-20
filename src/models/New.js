@@ -15,11 +15,30 @@ module.exports = {
 
     findById(id) {
         return new Promise(async function (resolve, reject) {
-            const sql = `SELECT n.id, n.title, n.content, n.typeOfNew, n.datePublished, n.cover, n.createdAt, nc.paragraph, ph.image FROM tb_new as n LEFT JOIN tb_new_content as nc ON n.id = nc.newId LEFT JOIN tb_photo as ph ON n.id= ph.newId where n.id=${id}`;
-            connection.query(sql, (err, result) => {
+            const sql = `SELECT n.id, 
+            n.title, 
+            n.content, n.typeOfNew,
+            n.datePublished, 
+            n.cover, n.createdAt, 
+            ph.image 
+            FROM tb_new as n 
+            LEFT JOIN tb_photo as ph ON n.id= ph.newId where n.id=${id}`;
+            connection.query(sql, (err, results) => {
                 if (err) reject(err);
-                resolve(result);
+                const newResulted = {
+                    id: results[0].id,
+                    title: results[0].title,
+                    content: results[0].content,
+                    typeOfNew: results[0].typeOfNew,
+                    datePublished: results[0].datePublished,
+                    cover: results[0].cover,
+                    createdAt: results[0].createdAt,
+                    fotos: results.map(result => ({ image: result.image }))
+                  };
+
+                  resolve(newResulted);
             });
+           
         });
     },
     add(dataNew) {

@@ -7,125 +7,126 @@
 
                 <%- include('./partials/nav'); -%>
                     <!-- ======================= conteúdo do usuario ================== -->
-                <div class="news">
-                    <div class="tittle">
-                        <h3>Adicione ou edite as notícias do site</h3>
-                        <button id="myBtn" class="btn">Adicionar Nova Notícia</button>
-                    </div>
-                    <div class="cardHeader">
-                    <!-- ======= Modal para criação do usuário ======= -->
-                        <div id="myModal" class="modal-news">
-                            <!-- Modal content -->
-                            <div class="modal-content-news">
-                                <div class="modal-header">
-                                    <h2>Criar Nova Notícia</h2>
-                                    <span class="close">&times;</span>
-                                </div>
-                                <div class="modal-body">
+                    <div class="news">
+                        <div class="tittle">
+                            <h3>Adicione ou edite as notícias do site</h3>
+                            <button id="myBtn" class="btn">Adicionar Nova Notícia</button>
+                        </div>
+                        <div class="cardHeader">
+                            <!-- ======= Modal para criação do usuário ======= -->
+                            <div id="myModal" class="modal-news">
+                                <!-- Modal content -->
+                                <div class="modal-content-news">
+                                    <div class="modal-header">
+                                        <h2>Criar Nova Notícia</h2>
+                                        <span class="close">&times;</span>
+                                    </div>
+                                    <div class="modal-body">
 
-                                    <div class="wrapper">
-                                        <div class="header">
-                                            <ul>
-                                                <li class="active form_1_progessbar">
-                                                    <div>
-                                                        <p>1</p>
-                                                    </div>
-                                                </li>
-                                                <li class="form_2_progessbar">
-                                                    <div>
-                                                        <p>2</p>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="form_wrap">
-                                            <div class="form_1 data_info">
-                                                <h2>Cadastrar Nova Notícia</h2>
-                                                <form id="news-register">
-                                                    <div class="form_container">
-                                                        <div class="input_wrap">
-                                                            <label for="title">Título da Notícia</label>
-                                                            <input type="text" name="title" class="input">
+                                        <div class="wrapper">
+                                            <div class="header">
+                                                <ul>
+                                                    <li class="active form_1_progessbar">
+                                                        <div>
+                                                            <p>1</p>
                                                         </div>
-                                                        <div class="input_wrap">
-                                                            <label for="typeOfNew">Tipo de Notícia</label>
-                                                            <input type="text" name="typeOfNew" class="input">
+                                                    </li>
+                                                    <li class="form_2_progessbar">
+                                                        <div>
+                                                            <p>2</p>
                                                         </div>
-                                                        <div class="input_wrap">
-                                                            <label for="datePublished">Data da Notícia</label>
-                                                            <input type="date" name="datePublished" class="input">
-                                                        </div>
-                                                        <div class="input_wrap newsCover">
-                                                            <label class="picture-newsCover" for="picture__input-newsCover" tabIndex="0">
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="form_wrap">
+                                                <div class="form_1 data_info">
+                                                    <h2>Cadastrar Nova Notícia</h2>
+                                                    <form id="news-register">
+                                                        <div class="form_container">
+                                                            <div class="input_wrap">
+                                                                <label for="title">Título da Notícia</label>
+                                                                <input type="text" name="title" class="input">
+                                                            </div>
+                                                            <div class="input_wrap">
+                                                                <label for="typeOfNew">Tipo de Notícia</label>
+                                                                <input type="text" name="typeOfNew" class="input">
+                                                            </div>
+                                                            <div class="input_wrap">
+                                                                <label for="datePublished">Data da Notícia</label>
+                                                                <input type="date" name="datePublished" class="input">
+                                                            </div>
+                                                            <div class="input_wrap newsCover">
+                                                                <label class="picture-newsCover" for="picture__input-newsCover" tabIndex="0">
                                                                 <span class="picture__image-newsCover"></span>
                                                             </label>
-                                                            <input type="file" name="cover" id="picture__input-newsCover" class="input">
-                                                        </div>
-                                                        <div class="input_wrap">
-                                                            <div id="editor" style="height: 300px;">
+                                                                <input type="file" name="cover" id="picture__input-newsCover" class="input">
+                                                            </div>
+                                                            <div class="input_wrap">
+                                                                <div id="editor" style="height: 300px;">
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="form_2 data_info" style="display: none;">
-                                                <h2>Adicione Imagens Complementares</h2>
-                                                <form>
-                                                    <div class="form_container">
-                                                        <div class="input_wrap news">
-                                                            <label class="picture-news" for="picture__input-news" tabIndex="0">
+                                                    </form>
+                                                </div>
+                                                <div class="form_2 data_info" style="display: none;">
+                                                    <h2>Adicione Imagens Complementares</h2>
+                                                    <form>
+                                                        <div class="form_container">
+                                                            <div class="input_wrap news">
+                                                                <label class="picture-news" for="picture__input-news" tabIndex="0">
                                                                 <span class="texto"></span>
                                                                 <span class="picture__image-news"></span>
                                                             </label>
-                                                            <input type="file" name="photos" id="picture__input-news" class="input" multiple>
+                                                                <input type="file" name="photos" id="picture__input-news" class="input" multiple>
+                                                                <input type="hidden" name="newId" id="id_new">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </form>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                            <div class="btns_wrap">
+                                                <div class="common_btns form_1_btns">
+                                                    <button type="button" class="btn_next">Proximo <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
+                                                </div>
+                                                <div class="common_btns form_2_btns" style="display: none;">
+                                                    <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Anterior</button>
+                                                    <button type="button" class="btn_next">Concluir</button>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="btns_wrap">
-                                            <div class="common_btns form_1_btns">
-                                                <button type="button" class="btn_next">Proximo <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
-                                            </div>
-                                            <div class="common_btns form_2_btns" style="display: none;">
-                                                <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Anterior</button>
-                                                <button type="button" class="btn_next">Concluir</button>
+
+                                        <div class="modal_wrapper">
+                                            <div class="shadow"></div>
+                                            <div class="success_wrap">
+                                                <span class="modal_icon"><ion-icon name="checkmark-sharp"></ion-icon></span>
+                                                <p>A Notícia foi adicionada com sucesso.</p>
                                             </div>
                                         </div>
+
                                     </div>
-                                    
-                                    <div class="modal_wrapper">
-                                        <div class="shadow"></div>
-                                        <div class="success_wrap">
-                                            <span class="modal_icon"><ion-icon name="checkmark-sharp"></ion-icon></span>
-                                            <p>A Notícia foi adicionada com sucesso.</p>
-                                        </div>
-                                    </div>
-                                    
+
                                 </div>
-                                                                
                             </div>
-                        </div>
-                        <!-- ======= Apresentação das Notícias ======= -->
-                        <div class="notices">
-                            <div class="notice">
-                                <div class="tableNews">
-                                    <h1>Noticias Existentes</h1>
-                                    <table id="newsList">
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>CAPA</th>
-                                            <th>TITULO</th>
-                                            <th>TIPO</th>
-                                            <th>DATA DE PUBLICAÇÃO</th>
-                                            <th colspan="3" style="text-align: center;">AÇÃO</th>
-                                        </tr>                                        
-                                    </table>
+                            <!-- ======= Apresentação das Notícias ======= -->
+                            <div class="notices">
+                                <div class="notice">
+                                    <div class="tableNews">
+                                        <h1>Noticias Existentes</h1>
+                                        <table id="newsList">
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>CAPA</th>
+                                                <th>TITULO</th>
+                                                <th>TIPO</th>
+                                                <th>DATA DE PUBLICAÇÃO</th>
+                                                <th colspan="3" style="text-align: center;">AÇÃO</th>
+                                            </tr>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
             </div>
-    </div>
 
-    <%- include('./partials/footer'); -%>
+            <%- include('./partials/footer'); -%>

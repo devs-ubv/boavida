@@ -20,6 +20,7 @@ module.exports = {
     fileFilter: (req, file, cb) => {
         const formato= [
             "image/jpeg",
+            "image/jpg",
             "image/pjpeg",
             "image/png",
             "image/gif",

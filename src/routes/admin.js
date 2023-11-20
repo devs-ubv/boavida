@@ -10,6 +10,7 @@ adminRouter.get("/dashboard/accesslevel", userController.accessLevel);
 
 //------------------------news //--------------------------
 adminRouter.get("/dashboard/news", pageController.new);
+adminRouter.get("/dashboard/news/:id", pageController.newId)
 
 //------------------------login //-------------------------
 adminRouter.get("/login", userController.loginPage);
