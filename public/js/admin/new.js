@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
     /* ---------------------------- INICIALIZAÇÃO DA DIV DO EDITOR DE TEXTO ---------------------- */
+        
     var quill = new Quill('#editor', {
         theme: 'snow'
     });
@@ -14,7 +15,6 @@ $(document).ready(function() {
             success: function(response) {
                 console.log(response);
                 populateTable(response);
-                
             },
             error: function(e) {
             console.log(e.responseText);

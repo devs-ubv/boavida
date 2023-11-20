@@ -44,16 +44,14 @@
                                                 <form id="news-register">
                                                     <div class="form_container">
                                                         <div class="input_wrap">
-                                                            <label for="title">Título da Notícia</label>
-                                                            <input type="text" name="title" class="input">
+                                                            <input type="text" name="title" class="input" placeholder="Título da Notícia">
                                                         </div>
-                                                        <div class="input_wrap">
-                                                            <label for="typeOfNew">Tipo de Notícia</label>
-                                                            <input type="text" name="typeOfNew" class="input">
-                                                        </div>
-                                                        <div class="input_wrap">
-                                                            <label for="datePublished">Data da Notícia</label>
+                                                        <div class="input_wrap" style="display: flex; flex-direction: row; gap: 20px;">
+                                                            <input type="text" name="typeOfNew" class="input" placeholder="Tipo de Notícia">
                                                             <input type="date" name="datePublished" class="input">
+                                                        </div>
+                                                        <div class="input_wrap">
+                                                           
                                                         </div>
                                                         <div class="input_wrap newsCover">
                                                             <label class="picture-newsCover" for="picture__input-newsCover" tabIndex="0">
@@ -66,7 +64,19 @@
                                                             </div>
                                                         </div>
                                                         <div class="input_wrap">
-                                                            <span id="alerta" style="width: 100%; background-color: #f00; display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 10px; border-radius: 2px; padding: 15px; color: #fff;">
+                                                            <span 
+                                                                id="alerta" 
+                                                                style="
+                                                                    width: 100%; 
+                                                                    background-color: #f00; 
+                                                                    display: flex; 
+                                                                    flex-direction: row; 
+                                                                    justify-content: center;    
+                                                                    align-items: center; 
+                                                                    border-radius: 2px; 
+                                                                    padding: 15px; 
+                                                                    gap: 10px; 
+                                                                    color: #fff;">
                                                                 <i class="bi bi-exclamation-circle"></i>
                                                                 <p>Por Favor preencha todos os campos</p>
                                                             </span>
@@ -95,7 +105,7 @@
                                             </div>
                                             <div class="common_btns form_2_btns" style="display: none;">
                                                 <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Anterior</button>
-                                                <button type="button" class="btn_next">Concluir</button>
+                                                <button type="button" class="btn_next btnFinish">Concluir</button>
                                             </div>
                                         </div>
                                     </div>

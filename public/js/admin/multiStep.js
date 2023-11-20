@@ -48,6 +48,9 @@ $(document).ready(function() {
         dataForm.content = conteudoQuill;
         if(!dataForm.title || !dataForm.typeOfNew || !dataForm.datePublished || !clean(conteudoQuill) ) {
             alertMessage.style.display = "flex";
+            setTimeout(function() {
+                alertMessage.style.display = "none";
+            }, 4000);
         }else{
             
             var formData = new FormData();
@@ -96,6 +99,38 @@ $(document).ready(function() {
     });
 
     form_2_next_btn.addEventListener("click", function(e){
+        
+        $("#btnFinish").on("click", function() {
+            // Obter o elemento de input de arquivo
+            var input = document.getElementById('picture__input-news');
+            
+            // Iterar sobre os arquivos selecionados e enviar cada um para a API
+            for (var i = 0; i < input.files.length; i++) {
+              var arquivoAtual = input.files[i];
+    
+              // Criar um objeto FormData
+              var formData = new FormData();
+              formData.append('image', arquivoAtual);
+              formData.append('newId', 8);
+    
+              // Fazer a requisição AJAX usando jQuery
+              $.ajax({
+                url: '/upload',
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(data) {
+                  console.log('Imagem enviada com sucesso:', data);
+                },
+                error: function(error) {
+                  console.error('Erro ao enviar imagem:', error);
+                }
+              });
+            }
+          });
+        
+        
         
         modal_wrapper.classList.add("active");
 
