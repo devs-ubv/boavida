@@ -14,7 +14,6 @@ class Tabelas {
         const sql = 'CREATE TABLE IF NOT EXISTS tb_permissions(id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, level INT NOT NULL, role VARCHAR(100)  NULL, type VARCHAR(150) NOT NULL, createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP);'
         this.conexao.query(sql, erro => {
             if (erro) {
-                console.log(erro)
             } else {
                 console.log('Tabela nivelacesso criada com sucesso')
             }

@@ -10,7 +10,6 @@ module.exports = {
              value.cover = file.filename;
              value.userId = req.session?.user.id;
             const not = await New.add(value);
-            console.log(not);
             return res.send(not); 
         } catch (e) {
             return res.status(409).send(e.message);

@@ -2,6 +2,7 @@ const { hash } = require("bcrypt");
 const User = require("../../models/User");
 const path = require('path');
 const fs = require('fs');
+const { connetFirstNameAndLastName } = require("../../utils/function");
 
 module.exports = {
     async addHandler(req, res) {
@@ -10,10 +11,13 @@ module.exports = {
             const file = req.file;
             const passwordHashed = await hash(value.password, 8);
             value.password = passwordHashed;
-            value.userProfile = file.filename;
+            value.userProfile = file?.filename;
+            value.userName = connetFirstNameAndLastName(value.fullName);
+            console.log(value.userName);
             const user = await User.add(value);
             return res.send(user);
         } catch (e) {
+            console.log(e);
             return res.status(409).send(e.message);
         }
 
@@ -66,9 +70,7 @@ module.exports = {
     async deleteHanlerFile(req, res) {
         try {
             const filename = req.params.filename;
-            console.log(filename);
             const filepath = path.resolve(__dirname, '..', '..', 'public', 'img', 'user', filename);
-            console.log(filename);
 
             fs.unlink(filepath, function (err) {
                 if (err) {

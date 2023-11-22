@@ -6,7 +6,7 @@ $(document).ready(function() {
             $(".error-message").css({
                 display: 'block'
             });
-            $(".error-message").text("Erro, Contém campos por preencher. Por favor preencha todos os campos");
+            $(".error-message").text("Oops! Parece que alguns campos não foram preenchidos. Por favor, preencha todos os campos para continuar.");
         } else {
             $(".error-message").css({
                 display: 'none'
@@ -20,9 +20,8 @@ $(document).ready(function() {
                     if (data.auth) return window.location.href = "/dashboard";
                 },
                 error: function(e) {
-                    $("#msg").css("color", "#ff0000");
-                    $("#senha").val("");
-                    $("#msg").html(e.responseText);
+                    showErrorMessage(e);
+                    $("#password").val("");
                 }
             });
 
@@ -44,3 +43,10 @@ $(document).ready(function() {
           });
     })
 });
+
+function ErrorMessage(responseText){
+    if (responseText && responseText.error) {
+        console.log(responseText);
+        return responseText.error;
+    }
+}

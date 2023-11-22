@@ -41,7 +41,7 @@ $(document).ready(function() {
         
         function fetchData(){
         $.ajax({
-            url: '/user?page=0&limit=25',
+            url: '/user?page=0&limit=15',
             method: 'GET',
             success: function(response) {
                 populateTable(response);

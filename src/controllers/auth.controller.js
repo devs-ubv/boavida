@@ -10,11 +10,11 @@ module.exports = {
             if (!user)
                 return res
                     .status(404)
-                    .send({ error: "Username or password not found" });
+                    .send({ error: "Usuário ou senha incorretos. Por favor, verifique suas credenciais e tente novamente." });
             const passwordMatch = await compare(password, user.password);
 
             if (!passwordMatch) {
-                return res.status(404).send({ error: "User or Password incorrect" });
+                return res.status(404).send({ error: "Usuário ou senha incorretos. Por favor, verifique suas credenciais e tente novamente." });
             }
             const session = {
                 id: user.id,
