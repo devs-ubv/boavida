@@ -42,7 +42,6 @@ $(document).ready(function () {
         var conteudoQuill = quill.root.innerHTML;
         let dataForm = $("#news-register").serializeObject();
         const cover = $('#picture__input-newsCover')[0].files[0];
-        console.log(clean(conteudoQuill));
         dataForm.content = conteudoQuill;
         if (dataForm.title == "" || dataForm.typeOfNew == "" || dataForm.datePublished == "" ) {
             

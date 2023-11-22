@@ -7,7 +7,6 @@ module.exports = {
                 limit && page ?
                 `SELECT * FROM tb_permissions ORDER BY id LIMIT ${limit} OFFSET ${page};` :
                 `SELECT * FROM tb_permissions`;
-            console.log(sql);
             connection.query(sql, (err, result) => {
                 if (err) reject(err.message);
                 resolve(result);
@@ -29,7 +28,6 @@ module.exports = {
         return new Promise(async function(resolve, reject) {
             connection.query(sql, permission, (err, result) => {
                 if (err) reject(err);
-                console.log(err);
                 resolve(result[0]);
             });
         });

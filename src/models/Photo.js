@@ -22,17 +22,14 @@ module.exports = {
     },
     add(dataPhoto) {
         return new Promise(async function(resolve, reject) {
-            console.log(dataPhoto);
             const sql = `SELECT * FROM tb_photo WHERE image='${dataPhoto.image}'`;
-            connection.query(sql, (err, result) => {
-                console.log(err);
+            connection.query(sql, (err, result) => {;
                 if (err) reject(err);
                 
                 if (!result[0]) {
                     const sql = "INSERT INTO tb_photo SET ?";
                     connection.query(sql, dataPhoto, (err, result) => {
                         if (err) reject(err);
-                        console.log(err);
                         resolve(result[0]);
                     });
                 } else {

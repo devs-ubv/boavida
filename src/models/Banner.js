@@ -6,7 +6,6 @@ module.exports = {
             const sql = `SELECT b.id, b.type, b.banner, b.title, b.description, b.createdAt, u.fullName FROM tb_banner as b join tb_users as u on b.userId= u.id LIMIT ${limit} OFFSET ${page}`
             connection.query(sql, (err, result) => {
                 if (err) reject(err.message);
-                console.log(result);
                 resolve(result);
             });
         });
@@ -26,12 +25,10 @@ module.exports = {
             const sql = `SELECT * FROM tb_banner WHERE title='${banner.title}'`;
             connection.query(sql, (err, result) => {
                 if (err) reject(err);
-                console.log(err);
                 if (!result[0]) {
                     const sql = "INSERT INTO tb_banner SET ?";
                     connection.query(sql, banner, (err, result) => {
                         if (err) reject(err);
-                        console.log(banner);
                         resolve(result);
                     });
                 } else {

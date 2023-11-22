@@ -7,7 +7,7 @@ module.exports = {
         try {
             const value = req.body;
             const file = req.file;
-            console.log(file);
+     
             value.image = file.filename;
             const image = await Photo.add(value);
             return res.send(image);
@@ -59,7 +59,6 @@ module.exports = {
     async deleteHanlerFile(req, res) {
         try {
             const filename = req.params.filename;
-            console.log(filename);
             const filepath = path.resolve(__dirname, '..', '..', 'public', 'img', 'news-images', filename);
             fs.unlink(filepath, function (err) {
                 if (err) {

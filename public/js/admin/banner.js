@@ -6,9 +6,7 @@ $(document).ready(function () {
             url: '/banner?page=0&limit=25',
             method: 'GET',
             success: function (response) {
-                console.log(response);
                 populateTable(response);
-
             },
             error: function (e) {
                 console.log(e.responseText);
