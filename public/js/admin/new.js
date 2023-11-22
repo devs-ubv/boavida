@@ -88,7 +88,8 @@ $(document).ready(function () {
         });
     }
     function populateNew(data) {
-        $('#image-content').append(
+        console.log(data.cover);
+        $('.news-header').append(
             `
             <div class="header_new">
                 <div class="cover_new">
@@ -96,7 +97,7 @@ $(document).ready(function () {
                 </div>
                 <div class="topo">
                     <div class="type_data">
-                        <span>${data?.typeOfNew}</span>  
+                        <span>${data?.typeOfNew} - </span>  
                         <span>${data?.datePublished}</span>
                     </div>
                     <h1>${data?.title}</h1>
@@ -104,9 +105,11 @@ $(document).ready(function () {
                 </div>
                 
             `
+            
         );
+        
        $.each(data?.content, function (index, item) {
-            $('.header-new').append(
+            $('.news-header').append(
                 `  
                 <div class="paragraphs">
                     <p>${item}<p/>
@@ -115,8 +118,8 @@ $(document).ready(function () {
             )
         });
         $.each(data?.fotos, function (index, item) {
-            var imageTag = item.image ? '<img src="/assets/img/news-images/' + item.image + '" alt="Imagem" style="width:300px; height:200px;">' :
-                '<img src="/assets/img/news/new-prototype.jpg" alt="Imagem" style="width:300px; height:200px;">';
+            var imageTag = item.image ? '<img src="/assets/img/news-images/' + item.image + '" alt="Imagem"> ' :
+                '<img src="/assets/img/news/new-prototype.jpg" alt="Imagem">';
 
                 $('.new-photos-content').append(
                     `
