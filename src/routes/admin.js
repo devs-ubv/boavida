@@ -8,6 +8,10 @@ adminRouter.get("/dashboard", pageController.indexPage);
 adminRouter.get("/dashboard/user", userController.userPage);
 adminRouter.get("/dashboard/accesslevel", userController.accessLevel);
 
+//------------------------banner //--------------------------
+adminRouter.get("/dashboard/banner", userController.bannerPage);
+adminRouter.get("/dashboard/banner/:id", userController.bannerPage);
+
 //------------------------news //--------------------------
 adminRouter.get("/dashboard/news/:page/:id", pageController.new);
 adminRouter.get("/dashboard/news/:id", pageController.newId); 

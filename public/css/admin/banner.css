@@ -1,0 +1,66 @@
+/* Estilização da Tabela de usuarios */
+
+.bannerTable {
+    padding: 30px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0px 0px 41px -30px rgba(0, 0, 0, 1);
+    -webkit-box-shadow: 0px 0px 41px -30px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 0px 41px -30px rgba(0, 0, 0, 1);
+    border-radius: 20px;
+}
+
+.bannerTable h1 {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+#banner-list {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#banner-list td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#banner-list tr:hover {
+    background-color: #091E3E;
+    color: #fff;
+    cursor: pointer;
+}
+
+#banner-list tr:hover .bi {
+    color: #fff;
+}
+
+#banner-list th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #fff;
+    color: #091e3e;
+}
+
+#banner-list td img {
+    border-radius: 50%;
+    border: 2px solid #091e3e;
+}
+
+#banner-list td a {
+    text-decoration: none;
+    color: #091E3E;
+    font-size: 16px;
+}
+
+#banner-list td a i:hover {
+    color: #fff;
+}

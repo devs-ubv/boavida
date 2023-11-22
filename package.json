@@ -7,9 +7,10 @@
         "start": "node index",
         "dev": "nodemon src/index.ts",
         "test": "jest",
-        "vercel-build": "echo hello"
+        "build:css": "postcss ./public/styles.css -o public/css/styles.css"
     },
     "dependencies": {
+        "autoprefixer": "^10.4.16",
         "bcrypt": "^5.1.1",
         "body-parser": "^1.20.2",
         "cors": "^2.8.5",
@@ -19,9 +20,11 @@
         "express-session": "^1.17.3",
         "multer": "^1.4.5-lts.1",
         "mysql": "^2.18.1",
-        "nodemon": "^3.0.1"
+        "nodemon": "^3.0.1",
+        "postcss-cli": "^10.1.0"
     },
     "devDependencies": {
-        "eslint": "^8.53.0"
+        "eslint": "^8.53.0",
+        "tailwindcss": "^3.3.5"
     }
 }

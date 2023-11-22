@@ -4,7 +4,7 @@ const plRouter = require("../routes/pages");
 const adminRouter = require("../routes/admin");
 const authRouter = require("../routes/auth");
 const newRouter = require("../routes/new");
-const contentRouter = require("../routes/content");
+const bannerRouter = require("../routes/banner");
 
 
 
@@ -17,5 +17,5 @@ module.exports = {
     adminRouter,
     authRouter,
     newRouter,
-    contentRouter
+    bannerRouter
 }

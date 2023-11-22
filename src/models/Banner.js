@@ -3,7 +3,7 @@ const connection = require('../database/connection')
 module.exports = {
     findAll({ page = 0, limit = 1, search: text }) {
         return new Promise(async function(resolve, reject) {
-            const sql = `select nc.id, nc.newId, nc.paragraph, n.title, nc.createdAt from tb_new_content as nc INNER JOIN tb_new as n on nc.newId = n.id  LIMIT ${limit} OFFSET ${page}`
+            const sql = `SELECT b.id, b.type, b.banner, b.title, b.description, b.createdAt, u.fullName FROM tb_banner as b join tb_users as u on b.userId= u.id LIMIT ${limit} OFFSET ${page}`
             connection.query(sql, (err, result) => {
                 if (err) reject(err.message);
                 console.log(result);
@@ -14,34 +14,34 @@ module.exports = {
 
     findById(id) {
         return new Promise(async function(resolve, reject) {
-            const sql = `SELECT * FROM tb_new_content WHERE id=${id}`;
+            const sql = `SELECT * FROM tb_banner WHERE id=${id}`;
             connection.query(sql, (err, result) => {
                 if (err) reject(err);
                 resolve(result[0]);
             });
         });
     },
-    add(content) {
+    add(banner) {
         return new Promise(async function(resolve, reject) {
-            console.log(content);
-            const sql = `SELECT * FROM tb_new_content WHERE paragraph='${content.paragraph}'`;
+            const sql = `SELECT * FROM tb_banner WHERE title='${banner.title}'`;
             connection.query(sql, (err, result) => {
                 if (err) reject(err);
+                console.log(err);
                 if (!result[0]) {
-                    const sql = "INSERT INTO tb_new_content SET ?";
-                    connection.query(sql, content, (err, result) => {
+                    const sql = "INSERT INTO tb_banner SET ?";
+                    connection.query(sql, banner, (err, result) => {
                         if (err) reject(err);
-                        console.log(err);
-                        resolve(result[0]);
+                        console.log(banner);
+                        resolve(result);
                     });
                 } else {
-                    reject({ message: "A notícia que desejas cadastrar já existe. Por favor verifica o titulo." });
+                    reject({ message: "O banner que desejas cadastrar já existe. Por favor verifica o titulo." });
                 }
             });
         });
     },
     update(id, values) {
-        const sql = "UPDATE tb_new_content SET ? WHERE id=?";
+        const sql = "UPDATE tb_banner SET ? WHERE id=?";
         return new Promise(async function(resolve, reject) {
             connection.query(sql, [values, id], (err, result) => {
                 if (err) {
@@ -53,7 +53,7 @@ module.exports = {
         });
     },
     delete(id) {
-        const sql = "DELETE FROM tb_new_content WHERE id=?";
+        const sql = "DELETE FROM tb_banner WHERE id=?";
         return new Promise(async function(resolve, reject) {
             connection.query(sql, id, (erro, result) => {
                 if (erro) {

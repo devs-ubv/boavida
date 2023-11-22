@@ -88,7 +88,7 @@ $(document).ready(function () {
         });
     }
     function populateNew(data) {
-        $('.header-new').append(
+        $('#image-content').append(
             `
             <div class="header_new">
                 <div class="cover_new">
