@@ -14,6 +14,15 @@ module.exports = {
         }
     },
 
+    bannerPage(req, res) {
+        
+        if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
+            res.render("admin/banner", { session: req.session.user });
+        } else {
+            res.redirect("/login")
+        }
+    },
+
     loginPage(req, res) {
         res.render("admin/login");
     },

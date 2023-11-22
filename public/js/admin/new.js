@@ -62,33 +62,36 @@ $(document).ready(function () {
         });
     }
     function populateNew(data) {
-        $('.header-new').append(
+        $('#image-content').append(
             `
-            <div>
-                 <img src="/assets/img/news/${data?.cover}"/>
-              <div>
-              <div>
-                     <h3>${data?.title}</h3>
-              <div>
-              <div>
-                  <span>${data?.typeOfNew}</span>  <span>${data?.datePublished}</span>
-              <div>
+                <div>
+                    <img src="/assets/img/news/${data?.cover}"/>
+                </div>
+                <div>
+                        <h3>${data?.title}</h3>
+                </div>
+                <div>
+                    <span>${data?.typeOfNew}</span>  <span>${data?.datePublished}</span>
+                </div>
+            
             `
         );
        $.each(data?.content, function (index, item) {
-            $('.header-new').append(
+            $('#image-content').append(
                 `
                    <p>${item}<p/>
                 `
             )
         });
         $.each(data?.fotos, function (index, item) {
-            var imageTag = item.image ? '<img src="/assets/img/news-images/' + item.image + '" alt="Imagem" style="width:300px; height:200px;">' :
+            var imageTag = item.image ? '<img  src="/assets/img/news-images/' + item.image + '" alt="Imagem" style="width:300px; height:200px;">' :
                 '<img src="/assets/img/news/new-prototype.jpg" alt="Imagem" style="width:50px; height:50px;">';
 
                 $('.new-photos-content').append(
                     `
+                         <div class="shadow-2xl">
                          ${imageTag}
+                         </div>
 
                     `
                 )

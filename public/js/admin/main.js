@@ -19,3 +19,8 @@ toggle.onclick = function () {
   navigation.classList.toggle("active");
   main.classList.toggle("active");
 };
+
+
+function simplifyDate(date){
+  return date.split('T')[0];
+}
