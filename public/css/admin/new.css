@@ -1,15 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-
 .header-new {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     gap: 20px;
     width: 100%;
     padding: 10px;
 }
 
 .news-header {
-    width: 800px;
+    width: 700px;
     display: flex;
     gap: 10px;
     flex-direction: column;
@@ -38,7 +37,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 5px;
+    gap: 15px;
     width: 300px;
 }
 
