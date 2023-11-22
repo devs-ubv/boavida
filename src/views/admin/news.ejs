@@ -14,122 +14,17 @@
                         </div>
                         <div class="cardHeader">
                             <!-- ======= Modal para criação do usuário ======= -->
-                            <div id="myModal" class="modal-news">
-                                <!-- Modal content -->
-                                <div class="modal-content-news">
-                                    <div class="modal-header">
-                                        <h2>Criar Nova Notícia</h2>
-                                        <span class="close">&times;</span>
-                                    </div>
-                                    <div class="modal-body">
-
-                                    <div class="wrapper">
-                                        <div class="header">
-                                            <ul>
-                                                <li class="active form_1_progessbar">
-                                                    <div>
-                                                        <p>1</p>
-                                                    </div>
-                                                </li>
-                                                <li class="form_2_progessbar">
-                                                    <div>
-                                                        <p>2</p>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="form_wrap">
-                                            <div class="form_1 data_info">
-                                                <h2>Cadastrar Nova Notícia</h2>
-                                                <form id="news-register">
-                                                    <div class="form_container">
-                                                        <div class="input_wrap">
-                                                            <input type="text" name="title" class="input" placeholder="Título da Notícia">
-                                                        </div>
-                                                        <div class="input_wrap" style="display: flex; flex-direction: row; gap: 20px;">
-                                                            <input type="text" name="typeOfNew" class="input" placeholder="Tipo de Notícia">
-                                                            <input type="date" name="datePublished" class="input">
-                                                        </div>
-                                                        <div class="input_wrap">
-                                                           
-                                                        </div>
-                                                        <div class="input_wrap newsCover">
-                                                            <label class="picture-newsCover" for="picture__input-newsCover" tabIndex="0">
-                                                                <span class="picture__image-newsCover"></span>
-                                                            </label>
-                                                                <input type="file" name="cover" id="picture__input-newsCover" class="input">
-                                                            </div>
-                                                            <div class="input_wrap">
-                                                                <div id="editor" style="height: 300px;">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="input_wrap">
-                                                            <span 
-                                                                id="alerta" 
-                                                                style="
-                                                                    width: 100%; 
-                                                                    background-color: #f00; 
-                                                                    display: flex; 
-                                                                    flex-direction: row; 
-                                                                    justify-content: center;    
-                                                                    align-items: center; 
-                                                                    border-radius: 2px; 
-                                                                    padding: 15px; 
-                                                                    gap: 10px; 
-                                                                    color: #fff;">
-                                                                <i class="bi bi-exclamation-circle"></i>
-                                                                <p>Por Favor preencha todos os campos</p>
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="form_2 data_info" style="display: none;">
-                                                <h2>Adicione Imagens Complementares</h2>
-                                                <form>
-                                                    <div class="form_container">
-                                                        <div class="input_wrap news">
-                                                            <label class="picture-news" for="picture__input-news" tabIndex="0">
-                                                                <span class="texto"></span>
-                                                                <span class="picture__image-news"></span>
-                                                            </label>
-                                                                <input type="file" name="photos" id="picture__input-news" class="input" multiple>
-                                                                <input type="hidden" name="newId" id="id_new">
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                <div class="tamanho">
-                                                    <span id="alerta" style="width: 100%; margin-top: 10px; background-color: #f00; display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 10px; border-radius: 2px; padding: 15px; color: #fff;">
-                                                        <i class="bi bi-exclamation-circle"></i>
-                                                        <p>Por Favor preencha todos os campos</p>
-                                                    </span>
-                                                </div>
-                                                <div class="btns_wrap">
-                                                    <div class="common_btns form_1_btns">
-                                                        <button type="button" class="btn_next">Proximo <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
-                                                    </div>
-                                                    <div class="common_btns form_2_btns" style="display: none;">
-                                                        <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Anterior</button>
-                                                        <button type="button" class="btn_next">Concluir</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-
-                                </div>
+                            <%- include('./partials/components/modal-cadastro'); -%>
                             </div>
                         </div>
                         <!-- ======= Apresentação das Notícias ======= -->
+                        <% if(params.page == "listar") { %>
                         <div class="notices">
                             <div class="notice">
                                 <div class="tableNews">
                                     <h1>Noticias Existentes</h1>
                                     <table id="newsList">
-                                        <tr>
+                                        <tr id="my-delete">
                                             <th>ID</th>
                                             <th>CAPA</th>
                                             <th>TITULO</th>
@@ -138,20 +33,14 @@
                                             <th colspan="3" style="text-align: center;">AÇÃO</th>
                                         </tr>                                        
                                     </table>
-                                    <div class="modal_Delete_New">
-                                        <div class="shadow_Delete_New"></div>
-                                        <div class="success_wrap_Delete_New">
-                                            <span class="modal_icon_Delete_New"><ion-icon name="alert"></ion-icon></span>
-                                            <p>Tem a certeza que pretende remover a notícia?</p>
-                                            <div>
-                                                <span><a id="" href="#">Sim! Remover</a></span>
-                                                <span><a id="close_Modal_Delete" href="#">Não!</a></span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
+                        <% } %>
+                        <% if(params.page == "deletar" && params.id) { %>
+                            <%- include('./partials/components/modal-delete'); -%>
+                        <% } %>
                     </div>
             </div>
 

@@ -1,9 +1,4 @@
 $(document).ready(function() {
-
-    var alertMessage = document.querySelector("#alerta");
-    var message = document.querySelector("#alerta-pass");
-    alertMessage.style.display = "none";
-    message.style.display = "none";
     
     /* ------------------ REGISTO DE NOVO USUARIO -------------------------- */
 
@@ -12,15 +7,15 @@ $(document).ready(function() {
         let dateForm = $("#registrationForm").serializeObject();
         const file = $('#picture__input')[0].files[0];
 
-        if(dateForm.firstName=="" || dateForm.lastName=="" || dateForm.email=="" || dateForm.password=="" || dateForm.permissionId=="" || dateForm.passConfirm=="" ) {
+        if(dateForm.firstName=="" || dateForm.lastName=="" || dateForm.email=="" || dateForm.password=="" || dateForm.passConfirm=="" ) {
 
-            $("#alerta").delay(100).fadeIn("slow");
-            $("#alerta").delay(3000).fadeOut("slow");
+            $("#message").delay(100).fadeIn("slow");
+            $("#message").delay(3000).fadeOut("slow");
 
         }else if(dateForm.password != dateForm.passConfirm){
         
-            $("#alerta-pass").delay(100).fadeIn("slow");
-            $("#alerta-pass").delay(3000).fadeOut("slow");
+            $("#message2").delay(100).fadeIn("slow");
+            $("#message2").delay(3000).fadeOut("slow");
                 
             }else {
                 var formData = new FormData();

@@ -51,16 +51,6 @@ class Tabelas {
             }
         })
     }
-    createTableNew_content() {
-        const sql = 'CREATE TABLE IF NOT EXISTS tb_new_content(id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, paragraph VARCHAR(50) NULL, newId INT NOT NULL, createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, foreign key (newId) references tb_new(id));'
-        this.conexao.query(sql, erro => {
-            if (erro) {
-                console.log(erro)
-            } else {
-                console.log('Tabela conteúdo criada com sucesso')
-            }
-        })
-    }
     createTablePhoto() {
         const sql = 'CREATE TABLE IF NOT EXISTS tb_photo(id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, image VARCHAR(50) NULL, description VARCHAR(5) NULL, newId INT NOT NULL,  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, foreign key (newId) references tb_new(id));'
         this.conexao.query(sql, erro => {

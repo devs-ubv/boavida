@@ -37,15 +37,18 @@ $(document).ready(function () {
     }
     form_1_next_btn.addEventListener("click",   function (event) {
 
-        //OBTER O CONTEUDO DO EDITOR DE TEXTO
+         //OBTER O CONTEUDO DO EDITOR DE TEXTO
         var quill = new Quill('#editor');
         var conteudoQuill = quill.root.innerHTML;
         let dataForm = $("#news-register").serializeObject();
         const cover = $('#picture__input-newsCover')[0].files[0];
         console.log(clean(conteudoQuill));
         dataForm.content = conteudoQuill;
-        if (!dataForm.title || !dataForm.typeOfNew || !dataForm.datePublished || !clean(conteudoQuill)) {
-            return alert("Preencha todos os campos!");
+        if (dataForm.title == "" || dataForm.typeOfNew == "" || dataForm.datePublished == "" ) {
+            
+            $("#message").delay(100).fadeIn("slow");
+            $("#message").delay(3000).fadeOut("slow");
+
         } else {
 
             var formData = new FormData();
@@ -56,18 +59,18 @@ $(document).ready(function () {
             formData.append('cover', cover);
             formData.append('content', dataForm.content);
 
-             fetch('/new', {
-                 method: 'POST',
-                 body: formData
-               })
-               .then(response => response.json())
-               .then(data => {
-                localStorage.setItem("idNew", data.insertId)
-                //if (data) return window.location.href = `/dashboard/news/${data.insertId}`;
-               })
-               .catch(error => {
-                 console.error('Erro ao enviar arquivo:', error);
-               });
+            fetch('/new', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+               localStorage.setItem("idNew", data.insertId)
+               //if (data) return window.location.href = `/dashboard/news/${data.insertId}`;
+            })
+            .catch(error => {
+                   console.error('Erro ao enviar arquivo:', error);
+            });
 
             form_1.style.display = "none";
             form_2.style.display = "block";
@@ -143,6 +146,13 @@ $(document).ready(function () {
 
     shadow.addEventListener("click", function () {
         modal_wrapper.classList.remove("active");
+    })
+
+// Get the button that opens the modal
+
+    $("#delete-new").click((event) => {
+        event.preventDefault();
+        console.log("ola")
     })
 
 
