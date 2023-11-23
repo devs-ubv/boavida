@@ -1,6 +1,75 @@
 $(document).ready(function () {
-    /* ------------------LISTAGEM DE TODAS AS NOTICIAS ---------------------- */
 
+    /* ------------------INPUT DE CARREGAMENTO DO BANNER---------------------- */
+
+    const inputFileCover = document.querySelector("#picture-input-banner");
+    const pictureImageCover = document.querySelector(".picture-image-banner");
+    const pictureImageBannerTxt = "Carregar a Imagem do Banner";
+    pictureImageCover.innerHTML = pictureImageBannerTxt;
+    inputFileCover.addEventListener("change", function (e) {
+        const inputTarget = e.target;
+        const file = inputTarget.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.addEventListener("load", function (e) {
+                const readerTarget = e.target;
+                const img = document.createElement("img");
+                img.src = readerTarget.result;
+                img.classList.add("picture__img-newsCover");
+                pictureImageCover.innerHTML = "";
+                pictureImageCover.appendChild(img);
+            });
+            reader.readAsDataURL(file);
+        } else {
+            pictureImageCover.innerHTML = pictureImageBannerTxt;
+        }
+    });
+
+
+    /* ------------------CADASTRO DE BANNER ---------------------- */
+
+    $("#register-banner").click((event) => {
+        event.preventDefault();
+        let dateForm = $("#banner-register").serializeObject();
+        const file = $('#picture-input-banner')[0].files[0];
+
+        if(dateForm.title=="" || dateForm.type=="" ) {
+
+            $("#message").delay(100).fadeIn("slow");
+            $("#message").delay(3000).fadeOut("slow");
+
+        }else {
+                var formData = new FormData();
+        
+                formData.append('title', dateForm.title);
+                formData.append('type', dateForm.type);
+                formData.append('userId', 4);
+                formData.append('banner', file);       
+                $.ajax({
+                    url: "/banner",
+                    method: "POST",
+                    data: formData,
+                    processData: false,  // Não processar os dados
+                    contentType: false,  // Não configurar automaticamente o Content-Type
+                    success: function(data) {
+                        console.log("Resultado no Jquery: ",data);
+                        $("#success").delay(100).fadeIn("slow");
+                        $("#success").delay(3000).fadeOut("slow");
+                        $(".title").val("");
+                        $(".type").val("");
+                        pictureImageCover.innerHTML = "Carregar a Imagem do Banner";
+                        $("#myModal").hide();
+                        location.reload();
+                    },
+                    error: function(e) {
+                        $("#msg").css("color", "#ff0000");
+                        $("#msg").html(e.responseText);
+                    }
+                });
+            }
+        })
+
+    /* ------------------LISTAGEM DE TODAS OS BANNER ---------------------- */
     function fetchData() {
         $.ajax({
             url: '/banner?page=0&limit=25',

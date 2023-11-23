@@ -144,7 +144,10 @@ $(document).ready(function () {
 
                 $('.new-photos-content').append(
                     `
+                    <div class="footer-photo-new">
                         ${imageTag}
+                        <span><a><i class="bi bi-trash"></i>Eliminar esta imagem</a></span>
+                    </div>
 
                     `
                 )
