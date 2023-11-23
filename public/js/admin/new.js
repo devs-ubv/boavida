@@ -16,63 +16,15 @@ $(document).ready(function () {
                 populateTable(response);
             },
             error: function (e) {
-                console.log(e.responseText);
+                console.log(e.responseText) 
             }
         });
     }
-    
-    function listOneNew (idNew) {
-        $.ajax({
-           url: `/new/${idNew}`,
-            method: 'GET',
-            success: function (response) {
-                const content= contentData(response.content);
-                delete response.content;
-                const newData = {
-                  content: content,
-                  ...response
-                }
-                console.log(newData);
-                populateNew(newData);
-
-            },
-            error: function (e) {
-                console.log(e.responseText);
-            } 
-        });
-    }
-
-    $(document).ready(function () {
-        $("#eliminar").click(function () {
-            var idNewDelete = $(this).data('content');
-            deletarNoticia(idNewDelete);
-            console.log("ID: ",idNewDelete);
-        });
-    });
-    
-    
-
-    function deletarNoticia(idNew) {
-        
-        $.ajax({
-            url: `/new/${idNew}`,
-             method: 'DELETE',
-             success: function (response) {
-                console.log("Deletar Noticia Resposta: ",response);
-             },
-             error: function (e) {
-                 console.log(e.responseText);
-             } 
-         });
-    }
-    
-    
 
     function populateTable(data) {
         $.each(data, function (index, item) {
             var imageTag = item.cover ? '<img src="/assets/img/news/' + item.cover + '" alt="Imagem" style="width:50px; height:50px;">' :
                 '<img src="/assets/img/news/new-prototype.jpg" alt="Imagem" style="width:50px; height:50px;">';
-
             $('#newsList tbody').append(
                 `<tr id="delete-new">
                     <td> ${(index + 1)} </td>
@@ -87,6 +39,31 @@ $(document).ready(function () {
             );
         });
     }
+
+    fetchData();
+
+    /* ------------------LISTAGEM DE UMA NOTICIA ---------------------- */
+    
+    function listOneNew (idNew) {
+        $.ajax({
+           url: `/new/${idNew}`,
+            method: 'GET',
+            success: function (response) {
+                const content= contentData(response.content);
+                delete response.content;
+                const newData = {
+                  content: content,
+                  ...response
+                }
+                console.log(newData);
+                populateNew(newData);
+            },
+            error: function (e) {
+                console.log(e.responseText);
+            } 
+        });
+    }
+
     function populateNew(data) {
         console.log(data.cover);
         $('.news-header').append(
@@ -103,9 +80,7 @@ $(document).ready(function () {
                     <h1>${data?.title}</h1>
                     </div>
                 </div>
-                
             `
-            
         );
         
        $.each(data?.content, function (index, item) {
@@ -124,11 +99,33 @@ $(document).ready(function () {
                 $('.new-photos-content').append(
                     `
                         ${imageTag}
-
                     `
                 )
         }); 
     }
+
+    $("#eliminar").click(function () {
+        var idNewDelete = $(this).data('content');
+        deletarNoticia(idNewDelete);
+        console.log("ID: ",idNewDelete);
+    });
+
+    function deletarNoticia(idNew) {
+        
+        $.ajax({
+            url: `/new/${idNew}`,
+             method: 'DELETE',
+             success: function (response) {
+                console.log("Deletar Noticia Resposta: ",response);
+             },
+             error: function (e) {
+                 console.log(e.responseText);
+             } 
+         });
+    } 
+
+    
+    
     function contentData(data) {
         let parser = new DOMParser();
         let doc = parser.parseFromString(data, 'text/html');
@@ -136,7 +133,7 @@ $(document).ready(function () {
         return Array.from(paragraphs).map(paragraph => paragraph.textContent);
     }
     // Chama a função para buscar os dados quando a página carregar
-    fetchData();
+    
     var idNewList = $('#id-new').data('content');
     
     
@@ -205,36 +202,35 @@ $(document).ready(function () {
         }
     });
 
-//-----------------------------------------------------------------------------------------------------------------------
-//------------------------------------------- MODAL PARA DELETAR NOTICIAS------------------------------------------------
-//-----------------------------------------------------------------------------------------------------------------------
+    //-----------------------------------------------------------------------------------------------------------------------
+    //------------------------------------------- MODAL PARA DELETAR NOTICIAS------------------------------------------------
+    //-----------------------------------------------------------------------------------------------------------------------
     
-// Get the modal
-var modal = document.getElementById("myModalDelete");
+    // Get the modal
+    var modal = document.getElementById("myModalDelete");
 
-// Get the button that opens the modal
-var btn = document.getElementById("my-delete");
+    // Get the button that opens the modal
+    var btn = document.getElementById("my-delete");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-    alert("Modal Aberto");
-    modal.style.display = "block";
-}
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
         modal.style.display = "none";
     }
-}
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 
 
 });

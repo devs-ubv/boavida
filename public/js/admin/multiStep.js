@@ -147,12 +147,4 @@ $(document).ready(function () {
         modal_wrapper.classList.remove("active");
     })
 
-// Get the button that opens the modal
-
-    $("#delete-new").click((event) => {
-        event.preventDefault();
-        console.log("ola")
-    })
-
-
 })
