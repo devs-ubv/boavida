@@ -84,19 +84,5 @@ module.exports = {
         });
     },
 
-
-
-    getAllContent(idNew) {
-        const sql = `SELECT * FROM tb_new_content WHERE idNew=${idNew}`;
-        return new Promise(async function (resolve, reject) {
-            connection.query(sql, (erro, result) => {
-                if (erro) {
-                    reject(erro);
-                } else {
-                    resolve({ id, result });
-                }
-            });
-        });
-    }
 }
 

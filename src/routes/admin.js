@@ -13,8 +13,9 @@ adminRouter.get("/dashboard/banner", userController.bannerPage);
 adminRouter.get("/dashboard/banner/:id", userController.bannerPage);
 
 //------------------------news //--------------------------
-adminRouter.get("/dashboard/news", pageController.new);
-adminRouter.get("/dashboard/news/:id", pageController.newId)
+adminRouter.get("/dashboard/news/:page/:id", pageController.new);
+adminRouter.get("/dashboard/news/:id", pageController.newId); 
+
 
 //------------------------login //-------------------------
 adminRouter.get("/login", userController.loginPage);

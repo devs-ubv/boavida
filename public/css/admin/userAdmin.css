@@ -393,7 +393,23 @@
     font-size: 16px;
 }
 
-#userList td a i:hover,
-#user-list-admin td a i:hover {
+#userList td a i:hover {
     color: #fff;
+}
+
+#message,
+#message2 {
+    display: none;
+    width: 100%;
+}
+
+#message_Content {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFB02E;
+    padding: 15px;
+    margin-top: 10px;
 }

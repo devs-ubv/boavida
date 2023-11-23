@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
     /* ---------------------------- INICIALIZAÇÃO DA DIV DO EDITOR DE TEXTO ---------------------- */
+        
     var quill = new Quill('#editor', {
         theme: 'snow'
     });
@@ -13,7 +14,6 @@ $(document).ready(function () {
             method: 'GET',
             success: function (response) {
                 populateTable(response);
-
             },
             error: function (e) {
                 console.log(e.responseText);
@@ -42,21 +42,47 @@ $(document).ready(function () {
         });
     }
 
+    $(document).ready(function () {
+        $("#eliminar").click(function () {
+            var idNewDelete = $(this).data('content');
+            deletarNoticia(idNewDelete);
+            console.log("ID: ",idNewDelete);
+        });
+    });
+    
+    
+
+    function deletarNoticia(idNew) {
+        
+        $.ajax({
+            url: `/new/${idNew}`,
+             method: 'DELETE',
+             success: function (response) {
+                console.log("Deletar Noticia Resposta: ",response);
+             },
+             error: function (e) {
+                 console.log(e.responseText);
+             } 
+         });
+    }
+    
+    
+
     function populateTable(data) {
         $.each(data, function (index, item) {
             var imageTag = item.cover ? '<img src="/assets/img/news/' + item.cover + '" alt="Imagem" style="width:50px; height:50px;">' :
                 '<img src="/assets/img/news/new-prototype.jpg" alt="Imagem" style="width:50px; height:50px;">';
 
             $('#newsList tbody').append(
-                `<tr>
+                `<tr id="delete-new">
                     <td> ${(index + 1)} </td>
                     <td> ${imageTag}</td> +
                     <td> ${item.title} </td> +
                     <td> ${item.typeOfNew}</td> +
                     <td> ${item.datePublished} </td> +
                     <td> <a href='/dashboard/news/${item.id}'> <i class="bi bi-box-arrow-up-right"></i> </a> </td> +
-                    <td> <a href="#"> <i class="bi bi-pencil-square"></i> </a></td> +
-                    <td> <a href=""> <i class="bi bi-trash3"></i></a> </td> +
+                    <td> <a href='/dashboard/news/editar/${item.id}'> <i class="bi bi-pencil-square"></i> </a></td> +
+                    <td> <a href='/dashboard/news/deletar/${item.id}'> <i class="bi bi-trash3"></i></a> </td> +
                 </tr>`
             );
         });
@@ -84,36 +110,42 @@ $(document).ready(function () {
     }
 
     function populateNew(data) {
-        $('#image-content').append(
+        console.log(data.cover);
+        $('.news-header').append(
             `
-                <div>
+            <div class="header_new">
+                <div class="cover_new">
                     <img src="/assets/img/news/${data?.cover}"/>
                 </div>
-                <div>
-                        <h3>${data?.title}</h3>
+                <div class="topo">
+                    <div class="type_data">
+                        <span>${data?.typeOfNew} - </span>  
+                        <span>${data?.datePublished}</span>
+                    </div>
+                    <h1>${data?.title}</h1>
+                    </div>
                 </div>
-                <div>
-                    <span>${data?.typeOfNew}</span>  <span>${data?.datePublished}</span>
-                </div>
-            
+                
             `
+            
         );
+        
        $.each(data?.content, function (index, item) {
-            $('#image-content').append(
-                `
-                   <p>${item}<p/>
+            $('.news-header').append(
+                `  
+                <div class="paragraphs">
+                    <p>${item}<p/>
+                </div> 
                 `
             )
         });
         $.each(data?.fotos, function (index, item) {
-            var imageTag = item.image ? '<img  src="/assets/img/news-images/' + item.image + '" alt="Imagem" style="width:300px; height:200px;">' :
-                '<img src="/assets/img/news/new-prototype.jpg" alt="Imagem" style="width:50px; height:50px;">';
+            var imageTag = item.image ? '<img src="/assets/img/news-images/' + item.image + '" alt="Imagem"> ' :
+                '<img src="/assets/img/news/new-prototype.jpg" alt="Imagem">';
 
                 $('.new-photos-content').append(
                     `
-                         <div class="shadow-2xl">
-                         ${imageTag}
-                         </div>
+                        ${imageTag}
 
                     `
                 )
@@ -128,11 +160,15 @@ $(document).ready(function () {
     }
     // Chama a função para buscar os dados quando a página carregar
     fetchData();
-    var idNew = $('#id-new').data('content');
-    if(idNew){
-        listOneNew(idNew);
+    var idNewList = $('#id-new').data('content');
+    
+    
+    if(idNewList){
+        listOneNew(idNewList);
     }
-   
+    
+
+
 
 
     /* ---------------------------- IMPUT PARA CARREGAR A IMAGEM DE CAPA DA NOTICIA ---------------------- */
@@ -182,6 +218,7 @@ $(document).ready(function () {
                     img.src = readerTarget.result;
                     img.classList.add("picture__img-news");
                     pictureImageSec.innerHTML = "";
+                    pictureImageSec.style.backgroundColor = "coral"
                     pictureImage.appendChild(img);
                 });
                 reader.readAsDataURL(element);
@@ -191,6 +228,36 @@ $(document).ready(function () {
         }
     });
 
-})
+//-----------------------------------------------------------------------------------------------------------------------
+//------------------------------------------- MODAL PARA DELETAR NOTICIAS------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+    
+// Get the modal
+var modal = document.getElementById("myModalDelete");
+
+// Get the button that opens the modal
+var btn = document.getElementById("my-delete");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    alert("Modal Aberto");
+    modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 
 
+});

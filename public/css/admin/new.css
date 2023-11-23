@@ -1,0 +1,43 @@
+.header-new {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    padding: 10px;
+}
+
+.news-header {
+    width: 700px;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    font-family: Poppins;
+}
+
+.news-header .type_data {
+    display: flex;
+    justify-content: start;
+    gap: 3px;
+    font-size: 16px;
+    color: #646464;
+    font-weight: 500;
+    font-family: Poppins;
+    margin-top: 10px;
+}
+
+.news-header .topo h1 {
+    font-size: 32px;
+    font-weight: 500;
+    color: #091e3e;
+}
+
+.new-photos-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    width: 300px;
+}
+
