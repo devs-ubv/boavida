@@ -27,11 +27,12 @@ module.exports = {
     async getBannerById(req, res) {
         try {
             const id = parseInt(req.params.id);
+           
             const banner = await Banner.findById(id);
             if (!banner) return res.send({
                 message: "Não foi encontrado nenhuma banner"
             });
-            return res.send(user);
+            return res.send(banner);
         } catch (e) {
             return res.status(409).send(e.message);
         }

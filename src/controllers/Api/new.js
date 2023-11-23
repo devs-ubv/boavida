@@ -32,6 +32,7 @@ module.exports = {
             if (!newResult) return res.send({
                 message: "Não foi encontrado nenhuma notícia"
             });
+          
             return res.send(newResult);
         } catch (e) {
             return res.status(409).send(e.message);

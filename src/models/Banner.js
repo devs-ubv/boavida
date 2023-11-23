@@ -16,6 +16,7 @@ module.exports = {
             const sql = `SELECT * FROM tb_banner WHERE id=${id}`;
             connection.query(sql, (err, result) => {
                 if (err) reject(err);
+                console.log(result);
                 resolve(result[0]);
             });
         });

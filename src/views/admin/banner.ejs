@@ -21,7 +21,7 @@
                                     <!-- ======= Modal para criação do usuário ======= -->
                                     <div id="myModal" class="modal-user">
                                         <!-- Modal content -->
-                                        <div class="modal-content-user">
+                                        <div class="modal-content-user ">
 
                                             <div class="modal-header">
                                                 <h2>Cadastro de Novo um novo banner</h2>
@@ -29,78 +29,94 @@
                                             </div>
 
                                             <div class="modal-body">
-                                                <form id="registrationForm">
-                                                    <p class="tittle">Preencha o Formulário</p>
-                                                    <div class="registerTop">
-                                                        <div>
-                                                            <label class="picture" for="picture__input" tabIndex="0">
-                                                        <span class="picture__image"></span>
-                                                    </label>
-                                                            <input type="file" name="picture__input" id="picture__input">
+                                                <form id="news-register">
+
+                                                    <div class="w-full flex flex-col">
+                                                        <div class="w-full">
+                                                            <input type="text" name="title" class="input w-full" placeholder="Título da Notícia">
                                                         </div>
-                                                        <div class="tamanho nomes">
-                                                            <input class="input" type="text" id="firstName" name="firstName" required placeholder="Digite o Nome">
-                                                            <input class="input" type="text" id="lastName" name="lastName" required placeholder="Digite o Sobrenome">
+                                                        <div class="w-full">
+                                                            <input type="text" name="typeOfNew" class="input w-full" placeholder="Tipo de Notícia">
                                                         </div>
                                                     </div>
-                                                    <input class="tamanho" type="email" id="email" name="email" required placeholder="Digite o endereço de Email">
-                                                    <div class="tamanho pass">
-                                                        <input type="password" id="password" name="password" required placeholder="Password">
-                                                        <input type="password" id="passConfirm" name="passConfirm" placeholder="Confirmar Password">
+                                                    <div class="input_wrap newsCover">
+                                                        <label class="picture-newsCover" for="picture__input-newsCover" tabIndex="0">
+                                                                <span class="picture__image-newsCover"></span>
+                                                            </label>
+                                                        <input type="file" name="cover" id="picture__input-newsCover" class="input">
                                                     </div>
-                                                    <div class="tamanho select">
-                                                        <div style="margin-top: 15px;">
-                                                            <label class="label" for="permissionId">Nivel de Acesso:</label>
-                                                            <select id="permissionId" name="permissionId">
-                                                    </select>
-                                                        </div>
+                                                    <div class="input_wrap">
+                                                        <span id="alerta" style="
+                                                                    width: 100%; 
+                                                                    background-color: #f00; 
+                                                                    display: flex; 
+                                                                    flex-direction: row; 
+                                                                    justify-content: center;    
+                                                                    align-items: center; 
+                                                                    border-radius: 2px; 
+                                                                    padding: 15px; 
+                                                                    gap: 10px; 
+                                                                    color: #fff;">
+                                                                <i class="bi bi-exclamation-circle"></i>
+                                                                <p>Por Favor preencha todos os campos</p>
+                                                            </span>
                                                     </div>
-                                                    <button type="button" id="registerButton">Cadastrar</button>
-                                                </form>
                                             </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
-
-                                <% if(bannerId){%>
-                                    exibir dados do banner
-
-                                    <% } else{  %>
-
-                                        <div class="bannerTable">
-                                            <h1>Listagem dos banner cadastrados</h1>
-                                            <table id="banner-list">
-                                                <thead>
-                                                    <tr>
-                                                        <th>ID</th>
-                                                        <th>Banner</th>
-                                                        <th>Titulo</th>
-                                                        <th>Tipo do banner</th>
-                                                        <th>Inserido por:</th>
-                                                        <th>Data de cadastro</th>
-                                                        <th colspan="3" style="text-align: center;">AÇÕES</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                </tbody>
-                                            </table>
-
-                                        </div>
-
-
-
-                                        <div class="pagination">
-                                            <p>Página » </p>
-                                            <a href="#">1</a>
-                                            <a href="#">2</a>
-                                            <a href="#">3</a>
-                                            <a href="#">4</a>
-                                            <a href="#">5</a>
-                                        </div>
-                                        <% } %>
                     </div>
+
+                    <% if(bannerId){%>
+                        <div class="cardHeader">
+                            <!-- ======= Apresentação das Notícias ======= -->
+                            <div class="notices">
+                                <div class="notice" id="id-banner" data-content="<%=bannerId %>"></div>
+                                <div class="flex justify-center align-center">
+                                    <div class="header-new">
+                                        <div class="news-header"></div>
+                                        <div class="new-photos-content"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } else{  %>
+
+                            <div class="bannerTable">
+                                <h1>Listagem dos banner cadastrados</h1>
+                                <table id="banner-list">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Banner</th>
+                                            <th>Titulo</th>
+                                            <th>Tipo do banner</th>
+                                            <th>Inserido por:</th>
+                                            <th>Data de cadastro</th>
+                                            <th colspan="3" style="text-align: center;">AÇÕES</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+
+
+                            <div class="pagination">
+                                <p>Página » </p>
+                                <a href="#">1</a>
+                                <a href="#">2</a>
+                                <a href="#">3</a>
+                                <a href="#">4</a>
+                                <a href="#">5</a>
+                            </div>
+                            <% } %>
             </div>
+    </div>
     </div>
 
     <%- include('./partials/footer'); -%>

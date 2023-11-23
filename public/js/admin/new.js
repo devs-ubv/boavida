@@ -44,7 +44,6 @@ $(document).ready(function () {
 
     $(document).ready(function () {
         $("#eliminar").click(function () {
-            var idNewDelete = $(this).data('content');
             deletarNoticia(idNewDelete);
             console.log("ID: ",idNewDelete);
         });

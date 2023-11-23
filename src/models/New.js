@@ -25,6 +25,7 @@ module.exports = {
             LEFT JOIN tb_photo as ph ON n.id= ph.newId where n.id=${id}`;
             connection.query(sql, (err, results) => {
                 if (err) reject(err);
+               if(results.length > 0){
                 const newResulted = {
                     id: results[0].id,
                     title: results[0].title,
@@ -35,8 +36,11 @@ module.exports = {
                     createdAt: results[0].createdAt,
                     fotos: results.map(result => ({ image: result.image }))
                   };
-
                   resolve(newResulted);
+               }else{
+                reject({ message: "Não foi encontrado nenhuma notícia." });
+               }
+                
             });
            
         });
