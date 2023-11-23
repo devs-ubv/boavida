@@ -43,7 +43,7 @@ module.exports = {
                     auth: req.session.autorizado
                 });
 
-            } else if (req.session.autorizado && req.session.user.type == 'assistant') {
+            } else if (req.session.autorizado && req.session.user.type == 'assistent') {
                 return res.send({
                     auth: req.session.autorizado
                 });

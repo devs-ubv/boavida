@@ -14,54 +14,58 @@
                                 <a href="user">Utilizadores do Sistema</a>
                                 <% if(session.type == "admin"){%>
                                     <a href="accesslevel">Níveis de Acesso</a>
-                                <%} %>
+                                    <a href="user">Gestão de usuários</a>
+                                    <%} %>
                             </div>
-                            <button id="myBtn">Adicionar Novo Usuário</button>
-                        </div>    
+                            <% if(session.type == "admin"){%>
+                                <button id="myBtn">Adicionar Novo Usuário</button>
+                                <%} %>
+                        </div>
 
                         <div class="cardHeader">
-                            
-                            
+
+
                             <!-- ======= Modal para criação do usuário ======= -->
                             <div id="myModal" class="modal-user">
                                 <!-- Modal content -->
                                 <div class="modal-content-user">
+                                    <% if(session.type == "admin"){%>
+                                        <div class="modal-header">
+                                            <h2>Cadastro de Novo Usuário</h2>
+                                            <span class="close" id="close">&times;</span>
+                                        </div>
+                                        <%} %>
 
-                                    <div class="modal-header">
-                                        <h2>Cadastro de Novo Usuário</h2>
-                                        <span class="close" id="close">&times;</span>
-                                    </div>
-
-                                    <div class="modal-body">
-                                        <form id="registrationForm">
-                                            <p class="tittle">Preencha o Formulário</p>
-                                            <div class="registerTop">
-                                                <div>
-                                                    <label class="picture" for="picture__input" tabIndex="0">
+                                            <div class="modal-body">
+                                                <form id="registrationForm">
+                                                    <p class="tittle">Preencha o Formulário</p>
+                                                    <div class="registerTop">
+                                                        <div>
+                                                            <label class="picture" for="picture__input" tabIndex="0">
                                                         <span class="picture__image"></span>
                                                     </label>
-                                                    <input type="file" name="picture__input" id="picture__input">
-                                                </div>
-                                                <div class="tamanho nomes">
-                                                    <input class="input" type="text" id="firstName" name="firstName" required placeholder="Digite o Nome">
-                                                    <input class="input" type="text" id="lastName" name="lastName" required placeholder="Digite o Sobrenome">
-                                                </div>
-                                            </div>
-                                            <input class="tamanho" type="email" id="email" name="email" required placeholder="Digite o endereço de Email">
-                                            <div class="tamanho pass">
-                                                <input type="password" id="password" name="password" required placeholder="Password">
-                                                <input type="password" id="passConfirm" name="passConfirm" placeholder="Confirmar Password">
-                                            </div>
-                                            <div class="tamanho select">
-                                                <div style="margin-top: 15px;">
-                                                    <label class="label" for="permissionId">Nivel de Acesso:</label>
-                                                    <select id="permissionId" name="permissionId">
+                                                            <input type="file" name="picture__input" id="picture__input">
+                                                        </div>
+                                                        <div class="tamanho nomes">
+                                                            <input class="input" type="text" id="firstName" name="firstName" required placeholder="Digite o Nome">
+                                                            <input class="input" type="text" id="lastName" name="lastName" required placeholder="Digite o Sobrenome">
+                                                        </div>
+                                                    </div>
+                                                    <input class="tamanho" type="email" id="email" name="email" required placeholder="Digite o endereço de Email">
+                                                    <div class="tamanho pass">
+                                                        <input type="password" id="password" name="password" required placeholder="Password">
+                                                        <input type="password" id="passConfirm" name="passConfirm" placeholder="Confirmar Password">
+                                                    </div>
+                                                    <div class="tamanho select">
+                                                        <div style="margin-top: 15px;">
+                                                            <label class="label" for="permissionId">Nivel de Acesso:</label>
+                                                            <select id="permissionId" name="permissionId">
                                                     </select>
-                                                </div>
+                                                        </div>
+                                                    </div>
+                                                    <button type="button" id="registerButton">Cadastrar</button>
+                                                </form>
                                             </div>
-                                            <button type="button" id="registerButton">Cadastrar</button>
-                                        </form>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -75,22 +79,37 @@
                                     <th>NOME</th>
                                     <th>EMAIL</th>
                                     <th>NÍVEL DE ACESSO</th>
-                                    <th colspan="3" style="text-align: center;">AÇÕES</th>
-                                </tr>   
-                                 
+                                </tr>
+
                             </table>
                         </div>
 
-                          
+                        <% if(session.type == "admin"){%>
+                            <div class="userTable">
+                                <h1>Usuários Cadastrados</h1>
+                                <table id="user-list-admin">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>FOTO DE PERFIL</th>
+                                        <th>NOME</th>
+                                        <th>EMAIL</th>
+                                        <th>NÍVEL DE ACESSO</th>
+                                        <th colspan="3" style="text-align: center;">AÇÕES</th>
+                                    </tr>
 
-                        <div class="pagination">
-                            <p>Página » </p>
-                            <a href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#">4</a>
-                            <a href="#">5</a>
-                        </div>
+                                </table>
+                            </div>
+                            <%} %>
+
+
+                                <div class="pagination">
+                                    <p>Página » </p>
+                                    <a href="#">1</a>
+                                    <a href="#">2</a>
+                                    <a href="#">3</a>
+                                    <a href="#">4</a>
+                                    <a href="#">5</a>
+                                </div>
                     </div>
             </div>
     </div>

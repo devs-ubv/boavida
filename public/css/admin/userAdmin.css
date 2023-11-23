@@ -19,81 +19,109 @@
 }
 
 .navigationTab button {
-  border: none;
-  border-radius: 2px;
-  background-color: #091E3E;
-  font-size: 14px;
-  color: #fff;
-  cursor: pointer;
-  font-weight: 500;
-  padding: 10px;
-  margin-top: 30px;
+    border: none;
+    border-radius: 2px;
+    background-color: #091E3E;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 10px;
+    margin-top: 30px;
 }
 
-  /* Estilização do Modal para cadastro de usuario */
+
+/* Estilização do Modal para cadastro de usuario */
+
 
 /* The Modal (background) */
+
 .modal-user {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 20px; /* Location of the box */
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 20px;
+    /* Location of the box */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  /* Modal Content */
-  .modal-content-user {
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+
+/* Modal Content */
+
+.modal-content-user {
     position: relative;
     background-color: #fefefe;
     margin: auto;
     padding: 0;
     border: 1px solid #888;
     width: 40%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
     animation-duration: 0.4s;
     border-radius: 10px;
-  }
-  
-  /* Add Animation */
-  @-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
-    to {top:0; opacity:1}
-  }
-  
-  @keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
-  }
+}
 
-  /* The Close Button */
-  .close {
+
+/* Add Animation */
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+
+/* The Close Button */
+
+.close {
     color: white;
     float: right;
     font-size: 28px;
     font-weight: bold;
     margin-right: 10px;
-  }
-  
-  .close:hover,
-  .close:focus {
+}
+
+.close:hover,
+.close:focus {
     color: white;
     color: #ccc;
     text-decoration: none;
     cursor: pointer;
-  }
+}
 
-
-  
-  .modal-header {
+.modal-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -103,18 +131,18 @@
     color: white;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-  }
+}
 
-  .modal-header h2 {
+.modal-header h2 {
     color: #fff;
-  }
+}
 
-  .modal-footer {
+.modal-footer {
     border-bottom-left-radius: 5px;
     border-bottom-left-radius: 5px;
-  }
-  
-  .modal-body form {
+}
+
+.modal-body form {
     padding: 2px 16px;
     display: flex;
     flex-direction: column;
@@ -128,7 +156,6 @@
     font-size: 24px;
     color: #091E3E;
     margin: 20px;
-
 }
 
 .modal-body input {
@@ -142,61 +169,57 @@
     font-size: 13px;
 }
 
-.modal-body  button {
-  border: none;
-  border-radius: 2px;
-  background-color: #091E3E;
-  font-size: 14px;
-  color: #fff;
-  cursor: pointer;
-  font-weight: 500;
-  padding: 15px;
-  margin-top: 30px;
+.modal-body button {
+    border: none;
+    border-radius: 2px;
+    background-color: #091E3E;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 15px;
+    margin-top: 30px;
 }
-
 
 .registerTop {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  gap: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
 }
 
-
 #picture__input {
-  display: none;
+    display: none;
 }
 
 .picture {
-  width: 120px;
-  height: 120px;
-  background: #ddd;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #091E3E;
-  border: 2px dashed #091E3E;
-  cursor: pointer;
-  font-family: sans-serif;
-  transition: color 300ms ease-in-out, background 300ms ease-in-out;
-  outline: none;
-  overflow: hidden;
-  border-radius: 10px;
-  margin-bottom: 20px;
+    width: 120px;
+    height: 120px;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #091E3E;
+    border: 2px dashed #091E3E;
+    cursor: pointer;
+    font-family: sans-serif;
+    transition: color 300ms ease-in-out, background 300ms ease-in-out;
+    outline: none;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
 .picture:hover {
-  color: #091E3E;
-  background: #ccc;
+    color: #091E3E;
+    background: #ccc;
 }
 
 .picture__img {
-  max-width: 100%;
+    max-width: 100%;
 }
-
-
 
 .modal-body input:focus {
     border: 1px solid #091E3E;
@@ -207,22 +230,23 @@
 }
 
 .modal-body .nomes {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal-body .pass {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
 }
 
-.modal-body .nomes input, .modal-body .pass input {
-  width: 100%;
+.modal-body .nomes input,
+.modal-body .pass input {
+    width: 100%;
 }
 
 .modal-body .tamanho .select {
@@ -268,16 +292,14 @@
     align-items: start;
     flex-direction: row;
 }
-  
+
 .modal-footer {
-  background-color: #fff;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    background-color: #fff;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-
 
 
 /* Fim da Estilização do Modal para cadastro de usuario */
@@ -304,67 +326,74 @@
 /* Estilização da Tabela de usuarios */
 
 .userTable {
-  padding: 30px;
-  margin: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  flex-direction: column;
-  background-color: #fff;
-  box-shadow: 0px 0px 41px -30px rgba(0,0,0,1);
-  -webkit-box-shadow: 0px 0px 41px -30px rgba(0,0,0,1);
-  -moz-box-shadow: 0px 0px 41px -30px rgba(0,0,0,1);
-  border-radius: 20px;
+    padding: 30px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0px 0px 41px -30px rgba(0, 0, 0, 1);
+    -webkit-box-shadow: 0px 0px 41px -30px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 0px 41px -30px rgba(0, 0, 0, 1);
+    border-radius: 20px;
 }
 
 .userTable h1 {
-  width: 100%;
-  text-align: left;
-  margin-bottom: 20px;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 20px;
 }
 
-#userList {
-  border-collapse: collapse;
-  width: 100%;
+#userList,
+#user-list-admin {
+    border-collapse: collapse;
+    width: 100%;
 }
 
-#userList td {
-  padding: 15px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+#userList td,
+#user-list-admin td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
-#userList tr:hover {
-  background-color: #091E3E;
-  color: #fff;
-  cursor: pointer;
+#userList tr:hover,
+#user-list-admin tr:hover {
+    background-color: #091E3E;
+    color: #fff;
+    cursor: pointer;
 }
 
-#userList tr:hover .bi {
-  color: #fff;
+#userList tr:hover .bi,
+#user-list-admin tr:hover .bi {
+    color: #fff;
 }
 
-#userList th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #fff;
-  color: #091e3e;
+#userList th,
+#user-list-admin th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #fff;
+    color: #091e3e;
 }
 
-
-#userList td img {
-  border-radius: 50%;
-  border: 2px solid #091e3e;
+#userList td img,
+#user-list-admin td img {
+    border-radius: 50%;
+    border: 2px solid #091e3e;
 }
 
-#userList td a {
-  text-decoration: none;
-  color: #091E3E;
-  font-size: 16px;
+#userList td a,
+#user-list-admin td a {
+    text-decoration: none;
+    color: #091E3E;
+    font-size: 16px;
 }
 
-#userList td a i:hover {
-  color: #fff;
+#userList td a i:hover,
+#user-list-admin td a i:hover {
+    color: #fff;
 }

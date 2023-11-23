@@ -27,7 +27,7 @@ $(document).ready(function () {
                     <td> ${item.type}</td>
                     <td> ${item.fullName}</td>
                     <td> ${simplifyDate(item.createdAt)} </td>
-                    <td> <a href='/dashboard/news/${item.id}'> <i class="bi bi-box-arrow-up-right"></i> </a> </td> +
+                    <td> <a href='/dashboard/banner/${item.id}'> <i class="bi bi-box-arrow-up-right"></i> </a> </td> +
                     <td> <a href="#"> <i class="bi bi-pencil-square"></i> </a></td> 
                     <td> <a href=""> <i class="bi bi-trash3"></i></a> </td> 
                 </tr>`

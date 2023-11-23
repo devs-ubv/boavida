@@ -12,7 +12,10 @@
                         <div class="navigationTab">
                             <div>
                                 <a href="user">Utilizadores do Sistema</a>
-                                <a href="accesslevel">Níveis de Acesso</a>
+                                <% if(session.type == "admin"){%>
+                                    <a href="accesslevel">Níveis de Acesso</a>
+                                    <a href="user">Gestão de usuários</a>
+                                    <%} %>
                             </div>
                             <!-- <button id="myBtn" class="btn">Criar Novo Nivel de Acesso</button> -->
                         </div>
@@ -42,10 +45,10 @@
                                     <th>ID</th>
                                     <th>NIVEL DE ACESSO</th>
                                     <th colspan="3" style="text-align: center;">AÇÃO</th>
-                                </tr>                                        
-                            </table> 
+                                </tr>
+                            </table>
                         </div>
-                        
+
                     </div>
             </div>
     </div>

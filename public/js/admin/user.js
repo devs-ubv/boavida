@@ -45,6 +45,7 @@ $(document).ready(function() {
             method: 'GET',
             success: function(response) {
                 populateTable(response);
+                populateTableAdmin(response);
             },
             error: function(e) {
               $("#error").html(e.responseText);
@@ -59,6 +60,24 @@ $(document).ready(function() {
                 '<img src="/assets/img/user/profile.jpeg" alt="Imagem" style="width:50px; height:50px;">';
 
                 $('#userList tbody').append(
+                    '<tr>' +
+                        '<td>' +(index+1) + '</td>' +
+                        '<td>' + imageTag + '</td>' +
+                        '<td>' +item.firstName +' '+ item.lastName + '</td>' +
+                        '<td>' +item.email + '</td>' +
+                        '<td>' +item.role + '</td>' +
+                    '</tr>'
+                );
+            });
+        }
+
+        function populateTableAdmin(data) {
+            $.each(data, function (index, item) {
+                
+                var imageTag = item.userProfile? '<img src="/assets/img/user/' + item.userProfile + '" alt="Imagem" style="width:50px; height:50px;">':
+                '<img src="/assets/img/user/profile.jpeg" alt="Imagem" style="width:50px; height:50px;">';
+
+                $('#user-list-admin tbody').append(
                     '<tr>' +
                         '<td>' +(index+1) + '</td>' +
                         '<td>' + imageTag + '</td>' +
