@@ -16,8 +16,6 @@
                             </div>
                             <%}%>
                                 <div class="cardHeader">
-
-
                                     <!-- ======= Modal para criação do usuário ======= -->
                                     <div id="myModal" class="modal-user">
                                         <!-- Modal content -->
@@ -29,21 +27,22 @@
                                             </div>
 
                                             <div class="modal-body">
-                                                <form id="news-register">
+                                                <h2 class="tittle text-2xl">Preencha o Formulário</h2>
+                                                <form id="banner-register">
 
                                                     <div class="w-full flex flex-col">
                                                         <div class="w-full">
-                                                            <input type="text" name="title" class="input w-full" placeholder="Título da Notícia">
+                                                            <input type="text" name="title" class="input w-full" placeholder="Título do  Banner">
                                                         </div>
                                                         <div class="w-full">
-                                                            <input type="text" name="typeOfNew" class="input w-full" placeholder="Tipo de Notícia">
+                                                            <input type="text" name="type" class="input w-full" placeholder="Tipo de Notícia">
                                                         </div>
                                                     </div>
-                                                    <div class="input_wrap newsCover">
-                                                        <label class="picture-newsCover" for="picture__input-newsCover" tabIndex="0">
-                                                                <span class="picture__image-newsCover"></span>
+                                                    <div class="input_wrap banner">
+                                                        <label class="picture-banner" for="picture-input-banner" tabIndex="0">
+                                                                <span class="picture-image-banner"></span>
                                                             </label>
-                                                        <input type="file" name="cover" id="picture__input-newsCover" class="input">
+                                                        <input type="file" name="banner" id="picture-input-banner" class="input">
                                                     </div>
                                                     <div class="input_wrap">
                                                         <span id="alerta" style="
@@ -59,16 +58,31 @@
                                                                     color: #fff;">
                                                                 <i class="bi bi-exclamation-circle"></i>
                                                                 <p>Por Favor preencha todos os campos</p>
-                                                            </span>
+                                                        </span>
                                                     </div>
+                                                    
+                                                    <div id="message">
+                                                        <div id="message_Content">
+                                                            <i class="bi bi-exclamation-circle"></i>
+                                                            <p>Por Favor Preencha Todos os Campos!</p>
+                                                        </div>
+                                                    </div>
+                                                    <div id="success">
+                                                        <div id="success_Content">
+                                                            <i class="bi bi-exclamation-circle"></i>
+                                                            <p>Banner Cadastrado Com Sucesso</p>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <button type="button" id="register-banner">Cadastrar</button>
+                                                    
+                                                </form>
                                             </div>
-                                            </form>
                                         </div>
                                     </div>
                                 </div>
-                    </div>
 
-                    <% if(bannerId){%>
+                        <% if(bannerId){%>
                         <div class="cardHeader">
                             <!-- ======= Apresentação das Notícias ======= -->
                             <div class="notices">
@@ -115,8 +129,8 @@
                                 <a href="#">5</a>
                             </div>
                             <% } %>
+                    </div>
             </div>
-    </div>
     </div>
 
     <%- include('./partials/footer'); -%>
