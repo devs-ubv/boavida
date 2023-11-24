@@ -11,10 +11,12 @@
 
                         <div class="navigationTab">
                             <div>
-                                <a href="user">Utilizadores do Sistema</a>
+                                <% if(session.type != "admin"){%>
+                                    <a href="user">Utilizadores do Sistema</a>
+                                <%} %>
                                 <% if(session.type == "admin"){%>
-                                    <a href="accesslevel">Níveis de Acesso</a>
                                     <a href="user">Gestão de usuários</a>
+                                    <a href="accesslevel">Níveis de Acesso</a>
                                     <%} %>
                             </div>
                             <% if(session.type == "admin"){%>
@@ -114,6 +116,14 @@
                                         </tr>
 
                                     </table>
+                                </div>
+                                <div class="pagination">
+                                    <p>Página » </p>
+                                    <a href="#">1</a>
+                                    <a href="#">2</a>
+                                    <a href="#">3</a>
+                                    <a href="#">4</a>
+                                    <a href="#">5</a>
                                 </div>
                                 <%} %>
 

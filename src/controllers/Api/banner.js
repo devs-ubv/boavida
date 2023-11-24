@@ -8,6 +8,7 @@ module.exports = {
             const value = req.body;
             const file = req.file;
             value.banner = file.filename;
+            value.userId = req.session?.user.id;
             const banner = await Banner.add(value);
             return res.send(banner);
         } catch (e) {

@@ -42,6 +42,8 @@ $(document).ready(function () {
         });
     }
 
+    var idNewDelete = $('#id-new').data('content');
+
     $(document).ready(function () {
         $("#eliminar").click(function () {
             deletarNoticia(idNewDelete);
@@ -237,17 +239,8 @@ $(document).ready(function () {
 // Get the modal
 var modal = document.getElementById("myModalDelete");
 
-// Get the button that opens the modal
-var btn = document.getElementById("my-delete");
-
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-    alert("Modal Aberto");
-    modal.style.display = "block";
-}
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
@@ -260,6 +253,26 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+//-----------------------------------------------------------------------------------------------------------------------
+//------------------------------------------- MODAL PARA EDITAR NOTICIAS------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
 
+// Get the modal
+var modalNewEdit = document.getElementById("myModalEdit");
+
+// Get the <span> element that closes the modal
+var spanNewEdit = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+spanNewEdit.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modalNewEdit) {
+        modalNewEdit.style.display = "none";
+    }
+}
 
 });

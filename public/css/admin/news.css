@@ -296,6 +296,9 @@
 .tableNews h1 {
     width: 100%;
     text-align: left;
+    font-size: 28px;
+    font-weight: 500;
+    color: #091E3E;
 }
 
 #newsList {
@@ -367,6 +370,7 @@
     margin-bottom: 35px;
     display: flex;
     justify-content: center;
+    background-color: #fff;
 }
 
 .wrapper .header ul {
@@ -409,7 +413,6 @@
     background: var(--secondary);
     color: var(--white);
     text-align: center;
-    line-height: 50px;
     border-radius: 50%;
 }
 
@@ -421,9 +424,15 @@
     background: var(--primary);
 }
 
+.form_container {
+    width: 100%;
+}
+
+
 .wrapper .form_wrap {
     margin-bottom: 35px;
-    width: 100%;
+    min-width: 100%;
+    max-width: 800px;
 }
 
 .wrapper .form_wrap h2 {
@@ -434,7 +443,8 @@
 }
 
 .wrapper .form_wrap .input_wrap{
-	width: 800px;
+	min-width: 100%;
+    max-width: 800px;
 	margin: 0 auto 20px;
 }
 

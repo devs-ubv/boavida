@@ -43,7 +43,6 @@ $(document).ready(function () {
         
                 formData.append('title', dateForm.title);
                 formData.append('type', dateForm.type);
-                formData.append('userId', 4);
                 formData.append('banner', file);       
                 $.ajax({
                     url: "/banner",
@@ -59,11 +58,11 @@ $(document).ready(function () {
                         $(".type").val("");
                         pictureImageCover.innerHTML = "Carregar a Imagem do Banner";
                         $("#myModal").hide();
-                        location.reload();
                     },
                     error: function(e) {
                         $("#msg").css("color", "#ff0000");
                         $("#msg").html(e.responseText);
+                        console.log(e.responseText);
                     }
                 });
             }
