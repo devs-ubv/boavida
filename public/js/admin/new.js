@@ -42,16 +42,13 @@ $(document).ready(function () {
         });
     }
 
-    var idNewDelete = $('#id-new').data('content');
-
     $(document).ready(function () {
         $("#eliminar").click(function () {
+            var idNewDelete = $(this).data('content');
             deletarNoticia(idNewDelete);
             console.log("ID: ",idNewDelete);
         });
     });
-    
-    
 
     function deletarNoticia(idNew) {
         
@@ -89,7 +86,6 @@ $(document).ready(function () {
         });
     }
 
-    
     function populateTableAdmin(data) {
         $.each(data, function (index, item) {
             var imageTag = item.cover ? '<img src="/assets/img/news/' + item.cover + '" alt="Imagem" style="width:50px; height:50px;">' :
