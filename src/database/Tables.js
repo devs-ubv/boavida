@@ -5,9 +5,8 @@ class Tabelas {
         this.createTableUser();
         this.createTableNew();
         this.createTableBanner();
-        this.createTableNew_content();
         this.createTablePhoto();
-
+        this.createTableVideo();
     }
 
     createTablePermission() {
@@ -60,7 +59,16 @@ class Tabelas {
             }
         })
     }
-
+    createTableVideo() {
+        const sql = 'CREATE TABLE IF NOT EXISTS tb_video(id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, title VARCHAR(200) NULL, image VARCHAR(50) NULL, description VARCHAR(5) NULL, dataId VARCHAR(50) NULL, userId INT NOT NULL,  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, foreign key (userId) references tb_users(id));'
+        this.conexao.query(sql, erro => {
+            if (erro) {
+                console.log(erro)
+            } else {
+                console.log('Tabela fotos criada com sucesso')
+            }
+        })
+    }
 }
 
 module.exports = new Tabelas
