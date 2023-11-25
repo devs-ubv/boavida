@@ -21,6 +21,25 @@ module.exports = {
             res.redirect("/login")
         }
     },
+    
+    videoPage(req, res) {
+        if(req.params.id){
+            if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
+              
+                return res.render("admin/video", { session: req.session.user, videoId: req.params.id});
+            } else {
+                return res.redirect("/login")
+            }
+        }
+
+        if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
+            res.render("admin/video", { session: req.session.user, videoId:''});
+        } else {
+            res.redirect("/login")
+        } 
+        
+    },
+    
     async newId(req, res) {
         if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
             const idNew = req.params.id;

@@ -32,6 +32,8 @@ module.exports = {
         
     },
 
+
+
     loginPage(req, res) {
         res.render("admin/login");
     },

@@ -12,6 +12,11 @@ adminRouter.get("/dashboard/accesslevel", userController.accessLevel);
 adminRouter.get("/dashboard/banner", userController.bannerPage);
 adminRouter.get("/dashboard/banner/:id", userController.bannerPage);
 
+//------------------------banner //--------------------------
+adminRouter.get("/dashboard/video", pageController.videoPage);
+adminRouter.get("/dashboard/video/:id", pageController.videoPage);
+
+
 //------------------------news //--------------------------
 adminRouter.get("/dashboard/news/:page/:id", pageController.new);
 adminRouter.get("/dashboard/news/:id", pageController.newId); 
