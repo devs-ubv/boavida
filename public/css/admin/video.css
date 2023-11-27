@@ -1,6 +1,6 @@
 /* Estilização da Tabela de usuarios */
 
-.bannerTable {
+.videoTable {
     padding: 30px;
     margin: 20px;
     display: flex;
@@ -15,7 +15,7 @@
     border-radius: 20px;
 }
 
-.bannerTable h1 {
+.videoTable h1 {
     width: 100%;
     text-align: left;
     margin-bottom: 20px;
@@ -24,28 +24,28 @@
     color: #091E3E;
 }
 
-#banner-list {
+#video-list {
     border-collapse: collapse;
     width: 100%;
 }
 
-#banner-list td {
+#video-list td {
     padding: 15px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
 
-#banner-list tr:hover {
+#video-list tr:hover {
     background-color: #091E3E;
     color: #fff;
     cursor: pointer;
 }
 
-#banner-list tr:hover .bi {
+#video-list tr:hover .bi {
     color: #fff;
 }
 
-#banner-list th {
+#video-list th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
@@ -53,32 +53,32 @@
     color: #091e3e;
 }
 
-#banner-list td img {
+#video-list td img {
     border-radius: 50%;
     border: 2px solid #091e3e;
 }
 
-#banner-list td a {
+#video-list td a {
     text-decoration: none;
     color: #091E3E;
     font-size: 16px;
 }
 
-#banner-list td a i:hover {
+#video-list td a i:hover {
     color: #fff;
 }
 
 /* ------------------------ Estilização do Carregamento da Imagem do Banner ---------------------- */
 
-#picture-input-banner {
+#picture-input-video {
     display: none;
 }
 
-.banner {
+.video {
     width: 100%;
 }
 
-.picture-banner {
+.picture-video {
   width: 100%;
   height: 250px;
   background: #fafafa;
@@ -97,12 +97,12 @@
   margin-bottom: 20px;
 }
 
-.picture-banner:hover {
+.picture-video:hover {
     color: #091E3E;
     background: #ccc;
 }
 
-.picture__img-newsCover {
+.picture_img_video {
     max-width: 100%;
 }
 

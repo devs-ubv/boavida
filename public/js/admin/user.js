@@ -26,6 +26,7 @@ $(document).ready(function() {
                 formData.append('password', dateForm.password);
                 formData.append('permissionId', dateForm.permissionId);
                 formData.append('userProfile', file);
+                formData.append('active', 1);
                 formData.append('fullName', `${dateForm?.firstName} ${dateForm?.lastName}`);       
                 $.ajax({
                     url: "/register",

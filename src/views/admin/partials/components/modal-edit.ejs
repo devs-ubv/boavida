@@ -1,18 +1,33 @@
 <div id="myModalDelete" class="modal_delete_news">
     <div class="modal_content_delete_news">
         <div class="modal-header">
-            EDITAR NOTICIA
+            <p class="title">EDITAR NOTÍCIA</p>
         </div>
 
         <div class="modal-body">
-            <form id="update-new-form">
+            <div class="flex flex-col content-center" style="">
+                <h2>Preencha o Formulário Com <br> As Novas Informações</h2>
+            </div>
+            <form class="form-edit-new" id="update-new-form">
                 <input type="text" name="title" id="title" placeholder="Título">
                 <input type="text" name="typeOfNew" id="typeOfNew" placeholder="Tipo de Notícia">
                 <input type="date" name="datePublished" id="datePublished">
-                <input type="file" name="cover" id="cover">
-                <textarea name="content" id="content" cols="30" rows="10"></textarea>
-                <a id="editar" data-content="<%= params.id %>" style="cursor: pointer;">Chamar dados</a>
+                <div class="input_wrap">
+                    <div id="editContent" style="height: 300px;">
+                    </div>
+                </div>
+                <div class="mt-10 flex gap-2.5">
+                    <a id="editar" class="editar" data-content="<%= params.id %>" style="cursor: pointer;">EDITAR NOTÍCIA</a>
+                    <a class="cancel" href="/dashboard/news/listar/default">Cancelar</a>
+                </div>
+                
             </form>
         </div>
     </div>
 </div>
+
+
+<script>
+    // Função para recarregar a página
+  
+</script>

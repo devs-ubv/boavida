@@ -1,0 +1,41 @@
+.modal-body .form-edit-new {
+    width: 100%;
+}
+
+.modal-body .form-edit-new input {
+    width: 100%;
+}
+
+.modal-header .title {
+    padding: 8px;
+    font-size: 20px;
+}
+
+.modal-body h2 {
+    font-weight: 400;
+    font-size: 22px;
+}
+
+.modal-body .form-edit-new .editar {
+    padding: 12px;
+    background-color: #091e3e;
+    color: #fff;
+    margin-top: 25px;
+    border-radius: 2px;
+}
+
+.modal-body .form-edit-new .cancel {
+    padding: 12px;
+    background-color: tomato;
+    color: #fff;
+    margin-top: 25px;
+    border-radius: 2px;
+}
+
+.modal-body .form-edit-new .input_wrap {
+    width: 100%;
+}
+
+.modal-body .form-edit-new .input_wrap #editContent {
+    width: 100%;
+}
