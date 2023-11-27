@@ -1,15 +1,19 @@
-const { findById } = require("../models/New");
+const User = require("../models/User");
+const New = require("../models/New");
+const Video = require("../models/Video");
 
 module.exports = {
-
-    indexPage(req, res) {
-
+   async indexPage(req, res) {
         if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
-            console.log("confirmado");
-            res.render("admin/index", { session: req.session.user });
+            const {user_acount} = await User.countUser();
+            const {video_acount} =  await Video.countVideo();
+            const {new_acount} =  await New.countNew();
+            const newPreview =  await New.findAllPreview();
+            console.log(newPreview);
+            const userPreview =  await User.findAllPreview();
+            res.render("admin/index", { session: req.session.user, previws: { newPreview,  userPreview }, user_acount, video_acount, new_acount });
         } else {
             res.redirect("/login")
-            console.log("não confirmado");
         }
     },
     new(req, res) {
@@ -21,11 +25,28 @@ module.exports = {
             res.redirect("/login")
         }
     },
+    
+    videoPage(req, res) {
+        if(req.params.id){
+            if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
+              
+                return res.render("admin/video", { session: req.session.user, videoId: req.params.id});
+            } else {
+                return res.redirect("/login")
+            }
+        }
+
+        if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
+            res.render("admin/video", { session: req.session.user, videoId:''});
+        } else {
+            res.redirect("/login")
+        } 
+        
+    },
+    
     async newId(req, res) {
         if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
             const idNew = req.params.id;
-           
-            console.log(req.params);
             res.render("admin/new", { session: req.session.user, idNew});
         } else {
             res.redirect("/login")

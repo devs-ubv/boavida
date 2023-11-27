@@ -1,203 +1,151 @@
 <%- include('./partials/head'); -%>
     <!-- =============== Navigation ================ -->
-    <div class="container">
-        <%- include('./partials/sidebar'); -%>
-            <!-- ========================= Main ==================== -->
-            <div class="main">
+    <%
+    function formatDate(dataString) {
+        const data = new Date(dataString);
 
-                <%- include('./partials/nav'); -%>
-                    <!-- ======================= Cards ================== -->
-                    <div class="cardBox">
-                        <div class="card">
-                            <div>
-                                <div class="numbers">504</div>
-                                <div class="cardName">Visualizações diárias</div>
-                            </div>
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        return data.toLocaleDateString('pt-BR', options);
+    }
+    function reduceText(texto, comprimentoDesejado) {
+        if (texto.length <= comprimentoDesejado) {
+            return texto;
+        } else {
+            const novoTexto = texto.slice(0, comprimentoDesejado) + "...";
+            return novoTexto;
+        }
+    }
 
-                            <div class="iconBx">
-                                <ion-icon name="eye-outline"></ion-icon>
-                            </div>
+    %>
+
+        <div class="container">
+            <%- include('./partials/sidebar'); -%>
+                <!-- ========================= Main ==================== -->
+                <div class="main">
+
+                    <%- include('./partials/nav'); -%>
+
+                        <div class="cardBox">
+                            <a href="#" class="card">
+                                <div>
+                                    <div class="numbers">504</div>
+                                    <div class="cardName">Visualizações diárias</div>
+                                </div>
+
+                                <div class="iconBx">
+                                    <ion-icon name="eye-outline"></ion-icon>
+                                </div>
+                            </a>
+
+                            <a href="/dashboard/user" class="card">
+                                <div>
+                                    <div class="numbers">
+                                        <%=user_acount%>
+                                    </div>
+                                    <div class="cardName">Usuários</div>
+                                </div>
+
+                                <div class="iconBx">
+                                    <ion-icon name="people-outline"></ion-icon>
+                                </div>
+                            </a>
+
+                            <a href="/dashboard/video" class="card">
+                                <div>
+                                    <div class="numbers">
+                                        <%=video_acount%>
+                                    </div>
+                                    <div class="cardName">Vídeo</div>
+                                </div>
+
+                                <div class="iconBx">
+                                    <ion-icon name="videocam-outline"></ion-icon>
+                                </div>
+                            </a>
+                            <a href="/dashboard/news/listar/default" class="card">
+                                <div>
+                                    <div class="numbers">
+                                        <%=new_acount%>
+                                    </div>
+                                    <div class="cardName">Notícias</div>
+                                </div>
+
+                                <div class="iconBx">
+                                    <ion-icon name="newspaper-outline"></ion-icon>
+                                </div>
+                            </a>
                         </div>
 
+                        <!-- ================ Order Details List ================= -->
+                        <div class="details">
+                            <div class="recentOrders">
+                                <div class="cardHeader">
+                                    <h2>Últimas notícias</h2>
+                                    <a href="/dashboard/news/listar/default" class="btn">Ver Todas</a>
+                                </div>
 
-                        <div class="card">
-                            <div>
-                                <div class="numbers">284</div>
-                                <div class="cardName">Usuários</div>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <td>Titulo</td>
+                                            <td>Tipo</td>
+                                            <td>Dia de realização</td>
+                                            <td>Estado</td>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <% previws?.newPreview?.forEach(function(newItem) { %>
+                                            <tr>
+                                                <td>
+                                                    <%=reduceText(newItem?.title, 40)%>
+                                                </td>
+                                                <td>
+                                                    <%=newItem?.typeOfNew%>
+                                                </td>
+                                                <td>
+                                                    <%=formatDate(newItem.datePublished)%>
+                                                </td>
+                                                <td>
+                                                    <span class="status <%=newItem.visible ==1?' delivered': 'pending'%>"><%=newItem.visible ==1?'Activo': 'Desativado'%> </span></td>
+
+                                                <% }); %>
+                                            </tr>
+                                    </tbody>
+                                </table>
                             </div>
 
-                            <div class="iconBx">
-                                <ion-icon name="people-outline"></ion-icon>
+                            <!-- ================= New Customers ================ -->
+                            <div class=" recentCustomers ">
+                                <div class="cardHeader ">
+                                    <h2>Todos usúarios</h2>
+                                </div>
+
+                                <table>
+
+                                    <tbody>
+                                        <% previws?.userPreview?.forEach(function(user) { %>
+                                            <tr>
+
+                                                <td width="60px ">
+                                                    <div class="imgBx "> <img src="/assets/img/user/<%=user.userProfile %> " alt=" "></div>
+                                                </td>
+                                                <td>
+                                                    <h4>
+                                                        <%=user?.fullName %> <br> <span>TI</span></h4>
+                                                </td>
+                                            </tr>
+                                            <% }) %>
+
+                                    </tbody>
+
+                                </table>
+                                <div class="cardHeader mt-4">
+                                    <a href="/dashboard/user" class="btn">Ver Todas</a>
+                                </div>
                             </div>
                         </div>
+                </div>
+        </div>
 
-                        <div class="card">
-                            <div>
-                                <div class="numbers">20</div>
-                                <div class="cardName">Vídeo</div>
-                            </div>
-
-                            <div class="iconBx">
-                                <ion-icon name="videocam-outline"></ion-icon>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div>
-                                <div class="numbers">18</div>
-                                <div class="cardName">Notícias</div>
-                            </div>
-
-                            <div class="iconBx">
-                                <ion-icon name="newspaper-outline"></ion-icon>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ================ Order Details List ================= -->
-                    <div class="details">
-                        <div class="recentOrders">
-                            <div class="cardHeader">
-                                <h2>Últimas notícias</h2>
-                                <a href="#" class="btn">Ver Todas</a>
-                            </div>
-
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <td>Titulo</td>
-                                        <td>Tipo</td>
-                                        <td>Dia de realização</td>
-                                        <td>Estado</td>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <td>Mulheres participam em....</td>
-                                        <td>Palestra</td>
-                                        <td>13 de outubro</td>
-                                        <td><span class="status delivered">Activo</span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Mulheres participam em....</td>
-                                        <td>Palestra</td>
-                                        <td>13 de outubro</td>
-                                        <td><span class="status delivered">Activo</span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Mulheres participam em....</td>
-                                        <td>Palestra</td>
-                                        <td>13 de outubro</td>
-                                        <td><span class="status delivered">Activo</span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Mulheres participam em....</td>
-                                        <td>Palestra</td>
-                                        <td>13 de outubro</td>
-                                        <td><span class="status delivered">Activo</span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Mulheres participam em....</td>
-                                        <td>Palestra</td>
-                                        <td>13 de outubro</td>
-                                        <td><span class="status delivered">Activo</span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Mulheres participam em....</td>
-                                        <td>Palestra</td>
-                                        <td>13 de outubro</td>
-                                        <td><span class="status delivered">Activo</span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Mulheres participam em....</td>
-                                        <td>Palestra</td>
-                                        <td>13 de outubro</td>
-                                        <td><span class="status delivered">Activo</span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Mulheres participam em....</td>
-                                        <td>Palestra</td>
-                                        <td>13 de outubro</td>
-                                        <td><span class="status delivered">Activo</span></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <!-- ================= New Customers ================ -->
-                        <div class="recentCustomers">
-                            <div class="cardHeader">
-                                <h2>Todos usúarios</h2>
-                            </div>
-
-                            <table>
-
-                                <tr>
-                                    <td width="60px">
-                                        <div class="imgBx"> <img src="/assets/upload/imgs/user.jpg" alt=""></div>
-                                    </td>
-                                    <td>
-                                        <h4>Kambaia L. Alberto <br> <span>TI</span></h4>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td width="60px">
-                                        <div class="imgBx"> <img src="/assets/upload/imgs/user.jpg" alt=""></div>
-                                    </td>
-                                    <td>
-                                        <h4>Eduardo Brito <br> <span>TI</span></h4>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td width="60px">
-                                        <div class="imgBx"> <img src="/assets/upload/imgs/user.jpg" alt=""></div>
-                                    </td>
-                                    <td>
-                                        <h4>David <br> <span>Italy</span></h4>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td width="60px">
-                                        <div class="imgBx"> <img src="/assets/upload/imgs/user.jpg" alt=""></div>
-                                    </td>
-                                    <td>
-                                        <h4>Amit <br> <span>India</span></h4>
-                                    </td>
-
-                                </tr>
-                                <tr>
-                                    <td width="60px">
-                                        <div class="imgBx"> <img src="/assets/upload/imgs/user.jpg" alt=""></div>
-                                    </td>
-                                    <td>
-                                        <h4>Amit <br> <span>India</span></h4>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="60px">
-                                        <div class="imgBx"> <img src="/assets/upload/imgs/user.jpg" alt=""></div>
-                                    </td>
-                                    <td>
-                                        <h4>Amit <br> <span>India</span></h4>
-                                    </td>
-
-                                </tr>
-
-
-                            </table>
-                        </div>
-                    </div>
-            </div>
-    </div>
-
-    <%- include('./partials/footer'); -%>
+        <%- include('./partials/footer'); -%>

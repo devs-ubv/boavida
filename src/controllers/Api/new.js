@@ -9,6 +9,8 @@ module.exports = {
             const file = req.file;
              value.cover = file.filename;
              value.userId = req.session?.user.id;
+             value.active = 1;
+             value.visible = 1;
             const not = await New.add(value);
             return res.send(not); 
         } catch (e) {
