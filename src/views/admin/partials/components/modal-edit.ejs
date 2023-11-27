@@ -5,7 +5,14 @@
         </div>
 
         <div class="modal-body">
-            EDITAR NOTICIA
+            <form id="update-new-form">
+                <input type="text" name="title" id="title" placeholder="Título">
+                <input type="text" name="typeOfNew" id="typeOfNew" placeholder="Tipo de Notícia">
+                <input type="date" name="datePublished" id="datePublished">
+                <input type="file" name="cover" id="cover">
+                <textarea name="content" id="content" cols="30" rows="10"></textarea>
+                <a id="editar" data-content="<%= params.id %>" style="cursor: pointer;">Chamar dados</a>
+            </form>
         </div>
     </div>
 </div>

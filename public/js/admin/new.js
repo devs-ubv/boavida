@@ -160,8 +160,8 @@ $(document).ready(function () {
     }
     // Chama a função para buscar os dados quando a página carregar
     fetchData();
-    var idNewList = $('#id-new').data('content');
     
+    var idNewList = $('#id-new').data('content');
     
     if(idNewList){
         listOneNew(idNewList);
