@@ -13,7 +13,6 @@ module.exports = {
             value.password = passwordHashed;
             value.userProfile = file?.filename;
             value.userName = connetFirstNameAndLastName(value.fullName);
-            console.log(value.userName);
             const user = await User.add(value);
             return res.send(user);
         } catch (e) {

@@ -10,6 +10,15 @@ module.exports = {
             });
         });
     },
+    countVideo() {
+        return new Promise(async function(resolve, reject) {
+            const sql = `SELECT COUNT(*) AS video_acount FROM tb_video WHERE active = '1';`
+            connection.query(sql, (err, result) => {
+                if (err) reject(err.message);
+                resolve(result[0]);
+            });
+        });
+    },
 
     findById(id) {
         return new Promise(async function(resolve, reject) {

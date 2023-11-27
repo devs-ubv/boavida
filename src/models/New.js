@@ -12,6 +12,28 @@ module.exports = {
             });
         });
     },
+    
+    findAllPreview() {
+        return new Promise(async function (resolve, reject) {
+            const sql = `SELECT n.visible, n.id, n.title, n.content, n.typeOfNew, n.title, n.datePublished, n.cover, us.fullName, n.createdAt FROM tb_new as n LEFT JOIN tb_users as us ON n.userId = us.id ORDER BY n.createdAt DESC
+    LIMIT 10;`
+            
+            connection.query(sql, (err, results) => {
+                if (err) reject(err.message);
+                resolve(results);   
+            });
+        });
+    },
+    
+    countNew() {
+        return new Promise(async function(resolve, reject) {
+            const sql = `SELECT COUNT(*) AS new_acount FROM tb_new WHERE active = '1';`
+            connection.query(sql, (err, result) => {
+                if (err) reject(err.message);
+                resolve(result[0]);
+            });
+        });
+    },
 
     findById(id) {
         return new Promise(async function (resolve, reject) {

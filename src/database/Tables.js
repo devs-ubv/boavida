@@ -30,7 +30,7 @@ class Tabelas {
         })
     }
     createTableNew() {
-        const sql = 'CREATE TABLE IF NOT EXISTS tb_new(id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,typeOfNew VARCHAR(200) NULL, file VARCHAR(100)  NULL,title VARCHAR(100) NOT NULL, datePublished VARCHAR(20) NOT NULL,cover VARCHAR(200) NOT NULL,description VARCHAR(5) NULL, userId INT NOT NULL,createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, foreign key (userId) references tb_users(id));';
+        const sql = 'CREATE TABLE IF NOT EXISTS tb_new(id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,typeOfNew VARCHAR(200) NULL, file VARCHAR(100)  NULL,title VARCHAR(100) NOT NULL, datePublished VARCHAR(20) NOT NULL,cover VARCHAR(200) NOT NULL,description VARCHAR(5) NULL, active boolean NULL,  userId INT NOT NULL,createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, foreign key (userId) references tb_users(id));';
         this.conexao.query(sql, erro => {
             if (erro) {
                 console.log(erro)
@@ -40,7 +40,7 @@ class Tabelas {
         })
     }
     createTableBanner() {
-        const sql = 'CREATE TABLE IF NOT EXISTS tb_banner(id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, type VARCHAR(200) NULL, file VARCHAR(100)  NULL,title VARCHAR(100) NOT NULL, userId INT NOT NULL, description VARCHAR(5) NULL, createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, foreign key (userId) references tb_users(id))';
+        const sql = 'CREATE TABLE IF NOT EXISTS tb_banner(id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, type VARCHAR(200) NULL, file VARCHAR(100)  NULL,title VARCHAR(100) NOT NULL, userId INT NOT NULL, description VARCHAR(5) NULL, active boolean NULL,  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, foreign key (userId) references tb_users(id))';
         this.conexao.query(sql, erro => {
             if (erro) {
                 console.log(erro)
@@ -50,7 +50,7 @@ class Tabelas {
         })
     }
     createTablePhoto() {
-        const sql = 'CREATE TABLE IF NOT EXISTS tb_photo(id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, image VARCHAR(50) NULL, description VARCHAR(5) NULL, newId INT NOT NULL,  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, foreign key (newId) references tb_new(id));'
+        const sql = 'CREATE TABLE IF NOT EXISTS tb_photo(id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, image VARCHAR(50) NULL, description VARCHAR(5) NULL, active boolean NULL, newId INT NOT NULL,  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, foreign key (newId) references tb_new(id));'
         this.conexao.query(sql, erro => {
             if (erro) {
                 console.log(erro)
@@ -60,7 +60,7 @@ class Tabelas {
         })
     }
     createTableVideo() {
-        const sql = 'CREATE TABLE IF NOT EXISTS tb_video(id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, title VARCHAR(200) NULL, image VARCHAR(50) NULL, description VARCHAR(5) NULL, dataId VARCHAR(50) NULL, userId INT NOT NULL,  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, foreign key (userId) references tb_users(id));'
+        const sql = 'CREATE TABLE IF NOT EXISTS tb_video(id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, title VARCHAR(200) NULL, image VARCHAR(50) NULL, description VARCHAR(5) NULL, dataId VARCHAR(50) NULL, active boolean NULL, userId INT NOT NULL,  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP, foreign key (userId) references tb_users(id));'
         this.conexao.query(sql, erro => {
             if (erro) {
                 console.log(erro)
