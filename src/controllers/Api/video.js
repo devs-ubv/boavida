@@ -8,6 +8,8 @@ module.exports = {
             const value = req.body;
             const file = req.file;
             value.image = file.filename;
+            value.active = 1;
+            value.visible = 1;
             const video = await Video.add(value);
             return res.send(video);
         } catch (e) {

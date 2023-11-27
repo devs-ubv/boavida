@@ -1,4 +1,3 @@
-const { findById } = require("../models/New");
 const User = require("../models/User");
 const New = require("../models/New");
 const Video = require("../models/Video");
