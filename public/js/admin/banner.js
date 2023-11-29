@@ -57,7 +57,6 @@ $(document).ready(function () {
                         $(".title").val("");
                         $(".type").val("");
                         pictureImageCover.innerHTML = "Carregar a Imagem do Banner";
-                        $("#myModal").hide();
                     },
                     error: function(e) {
                         $("#msg").css("color", "#ff0000");

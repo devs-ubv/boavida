@@ -36,6 +36,8 @@ $(document).ready(function() {
                     contentType: false,  // Não configurar automaticamente o Content-Type
                     success: function(data) {
                         console.log("Resultado no Jquery: ",data)
+                        $("#success").delay(100).fadeIn("slow");
+                        $("#success").delay(3000).fadeOut("slow");
                         $("#firstName").val("");
                         $("#lastName").val("");
                         $("#email").val("");

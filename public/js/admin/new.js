@@ -144,7 +144,12 @@ $(document).ready(function () {
                     `
                     <div class="footer-photo-new">
                         ${imageTag}
-                        <span><a><i class="bi bi-trash"></i>Eliminar esta imagem</a></span>
+                        <span>
+                            <a id="deleteSecImage">
+                                <i class="bi bi-trash"></i>
+                                Eliminar esta imagem
+                            </a>
+                        </span>
                     </div>
 
                     `
@@ -166,9 +171,6 @@ $(document).ready(function () {
     if(idNewList){
         listOneNew(idNewList);
     }
-    
-
-
 
 
     /* ---------------------------- IMPUT PARA CARREGAR A IMAGEM DE CAPA DA NOTICIA ---------------------- */

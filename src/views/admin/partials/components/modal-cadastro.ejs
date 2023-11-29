@@ -32,11 +32,9 @@
                                 </div>
                                 <div class="input_wrap" style="display: flex; flex-direction: row; gap: 20px;">
                                     <input type="text" name="typeOfNew" class="input" placeholder="Tipo de Notícia">
-                                    <input type="date" name="datePublished" class="input">
+                                    <input type="date" name="datePublished" id="datePublished"  class="input">
                                 </div>
-                                <div class="input_wrap">
-
-                                </div>
+                                
                                 <div class="input_wrap newsCover">
                                     <label class="picture-newsCover" for="picture__input-newsCover" tabIndex="0">
                                     <span class="picture__image-newsCover"></span>
@@ -48,24 +46,17 @@
                                     </div>
                                 </div>
                             </div>
+                            
                             <div class="input_wrap">
-                                <span id="alerta" style="
-                                        width: 100%; 
-                                        background-color: #f00; 
-                                        display: flex; 
-                                        flex-direction: row; 
-                                        justify-content: center;    
-                                        align-items: center; 
-                                        border-radius: 2px; 
-                                        padding: 15px; 
-                                        gap: 10px; 
-                                        color: #fff;">
-                                    <i class="bi bi-exclamation-circle"></i>
-                                    <p>Por Favor preencha todos os campos</p>
-                                </span>
+                                <div id="alerta">
+                                    <div id="alerta_content">
+                                        <i class="bi bi-exclamation-circle"></i>
+                                        <p>Por Favor Preencha Todos os Campos</p>
+                                    </div>
+                                </div>
                             </div>
+                        </form>
                     </div>
-                    </form>
                 </div>
                 <div class="form_2 data_info" style="display: none;">
                     <h2>Adicione Imagens Complementares</h2>
@@ -80,14 +71,17 @@
                                 <input type="hidden" name="newId" id="id_new">
                             </div>
                         </div>
+                        <div class="input_wrap">
+                            <div id="sucesso">
+                                <div id="sucesso_content">
+                                    <i class="bi bi-exclamation-circle"></i>
+                                    <p>Notícia Cadastrada Com Sucesso</p>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
-                <div id="message">
-                    <div id="message_Content">
-                        <i class="bi bi-exclamation-circle"></i>
-                        <p>Por Favor Preencha Todos os Campos!</p>
-                    </div>
-                </div>
+                
                 <div class="btns_wrap">
                     <div class="common_btns form_1_btns">
                         <button type="button" class="btn_next">Proximo <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>

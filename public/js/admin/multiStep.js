@@ -45,16 +45,21 @@ $(document).ready(function () {
         dataForm.content = conteudoQuill;
         if (dataForm.title == "" || dataForm.typeOfNew == "" || dataForm.datePublished == "" ) {
             
-            $("#message").delay(100).fadeIn("slow");
-            $("#message").delay(3000).fadeOut("slow");
+            $("#alerta").delay(100).fadeIn("slow");
+            $("#alerta").delay(3000).fadeOut("slow");
 
         } else {
+            // Obtenha a data do campo de entrada
+            var dataInputValue = $("#datePublished").val();
+
+            // Converta a data para o formato desejado (por extenso)
+            var dataPorExtenso = moment(dataInputValue).format('D [de] MMMM [de] YYYY');
 
             var formData = new FormData();
 
             formData.append('title', dataForm.title);
             formData.append('typeOfNew', dataForm.typeOfNew);
-            formData.append('datePublished', dataForm.datePublished);
+            formData.append('datePublished', dataPorExtenso);
             formData.append('cover', cover);
             formData.append('content', dataForm.content);
 
@@ -115,9 +120,13 @@ $(document).ready(function () {
                 console.log('Arquivo enviado com sucesso:', file.name);
                 // Chama a próxima iteração da função recursiva
                 uploadFile(files, index + 1);
+                
             } else {
                 console.error('Erro no envio do arquivo:', file.name);
             }
+            $("#sucesso").delay(100).fadeIn("slow");
+            $("#sucesso").delay(3000).fadeOut("slow");
+            pictureImageSec.innerHTML = "Carregar as outras imagens da Notícia";
         };
 
         xhr.onerror = function () {
