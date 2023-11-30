@@ -25,6 +25,7 @@ $(document).ready(function() {
                 formData.append('email', dateForm.email);
                 formData.append('password', dateForm.password);
                 formData.append('permissionId', dateForm.permissionId);
+                formData.append('phoneNumber', dateForm.phoneNumber);
                 formData.append('userProfile', file);
                 formData.append('active', 1);
                 formData.append('fullName', `${dateForm?.firstName} ${dateForm?.lastName}`);       
@@ -41,6 +42,7 @@ $(document).ready(function() {
                         $("#firstName").val("");
                         $("#lastName").val("");
                         $("#email").val("");
+                        $("#phoneNumber").val("");
                         $("#password").val("");
                         $("#passConfirm").val("");
                         pictureImage.innerHTML = "Escolha uma Imagem de Perfil";

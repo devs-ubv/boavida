@@ -4,7 +4,7 @@ $(document).ready(function () {
     if(idImageDelete){ */
    /*  } */
 
-    $('#deleteSecImage').on('click', function () {
+    $('#delete-image').on('click', function () {
        
             // Eliminar dados da API
             /* $.ajax({

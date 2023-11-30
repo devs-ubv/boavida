@@ -145,7 +145,7 @@ $(document).ready(function () {
                     <div class="footer-photo-new">
                         ${imageTag}
                         <span>
-                            <a id="deleteSecImage">
+                            <a id="delete-image">
                                 <i class="bi bi-trash"></i>
                                 Eliminar esta imagem
                             </a>
