@@ -41,25 +41,24 @@ $(document).ready(function () {
         var quill = new Quill('#editor');
         var conteudoQuill = quill.root.innerHTML;
         let dataForm = $("#news-register").serializeObject();
+        
         const cover = $('#picture__input-newsCover')[0].files[0];
+        console.log("Foto",cover);
         dataForm.content = conteudoQuill;
+        
         if (dataForm.title == "" || dataForm.typeOfNew == "" || dataForm.datePublished == "" ) {
             
             $("#alerta").delay(100).fadeIn("slow");
             $("#alerta").delay(3000).fadeOut("slow");
 
         } else {
-            // Obtenha a data do campo de entrada
-            var dataInputValue = $("#datePublished").val();
-
-            // Converta a data para o formato desejado (por extenso)
-            var dataPorExtenso = moment(dataInputValue).format('D [de] MMMM [de] YYYY');
-
+            console.log("DataForm",dataForm);
             var formData = new FormData();
+            
 
             formData.append('title', dataForm.title);
             formData.append('typeOfNew', dataForm.typeOfNew);
-            formData.append('datePublished', dataPorExtenso);
+            formData.append('datePublished', dataForm.datePublished);
             formData.append('cover', cover);
             formData.append('content', dataForm.content);
 
@@ -69,8 +68,9 @@ $(document).ready(function () {
             })
             .then(response => response.json())
             .then(data => {
-               localStorage.setItem("idNew", data.insertId)
-               //if (data) return window.location.href = `/dashboard/news/${data.insertId}`;
+                console.log("Data: ",data);
+                localStorage.setItem("idNew", data.insertId)
+                //if (data) return window.location.href = `/dashboard/news/${data.insertId}`;
             })
             .catch(error => {
                    console.error('Erro ao enviar arquivo:', error);
@@ -126,7 +126,6 @@ $(document).ready(function () {
             }
             $("#sucesso").delay(100).fadeIn("slow");
             $("#sucesso").delay(3000).fadeOut("slow");
-            pictureImageSec.innerHTML = "Carregar as outras imagens da Notícia";
         };
 
         xhr.onerror = function () {

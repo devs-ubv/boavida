@@ -73,9 +73,11 @@ module.exports = {
           
             const sql = `SELECT * FROM tb_new WHERE title='${dataNew.title}'`;
             connection.query(sql, (err, result) => {
+                console.log("Backend 1",err);
                 if (err) reject(err);
                 if (!result[0]) {
                     const sql = "INSERT INTO tb_new SET ?";
+                    console.log("Backend 2",result);
                     connection.query(sql, dataNew, (err, result) => {
                         if (err) reject(err);
                         resolve(result);

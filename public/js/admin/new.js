@@ -42,13 +42,12 @@ $(document).ready(function () {
         });
     }
 
-    $(document).ready(function () {
-        $("#eliminar").click(function () {
-            var idNewDelete = $(this).data('content');
-            deletarNoticia(idNewDelete);
-            console.log("ID: ",idNewDelete);
-        });
+    $("#eliminar").click(function () {
+        var idNewDelete = $(this).data('content');
+        deletarNoticia(idNewDelete);
+        console.log("ID: ",idNewDelete);
     });
+  
 
     function deletarNoticia(idNew) {
         
@@ -138,22 +137,24 @@ $(document).ready(function () {
         });
         $.each(data?.fotos, function (index, item) {
             var imageTag = item.image ? '<img src="/assets/img/news-images/' + item.image + '" alt="Imagem"> ' :
-                '<img src="/assets/img/news/new-prototype.jpg" alt="Imagem">';
+                '';
 
-                $('.new-photos-content').append(
-                    `
-                    <div class="footer-photo-new">
-                        ${imageTag}
-                        <span>
-                            <a id="delete-image">
-                                <i class="bi bi-trash"></i>
-                                Eliminar esta imagem
-                            </a>
-                        </span>
-                    </div>
-
-                    `
-                )
+                if (imageTag ) {
+                    $('.new-photos-content').append(
+                        `
+                        <div class="footer-photo-new">
+                            ${imageTag}
+                            <span>
+                                <a href='/dashboard/news/deletar-photo/${item.id}'>
+                                    <i class="bi bi-trash"></i>
+                                    Eliminar esta imagem
+                                </a>
+                            </span>
+                        </div>
+    
+                        `
+                    )
+                }
         }); 
     }
 

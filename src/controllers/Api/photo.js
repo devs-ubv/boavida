@@ -50,13 +50,25 @@ module.exports = {
     async deleteHanler(req, res) {
         try {
             const id = parseInt(req.params.id);
-            const not = await Photo.delete(id);
-            return res.send(not);
+            const resultPhoto = await Photo.findById(id);
+            const {image} = resultPhoto[0];
+            console.log(image); 
+            const filepath = path.resolve(__dirname, '..', '..', '..', 'public', 'img', 'news-images', image);
+            fs.unlink(filepath, async function (err) {
+                if (err) {
+                    res.status(500).send('Ocorreu um erro ao excluir o arquivo');
+                } else {
+
+                    const not = await Photo.delete(id);
+                    return res.send(not);
+                }
+            })
+            
         } catch (e) {
             return res.status(409).send(e.message);
         }
     },
-    async deleteHanlerFile(req, res) {
+    /* async deleteHanlerFile(req, res) {
         try {
             const filename = req.params.filename;
             const filepath = path.resolve(__dirname, '..', '..', 'public', 'img', 'news-images', filename);
@@ -72,5 +84,5 @@ module.exports = {
         } catch (e) {
             return res.status(409).send(e.message);
         }
-    },
+    }, */
 }
