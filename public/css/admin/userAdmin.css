@@ -2,9 +2,6 @@
 
 profile style
 
-
-
-
 */
 
 .profile-user:hover .profile-photo {
@@ -15,8 +12,6 @@ profile style
 
 .profile-photo {
     background: rgba(0, 0, 0, 0.7);
-    border-bottom-left-radius: 50%;
-    border-bottom-right-radius: 50%;
     display: none;
 }
 
