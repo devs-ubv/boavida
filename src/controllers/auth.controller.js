@@ -21,6 +21,7 @@ module.exports = {
                 email: user.email,
                 fullName: `${user.firstName} ${user.lastName}`,
                 userName: user.userName,
+                phoneNumber: user.phoneNumber,
                 userProfile: user.userProfile,
                 role: user.role,
                 type: user.type,

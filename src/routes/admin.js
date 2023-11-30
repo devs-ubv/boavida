@@ -5,6 +5,7 @@ const adminRouter = express.Router();
 adminRouter.get("/dashboard", pageController.indexPage);
 
 //------------------------user //--------------------------
+adminRouter.get("/dashboard/profile", userController.profilePage);
 adminRouter.get("/dashboard/user", userController.userPage);
 adminRouter.get("/dashboard/accesslevel", userController.accessLevel);
 

@@ -5,6 +5,15 @@ module.exports = {
         res.render("admin/login");
     },
 
+    profilePage(req, res) {
+        
+        if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
+            res.render("admin/profile", { session: req.session.user });
+        } else {
+            res.redirect("/login");
+        }
+    },
+
     userPage(req, res) {
         
         if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
@@ -13,6 +22,7 @@ module.exports = {
             res.redirect("/login");
         }
     },
+
 
     bannerPage(req, res) {
         if(req.params.id){

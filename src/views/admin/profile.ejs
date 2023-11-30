@@ -1,0 +1,45 @@
+<%- include('./partials/head'); -%>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <%- include('./partials/sidebar'); -%>
+            <!-- ========================= Main ==================== -->
+            <div class="main">
+
+                <%- include('./partials/nav'); -%>
+                    <!-- ======================= conteúdo do usuario ================== -->
+                    <div class="flex items-center justify-around rounded-xl shadow-md py-10">
+                        <div>
+                            <div class="px-10 ">
+                                <div class="profile-user flex flex-col relative rounded-full w-60 h-60">
+                                    <img class="rounded-full w-60 h-60" src="/assets/img/user/<%=session.userProfile %>" alt="user">
+                                    <div class="profile-photo absolute h-[50%] w-60 left-0 bottom-0 right-0"></div>
+                                </div>
+                                <div class="flex items-start justify-center py-4">
+                                    <h3>
+                                        <%=session.fullName %>
+                                    </h3>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <h3>
+                                    <%=session.email %>
+                                </h3>
+                                <ul>
+                                    <li>
+                                        <%=session.phoneNumber %>
+                                    </li>
+                                    <li>
+                                        <%=session.type %>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+            <%- include( './partials/footer'); -%>
