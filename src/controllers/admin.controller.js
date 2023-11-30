@@ -9,7 +9,6 @@ module.exports = {
             const {video_acount} =  await Video.countVideo();
             const {new_acount} =  await New.countNew();
             const newPreview =  await New.findAllPreview();
-            console.log(newPreview);
             const userPreview =  await User.findAllPreview();
             res.render("admin/index", { session: req.session.user, previws: { newPreview,  userPreview }, user_acount, video_acount, new_acount });
         } else {
