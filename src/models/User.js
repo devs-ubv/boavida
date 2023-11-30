@@ -32,9 +32,11 @@ module.exports = {
         });
     },
     findById(id) {
+        console.log("id", id)
         return new Promise(async function(resolve, reject) {
             const sql = `SELECT * FROM tb_users WHERE id=${id}`;
             connection.query(sql, (err, result) => {
+                console.log(result);
                 if (err) reject(err);
                 resolve(result[0]);
             });
