@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    
     /* ---------------------------- INICIALIZAÇÃO DA DIV DO EDITOR DE TEXTO ---------------------- */
         
     var quill = new Quill('#editor', {

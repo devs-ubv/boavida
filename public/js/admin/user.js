@@ -46,6 +46,7 @@ $(document).ready(function() {
                         $("#password").val("");
                         $("#passConfirm").val("");
                         pictureImage.innerHTML = "Escolha uma Imagem de Perfil";
+                        showErrorMessage();
                     },
                     error: function(e) {
                         $("#msg").css("color", "#ff0000");

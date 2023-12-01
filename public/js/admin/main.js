@@ -25,13 +25,17 @@ function simplifyDate(date){
   return date.split('T')[0];
 }
 
-function showErrorMessage(e){
-  const responseText = ErrorMessage(JSON.parse(e.responseText));
-  $(".error-message").text(responseText).show();
+function showErrorMessage(){
   setTimeout(function () {
-    $(".error-message").hide();
-  }, 8000); // 30 segundos em milissegundos
+    $("#myModal").hide();
+    location.reload();
+  }, 4000);
+  setTimeout(function () {
+    location.reload();
+  }, 5000);
 }
+
+
 
 function ErrorMessage(responseText){
   if (responseText && responseText.error) {

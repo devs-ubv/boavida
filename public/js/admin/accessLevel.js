@@ -13,6 +13,7 @@ $(document).ready(function() {
                 success: function(data) {
                     console.log("Resultado no Jquery: ",data)
                     $("#role").val("");
+                    showErrorMessage();
                 },
                 error: function(e) {
                     $("#msg").css("color", "#ff0000");
