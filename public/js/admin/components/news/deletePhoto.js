@@ -11,6 +11,7 @@ function deletarPhoto(idNew) {
          method: 'DELETE',
          success: function (response) {
             console.log("Deletar Noticia Resposta: ",response);
+            window.history.back();
          },
          error: function (e) {
              console.log(e.responseText);

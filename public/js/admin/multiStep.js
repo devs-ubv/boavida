@@ -126,6 +126,8 @@ $(document).ready(function () {
             }
             $("#sucesso").delay(100).fadeIn("slow");
             $("#sucesso").delay(3000).fadeOut("slow");
+            showErrorMessage();
+              
         };
 
         xhr.onerror = function () {
