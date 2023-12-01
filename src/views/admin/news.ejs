@@ -22,9 +22,9 @@
                         <div class="notices">
                             <div class="notice">
                                 <div class="tableNews">
-                                    <h1>Noticias Existentes</h1>
+                                    <h1>Noticias Cadastradas</h1>
                                     <table id="newsList">
-                                        <tr id="my-delete">
+                                        <tr>
                                             <th>ID</th>
                                             <th>CAPA</th>
                                             <th>TITULO</th>
@@ -38,8 +38,17 @@
                             </div>
                         </div>
                         <% } %>
+
                         <% if(params.page == "deletar" && params.id) { %>
                             <%- include('./partials/components/modal-delete'); -%>
+                        <% } %>
+
+                        <% if(params.page == "deletar-photo" && params.id) { %>
+                            <%- include('./partials/components/modal-delete-photo'); -%>
+                        <% } %>
+
+                        <% if(params.page == "editar" && params.id) { %>
+                            <%- include('./partials/components/modal-edit'); -%>
                         <% } %>
                     </div>
             </div>

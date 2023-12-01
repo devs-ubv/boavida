@@ -27,7 +27,7 @@ newRouter.delete("/new/:id", newController.deleteHanler);
 
 //////all action from user //////////////////////////////////////
 newRouter.post("/upload", multer(uploadImage).single('image'), photoController.addHandler);
-newRouter.delete("/upload/file/:filename", photoController.deleteHanlerFile);
+/* newRouter.delete("/upload/file/:filename", photoController.deleteHanlerFile); */
 newRouter.get("/upload", photoController.findAllPhotoHandler);
 newRouter.get("/upload/:id", photoController.getPhotoById);
 newRouter.put("/upload/:id", photoController.updatePhotoHandler);

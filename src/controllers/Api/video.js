@@ -10,6 +10,7 @@ module.exports = {
             value.image = file.filename;
             value.active = 1;
             value.visible = 1;
+            value.userId = req.session?.user.id;
             const video = await Video.add(value);
             return res.send(video);
         } catch (e) {

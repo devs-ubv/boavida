@@ -10,6 +10,7 @@ module.exports = {
             value.banner = file.filename;
             value.active = 1;
             value.visible = 1;
+            value.userId = req.session?.user.id;
             const banner = await Banner.add(value);
             return res.send(banner);
         } catch (e) {

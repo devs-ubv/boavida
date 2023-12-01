@@ -315,6 +315,9 @@ body {
 .cardHeader h2 {
     font-weight: 600;
     color: var(--blue);
+    font-size: 28px;
+    font-weight: 500;
+    color: #091E3E;
 }
 
 .cardHeader .btn {

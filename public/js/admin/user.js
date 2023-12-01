@@ -25,7 +25,9 @@ $(document).ready(function() {
                 formData.append('email', dateForm.email);
                 formData.append('password', dateForm.password);
                 formData.append('permissionId', dateForm.permissionId);
+                formData.append('phoneNumber', dateForm.phoneNumber);
                 formData.append('userProfile', file);
+                formData.append('active', 1);
                 formData.append('fullName', `${dateForm?.firstName} ${dateForm?.lastName}`);       
                 $.ajax({
                     url: "/register",
@@ -35,9 +37,12 @@ $(document).ready(function() {
                     contentType: false,  // Não configurar automaticamente o Content-Type
                     success: function(data) {
                         console.log("Resultado no Jquery: ",data)
+                        $("#success").delay(100).fadeIn("slow");
+                        $("#success").delay(3000).fadeOut("slow");
                         $("#firstName").val("");
                         $("#lastName").val("");
                         $("#email").val("");
+                        $("#phoneNumber").val("");
                         $("#password").val("");
                         $("#passConfirm").val("");
                         pictureImage.innerHTML = "Escolha uma Imagem de Perfil";
@@ -48,11 +53,11 @@ $(document).ready(function() {
                     }
                 });
             }
-        })
+    });
 
-        /* ------------------ LISTAGEM DE TODOS USUARIOS -------------------------- */
-        
-        function fetchData(){
+    /* ------------------ LISTAGEM DE TODOS USUARIOS -------------------------- */
+    
+    function fetchData(){
         $.ajax({
             url: '/user?page=0&limit=15',
             method: 'GET',
@@ -64,9 +69,9 @@ $(document).ready(function() {
               $("#error").html(e.responseText);
             }
           });
-        }
-        
-        function populateTable(data) {
+    }
+    
+    function populateTable(data) {
             $.each(data, function (index, item) {
                 
                 var imageTag = item.userProfile? '<img src="/assets/img/user/' + item.userProfile + '" alt="Imagem" style="width:50px; height:50px;">':
@@ -82,9 +87,9 @@ $(document).ready(function() {
                     '</tr>'
                 );
             });
-        }
+    }
 
-        function populateTableAdmin(data) {
+    function populateTableAdmin(data) {
             $.each(data, function (index, item) {
                 
                 var imageTag = item.userProfile? '<img src="/assets/img/user/' + item.userProfile + '" alt="Imagem" style="width:50px; height:50px;">':
@@ -103,14 +108,13 @@ $(document).ready(function() {
                     '</tr>'
                 );
             });
-        }
-        // Chama a função para buscar os dados quando a página carregar
-        fetchData();
+    }
+    fetchData();
 
 
-        /* ------------------ LISTAGEM DE TODOS NIVEIS DE ACESSO NO SELECT-OPTION -------------------------- */
+    /* ------------------ LISTAGEM DE TODOS NIVEIS DE ACESSO NO SELECT-OPTION -------------------------- */
 
-        function fetchDataAccess(){
+    function fetchDataAccess(){
             $.ajax({
                 url: '/permission?page=0&limit=15',
                 method: 'GET',
@@ -121,18 +125,52 @@ $(document).ready(function() {
                 error: function(e) {
                   console.log(e.responseText);
                 }
-              });
-            }
-            function populateTableAccess(data) {
-                $.each(data, function (index, item) {
-                    $('#permissionId').append(
-                        '<option value="'+ item.id +'">' + item.role + '</option>'                       
-                    );
-                });
-            }
-            // Chama a função para buscar os dados quando a página carregar
-            fetchDataAccess();
+            });
+    }
+    function populateTableAccess(data) {
+            $.each(data, function (index, item) {
+                $('#permissionId').append(
+                    '<option value="'+ item.id +'">' + item.role + '</option>'                       
+                );
+            });
+    }
+    fetchDataAccess();
 
-    });
+    /* ------------------ EDITAR DADOS DO USUÁRIO -------------------------- */
+    
+    function fetchDataOne(){
+        $.ajax({
+            url: '/user?page=0&limit=15',
+            method: 'GET',
+            success: function(response) {
+                populateForm(response);
+                populateTableAdmin(response);
+            },
+            error: function(e) {
+              $("#error").html(e.responseText);
+            }
+          });
+    }
+    
+    function populateForm(data) {
+            $.each(data, function (index, item) {
+                
+                var imageTag = item.userProfile? '<img src="/assets/img/user/' + item.userProfile + '" alt="Imagem" style="width:50px; height:50px;">':
+                '<img src="/assets/img/user/profile.jpeg" alt="Imagem" style="width:50px; height:50px;">';
+
+                $('#userList tbody').append(
+                    '<tr>' +
+                        '<td>' +(index+1) + '</td>' +
+                        '<td>' + imageTag + '</td>' +
+                        '<td>' +item.firstName +' '+ item.lastName + '</td>' +
+                        '<td>' +item.email + '</td>' +
+                        '<td>' +item.role + '</td>' +
+                    '</tr>'
+                );
+            });
+    }
+  
+
+});
 
 

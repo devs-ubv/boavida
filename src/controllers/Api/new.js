@@ -11,6 +11,7 @@ module.exports = {
              value.userId = req.session?.user.id;
              value.active = 1;
              value.visible = 1;
+             
             const not = await New.add(value);
             return res.send(not); 
         } catch (e) {

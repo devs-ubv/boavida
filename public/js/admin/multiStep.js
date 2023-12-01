@@ -41,16 +41,20 @@ $(document).ready(function () {
         var quill = new Quill('#editor');
         var conteudoQuill = quill.root.innerHTML;
         let dataForm = $("#news-register").serializeObject();
+        
         const cover = $('#picture__input-newsCover')[0].files[0];
+        console.log("Foto",cover);
         dataForm.content = conteudoQuill;
+        
         if (dataForm.title == "" || dataForm.typeOfNew == "" || dataForm.datePublished == "" ) {
             
-            $("#message").delay(100).fadeIn("slow");
-            $("#message").delay(3000).fadeOut("slow");
+            $("#alerta").delay(100).fadeIn("slow");
+            $("#alerta").delay(3000).fadeOut("slow");
 
         } else {
-
+            console.log("DataForm",dataForm);
             var formData = new FormData();
+            
 
             formData.append('title', dataForm.title);
             formData.append('typeOfNew', dataForm.typeOfNew);
@@ -64,8 +68,9 @@ $(document).ready(function () {
             })
             .then(response => response.json())
             .then(data => {
-               localStorage.setItem("idNew", data.insertId)
-               //if (data) return window.location.href = `/dashboard/news/${data.insertId}`;
+                console.log("Data: ",data);
+                localStorage.setItem("idNew", data.insertId)
+                //if (data) return window.location.href = `/dashboard/news/${data.insertId}`;
             })
             .catch(error => {
                    console.error('Erro ao enviar arquivo:', error);
@@ -115,9 +120,12 @@ $(document).ready(function () {
                 console.log('Arquivo enviado com sucesso:', file.name);
                 // Chama a próxima iteração da função recursiva
                 uploadFile(files, index + 1);
+                
             } else {
                 console.error('Erro no envio do arquivo:', file.name);
             }
+            $("#sucesso").delay(100).fadeIn("slow");
+            $("#sucesso").delay(3000).fadeOut("slow");
         };
 
         xhr.onerror = function () {
