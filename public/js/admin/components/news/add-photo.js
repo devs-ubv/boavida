@@ -71,6 +71,7 @@ $(document).ready(function () {
     inputFilePhoto.change(function(e) {
         const inputTarget = e.target;
         const files = inputTarget.files;
+       /*  const backFiles;  */
 
         for (let index = 0; index < files.length; index++) {
             const element = files[index];
@@ -88,9 +89,16 @@ $(document).ready(function () {
                     pictureImage.append(img);
 
                     const paragr = $("<p class='remove_photo'>");
-                    paragr.addClass(".remove_photo"); 
                     pictureImage.append(paragr);
                     paragr.html("X");
+
+                    $(".remove_photo").click(function(){
+                        if (files.hasOwnProperty(index)) {
+                            delete files[index];
+                        }else {
+                            console.log("A posição especificada não existe no objeto.");
+                        }
+                    })
                 };
 
                 reader.readAsDataURL(element);
@@ -98,5 +106,8 @@ $(document).ready(function () {
                 pictureImage.html(pictureImageTxt);
             }
         }
+        
     });
+
+    
 })
