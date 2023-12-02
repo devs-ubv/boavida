@@ -17,6 +17,7 @@ module.exports = {
     userPage(req, res) {
         
         if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
+            console.log(req.params.id);
             res.render("admin/user", { session: req.session.user });
         } else {
             res.redirect("/login");

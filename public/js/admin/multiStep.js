@@ -124,9 +124,7 @@ $(document).ready(function () {
             } else {
                 console.error('Erro no envio do arquivo:', file.name);
             }
-            $("#sucesso").delay(100).fadeIn("slow");
-            $("#sucesso").delay(3000).fadeOut("slow");
-            showErrorMessage();
+        
               
         };
 
