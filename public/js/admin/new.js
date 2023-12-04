@@ -43,27 +43,7 @@ $(document).ready(function () {
         });
     }
 
-    $("#eliminar").click(function () {
-        var idNewDelete = $(this).data('content');
-        deletarNoticia(idNewDelete);
-        console.log("ID: ",idNewDelete);
-    });
-  
-
-    function deletarNoticia(idNew) {
-        
-        $.ajax({
-            url: `/new/${idNew}`,
-             method: 'DELETE',
-             success: function (response) {
-                console.log("Deletar Noticia Resposta: ",response);
-                window.history.back();
-             },
-             error: function (e) {
-                 console.log(e.responseText);
-             } 
-         });
-    }
+    
     
     
 
@@ -233,27 +213,7 @@ $(document).ready(function () {
         }
     });
 
-//-----------------------------------------------------------------------------------------------------------------------
-//------------------------------------------- MODAL PARA DELETAR NOTICIAS------------------------------------------------
-//-----------------------------------------------------------------------------------------------------------------------
-    
-// Get the modal
-var modal = document.getElementById("myModalDelete");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
 //-----------------------------------------------------------------------------------------------------------------------
 //------------------------------------------- MODAL PARA EDITAR NOTICIAS------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------------
