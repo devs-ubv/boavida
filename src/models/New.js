@@ -93,6 +93,7 @@ module.exports = {
         return new Promise(async function (resolve, reject) {
             connection.query(sql, [values, id], (err, result) => {
                 if (err) {
+                    console.log(values);
                     reject(err.message);
                 } else {
                     resolve({ ...values, id, result });

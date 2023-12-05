@@ -57,6 +57,17 @@ module.exports = {
             return res.status(409).send(e.message);
         }
     },
+    async updateOneHandler(req, res) {
+        try {
+            const id = parseInt(req.params.id);
+            const value =  {active :0 }
+            const user = await User.update(id, value);
+            console.log(user);
+            return res.send("actualizado");
+        } catch (e) {
+            return res.status(409).send(e.message);
+        }
+    },
 
     async updateProfileHandler(req, res) {
         try {

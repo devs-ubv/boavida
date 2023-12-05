@@ -96,18 +96,19 @@ $(document).ready(function() {
                 var imageTag = item.userProfile? '<img src="/assets/img/user/' + item.userProfile + '" alt="Imagem" style="width:50px; height:50px;">':
                 '<img src="/assets/img/user/profile.jpeg" alt="Imagem" style="width:50px; height:50px;">';
 
-                $('#user-list-admin tbody').append(
-                    '<tr>' +
-                        '<td>' +(index+1) + '</td>' +
-                        '<td>' + imageTag + '</td>' +
-                        '<td>' +item.firstName +' '+ item.lastName + '</td>' +
-                        '<td>' +item.email + '</td>' +
-                        '<td>' +item.role + '</td>' +
-                        '<td> <a href="#"> <i class="bi bi-box-arrow-up-right"></i> </a> </td>' +
-                        '<td> <a href="#"> <i class="bi bi-pencil-square"></i> </a></td>' +
-                        '<td> <a href="#"> <i class="bi bi-trash3"></i></a> </td>' +
-                    '</tr>'
-                );
+                $('#user-list-admin tbody').append(`
+                <tr>
+                    <td>${(index+1)} </td> +
+                    <td>${imageTag } </td> +
+                    <td>${item.firstName }</td> +
+                    <td>${item.email}</td> +
+                    <td>${item.role}</td> +
+                    <td> <a href="#"> <i class="bi bi-box-arrow-up-right"></i> </a> </td>
+                    <td> <a href="#"> <i class="bi bi-pencil-square"></i> </a></td> 
+                    <td> <a href="/dashboard/user/deletar/${item.id}"> <i class="bi bi-trash3"></i></a> </td>
+                </tr>
+                `
+            );
             });
     }
     fetchData();
@@ -137,41 +138,27 @@ $(document).ready(function() {
     }
     fetchDataAccess();
 
-    /* ------------------ EDITAR DADOS DO USUÁRIO -------------------------- */
-    
-    function fetchDataOne(){
+
+    $("#eliminar-user").click(function () {
+        var idUserDelete = $(this).data('content');
+        deletarUser(idUserDelete);
+        console.log("ID: ",idUserDelete);
+    });
+
+    function deletarUser(idUser) {
         $.ajax({
-            url: '/user?page=0&limit=15',
-            method: 'GET',
-            success: function(response) {
-                populateForm(response);
-                populateTableAdmin(response);
-            },
-            error: function(e) {
-              $("#error").html(e.responseText);
-            }
-          });
+            url: `/user-delete/${idUser}`,
+             method: 'PUT',
+             success: function (response) {
+                console.log("Deletar Noticia Resposta: ",response);
+             },
+             error: function (e) {
+                 console.log(e.responseText);
+             } 
+         });
     }
-    
-    function populateForm(data) {
-            $.each(data, function (index, item) {
-                
-                var imageTag = item.userProfile? '<img src="/assets/img/user/' + item.userProfile + '" alt="Imagem" style="width:50px; height:50px;">':
-                '<img src="/assets/img/user/profile.jpeg" alt="Imagem" style="width:50px; height:50px;">';
 
-                $('#userList tbody').append(
-                    '<tr>' +
-                        '<td>' +(index+1) + '</td>' +
-                        '<td>' + imageTag + '</td>' +
-                        '<td>' +item.firstName +' '+ item.lastName + '</td>' +
-                        '<td>' +item.email + '</td>' +
-                        '<td>' +item.role + '</td>' +
-                    '</tr>'
-                );
-            });
-    }
-  
-
+    eliminar-user
 });
 
 
