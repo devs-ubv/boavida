@@ -499,7 +499,7 @@ const leadership = {
 
 const news = [{
         id: 1,
-        title: 'MULHERES PARTICIPAM EM MASSA NA PALESTRA SOBRE CANCRO DA MAMA E DANÇA ZUMBA | GRUPO BOAVIDA DA',
+        title: 'MULHERES PARTICIPAM EM MASSA NA PALESTRA SOBRE CANCRO DA MAMA E DANÇA ZUMBA | GRUPO BOAVIDA',
         image: '/assets/img/news/lecture/1.jpg',
         datePublished: '13 de Outubro de 2023',
         typeOfNew: 'Evento ',
