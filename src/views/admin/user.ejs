@@ -13,11 +13,11 @@
                             <div>
                                 <% if(session.type != "admin"){%>
                                     <a href="user">Utilizadores do Sistema</a>
-                                <%} %>
-                                <% if(session.type == "admin"){%>
-                                    <a href="user">Gestão de usuários</a>
-                                    <a href="accesslevel">Níveis de Acesso</a>
                                     <%} %>
+                                        <% if(session.type == "admin"){%>
+                                            <a href="user">Gestão de usuários</a>
+                                            <a href="accesslevel">Níveis de Acesso</a>
+                                            <%} %>
                             </div>
                             <% if(session.type == "admin"){%>
                                 <button id="myBtn">Adicionar Novo Usuário</button>
@@ -113,7 +113,7 @@
                                 <p>Página » </p>
                                 <a href="#">1</a>
                                 <a href="#">2</a>
-                                
+
                             </div>
                             <%} else {  %>
 
@@ -140,3 +140,9 @@
                                     < </div>
 
                                         <%- include('./partials/footer'); -%>
+
+                                            < </div>
+                                                <% if(params.page == "deletar" && params.id) { %>
+                                                    <%- include('./partials/components/modal-delete-user'); -%>
+                                                        <% } %>
+                                                            < <%- include( './partials/footer'); -%>

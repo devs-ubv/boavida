@@ -15,10 +15,10 @@
                         <div class="cardHeader">
                             <!-- ======= Modal para criação do usuário ======= -->
                             <%- include('./partials/components/modal-cadastro'); -%>
-                            </div>
                         </div>
-                        <!-- ======= Apresentação das Notícias ======= -->
-                        <% if(params.page == "listar") { %>
+                    </div>
+                    <!-- ======= Apresentação das Notícias ======= -->
+                    <% if(params.page == "listar") { %>
                         <div class="notices">
                             <div class="notice">
                                 <div class="tableNews">
@@ -31,26 +31,60 @@
                                             <th>TIPO</th>
                                             <th>DATA DE PUBLICAÇÃO</th>
                                             <th colspan="3" style="text-align: center;">AÇÃO</th>
-                                        </tr>                                        
+                                        </tr>
                                     </table>
-                                    
+
                                 </div>
                             </div>
                         </div>
                         <% } %>
 
-                        <% if(params.page == "deletar" && params.id) { %>
-                            <%- include('./partials/components/modal-delete'); -%>
-                        <% } %>
+                            <% if(params.page == "deletar" && params.id) { %>
+                                <%- include('./partials/components/modal-delete'); -%>
+                                    <% } %>
 
-                        <% if(params.page == "deletar-photo" && params.id) { %>
-                            <%- include('./partials/components/modal-delete-photo'); -%>
-                        <% } %>
+                                        <% if(params.page == "deletar-photo" && params.id) { %>
+                                            <%- include('./partials/components/modal-delete-photo'); -%>
+                                                <% } %>
 
-                        <% if(params.page == "editar" && params.id) { %>
-                            <%- include('./partials/components/modal-edit'); -%>
-                        <% } %>
-                    </div>
+                                                    <% if(params.page == "editar" && params.id) { %>
+                                                        <%- include('./partials/components/modal-edit'); -%>
+                                                            <% } %>
             </div>
+    </div>
 
-            <%- include('./partials/footer'); -%>
+    <%- include('./partials/footer'); -%>
+
+        <script>
+            $(document).ready(function() {
+                // Adiciona um ouvinte de alteração ao input de arquivo
+                $("#fileInput").change(function() {
+                    previewImage(this);
+                });
+
+                // Função para exibir a pré-visualização da imagem
+                function previewImage(input) {
+                    var file = input.files[0];
+                    if (file) {
+                        var reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            $("#image-preview").attr("src", e.target.result);
+                        };
+
+                        // Lê o conteúdo da imagem como uma URL de dados
+                        reader.readAsDataURL(file);
+                    } else {
+                        // Limpa a pré-visualização se nenhum arquivo for selecionado
+                        $("#image-preview").empty();
+                    }
+                }
+
+
+
+                $("#remove").click(function() {
+                    alert("estou a remover");
+                    $("#image-preview").text("");
+                })
+            });
+        </script>

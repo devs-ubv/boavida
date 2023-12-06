@@ -57,6 +57,17 @@ module.exports = {
             return res.status(409).send(e.message);
         }
     },
+    async updateOneHandler(req, res) {
+        try {
+            const id = parseInt(req.params.id);
+            const value =  {active :0 }
+            const user = await User.update(id, value);
+            return res.send(user);
+        } catch (e) {
+            return res.status(409).send(e.message);
+        }
+    },
+
     async deleteHanler(req, res) {
         try {
             const id = parseInt(req.params.id);

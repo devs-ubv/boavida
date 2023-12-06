@@ -13,20 +13,14 @@ module.exports = {
             res.redirect("/login");
         }
     },
-
     userPage(req, res) {
-        
         if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
-            res.render("admin/user", { session: req.session.user });
+            const { page, id } = req.params;
+            res.render("admin/user", { session: req.session.user,  params:{page, id}});
         } else {
             res.redirect("/login");
         }
     },
-
-
-    
-
-
 
     loginPage(req, res) {
         res.render("admin/login");
