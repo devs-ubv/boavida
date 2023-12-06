@@ -43,26 +43,10 @@ $(document).ready(function () {
         });
     }
 
-    $("#eliminar").click(function () {
-        var idNewDelete = $(this).data('content');
-        deletarNoticia(idNewDelete);
-        console.log("ID: ",idNewDelete);
-    });
-  
+    
+    
+    
 
-    function deletarNoticia(idNew) {
-        
-        $.ajax({
-            url: `/new/${idNew}`,
-             method: 'DELETE',
-             success: function (response) {
-                console.log("Deletar Noticia Resposta: ",response);
-             },
-             error: function (e) {
-                 console.log(e.responseText);
-             } 
-         });
-    }
     function populateTable(data) {
         $.each(data, function (index, item) {
             var imageTag = item.cover ? '<img src="/assets/img/news/' + item.cover + '" alt="Imagem" style="width:50px; height:50px;">' :
@@ -71,13 +55,33 @@ $(document).ready(function () {
             $('#newsList tbody').append(
                 `<tr id="delete-new">
                     <td> ${(index + 1)} </td>
-                    <td> ${imageTag}</td> 
-                    <td> ${item.title} </td> 
-                    <td> ${item.typeOfNew}</td> 
-                    <td> ${item.datePublished} </td> 
-                    <td> <a href='/dashboard/news/${item.id}'> <i class="bi bi-box-arrow-up-right"></i> </a> </td> 
-                    <td> <a href='/dashboard/news/editar/${item.id}'> <i class="bi bi-pencil-square"></i> </a></td> 
-                    <td> <a href='/dashboard/news/deletar/${item.id}'> <i class="bi bi-trash3"></i></a> </td> 
+                    <td> ${imageTag}</td> +
+                    <td> ${item.title} </td> +
+                    <td> ${item.typeOfNew}</td> +
+                    <td> ${item.datePublished} </td> +
+                    <td> <a href='/dashboard/news/${item.id}'> <i class="bi bi-box-arrow-up-right"></i> </a> </td> +
+                    <td> <a href='/dashboard/news/editar/${item.id}'> <i class="bi bi-pencil-square"></i> </a></td> +
+                    <td> <a href='/dashboard/news/deletar/${item.id}'> <i class="bi bi-trash3"></i></a> </td> +
+                </tr>`
+            );
+        });
+    }
+
+    function populateTableAdmin(data) {
+        $.each(data, function (index, item) {
+            var imageTag = item.cover ? '<img src="/assets/img/news/' + item.cover + '" alt="Imagem" style="width:50px; height:50px;">' :
+                '<img src="/assets/img/news/new-prototype.jpg" alt="Imagem" style="width:50px; height:50px;">';
+
+            $('#newsList tbody').append(
+                `<tr>
+                    <td> ${(index + 1)} </td>
+                    <td> ${imageTag}</td> +
+                    <td> ${item.title} </td> +
+                    <td> ${item.typeOfNew}</td> +
+                    <td> ${item.datePublished} </td> +
+                    <td> <a href='/dashboard/news/${item.id}'> <i class="bi bi-box-arrow-up-right"></i> </a> </td> +
+                    <td> <a href="#"> <i class="bi bi-pencil-square"></i> </a></td> +
+                    <td> <a href=""> <i class="bi bi-trash3"></i></a> </td> +
                 </tr>`
             );
         });
@@ -209,27 +213,7 @@ $(document).ready(function () {
         }
     });
 
-//-----------------------------------------------------------------------------------------------------------------------
-//------------------------------------------- MODAL PARA DELETAR NOTICIAS------------------------------------------------
-//-----------------------------------------------------------------------------------------------------------------------
-    
-// Get the modal
-var modal = document.getElementById("myModalDelete");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
 //-----------------------------------------------------------------------------------------------------------------------
 //------------------------------------------- MODAL PARA EDITAR NOTICIAS------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------------

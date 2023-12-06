@@ -135,16 +135,12 @@ $(document).ready(function () {
     }
     function populateBanner(data) {
         console.log(data.cover);
-        $('.news-header').append(
+        $('.banner_header').append(
             `
-            <div class="header_new">
-                <div class="cover_new">
-                    <img src="/assets/img/banner/${data?.banner}"/>
-                </div>
-                <div class="topo">
-                    <h1>${data?.title}</h1>
-                    </div>
-                </div>
+            
+                <img src="/assets/img/banner/${data?.banner}"/>
+                <h1>${data?.title}</h1>
+                
                 
             `
             

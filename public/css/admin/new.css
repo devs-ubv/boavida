@@ -64,6 +64,8 @@
     align-items: start;
     gap: 15px;
     width: 300px;
+    height: 100vh;
+    overflow-y: scroll;
 }
 
 .footer-photo-new {
