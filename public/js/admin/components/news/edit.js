@@ -14,6 +14,7 @@ $(document).ready(function () {
                 $('#title').val(data.title);
                 $('#typeOfNew').val(data.typeOfNew);
                 $('#datePublished').val(data.datePublished);
+                $('#image-preview').attr('src', '/assets/img/news/'+data.cover);
                 quill.clipboard.dangerouslyPasteHTML(data.content);
             },
             error: function (error) {
@@ -32,27 +33,31 @@ $(document).ready(function () {
         function updateAPIData(idNew) {
             // Obter dados do formulário
             var conteudo = quill.root.innerHTML;
-            var updatedNewData = {
-                title: $('#title').val(),
-                typeOfNew: $('#typeOfNew').val(),
-                datePublished: $('#datePublished').val(),
-                content: conteudo,
-            };
-
-            // Enviar dados atualizados para a API
-            $.ajax({
-                url: `/new/${idNew}`, 
-                method: 'PUT', 
-                contentType: 'application/json',
-                data: JSON.stringify(updatedNewData),
-                success: function (response) {
-                    loadAPIData(idNewEdit);
-                    console.log("Noticia editada com sucesso!!!", response);
-                },
-                error: function (error) {
-                    console.error('Erro ao atualizar dados na API: ' + error.statusText);
-                }
-            });
+            const cover = $('#fileInput')[0].files[0]
+            let dataForm = $("#update-new-form").serializeObject();
+            console.log(dataForm);
+        
+           var formData = new FormData();
+            formData.append('title', dataForm.title);
+            formData.append('typeOfNew', dataForm.typeOfNew);
+            formData.append('datePublished', dataForm.datePublished);
+            formData.append('cover', cover);
+            formData.append('content', conteudo);
+         // Enviar dados atualizados para a API
+            fetch(`/new/${idNew}`, {
+                method: 'PUT',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Data: ",data);
+                //if (data) return window.location.href = `/dashboard/news/${data.insertId}`;
+            })
+            .catch(error => {
+                   console.error('Erro ao enviar arquivo:', error);
+            }); 
+      
+        
         }
         updateAPIData(idNewEdit);
     });

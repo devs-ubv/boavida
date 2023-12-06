@@ -43,7 +43,7 @@ module.exports = {
             n.datePublished, 
             n.cover, n.createdAt, 
             ph.image,
-            ph.id
+            ph.id as photoId
             FROM tb_new as n 
             LEFT JOIN tb_photo as ph ON n.id= ph.newId where n.id=${id}`;
             connection.query(sql, (err, results) => {
@@ -57,7 +57,7 @@ module.exports = {
                     datePublished: results[0].datePublished,
                     cover: results[0].cover,
                     createdAt: results[0].createdAt,
-                    fotos: results.map(result => ({ image: result.image, id: result.id }))
+                    fotos: results.map(result => ({ image: result.image, id: result.photoId }))
                   };
                   resolve(newResulted);
                }else{
@@ -93,7 +93,6 @@ module.exports = {
         return new Promise(async function (resolve, reject) {
             connection.query(sql, [values, id], (err, result) => {
                 if (err) {
-                    console.log(values);
                     reject(err.message);
                 } else {
                     resolve({ ...values, id, result });

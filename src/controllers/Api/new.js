@@ -47,12 +47,14 @@ module.exports = {
             const id = parseInt(req.params.id);
             const value = req.body;
             const file = req.file;
+            console.log(value, file);
             if(file) {
                 value.cover = file.filename;
                 const newData = await New.findById(id);
-               
+                
                 if (newData) {
-                    const resultDelete = deleteFileInDataBase(newData?.cover);
+                    const resultDelete = await deleteFileInDataBase(newData?.cover);
+                    console.log(resultDelete);
                     if (!resultDelete) return res.status(409).send({ message: 'Ocorreu um erro ao excluir o arquivo' });
                     const not = await New.update(id, value);
                     return res.send(not);

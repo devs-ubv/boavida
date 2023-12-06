@@ -9,14 +9,19 @@ function connetFirstNameAndLastName(name){
 }
 
 const deleteFileInDataBase = (fileName)=>{
-    const filepath = path.resolve(__dirname, '..', '..', '..', 'public', 'img', 'news', fileName);
-            fs.unlink(filepath, function (err) {
-                if (err) {
-                   return true;
-                } else {
-                   return false;
-                }
-            })
+    const filepath = path.resolve(__dirname, '..', '..', 'public', 'img', 'news', fileName);
+    return new Promise(async function (resolve, reject) {
+        fs.unlink(filepath, async function (err) {
+            if (err) {
+                console.log("error")
+             reject(false);
+              
+            } 
+              resolve(true);
+        })
+    });
+
+           
 }
 module.exports =  {
     connetFirstNameAndLastName,
