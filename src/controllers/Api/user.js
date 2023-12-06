@@ -57,47 +57,6 @@ module.exports = {
             return res.status(409).send(e.message);
         }
     },
-    async updateOneHandler(req, res) {
-        try {
-            const id = parseInt(req.params.id);
-            const value =  {active :0 }
-            const user = await User.update(id, value);
-            console.log(user);
-            return res.send("actualizado");
-        } catch (e) {
-            return res.status(409).send(e.message);
-        }
-    },
-
-    async updateProfileHandler(req, res) {
-        try {
-            value.userId = req.session?.user.id;
-            
-            const file = req.file;
-            console.log(file);
-            const userResult = await User.findById(value.id);
-            console.log(userResult);
-
-            // const filepath = path.resolve(__dirname, '..', '..', 'public', 'img', 'user', filename);
-            // fs.unlink(filepath, function (err) {
-            //     if (err) {
-            //         res.status(500).send('Ocorreu um erro ao excluir o arquivo');
-            //     } else {
-
-            //         res.send('Arquivo excluído com sucesso');
-            //     }
-            // })
-
-        // const user = await User.update(id, value);
-            return res.send('user');
-        } catch (e) {
-            return res.status(409).send(e.message);
-        }
-    },
-
-
-
-
     async deleteHanler(req, res) {
         try {
             const id = parseInt(req.params.id);
@@ -107,5 +66,22 @@ module.exports = {
             return res.status(409).send(e.message);
         }
     },
-    
+    async deleteHanlerFile(req, res) {
+        try {
+            const filename = req.params.filename;
+            const filepath = path.resolve(__dirname, '..', '..', 'public', 'img', 'user', filename);
+
+            fs.unlink(filepath, function (err) {
+                if (err) {
+                    res.status(500).send('Ocorreu um erro ao excluir o arquivo');
+                } else {
+
+                    res.send('Arquivo excluído com sucesso');
+                }
+            })
+
+        } catch (e) {
+            return res.status(409).send(e.message);
+        }
+    },
 }

@@ -13,11 +13,11 @@
                             <div>
                                 <% if(session.type != "admin"){%>
                                     <a href="user">Utilizadores do Sistema</a>
+                                <%} %>
+                                <% if(session.type == "admin"){%>
+                                    <a href="user">Gestão de usuários</a>
+                                    <a href="accesslevel">Níveis de Acesso</a>
                                     <%} %>
-                                        <% if(session.type == "admin"){%>
-                                            <a href="user">Gestão de usuários</a>
-                                            <a href="accesslevel">Níveis de Acesso</a>
-                                            <%} %>
                             </div>
                             <% if(session.type == "admin"){%>
                                 <button id="myBtn">Adicionar Novo Usuário</button>
@@ -138,7 +138,5 @@
                                 <%} %>
 
                                     < </div>
-                                        <% if(params.page == "deletar" && params.id) { %>
-                                            <%- include('./partials/components/modal-delete-user'); -%>
-                                                <% } %>
-                                                    < <%- include( './partials/footer'); -%>
+
+                                        <%- include('./partials/footer'); -%>

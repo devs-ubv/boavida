@@ -17,7 +17,7 @@ newRouter.delete("/new/file/:filename", newController.deleteHanlerFile);
 newRouter.get("/new", newController.findAllNewHandler);
 newRouter.get("/new/:id", newController.getNewById);
 newRouter.get("/new/upload:id", newController.getNewById);
-newRouter.put("/new/:id",  multer(uploadCover).single('cover'), newController.updateNewHandler);
+newRouter.put("/new/:id", newController.updateNewHandler);
 newRouter.delete("/new/:id", newController.deleteHanler);
 
 
