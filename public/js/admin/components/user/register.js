@@ -45,11 +45,12 @@ $(document).ready(function() {
                         $("#password").val("");
                         $("#passConfirm").val("");
                         pictureImage.innerHTML = "Escolha uma Imagem de Perfil";
-                        showErrorMessage();
+                        showSuccessMessage();
                     },
                     error: function(e) {
                         $("#msg").css("color", "#ff0000");
                         $("#msg").html(e.responseText);
+                        showErrorMessage(e);
                     }
                 });
             }

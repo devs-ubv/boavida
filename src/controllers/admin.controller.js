@@ -57,23 +57,22 @@ module.exports = {
     async findOne(req, res) {
         res.render("admin/index");
     },
-
     bannerPage(req, res) {
-        if(req.params.id){
-            if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
-              
-                return res.render("admin/banner", { session: req.session.user, bannerId: req.params.id});
-            } else {
-                return res.redirect("/login")
-            }
-        }
-
         if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
-            res.render("admin/banner", { session: req.session.user, bannerId:''});
+            const { page, id } = req.params;
+            res.render("admin/banners", { session: req.session.user,  params:{page, id} });
         } else {
             res.redirect("/login")
-        } 
-        
+        }
+    },
+    async bannerPageId(req, res) {
+        if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
+            const bannerId = req.params.id;
+            console.log(bannerId);
+            res.render("admin/banner", { session: req.session.user, bannerId});
+        } else {
+            res.redirect("/login")
+        }
     },
 
 }

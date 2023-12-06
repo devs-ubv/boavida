@@ -10,8 +10,8 @@ adminRouter.get("/dashboard/user", userController.userPage);
 adminRouter.get("/dashboard/accesslevel", userController.accessLevel);
 adminRouter.get("/dashboard/user/:page/:id", userController.userPage);
 //------------------------banner //--------------------------
-adminRouter.get("/dashboard/banner", pageController.bannerPage);
-adminRouter.get("/dashboard/banner", pageController.bannerPage);
+adminRouter.get("/dashboard/banner/:page/:id", pageController.bannerPage);
+adminRouter.get("/dashboard/banner/:id", pageController.bannerPageId);
 
 //------------------------banner //--------------------------
 adminRouter.get("/dashboard/video", pageController.videoPage);

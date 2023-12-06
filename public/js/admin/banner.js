@@ -57,61 +57,34 @@ $(document).ready(function () {
                         $(".title").val("");
                         $(".type").val("");
                         pictureImageCover.innerHTML = "Carregar a Imagem do Banner";
-                        showErrorMessage();
+                        showSuccessMessage();
                     },
                     error: function(e) {
                         $("#msg").css("color", "#ff0000");
                         $("#msg").html(e.responseText);
                         console.log(e.responseText);
+                        showErrorMessage(e);
                     }
                 });
             }
         })
 
     /* ------------------LISTAGEM DE TODAS OS BANNER ---------------------- */
-    function fetchData() {
-        $.ajax({
-            url: '/banner?page=0&limit=25',
-            method: 'GET',
-            success: function (response) {
-                populateTable(response);
-            },
-            error: function (e) {
-                console.log(e.responseText);
-            }
-        });
-    }
-
-    function fetchData() {
-        var bannerId = $("#id-banner").data('content');
-     if(bannerId){
-        $.ajax({
-            url: `/banner/${bannerId}`,
-            method: 'GET',
-            success: function (response) {
-                populateBanner(response);
-            },
-            error: function (e) {
-                console.log(e.responseText);
-            }
-        });
-     }
-        $.ajax({
-            url: '/banner?page=0&limit=25',
-            method: 'GET',
-            success: function (response) {
-                populateTable(response);
-            },
-            error: function (e) {
-                console.log(e.responseText);
-            }
-        });
-    }
-
-
+    
     
 
-
+    function fetchData() {
+            $.ajax({
+            url: '/banner?page=0&limit=25',
+            method: 'GET',
+            success: function (response) {
+                populateTable(response);
+            },
+            error: function (e) {
+                console.log(e.responseText);
+            }
+        });
+    }
 
     function populateTable(data) {
         $.each(data, function (index, item) {
@@ -134,19 +107,8 @@ $(document).ready(function () {
             );
         });
     }
-    function populateBanner(data) {
-        console.log(data.cover);
-        $('.banner_header').append(
-            `
-            
-                <img src="/assets/img/banner/${data?.banner}"/>
-                <h1>${data?.title}</h1>
-                
-                
-            `
-            
-        );
-    }
+
+    
         
     fetchData()
     })

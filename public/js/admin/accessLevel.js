@@ -13,11 +13,12 @@ $(document).ready(function() {
                 success: function(data) {
                     console.log("Resultado no Jquery: ",data)
                     $("#role").val("");
-                    showErrorMessage();
+                    showSuccessMessage();
                 },
                 error: function(e) {
                     $("#msg").css("color", "#ff0000");
                     $("#msg").html(e.responseText);
+                    showErrorMessage(e);
                 }
             }); 
         })

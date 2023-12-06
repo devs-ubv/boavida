@@ -105,7 +105,7 @@ $(document).ready(function () {
             localStorage.removeItem("newId");
             $("#sucesso").delay(100).fadeIn("slow");
             $("#sucesso").delay(3000).fadeOut("slow");
-            showErrorMessage();
+            showSuccessMessage();
             return;
         }
 

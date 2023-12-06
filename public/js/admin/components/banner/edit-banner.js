@@ -1,4 +1,20 @@
 $(document).ready(function () {
+
+    var modalBannerEdit = $("#modal-edit-banner");
+    var spanBannerEdit = $(".close");
+
+    // Quando o usuário clica no <span> (x), fecha o modal
+    spanBannerEdit.click(function() {
+        modalBannerEdit.hide();
+    });
+
+    // Quando o usuário clica fora do modal, fecha o modal
+    $(window).click(function(event) {
+        if (event.target === modalBannerEdit[0]) {
+            modalBannerEdit.hide();
+        }
+    });
+
     /* ------------------INPUT DE CARREGAMENTO DA IMAGEM DO BANNER---------------------- */
     const bannerFileCover = document.querySelector("#picture-edit-banner");
     const pictureEditImageCover = document.querySelector(".picture-image-banner-edit");

@@ -25,7 +25,7 @@ function simplifyDate(date){
   return date.split('T')[0];
 }
 
-function showErrorMessage(){
+function showSuccessMessage(){
   setTimeout(function () {
     $("#myModal").hide();
     location.reload();
@@ -34,6 +34,14 @@ function showErrorMessage(){
     location.reload();
   }, 5000);
 }
+
+ function showErrorMessage(e){
+  const responseText = ErrorMessage(JSON.parse(e.responseText));
+  $(".error-message").text(responseText).show();
+  setTimeout(function () {
+    $(".error-message").hide();
+  }, 8000); // 30 segundos em milissegundos
+} 
 
 
 
