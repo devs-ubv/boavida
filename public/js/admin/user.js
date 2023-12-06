@@ -39,17 +39,17 @@ $(document).ready(function() {
                 
                 var imageTag = item.userProfile? '<img src="/assets/img/user/' + item.userProfile + '" alt="Imagem" style="width:50px; height:50px;">':
                 '<img src="/assets/img/user/profile.jpeg" alt="Imagem" style="width:50px; height:50px;">';
-
-                $('#user-list-admin tbody').append(
-                    '<tr>' +
-                        '<td>' +(index+1) + '</td>' +
-                        '<td>' + imageTag + '</td>' +
-                        '<td>' +item.firstName +' '+ item.lastName + '</td>' +
-                        '<td>' +item.email + '</td>' +
-                        '<td>' +item.role + '</td>' +
-                        '<td> <a href="#"> <i class="bi bi-pencil-square"></i> </a></td>' +
-                        '<td> <a href="#"> <i class="bi bi-trash3"></i></a> </td>' +
-                    '</tr>'
+                $('#user-list-admin tbody').append(`
+                <tr>
+                    <td>${(index+1)} </td> +
+                    <td>${imageTag } </td> +
+                    <td>${item.firstName }</td> +
+                    <td>${item.email}</td> +
+                    <td>${item.role}</td> +
+                    <td> <a href="#"> <i class="bi bi-pencil-square"></i> </a></td> 
+                    <td> <a href="/dashboard/user/deletar/${item.id}"> <i class="bi bi-trash3"></i></a> </td>
+                </tr>
+                `
                 );
             });
     }

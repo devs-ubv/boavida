@@ -24,6 +24,8 @@ authRouter.delete("/user/file/:filename", userController.deleteHanlerFile);
 authRouter.get("/user", userController.findAllUserHandler);
 authRouter.get("/user/:id", userController.getUserById);
 authRouter.put("/user/:id", userController.updateHandler);
+authRouter.put("/user-delete/:id", userController.updateOneHandler);
 authRouter.delete("/user/:id", userController.deleteHanler);
+
 
 module.exports = authRouter;
