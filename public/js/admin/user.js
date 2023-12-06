@@ -39,7 +39,7 @@ $(document).ready(function() {
         });
     }
 
-    function fetchData(){
+    function fetchDataUser(){
         $.ajax({
             url: '/user?page=0&limit=15',
             method: 'GET',
@@ -54,30 +54,30 @@ $(document).ready(function() {
           });
     }
     
-    fetchData();
+    fetchDataUser();
 
 
     /* ------------------ LISTAGEM DE TODOS NIVEIS DE ACESSO NO SELECT-OPTION -------------------------- */
 
     function fetchDataAccess(){
-            $.ajax({
-                url: '/permission?page=0&limit=15',
-                method: 'GET',
-                dataType: 'json',
-                success: function(response) {
-                    populateTableAccess(response);
-                },
-                error: function(e) {
-                  console.log(e.responseText);
-                }
-            });
+        $.ajax({
+            url: '/permission?page=0&limit=15',
+            method: 'GET',
+            dataType: 'json',
+            success: function(response) {
+                populateTableAccess(response);
+            },
+            error: function(e) {
+                console.log(e.responseText);
+            }
+        });
     }
     function populateTableAccess(data) {
-            $.each(data, function (index, item) {
-                $('#permissionId').append(
-                    '<option value="'+ item.id +'">' + item.role + '</option>'                       
-                );
-            });
+        $.each(data, function (index, item) {
+            $('#permissionId').append(
+                '<option value="'+ item.id +'">' + item.role + '</option>'                       
+            );
+        });
     }
     fetchDataAccess();
 

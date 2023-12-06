@@ -73,7 +73,7 @@ $(document).ready(function () {
     
     
 
-    function fetchData() {
+    function fetchDataBanner() {
             $.ajax({
             url: '/banner?page=0&limit=25',
             method: 'GET',
@@ -108,8 +108,6 @@ $(document).ready(function () {
         });
     }
 
-    
-        
-    fetchData()
+    fetchDataBanner()
     })
  

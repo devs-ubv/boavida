@@ -3,7 +3,8 @@ const connection = require('../database/connection')
 module.exports = {
     findAll({ page = 0, limit = 1, search: text }) {
         return new Promise(async function(resolve, reject) {
-            const sql = `SELECT u.active,u.lastName,u.id, u.userName, u.firstName, u.fullName, u.email, u.password, u.userProfile, p.role, p.type FROM tb_users as u join tb_permissions as p on u.permissionId= p.id where  u.active=1 ORDER BY u.createdAt DESC LIMIT ${limit} OFFSET ${page}`
+            const sql = `SELECT u.active,u.lastName,u.id, u.userName, u.firstName, u.fullName, u.email, u.password, u.userProfile, p.role,
+             p.type FROM tb_users as u join tb_permissions as p on u.permissionId= p.id where  u.active=1 ORDER BY u.createdAt DESC LIMIT ${limit} OFFSET ${page}`
             connection.query(sql, (err, result) => {
                 if (err) reject(err.message);
                 resolve(result);

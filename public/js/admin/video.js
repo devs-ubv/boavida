@@ -1,7 +1,7 @@
 $(document).ready(function() { 
 
 /* ---------------------- LISTAGEM DE TODOS OS VIDEOS CADASTRADOS ------------- */
-    function fetchData(){
+    function fetchDataVideo(){
         $.ajax({
             url: '/video_api?page=0&limit=15',
             method: 'GET',
@@ -35,7 +35,7 @@ $(document).ready(function() {
         });
     }
 
-    fetchData();
+    fetchDataVideo();
 
     /* ---------------------- CADASTRO DE NOVOS VIDEOS ---------------------- */
 

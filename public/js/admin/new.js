@@ -9,7 +9,7 @@ $(document).ready(function () {
 
     /* ------------------LISTAGEM DE TODAS AS NOTICIAS ---------------------- */
 
-    function fetchData() {
+    function fetchDataNews() {
         $.ajax({
             url: '/new?page=0&limit=150',
             method: 'GET',
@@ -147,7 +147,7 @@ $(document).ready(function () {
         return Array.from(paragraphs).map(paragraph => paragraph.textContent);
     }
     // Chama a função para buscar os dados quando a página carregar
-    fetchData();
+    fetchDataNews();
     
     var idNewList = $('#id-new').data('content');
     
