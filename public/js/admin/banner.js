@@ -117,6 +117,7 @@ $(document).ready(function () {
         $.each(data, function (index, item) {
             var imageTag = item.banner ? '<img src="/assets/img/banner/' + item.banner + '" alt="Imagem" style="width:50px; height:50px;">' :
                 '<img src="/assets/img/news/new-prototype.jpg" alt="Imagem" style="width:50px; height:50px;">';
+        
 
             $('#banner-list tbody').append(
                 `<tr>
@@ -127,8 +128,8 @@ $(document).ready(function () {
                     <td> ${item.fullName}</td>
                     <td> ${simplifyDate(item.createdAt)} </td>
                     <td> <a href='/dashboard/banner/${item.id}'> <i class="bi bi-box-arrow-up-right"></i> </a> </td> +
-                    <td> <a href="#"> <i class="bi bi-pencil-square"></i> </a></td> 
-                    <td> <a href=""> <i class="bi bi-trash3"></i></a> </td> 
+                    <td> <a href='#'> <i class="bi bi-pencil-square"></i> </a></td> 
+                    <td> <a href='#'> <i class="bi bi-trash3"></i></a> </td> 
                 </tr>`
             );
         });

@@ -1,0 +1,50 @@
+<div id="modal-edit-banner" class="modal-edit-banner hiden">
+    <div class="modal_content_edit_banner">
+        <div class="modal-header">
+            <p class="title">EDITAR BANNER</p>
+        </div>
+
+        <div class="modal-body ">
+            <h2 class="tittle text-2xl">Preencha o Formulário Com Novas Informações</h2>
+            <form id="banner-register" class="w-full">
+
+                <div class="w-full flex flex-col">
+                    <div class="w-full">
+                        <input type="text" name="title" class="title input w-full" placeholder="Título do  Banner">
+                    </div>
+                    <div class="w-full">
+                        <input type="text" name="type" class="type input w-full" placeholder="Tipo de Notícia">
+                    </div>
+                </div>
+                <div class="input_wrap w-full">
+                    <label class="picture-edit-banner" for="picture-edit-banner" tabIndex="0">
+                            <span class="picture-image-banner-edit"></span>
+                        </label>
+                    <input type="file" name="banner" id="picture-edit-banner" class="input">
+                </div>
+                <div class="input_wrap">
+                    <span id="alerta" class="w-full p-3.5 flex flex-row justify-center align-center gap-2.5 bg-red-600 rounded-sm text-white">
+                        <i class="bi bi-exclamation-circle"></i>
+                        <p>Por Favor preencha todos os campos</p>
+                    </span>
+                </div>
+                
+                <div id="message">
+                    <div id="message_Content">
+                        <i class="bi bi-exclamation-circle"></i>
+                        <p>Por Favor Preencha Todos os Campos!</p>
+                    </div>
+                </div>
+                <div id="success">
+                    <div id="success_Content">
+                        <i class="bi bi-exclamation-circle"></i>
+                        <p>Banner Editado Com Sucesso</p>
+                    </div>
+                </div>
+                
+                <button type="button" id="edit-banner">Cadastrar</button>
+                
+            </form>
+        </div>
+    </div>
+</div>
