@@ -1,0 +1,112 @@
+<%- include('./partials/head'); -%>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <%- include('./partials/sidebar'); -%>
+            <!-- ========================= Main ==================== -->
+            <div class="main">
+
+                <%- include('./partials/nav'); -%>
+                    <!-- ======================= conteúdo do usuario ================== -->
+                    <div class="news">
+                        <div class="tittle">
+                            <h3>Adicione ou edite as notícias do site</h3>
+                            <button id="myBtn" class="btn">Adicionar Nova Notícia</button>
+                        </div>
+                        <div class="cardHeader">
+                            <!-- ======= Modal para criação do usuário ======= -->
+                            <%- include('./partials/components/modal-cadastro'); -%>
+                        </div>
+                    </div>
+                    <!-- ======= Apresentação das Notícias ======= -->
+                    <% if(params.page == "listar") { %>
+                        <div class="notices">
+                            <div class="notice">
+                                <div class="tableNews">
+                                    <h1>Noticias Cadastradas</h1>
+                                    <table id="newsList">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>CAPA</th>
+                                            <th>TITULO</th>
+                                            <th>TIPO</th>
+                                            <th>DATA DE PUBLICAÇÃO</th>
+                                            <th colspan="3" style="text-align: center;">AÇÃO</th>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+
+                            <% if(params.page == "deletar" && params.id) { %>
+                                <%- include('./partials/components/modal-delete'); -%>
+                                    <% } %>
+
+                                        <% if(params.page == "deletar-photo" && params.id) { %>
+                                            <%- include('./partials/components/modal-delete-photo'); -%>
+                                                <% } %>
+
+                                                    <% if(params.page == "editar" && params.id) { %>
+                                                        <%- include('./partials/components/modal-edit'); -%>
+                                                            <% } %>
+            </div>
+    </div>
+
+    <%- include('./partials/footer'); -%>
+
+        <script>
+            $(document).ready(function() {
+                // Adiciona um ouvinte de alteração ao input de arquivo
+                $("#fileInput").change(function() {
+                    uploadProfile(this);
+                    previewImage(this);
+                });
+
+                // Função para exibir a pré-visualização da imagem
+                function previewImage(input) {
+                    var file = input.files[0];
+                    if (file) {
+                        var reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            $("#image-preview").attr("src", e.target.result);
+                        };
+
+                        // Lê o conteúdo da imagem como uma URL de dados
+                        reader.readAsDataURL(file);
+                    } else {
+                        // Limpa a pré-visualização se nenhum arquivo for selecionado
+                        $("#image-preview").empty();
+                    }
+                }
+
+
+                function uploadProfile(input) {
+                    var file = input.files[0];
+                    console.log(file);
+                }
+                $("#remove").click(function() {
+                    alert("estou a remover");
+                    $("#image-preview").text("");
+                })
+
+                $("#upload-profile").click(function() {
+                    var file = $("#fileInput")[0].files[0];
+                    var formData = new FormData();
+                    formData.append('userProfile', file);
+                    fetch('/user/upload', {
+                            method: 'PUT',
+                            body: formData
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data)
+                        })
+                        .catch(error => {
+                            console.error('Erro ao enviar arquivo:', error);
+                        });
+
+                });
+            });
+        </script>

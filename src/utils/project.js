@@ -443,6 +443,7 @@ const project = [{
 ];
 
 
+
 const leadership = {
     idCompany: 1,
     highlightText: "INSTITUTO DE LIDERANÇA",
@@ -497,7 +498,7 @@ const leadership = {
 }
 
 const news = [{
-        id: 7,
+        id: 1,
         title: 'MULHERES PARTICIPAM EM MASSA NA PALESTRA SOBRE CANCRO DA MAMA E DANÇA ZUMBA | GRUPO BOAVIDA DA',
         image: '/assets/img/news/lecture/1.jpg',
         datePublished: '13 de Outubro de 2023',
@@ -578,7 +579,7 @@ const news = [{
         ],
     },
     {
-        id: 6,
+        id: 2,
         title: 'NOAH RECONHECE MÉRITO DOS SEUS FUNCIONÁRIOS | GRUPO BOAVIDA',
         image: '/assets/img/news/capacete-dourado/1.jpg',
         datePublished: '25 de Agosto de 2023',
@@ -642,7 +643,7 @@ const news = [{
         ],
     },
     {
-        id: 5,
+        id: 3,
         title: 'GRUPO BOAVIDA REALIZA FEIRA DA SAÚDE ',
         image: '/assets/img/news/feira-saude/1.jpg',
         datePublished: '25 de Fevereiro de 2023',
@@ -736,7 +737,7 @@ const news = [{
         ],
     },
     {
-        id: 3,
+        id: 5,
         title: 'MUSEU DE HISTÓRIA MILITAR',
         image: '/assets/img/news/museu-visita/1.png',
         datePublished: '04 de Fevereiro de 2023',
@@ -788,7 +789,7 @@ const news = [{
         ],
     },
     {
-        id: 2,
+        id: 6,
         title: 'GRUPO BOAVIDA FAZ LANÇAMENTO DA 2ª EDIÇÃO DO PROJECTO DE ALFABETIZAÇÃO E REFORÇO ESCOLAR',
         image: '/assets/img/news/alfabetizacao/1.jpg',
         datePublished: ' de Janeiro de 2023',
@@ -853,7 +854,7 @@ const news = [{
         ],
     },
     {
-        id: 1,
+        id: 7,
         title: 'GRUPO BOA VIDA PARTICIPA DA FEIRA DA “CASA PRÓPRIA”',
         image: '/assets/img/news/casa-propria/1.jpg',
         datePublished: '07 de Abril de 2023',
@@ -914,6 +915,7 @@ const news = [{
         ],
     }
 ];
+
 
 
 module.exports = {

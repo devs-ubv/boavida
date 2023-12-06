@@ -1,0 +1,73 @@
+<%- include('./partials/head'); -%>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <%- include('./partials/sidebar'); -%>
+            <!-- ========================= Main ==================== -->
+            <div class="main">
+
+                <%- include('./partials/nav'); -%>
+                    <!-- ======================= conteúdo do usuario ================== -->
+                    <div class="news">
+                        <div class="tittle">
+                            
+                            
+                        </div>
+                        <div class="cardHeader">
+                            <!-- ======= Apresentação das Notícias ======= -->
+                            <div class="header">
+                                <p>Notícia Detalhada</p>
+                                <p class="add-photo" data-content="<%=idNew %>" id="add-photo"><a>Adicionar Novas Imagens</a></p>
+                            </div>
+                            <div class="notices">
+                                <div class="notice" id="id-new" data-content="<%=idNew %>"></div>
+                                <div class="flex justify-center align-center">
+                                    <div class="header-new">
+                                        <div class="news-header"></div>
+                                        <div>
+                                            <div class="new-photos-content">
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <%- include('./partials/components/modal-add-photo'); -%>
+                    </div>
+            </div>
+    </div>
+
+    <%- include('./partials/footer'); -%>
+
+    <script>
+        $(document).ready(function() {
+            // Adiciona um ouvinte de alteração ao input de arquivo
+            $("#fileInput").change(function() {
+               
+                previewImage(this);
+            });
+
+            // Função para exibir a pré-visualização da imagem
+            function previewImage(input) {
+                var files = input.files;
+                console.log(files);
+                for (let index = 0; index < files.length; index++) {
+                    const element = files[index];
+                    if (element) {
+                        var reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            $("#image-preview").attr("src", e.target.result);
+                        };
+
+                        // Lê o conteúdo da imagem como uma URL de dados
+                        reader.readAsDataURL(element);
+                    } else {
+                        // Limpa a pré-visualização se nenhum arquivo for selecionado
+                        $("#image-preview").empty();
+                    }
+                }
+            }
+        })
+    </script>
