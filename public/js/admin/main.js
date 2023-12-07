@@ -28,7 +28,6 @@ function simplifyDate(date){
 function showSuccessMessage(){
   setTimeout(function () {
     $("#myModal").hide();
-    location.reload();
   }, 4000);
   setTimeout(function () {
     location.reload();

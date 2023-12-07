@@ -71,5 +71,18 @@ module.exports = {
                 }
             });
         });
-    }
+    },
+
+    /* ------------------------------ MODELS DO SITE PRINCIPAL-------------------------------------------------- */
+
+    findAllSite() {
+        return new Promise(async function(resolve, reject) {
+            const sql = `SELECT v.id, v.dataId, v.title, v.image, v.createdAt, u.fullName FROM tb_video as v join tb_users as u on v.userId= u.id ORDER BY v.createdAt DESC 
+            LIMIT ${25} OFFSET ${0}`
+            connection.query(sql, (err, result) => {
+                if (err) reject(err.message);
+                resolve(result);
+            });
+        });
+    },
 }
