@@ -2,115 +2,47 @@
     <!-- =============== Navigation ================ -->
     <div class="container">
         <%- include('./partials/sidebar'); -%>
-            <!-- ========================= Main ==================== -->
-            <div class="main">
-
-                <%- include('./partials/nav'); -%>
-                    <!-- ======================= conteúdo do usuario ================== -->
-                    <div class="cont">
-                            <div class="navigationTab">
-                                <div>
-                                </div>
-                                <button id="myBtn">Adicionar Novo banner</button>
-                            </div>
-                            
-                                <div class="cardHeader">
-                                    <!-- ======= Modal para criação do usuário ======= -->
-                                    <div id="myModal" class="modal-user">
-                                        <!-- Modal content -->
-                                        <div class="modal-content-user ">
-
-                                            <div class="modal-header">
-                                                <h2>Cadastro de Novo um novo banner</h2>
-                                                <span class="close" id="close">&times;</span>
-                                            </div>
-
-                                            <div class="modal-body">
-                                                <h2 class="tittle text-2xl">Preencha o Formulário</h2>
-                                                <form id="banner-register">
-
-                                                    <div class="w-full flex flex-col">
-                                                        <div class="w-full">
-                                                            <input type="text" name="title" class="title input w-full" placeholder="Título do  Banner">
-                                                        </div>
-                                                        <div class="w-full">
-                                                            <input type="text" name="type" class="type input w-full" placeholder="Tipo de Notícia">
-                                                        </div>
-                                                    </div>
-                                                    <div class="input_wrap banner">
-                                                        <label class="picture-banner" for="picture-input-banner" tabIndex="0">
-                                                                <span class="picture-image-banner"></span>
-                                                            </label>
-                                                        <input type="file" name="banner" id="picture-input-banner" class="input">
-                                                    </div>
-                                                    <div class="input_wrap">
-                                                        <span id="alerta" style="
-                                                                    width: 100%; 
-                                                                    background-color: #f00; 
-                                                                    display: flex; 
-                                                                    flex-direction: row; 
-                                                                    justify-content: center;    
-                                                                    align-items: center; 
-                                                                    border-radius: 2px; 
-                                                                    padding: 15px; 
-                                                                    gap: 10px; 
-                                                                    color: #fff;">
-                                                                <i class="bi bi-exclamation-circle"></i>
-                                                                <p>Por Favor preencha todos os campos</p>
-                                                        </span>
-                                                    </div>
-                                                    
-                                                    <div id="message">
-                                                        <div id="message_Content">
-                                                            <i class="bi bi-exclamation-circle"></i>
-                                                            <p>Por Favor Preencha Todos os Campos!</p>
-                                                        </div>
-                                                    </div>
-                                                    <div id="success">
-                                                        <div id="success_Content">
-                                                            <i class="bi bi-exclamation-circle"></i>
-                                                            <p>Banner Cadastrado Com Sucesso</p>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <button type="button" id="register-banner">Cadastrar</button>
-                                                    
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                      
-                        
-                       
-                            <% if(params.page == "listar") { %>
-                            <div class="bannerTable">
-                                <h1>Banners Cadastrados</h1>
-                                <table id="banner-list">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Banner</th>
-                                            <th>Titulo</th>
-                                            <th>Tipo do banner</th>
-                                            <th>Inserido por:</th>
-                                            <th>Data de cadastro</th>
-                                            <th colspan="3" style="text-align: center;">AÇÕES</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                            <% } %>
-
-                            <%- include('./partials/components/banner/modal-edit-banner'); -%>
-
-                           
-                    </div>
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <%- include('./partials/nav'); -%>
+            <!-- ======================= conteúdo do usuario ================== -->
+            <div class="cont">
+                <div class="navigationTab">
+                    <div></div>
+                    <button id="myBtn">Adicionar Novo banner</button>
+                </div>
+                <div class="cardHeader">
+                    <!-- ======= Modal para criação do usuário ======= -->
+                    <%- include('./partials/components/banner/modal-register-banner'); -%>
+                </div>
+                <% if(params.page == "listar") { %>
+                <div class="bannerTable">
+                    <h1>Banners Cadastrados</h1>
+                    <table id="banner-list">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Banner</th>
+                                <th>Titulo</th>
+                                <th>Tipo do banner</th>
+                                <th>Inserido por:</th>
+                                <th>Data de cadastro</th>
+                                <th colspan="3" style="text-align: center;">AÇÕES</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <% } %>
+                <% if(params.page == "editar" && params.id) { %>
+                    <%- include('./partials/components/banner/modal-edit-banner'); -%>
+                <% } %>
+                
+                <% if(params.page == "deletar" && params.id) { %>
+                    <%- include('./partials/components/banner/modal-delete-banner'); -%>
+                <% } %>
             </div>
+        </div>
     </div>
 
     <%- include('./partials/footer'); -%>

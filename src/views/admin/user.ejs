@@ -4,96 +4,27 @@
         <%- include('./partials/sidebar'); -%>
             <!-- ========================= Main ==================== -->
             <div class="main">
-
                 <%- include('./partials/nav'); -%>
                     <!-- ======================= conteúdo do usuario ================== -->
                     <div class="cont">
-
                         <div class="navigationTab">
                             <div>
                                 <% if(session.type != "admin"){%>
                                     <a href="user">Utilizadores do Sistema</a>
-                                    <%} %>
-                                        <% if(session.type == "admin"){%>
-                                            <a href="user">Gestão de usuários</a>
-                                            <a href="accesslevel">Níveis de Acesso</a>
-                                            <%} %>
+                                <%} %>
+                                <% if(session.type == "admin"){%>
+                                    <a href="user">Gestão de usuários</a>
+                                    <a href="accesslevel">Níveis de Acesso</a>
+                                <%} %>
                             </div>
                             <% if(session.type == "admin"){%>
                                 <button id="myBtn">Adicionar Novo Usuário</button>
-                                <%} %>
+                            <%} %>
                         </div>
-
                         <div class="cardHeader">
-
-
                             <!-- ======= Modal para criação do usuário ======= -->
-                            <div id="myModal" class="modal-user">
-                                <!-- Modal content -->
-                                <div class="modal-content-user">
-                                    <% if(session.type == "admin"){%>
-                                        <div class="modal-header">
-                                            <h2>Cadastro de Novo Usuário</h2>
-                                            <span class="close" id="close">&times;</span>
-                                        </div>
-                                        <%} %>
-
-                                            <div class="modal-body">
-                                                <form id="registrationForm">
-                                                    <p class="tittle">Preencha o Formulário</p>
-                                                    <div class="registerTop">
-                                                        <div>
-                                                            <label class="picture" for="picture__input" tabIndex="0">
-                                                                <span class="picture__image"></span>
-                                                            </label>
-                                                            <input type="file" name="picture__input" id="picture__input">
-                                                        </div>
-                                                        <div class="tamanho nomes">
-                                                            <input class="input" type="text" id="firstName" name="firstName" required autocomplete="off" placeholder="Digite o Primeiro Nome">
-                                                            <input class="input" type="text" id="lastName" name="lastName" required autocomplete="off" placeholder="Digite o Sobrenome">
-                                                        </div>
-                                                    </div>
-                                                    <div class="tamanho pass">
-                                                        <input class="tamanho" type="email" id="email" name="email" required autocomplete="off" placeholder="Digite o endereço de Email">
-                                                        <input type="text" id="phoneNumber" name="phoneNumber" autocomplete="off" placeholder="Número de Telefone">
-                                                    </div>
-                                                    <div class="tamanho pass">
-                                                        <input type="password" id="password" name="password" required autocomplete="off" placeholder="Senha">
-                                                        <input type="password" id="passConfirm" name="passConfirm" autocomplete="off" placeholder="Confirmar Senha">
-                                                    </div>
-                                                    <div class="tamanho select">
-                                                        <div style="margin-top: 15px;">
-                                                            <label class="label" for="permissionId">Nivel de Acesso:</label>
-                                                            <select id="permissionId" name="permissionId">
-                                                    </select>
-                                                        </div>
-                                                    </div>
-                                                    <div id="message">
-                                                        <div id="message_Content">
-                                                            <i class="bi bi-exclamation-circle"></i>
-                                                            <p>Por Favor Preencha Todos os Campos!</p>
-                                                        </div>
-                                                    </div>
-                                                    <div id="message2">
-                                                        <div id="message_Content">
-                                                            <i class="bi bi-exclamation-circle"></i>
-                                                            <p>Por Favor Verifique Se As Senhas Condizem!</p>
-                                                        </div>
-                                                    </div>
-                                                    <div id="success">
-                                                        <div id="success_Content">
-                                                            <i class="bi bi-exclamation-circle"></i>
-                                                            <p>Usuário Cadastrado Com Sucesso</p>
-                                                        </div>
-                                                    </div>
-                                                    <button type="button" id="registerButton">Cadastrar</button>
-                                                </form>
-                                            </div>
-
-                                </div>
-                            </div>
+                            <%- include('./partials/components/user/modal-register-user'); -%>
                         </div>
-
                         <% if(session.type == "admin"){%>
                             <div class="userTable">
                                 <h1>Usuários Cadastrados</h1>
@@ -106,32 +37,26 @@
                                         <th>NÍVEL DE ACESSO</th>
                                         <th colspan="2" style="text-align: center;">AÇÕES</th>
                                     </tr>
-
                                 </table>
                             </div>
-                            <%} else {  %>
+                        <%} else {  %>
+                            <div class="userTable">
+                                <h1>Usuários Cadastrados</h1>
+                                <table id="userList">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>FOTO DE PERFIL</th>
+                                        <th>NOME</th>
+                                        <th>EMAIL</th>
+                                        <th>NÍVEL DE ACESSO</th>
+                                    </tr>
+                                </table>
+                            </div>
+                        <%} %>
 
-                                <div class="userTable">
-                                    <h1>Usuários Cadastrados</h1>
-                                    <table id="userList">
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>FOTO DE PERFIL</th>
-                                            <th>NOME</th>
-                                            <th>EMAIL</th>
-                                            <th>NÍVEL DE ACESSO</th>
-                                        </tr>
-
-                                    </table>
-                                </div>
-                                <%} %>
-
-                                    < </div>
-
-                                        <%- include('./partials/footer'); -%>
-
-                                            < </div>
-                                                <% if(params.page == "deletar" && params.id) { %>
-                                                    <%- include('./partials/components/modal-delete-user'); -%>
-                                                        <% } %>
-                                                            < <%- include( './partials/footer'); -%>
+                                    
+                    </div>
+        <% if(params.page == "deletar" && params.id) { %>
+            <%- include('./partials/components/user/modal-delete-user'); -%>
+        <% } %>
+        <%- include( './partials/footer'); -%>

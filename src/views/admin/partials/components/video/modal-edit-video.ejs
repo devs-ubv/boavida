@@ -1,0 +1,50 @@
+<div id="modal-edit-banner" class="modal-edit-banner">
+    <div class="modal_content_edit_banner">
+        <div class="modal-header">
+            <p class="title">EDITAR VIDEO</p>
+        </div>
+
+        <div class="modal-body">
+            <h2 class="tittle text-2xl">Preencha o Formulário Com Novas Informações</h2>
+            <form id="video-edit-form" class="w-full">
+
+                <div class="w-full flex flex-col">
+                    <div class="w-full">
+                        <input type="text" name="title" id="title" class="title input w-full" placeholder="Título do Vídeo">
+                    </div>
+                    <div class="w-full">
+                        <input type="text" name="dataId" id="dataId" class=" dataId w-full" placeholder="Digite Aqui o ID do Vídeo do YouTube">
+                    </div>
+                </div>
+
+                <!--  <div class="input_wrap video">
+                    <label class="picture-video" for="picture-input-video" tabIndex="0">
+                            <span class="picture-image-video"></span>
+                        </label>
+                    <input type="file" name="image" id="picture-input-video" class="input">
+                </div> -->
+
+                <!-- <div id="message">
+                    <div id="message_Content">
+                        <i class="bi bi-exclamation-circle"></i>
+                        <p>Por Favor Preencha Todos os Campos!</p>
+                    </div>
+                </div> -->
+                
+                <div id="success">
+                    <div id="success_Content">
+                        <i class="bi bi-exclamation-circle"></i>
+                        <p>Banner Cadastrado Com Sucesso</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-row gap-2 mt-2">
+                    <a class="save" data-content="<%= params.id %>" id="editar-video">Gravar</a>
+                    <a class="cancel" href="/dashboard/video/listar/default">Cancelar</a>
+                </div>
+                
+                
+            </form>
+        </div>
+    </div>
+</div>

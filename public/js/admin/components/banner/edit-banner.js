@@ -1,20 +1,5 @@
 $(document).ready(function () {
 
-    var modalBannerEdit = $("#modal-edit-banner");
-    var spanBannerEdit = $(".close");
-
-    // Quando o usuário clica no <span> (x), fecha o modal
-    spanBannerEdit.click(function() {
-        modalBannerEdit.hide();
-    });
-
-    // Quando o usuário clica fora do modal, fecha o modal
-    $(window).click(function(event) {
-        if (event.target === modalBannerEdit[0]) {
-            modalBannerEdit.hide();
-        }
-    });
-
     /* ------------------INPUT DE CARREGAMENTO DA IMAGEM DO BANNER---------------------- */
     const bannerFileCover = document.querySelector("#picture-edit-banner");
     const pictureEditImageCover = document.querySelector(".picture-image-banner-edit");
@@ -38,4 +23,54 @@ $(document).ready(function () {
             pictureEditImageCover.innerHTML = pictureEditImageBannerTxt;
         }
     });
+
+    /* --------------------------FUNÇÃO PARA CARREGAR DADOS DA NOTICIA */
+
+    function loadAPIData(idBanner) {
+        $.ajax({
+            url: `/banner/${idBanner}`,
+            method: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                console.log("DATA: ",data.banner);
+                $('#title').val(data.title);
+                $('#type').val(data.type);
+            },
+            error: function (error) {
+                console.error('Erro ao carregar dados da API: ' + error.statusText);
+            }
+        });
+    }
+
+    var idBannerEdit = $('#edit-banner').data('content');
+    if(idBannerEdit){
+        loadAPIData(idBannerEdit);
+    }
+    
+
+     $('#edit-banner').on('click', function () {
+        function updateAPIBanner(idBanner) {
+            let dataForm = $("#banner-edit-form").serializeObject();
+        
+            var formData = new FormData();
+            formData.append('title', dataForm.title);
+            formData.append('type', dataForm.type);
+
+            fetch( `/banner/${idBanner}`, {
+                method: 'PUT',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Data: ",data);
+            })
+            .catch(error => {
+                   console.error('Erro ao enviar arquivo:', error);
+            }); 
+      
+        
+        }
+        updateAPIBanner(idBannerEdit);
+    });
+    
 });

@@ -1,0 +1,46 @@
+<div id="myModal" class="modal-user">
+    <!-- Modal content -->
+    <div class="modal-content-user ">
+
+        <div class="modal-header">
+            <h2>Cadastro de Novo um novo banner</h2>
+            <span class="close" id="close">&times;</span>
+        </div>
+
+        <div class="modal-body">
+            <h2 class="tittle text-2xl">Preencha o Formulário</h2>
+            <form id="banner-register">
+
+                <div class="w-full flex flex-col">
+                    <div class="w-full">
+                        <input type="text" name="title" class="title input w-full" placeholder="Título do  Banner">
+                    </div>
+                    <div class="w-full">
+                        <input type="text" name="type" class="type input w-full" placeholder="Tipo de Notícia">
+                    </div>
+                </div>
+                <div class="input_wrap banner">
+                    <label class="picture-banner" for="picture-input-banner" tabIndex="0">
+                            <span class="picture-image-banner"></span>
+                        </label>
+                    <input type="file" name="banner" id="picture-input-banner" class="input">
+                </div>                
+                <div id="message">
+                    <div id="message_Content">
+                        <i class="bi bi-exclamation-circle"></i>
+                        <p>Por Favor Preencha Todos os Campos!</p>
+                    </div>
+                </div>
+                <div id="success">
+                    <div id="success_Content">
+                        <i class="bi bi-exclamation-circle"></i>
+                        <p>Banner Cadastrado Com Sucesso</p>
+                    </div>
+                </div>
+                
+                <button type="button" id="register-banner">Cadastrar</button>
+                
+            </form>
+        </div>
+    </div>
+</div>

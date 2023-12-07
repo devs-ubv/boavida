@@ -14,8 +14,8 @@ adminRouter.get("/dashboard/banner/:page/:id", pageController.bannerPage);
 adminRouter.get("/dashboard/banner/:id", pageController.bannerPageId);
 
 //------------------------banner //--------------------------
-adminRouter.get("/dashboard/video", pageController.videoPage);
-adminRouter.get("/dashboard/video/:id", pageController.videoPage);
+adminRouter.get("/dashboard/video/:page/:id", pageController.videoPage);
+adminRouter.get("/dashboard/video/:id", pageController.videoPageId);
 
 
 //------------------------news //--------------------------

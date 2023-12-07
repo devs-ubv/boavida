@@ -1,20 +1,19 @@
-<div id="modal-edit-banner" class="modal-edit-banner hidden">
+<div id="modal-edit-banner" class="modal-edit-banner">
     <div class="modal_content_edit_banner">
         <div class="modal-header">
             <p class="title">EDITAR BANNER</p>
-            <span class="close" id="close">&times;</span>
         </div>
 
-        <div class="modal-body ">
+        <div class="modal-body">
             <h2 class="tittle text-2xl">Preencha o Formulário Com Novas Informações</h2>
-            <form id="banner-register" class="w-full">
+            <form id="banner-edit-form" class="w-full">
 
                 <div class="w-full flex flex-col">
                     <div class="w-full">
-                        <input type="text" name="title" class="title input w-full" placeholder="Título do  Banner">
+                        <input type="text" id="title" name="title" class="title input w-full" placeholder="Título do  Banner">
                     </div>
                     <div class="w-full">
-                        <input type="text" name="type" class="type input w-full" placeholder="Tipo de Notícia">
+                        <input type="text" id="type" name="type" class="type input w-full" placeholder="Tipo de Notícia">
                     </div>
                 </div>
                 <div class="input_wrap w-full">
@@ -43,7 +42,11 @@
                     </div>
                 </div>
                 
-                <button type="button" id="edit-banner">Cadastrar</button>
+                <div class="flex flex-row gap-2 mt-2">
+                    <a class="save" data-content="<%= params.id %>" id="edit-banner">Gravar</a>
+                    <a class="cancel" href="/dashboard/banner/listar/default">Cancelar</a>
+                </div>
+                
                 
             </form>
         </div>

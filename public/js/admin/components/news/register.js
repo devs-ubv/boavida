@@ -48,8 +48,8 @@ $(document).ready(function () {
         
         if (dataForm.title == "" || dataForm.typeOfNew == "" || dataForm.datePublished == "" ) {
             
-            $("#alerta").delay(100).fadeIn("slow");
-            $("#alerta").delay(3000).fadeOut("slow");
+            $("#message").delay(100).fadeIn("slow");
+            $("#message").delay(3000).fadeOut("slow");
 
         } else {
             console.log("DataForm",dataForm);

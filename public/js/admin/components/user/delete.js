@@ -10,7 +10,7 @@ function deletarUser(idUser) {
         url: `/user-delete/${idUser}`,
          method: 'PUT',
          success: function (response) {
-            console.log("Deletar Noticia Resposta: ",response);
+            console.log("Deletar Usuario Resposta: ",response);
          },
          error: function (e) {
              console.log(e.responseText);

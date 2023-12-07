@@ -1,0 +1,47 @@
+<div id="myModal" class="modal-user">
+    <!-- Modal content -->
+    <div class="modal-content-user ">
+
+        <div class="modal-header">
+            <h2>Cadastro de Novo Vídeo</h2>
+            <span class="close" id="close">&times;</span>
+        </div>
+
+        <div class="modal-body">
+            <h2 class="tittle text-2xl">Preencha o Formulário</h2>
+            <form id="video-register">
+
+                <div class="w-full flex flex-col">
+                    <div class="w-full">
+                        <input type="text" name="title" class="title input w-full" placeholder="Título do Vídeo">
+                    </div>
+                    <div class="w-full">
+                        <input type="text" name="dataId" class=" dataId w-full" placeholder="Digite Aqui o ID do Vídeo do YouTube">
+                    </div>
+                </div>
+                <div class="input_wrap video">
+                    <label class="picture-video" for="picture-input-video" tabIndex="0">
+                            <span class="picture-image-video"></span>
+                        </label>
+                    <input type="file" name="image" id="picture-input-video" class="input">
+                </div>
+
+                <div id="message">
+                    <div id="message_Content">
+                        <i class="bi bi-exclamation-circle"></i>
+                        <p>Por Favor Preencha Todos os Campos!</p>
+                    </div>
+                </div>
+                <div id="success">
+                    <div id="success_Content">
+                        <i class="bi bi-exclamation-circle"></i>
+                        <p>Banner Cadastrado Com Sucesso</p>
+                    </div>
+                </div>
+
+                <button type="button" id="register-video">Cadastrar</button>
+
+            </form>
+        </div>
+    </div>
+</div>

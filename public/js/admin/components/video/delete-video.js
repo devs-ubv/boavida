@@ -1,15 +1,15 @@
 $(document).ready(function () {
-    $("#eliminar-banner").click(function () {
-        var idDeleteBanner = $(this).data('content');
-        deletarBanner(idDeleteBanner);
+    $("#eliminar-video").click(function () {
+        var idDeleteVideo = $(this).data('content');
+        deletarBanner(idDeleteVideo);
     });
 
     function deletarBanner(idNew) {
         $.ajax({
-            url: `/banner/${idNew}`,
+            url: `/video_api/${idNew}`,
             method: 'DELETE',
             success: function (response) {
-                console.log("Deletar Banner Resposta: ",response);
+                console.log("Deletar Video Resposta: ",response);
                 window.history.back();
             },
             error: function (e) {

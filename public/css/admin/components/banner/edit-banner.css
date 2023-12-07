@@ -89,3 +89,22 @@
 .picture-img-edit-cover {
     max-width: 100%;
 }
+
+.cancel, .eliminar-banner, .eliminar-video {
+    padding: 12px;
+    background-color: tomato;
+    color: #fff;
+    margin-top: 25px;
+    border-radius: 2px;
+    cursor: pointer;
+    border: 1px solid #091E3E;
+}
+
+.save {
+    padding: 12px;
+    background-color: #091E3E;
+    color: #fff;
+    margin-top: 25px;
+    border-radius: 2px;
+    cursor: pointer;
+}
