@@ -3,7 +3,6 @@ const express = require("express");
 const newController = require("../controllers/Api/new");
 const photoController = require("../controllers/Api/photo");
 
-
 const multer = require('multer');
 const uploadConfigCover = require('../utils/uploadNew');
 const uploadConfiImage = require('../utils/uploadImages');

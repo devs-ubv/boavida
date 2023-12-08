@@ -22,7 +22,19 @@ $(document).ready(function () {
         } else {
             pictureEditImageCover.innerHTML = pictureEditImageBannerTxt;
         }
-    }); 
+    });
+
+    function ImageLoading(image) {
+        if (image) {
+            const img = document.createElement("img");
+            img.src = `/assets/img/banner/${image}`;
+            img.classList.add("picture-img-edit-cover");
+            pictureEditImageCover.innerHTML = "";
+            pictureEditImageCover.appendChild(img);
+        } else {
+            pictureEditImageCover.innerHTML = pictureEditImageBannerTxt;
+        }
+    }
 
     /* --------------------------FUNÇÃO PARA CARREGAR DADOS DA NOTICIA */
 
@@ -32,9 +44,9 @@ $(document).ready(function () {
             method: 'GET',
             dataType: 'json',
             success: function (data) {
-                console.log("DATA: ",data.banner);
                 $('#title').val(data.title);
                 $('#type').val(data.type);
+                ImageLoading(data.banner)
             },
             error: function (error) {
                 console.error('Erro ao carregar dados da API: ' + error.statusText);
@@ -43,28 +55,34 @@ $(document).ready(function () {
     }
 
     var idBannerEdit = $('#edit-banner').data('content');
-    if(idBannerEdit){
+    if (idBannerEdit) {
         loadAPIData(idBannerEdit);
     }
-    
+
     $('#edit-banner').on('click', function () {
         function updateAPIBanner(idBanner) {
             let dataForm = $("#banner-edit-form").serializeObject();
-            $.ajax({
-                url: `/banner/${idBanner}`,
-                type: 'PUT', // ou 'PUT' dependendo da sua API
-                data: dataForm,
-                success: function(response) {
-                    console.log('Dados atualizados com sucesso!', response);
-                    $("#success").delay(100).fadeIn("slow");
-                    $("#success").delay(3000).fadeOut("slow");
-                },
-                error: function(error) {
-                    console.error('Erro ao atualizar dados:', error);
-                }
-            });
+            const file = $('#picture-edit-banner')[0].files[0];
+
+            var formData = new FormData();
+            formData.append("title", dataForm.title);
+            formData.append("type", dataForm.type);
+            formData.append("banner", file);
+
+            fetch(`/banner/${idBanner}`, {
+                method: 'PUT',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Data: ", data);
+                    //if (data) return window.location.href = `/dashboard/news/${data.insertId}`;
+                })
+                .catch(error => {
+                    console.error('Erro ao enviar arquivo:', error);
+                });
         }
         updateAPIBanner(idBannerEdit);
     });
-    
+
 });

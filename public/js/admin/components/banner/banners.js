@@ -39,6 +39,7 @@ $(document).ready(function () {
             $("#message").delay(3000).fadeOut("slow");
 
         }else {
+            
                 var formData = new FormData();
         
                 formData.append('title', dateForm.title);

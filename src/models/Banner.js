@@ -39,6 +39,8 @@ module.exports = {
         });
     },
     update(id, values) {
+        console.log(values);
+
         const sql = "UPDATE tb_banner SET ? WHERE id=?";
         return new Promise(async function(resolve, reject) {
             connection.query(sql, [values, id], (err, result) => {
