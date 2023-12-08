@@ -83,16 +83,16 @@
                             <% smollVideos.forEach(function(item) { %>
                                 <div class="col-md-6 p-1  w-100 h-100 position-relative">
                                     <div class="position-relative overflow-hidden item-cover" style="height: 190px;">
-                                        <img class="img-fluid w-100 h-100 position-absolute img" src="/assets/img/video/<%= item?.image %>" data-id="<%= item?.daId %>"> style="object-fit: cover;">
+                                        <img class="img-fluid w-100 h-100 position-absolute img" src="/assets/img/video/<%= item?.image %>" data-id="<%= item?.dataId %>?rel=0">
                                         <div class="previwer-video active">
                                             <img src="/assets/img/video//youtube.svg">
                                         </div>
                                     </div>
                                 </div>
-                            <% }); %>
+                                <% }); %>
 
 
-                            <!-- <div class="col-md-6 p-1  w-100 h-100 ">
+                                    <!-- <div class="col-md-6 p-1  w-100 h-100 ">
                                 <div class="position-relative overflow-hidden item-cover " style="height: 190px;">
                                     <img class="img-fluid w-100 h-100" src="/assets/img/video/v-2.png" data-id="_3agkaemrO4?rel=0"> style="object-fit: cover;">
                                     <div class="previwer-video">
@@ -126,30 +126,32 @@
             <div class="gallery">
                 <% fullVideos.forEach(function(item) { %>
                     <div class="item">
-                        <img src="/assets/img/video/<%= item?.image %>" data-id="<%= item?.dataId %>">
+                        <img src="/assets/img/video/<%= item?.image %>" data-id="<%= item?.dataId %>?rel=0">
                         <div class="youtube_icon ">
                             <img src="/assets/img/video//youtube.svg">
                         </div>
                     </div>
-                <% }); %>
-                <!-- <div class="item">
-                    <img src="/assets/img/video/v-1.png" data-id="N4x-n5DeCiI?rel=0">
-                    <div class="youtube_icon">
-                        <img src="/assets/img/video//youtube.svg">
-                    </div>
+                    <% }); %>
+                        <!-- <div class="item">
+                            <img src="/assets/img/video/v-1.png" data-id="N4x-n5DeCiI?rel=0">
+                            <div class="youtube_icon">
+                                <img src="/assets/img/video//youtube.svg">
+                            </div>
+                        
+
+            </div>
+            <div class="item">
+                <img src="/assets/img/video/v-3.png" data-id="p_YgHS7Ydog?rel=0">
+                <div class="youtube_icon">
+                    <img src="/assets/img/video//youtube.svg">
                 </div>
-                <div class="item">
-                    <img src="/assets/img/video/v-3.png" data-id="p_YgHS7Ydog?rel=0">
-                    <div class="youtube_icon">
-                        <img src="/assets/img/video//youtube.svg">
-                    </div>
+            </div>
+            <div class="item">
+                <img src="/assets/img/video/v-4.png" data-id="_3agkaemrO4?rel=0">
+                <div class="youtube_icon">
+                    <img src="/assets/img/video//youtube.svg">
                 </div>
-                <div class="item">
-                    <img src="/assets/img/video/v-4.png" data-id="_3agkaemrO4?rel=0">
-                    <div class="youtube_icon">
-                        <img src="/assets/img/video//youtube.svg">
-                    </div>
-                </div> -->
+            </div> -->
             </div>
         </div>
     </div>
@@ -159,6 +161,7 @@
             $(document).ready(function() {
                 $(".item").click(function() {
                         let youtube_id = $(this).children("img").attr("data-id");
+                        console.log(youtube_id);
                         $(this).children(".youtube_icon")
                             .addClass("active").parent()
                             .siblings()
