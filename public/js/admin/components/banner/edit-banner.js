@@ -22,7 +22,7 @@ $(document).ready(function () {
         } else {
             pictureEditImageCover.innerHTML = pictureEditImageBannerTxt;
         }
-    });
+    }); 
 
     /* --------------------------FUNÇÃO PARA CARREGAR DADOS DA NOTICIA */
 
@@ -47,28 +47,22 @@ $(document).ready(function () {
         loadAPIData(idBannerEdit);
     }
     
-
-     $('#edit-banner').on('click', function () {
+    $('#edit-banner').on('click', function () {
         function updateAPIBanner(idBanner) {
             let dataForm = $("#banner-edit-form").serializeObject();
-        
-            var formData = new FormData();
-            formData.append('title', dataForm.title);
-            formData.append('type', dataForm.type);
-
-            fetch( `/banner/${idBanner}`, {
-                method: 'PUT',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log("Data: ",data);
-            })
-            .catch(error => {
-                   console.error('Erro ao enviar arquivo:', error);
-            }); 
-      
-        
+            $.ajax({
+                url: `/banner/${idBanner}`,
+                type: 'PUT', // ou 'PUT' dependendo da sua API
+                data: dataForm,
+                success: function(response) {
+                    console.log('Dados atualizados com sucesso!', response);
+                    $("#success").delay(100).fadeIn("slow");
+                    $("#success").delay(3000).fadeOut("slow");
+                },
+                error: function(error) {
+                    console.error('Erro ao atualizar dados:', error);
+                }
+            });
         }
         updateAPIBanner(idBannerEdit);
     });

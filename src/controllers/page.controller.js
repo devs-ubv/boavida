@@ -6,10 +6,11 @@ const { infoSiteData } = require('../utils/siteInfo');
 module.exports = {
     indexPage(req, res) {
         const data = infoSiteData(req);
-
+        
         const news4 = news.map(objeto => ({
             ...objeto
         })).slice(0, 4);
+
         const news3 = news.map(objeto => ({
             ...objeto
         })).slice(0, 3);

@@ -24,14 +24,12 @@ $(document).ready(function () {
                   ...response
                 }
                 populateNew(newData);
-
             },
             error: function (e) {
                 console.log(e.responseText);
-            } 
+            }
         });
     }
-
 
     function populateNew(data) {        
         $.each(data?.content, function (index, item) {

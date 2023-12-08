@@ -68,7 +68,6 @@ $(document).ready(function() {
                         $(".title").val("");
                         $(".dataId").val("");
                         pictureImageVideo.innerHTML = "Carregar a Imagem do Vídeo";
-                        showSuccessMessage();
                     },
                     error: function(e) {
                         $("#msg").css("color", "#ff0000");

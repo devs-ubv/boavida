@@ -22,38 +22,11 @@ $(document).ready(function () {
     }
     
     $('#editar-video').on('click', function () {
-        /* function updateVideoData(idNew) {
-            // Obter dados do formulário
-            const dataForm = $("#video-edit-form").serializeObject();
-            const formData = new FormData();
-            formData.append('title', dataForm.title);
-            formData.append('dataId', dataForm.dataId);
-         // Enviar dados atualizados para a API
-            fetch(`/video_api/${idNew}`, {
-                method: 'PUT',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log("Data Video: ",data);
-            })
-            .catch(error => {
-                   console.error('Erro ao Atualizar Dados:', error);
-            }); 
-        }
-        updateVideoData(idVideoEdit); */
         function atualizarDados(idNew) {
-            // Obtenha os dados do formulário usando formData
             const dataForm = $("#video-edit-form").serializeObject();
-            const formData = new FormData();
-            formData.append('title', dataForm.title);
-            formData.append('dataId', dataForm.dataId);
-          
-            // Faça a requisição AJAX para a API
             $.ajax({
                 url: `/video_api/${idNew}`,
-                type: 'PUT', // ou 'PUT' dependendo da sua API
-                data: formData,
+                data: dataForm,
                 success: function(response) {
                     console.log('Dados atualizados com sucesso!', response);
                 },
@@ -61,8 +34,8 @@ $(document).ready(function () {
                     console.error('Erro ao atualizar dados:', error);
                 }
             });
-          }
-          atualizarDados(idVideoEdit);
+        }
+        atualizarDados(idVideoEdit);
     });
 
 
