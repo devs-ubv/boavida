@@ -18,12 +18,13 @@ $(document).ready(function() {
                 error: function(e) {
                     $("#msg").css("color", "#ff0000");
                     $("#msg").html(e.responseText);
+                    showErrorMessage(e);
                 }
             }); 
         })
 
-/* ---------------------------- LISTAGEM DE TODAS AS NOTICIAS NOTICIA ---------------------- */
-function fetchData(){
+/* ---------------------------- LISTAGEM DE TODOS ACCESS LEVEL ---------------------- */
+function fetchDataAL(){
     $.ajax({
         url: '/permission?page=0&limit=8',
         method: 'GET',
@@ -50,6 +51,6 @@ function fetchData(){
         });
     }
     // Chama a função para buscar os dados quando a página carregar
-    fetchData();
+    fetchDataAL();
 
 })

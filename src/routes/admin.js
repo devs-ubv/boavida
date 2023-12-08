@@ -9,14 +9,13 @@ adminRouter.get("/dashboard/profile", userController.profilePage);
 adminRouter.get("/dashboard/user", userController.userPage);
 adminRouter.get("/dashboard/accesslevel", userController.accessLevel);
 adminRouter.get("/dashboard/user/:page/:id", userController.userPage);
+//------------------------banner //--------------------------
+adminRouter.get("/dashboard/banner/:page/:id", pageController.bannerPage);
+adminRouter.get("/dashboard/banner/:id", pageController.bannerPageId);
 
 //------------------------banner //--------------------------
-adminRouter.get("/dashboard/banner", userController.bannerPage);
-adminRouter.get("/dashboard/banner/:id", userController.bannerPage);
-
-//------------------------banner //--------------------------
-adminRouter.get("/dashboard/video", pageController.videoPage);
-adminRouter.get("/dashboard/video/:id", pageController.videoPage);
+adminRouter.get("/dashboard/video/:page/:id", pageController.videoPage);
+adminRouter.get("/dashboard/video/:id", pageController.videoPageId);
 
 
 //------------------------news //--------------------------

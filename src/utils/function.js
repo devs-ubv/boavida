@@ -8,8 +8,8 @@ function connetFirstNameAndLastName(name){
    return `${first + last}`
 }
 
-const deleteFileInDataBase = (fileName)=>{
-    const filepath = path.resolve(__dirname, '..', '..', 'public', 'img', 'news', fileName);
+const deleteFileInDataBase = (folder, fileName)=>{
+    const filepath = path.resolve(__dirname, '..', '..', 'public', 'img', folder, fileName);
     return new Promise(async function (resolve, reject) {
         fs.unlink(filepath, async function (err) {
             if (err) {
@@ -19,9 +19,7 @@ const deleteFileInDataBase = (fileName)=>{
             } 
               resolve(true);
         })
-    });
-
-           
+    });       
 }
 module.exports =  {
     connetFirstNameAndLastName,

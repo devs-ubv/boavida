@@ -1,9 +1,19 @@
 <%- include('./partials/head'); -%>
+<%
+    function formatDate(dataString) {
+        const data = new Date(dataString);
+
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        return data.toLocaleDateString('pt-BR', options);
+    }
+
+%>
+
     <link href="/assets/css/header.css" rel="stylesheet">
     <!-- ======= Header ======= -->
 
     <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/assets/img/banner/breadcrumbs-bg.jpg');">
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/assets/img/news/<%=smollNews[0].cover %>')">
         <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
             <ol>
                 <li><a href="index.html">Home</a></li>
@@ -23,16 +33,16 @@
     <div class="container-fluid wow fadeInUp" data-wow-delay="0.1s">
         <div class="container">
 
-            <div class="row ">
+            <div class="row">
                 <div class="col-lg-7 p-2">
                     <div class="owl-carousel main-carousel position-relative">
                         <% smollNews.forEach(function(item) { %>
                             <div class="position-relative overflow-hidden" style="height: 500px;">
-                                <img class="img-fluid h-100" src="<%= item?.image %>" style="object-fit: cover;">
+                                <img class="img-fluid h-100" src="/assets/img/news/<%= item?.cover %>" style="object-fit: cover;">
                                 <div class="overlay">
                                     <div class="mb-2">
                                         <a href="/noticia/<%= item?.id %>" class="badge badge-info text-uppercase font-weight-semi-bold p-2 mr-2">
-                                            <%= item?.datePublished %>
+                                            <%=formatDate(item?.datePublished) %>
                                         </a>
                                         <a href="/noticia/<%= item?.id %>" class="text-white">
                                             <%= item?.typeOfNew %>
@@ -51,7 +61,7 @@
                     <div class="mb-3 py-2">
                         <div class="bg-white border border-top-0 p-3">
                             <div class="d-flex flex-wrap m-n1">
-                                <a href="" class="btn btn-sm btn-primary m-1">Outras novidades</a>
+                                <a href="#" class="btn btn-sm btn-primary m-1">Outras novidades</a>
                                 <a href="video" class="btn btn-sm btn-primary m-1">Videos</a>
                                 <!--           <a href="" class="btn btn-sm btn-primary m-1">Eventos</a>
                                 <a href="" class="btn btn-sm btn-primary m-1">Intrevistas</a> -->
@@ -65,17 +75,15 @@
                         <% smollNews.forEach(function(item) { %>
                             <div class="col-md-6 p-1">
                                 <div class="position-relative overflow-hidden" style="height: 200px;">
-                                    <img class="img-fluid w-100 h-100" src="<%= item?.image %>" style="object-fit: cover;">
+                                    <img class="img-fluid w-100 h-100" src="/assets/img/news/<%= item?.cover %>" style="object-fit: cover;">
                                     <div class="overlay">
                                         <div class="mb-2">
                                             <a href="/noticia/<%= item?.id %>" class="badge badge-info text-uppercase font-weight-semi-bold p-2 mr-2" href="">
-                                                <%= item?.datePublished %>
+                                                <%=formatDate(item?.datePublished) %>
                                             </a>
-                                            <a href="/noticia/<%= item?.id %>" class="text-white" href="/noticia/<%= item?.id %>"><small> <%= item?.datePublished %></small></a>
+                                            <a href="/noticia/<%= item?.id %>" class="text-white" href="/noticia/<%= item?.id %>"><small> <%=formatDate(item?.datePublished) %></small></a>
                                         </div>
-                                        <a href="/noticia/<%= item?.id %>" class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">
-                                            <%= item?.title %>
-                                        </a>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -98,17 +106,15 @@
             <div class="owl-carousel news-carousel carousel-item-4 position-relative">
                 <% fullNews?.forEach(function(item) { %>
                     <div class="position-relative overflow-hidden" style="height: 300px;">
-                        <img class="img-fluid h-100" src="<%= item?.image %>" style="object-fit: cover;">
+                        <img class="img-fluid h-100" src="/assets/img/news/<%= item?.cover %>" style="object-fit: cover;">
                         <div class="overlay">
                             <div class="mb-2">
                                 <a href="/noticia/<%= item?.id %>" class="badge badge-info text-uppercase font-weight-semi-bold p-2 mr-2">
                                     <%= item?.typeOfNew %>
                                 </a>
-                                <a href="/noticia/<%= item?.id %>" class="text-white"><small><%= item?.datePublished %></small></a>
+                                <a href="/noticia/<%= item?.id %>" class="text-white"><small><%=formatDate(item?.datePublished) %></small></a>
                             </div>
-                            <a href="/noticia/<%= item?.id %>" class="h6 m-0 text-white text-uppercase font-weight-semi-bold">
-                                <%= item?.title %>
-                            </a>
+                            
                         </div>
                     </div>
                     <% }); %>

@@ -1,0 +1,48 @@
+<%- include('./partials/head'); -%>
+    <!-- =============== Navigation ================ -->
+    <div class="container">
+        <%- include('./partials/sidebar'); -%>
+        <!-- ========================= Main ==================== -->
+        <div class="main">
+            <%- include('./partials/nav'); -%>
+            <!-- ======================= conteúdo do usuario ================== -->
+            <div class="cont">
+                <div class="navigationTab">
+                    <div></div>
+                    <button id="myBtn">Adicionar Novo banner</button>
+                </div>
+                <div class="cardHeader">
+                    <!-- ======= Modal para criação do usuário ======= -->
+                    <%- include('./partials/components/banner/modal-register-banner'); -%>
+                </div>
+                <% if(params.page == "listar") { %>
+                <div class="bannerTable">
+                    <h1>Banners Cadastrados</h1>
+                    <table id="banner-list">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Banner</th>
+                                <th>Titulo</th>
+                                <th>Tipo do banner</th>
+                                <th>Inserido por:</th>
+                                <th>Data de cadastro</th>
+                                <th colspan="3" style="text-align: center;">AÇÕES</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <% } %>
+                <% if(params.page == "editar" && params.id) { %>
+                    <%- include('./partials/components/banner/modal-edit-banner'); -%>
+                <% } %>
+                
+                <% if(params.page == "deletar" && params.id) { %>
+                    <%- include('./partials/components/banner/modal-delete-banner'); -%>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <%- include('./partials/footer'); -%>

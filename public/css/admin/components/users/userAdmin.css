@@ -1,0 +1,440 @@
+/*
+
+profile style
+
+
+
+
+*/
+
+.profile-user:hover .profile-photo {
+    display: block;
+    cursor: pointer;
+    transition: ease-in-out 2s;
+}
+
+.profile-photo {
+    background: rgba(0, 0, 0, 0.7);
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    display: none;
+}
+
+.navigationTab {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 5px;
+    padding: 10px;
+    border-bottom: 2px solid #ccc;
+}
+
+.navigationTab a {
+    text-decoration: none;
+    font-size: 15px;
+    color: #000;
+    padding: 10px;
+    border-right: 2px solid #ccc;
+}
+
+.navigationTab button {
+    border: none;
+    border-radius: 2px;
+    background-color: #091E3E;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+
+/* Estilização do Modal para cadastro de usuario */
+
+
+/* The Modal (background) */
+
+.modal-user {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 20px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+
+/* Modal Content */
+
+.modal-content-user {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    border-radius: 10px;
+}
+
+
+/* Add Animation */
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+
+/* The Close Button */
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    color: #ccc;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background-color: #091E3E;
+    color: white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.modal-header h2 {
+    color: #fff;
+}
+
+.modal-footer {
+    border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.modal-body form {
+    padding: 2px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.modal-body form .tittle {
+    font-size: 24px;
+    color: #091E3E;
+    margin: 20px;
+}
+
+.modal-body input {
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    padding: 12px;
+    color: #000;
+    margin-bottom: 10px;
+    outline: none;
+    font-weight: 300;
+    font-size: 13px;
+}
+
+.modal-body button {
+    border: none;
+    border-radius: 2px;
+    background-color: #091E3E;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 500;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+.registerTop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+
+#picture__input {
+    display: none;
+}
+
+.picture {
+    width: 120px;
+    height: 120px;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #091E3E;
+    border: 2px dashed #091E3E;
+    cursor: pointer;
+    font-family: sans-serif;
+    transition: color 300ms ease-in-out, background 300ms ease-in-out;
+    outline: none;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.picture:hover {
+    color: #091E3E;
+    background: #ccc;
+}
+
+.picture__img {
+    max-width: 100%;
+}
+
+.modal-body input:focus {
+    border: 1px solid #091E3E;
+}
+
+.modal-body .tamanho {
+    width: 100%;
+}
+
+.modal-body .nomes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-body .pass {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-body .nomes input,
+.modal-body .pass input {
+    width: 100%;
+}
+
+.modal-body .tamanho .select {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
+.modal-body .tamanho select {
+    border: 1px solid #000;
+    border-radius: 2px;
+    outline: none;
+    padding: 10px;
+    width: 100%;
+    gap: 20px;
+}
+
+.modal-body .tamanho select:focus {
+    border: 1px solid #091E3E;
+}
+
+.modal-body .tamanho select option {
+    font-size: 16px;
+    color: #000;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    font-size: 14px;
+}
+
+.modal-body .radio {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 20px;
+    background-color: #f00;
+}
+
+.modal-body .sub-radio {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: row;
+}
+
+.modal-footer {
+    background-color: #fff;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Fim da Estilização do Modal para cadastro de usuario */
+
+.pagination {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: end;
+    align-items: center;
+    padding-right: 25px;
+}
+
+.pagination a {
+    border: 1px solid #ccc;
+    padding: 5px 10px 5px 10px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #091E3E;
+}
+
+
+/* Estilização da Tabela de usuarios */
+
+.userTable {
+    padding: 30px;
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0px 0px 41px -30px rgba(0, 0, 0, 1);
+    -webkit-box-shadow: 0px 0px 41px -30px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0px 0px 41px -30px rgba(0, 0, 0, 1);
+    border-radius: 20px;
+}
+
+.userTable h1 {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 500;
+    color: #091E3E;
+}
+
+#userList,
+#user-list-admin {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#userList td,
+#user-list-admin td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#userList tr:hover,
+#user-list-admin tr:hover {
+    background-color: #091E3E;
+    color: #fff;
+    cursor: pointer;
+}
+
+#userList tr:hover .bi,
+#user-list-admin tr:hover .bi {
+    color: #fff;
+}
+
+#userList th,
+#user-list-admin th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #fff;
+    color: #091e3e;
+}
+
+#userList td img,
+#user-list-admin td img {
+    border-radius: 50%;
+    border: 2px solid #091e3e;
+}
+
+#userList td a,
+#user-list-admin td a {
+    text-decoration: none;
+    color: #091E3E;
+    font-size: 16px;
+}
+
+#userList td a i:hover {
+    color: #fff;
+}
+
+#message,
+#message2 {
+    display: none;
+    width: 100%;
+}
+
+#message_Content {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFB02E;
+    padding: 15px;
+    margin-top: 10px;
+}

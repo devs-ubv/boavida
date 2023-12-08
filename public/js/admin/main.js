@@ -28,20 +28,21 @@ function simplifyDate(date){
 function showSuccessMessage(){
   setTimeout(function () {
     $("#myModal").hide();
-    location.reload();
   }, 4000);
   setTimeout(function () {
     location.reload();
   }, 5000);
 }
 
-function showErrorMessage(e){
+ function showErrorMessage(e){
   const responseText = ErrorMessage(JSON.parse(e.responseText));
   $(".error-message").text(responseText).show();
   setTimeout(function () {
     $(".error-message").hide();
   }, 8000); // 30 segundos em milissegundos
-}
+} 
+
+
 
 function ErrorMessage(responseText){
   if (responseText && responseText.error) {

@@ -33,41 +33,9 @@
                             </div>
 
                         </div>
-                        <%- include('./partials/components/modal-add-photo'); -%>
+                        <%- include('./partials/components/news/modal-add-photo'); -%>
                     </div>
             </div>
     </div>
 
     <%- include('./partials/footer'); -%>
-
-    <script>
-        $(document).ready(function() {
-            // Adiciona um ouvinte de alteração ao input de arquivo
-            $("#fileInput").change(function() {
-               
-                previewImage(this);
-            });
-
-            // Função para exibir a pré-visualização da imagem
-            function previewImage(input) {
-                var files = input.files;
-                console.log(files);
-                for (let index = 0; index < files.length; index++) {
-                    const element = files[index];
-                    if (element) {
-                        var reader = new FileReader();
-
-                        reader.onload = function(e) {
-                            $("#image-preview").attr("src", e.target.result);
-                        };
-
-                        // Lê o conteúdo da imagem como uma URL de dados
-                        reader.readAsDataURL(element);
-                    } else {
-                        // Limpa a pré-visualização se nenhum arquivo for selecionado
-                        $("#image-preview").empty();
-                    }
-                }
-            }
-        })
-    </script>

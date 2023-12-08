@@ -44,6 +44,7 @@ module.exports = {
         try {
             const id = parseInt(req.params.id);
             const value = req.body;
+            console.log(value);
             const video = await Video.update(id, value);
             return res.send(video);
         } catch (e) {

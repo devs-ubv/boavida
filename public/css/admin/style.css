@@ -409,7 +409,10 @@ body {
 
 .recentCustomers {
     position: relative;
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
     min-height: 500px;
     padding: 20px;
     background: var(--white);
@@ -436,6 +439,7 @@ body {
 
 .recentCustomers table tr td {
     padding: 12px 10px;
+    cursor: pointer;
 }
 
 .recentCustomers table tr td h4 {

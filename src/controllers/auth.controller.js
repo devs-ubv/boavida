@@ -6,7 +6,7 @@ module.exports = {
         try {
             const { email, password } = req.body;
             const user = await AuthLogin({ email, password });
-            console.log(user)
+
             if (!user)
                 return res
                     .status(404)

@@ -14,7 +14,7 @@
                         </div>
                         <div class="cardHeader">
                             <!-- ======= Modal para criação do usuário ======= -->
-                            <%- include('./partials/components/modal-cadastro'); -%>
+                            <%- include('./partials/components/news/modal-cadastro'); -%>
                         </div>
                     </div>
                     <!-- ======= Apresentação das Notícias ======= -->
@@ -40,15 +40,15 @@
                         <% } %>
 
                             <% if(params.page == "deletar" && params.id) { %>
-                                <%- include('./partials/components/modal-delete'); -%>
-                                    <% } %>
+                                <%- include('./partials/components/news/modal-delete'); -%>
+                            <% } %>
 
                                         <% if(params.page == "deletar-photo" && params.id) { %>
-                                            <%- include('./partials/components/modal-delete-photo'); -%>
-                                                <% } %>
+                                            <%- include('./partials/components/news/modal-delete-photo'); -%>
+                                        <% } %>
 
                                                     <% if(params.page == "editar" && params.id) { %>
-                                                        <%- include('./partials/components/modal-edit'); -%>
+                                                        <%- include('./partials/components/news/modal-edit'); -%>
                                                             <% } %>
             </div>
     </div>
@@ -59,54 +59,26 @@
             $(document).ready(function() {
                 // Adiciona um ouvinte de alteração ao input de arquivo
                 $("#fileInput").change(function() {
-                    uploadProfile(this);
                     previewImage(this);
                 });
-
                 // Função para exibir a pré-visualização da imagem
                 function previewImage(input) {
                     var file = input.files[0];
                     if (file) {
                         var reader = new FileReader();
-
                         reader.onload = function(e) {
                             $("#image-preview").attr("src", e.target.result);
                         };
-
                         // Lê o conteúdo da imagem como uma URL de dados
                         reader.readAsDataURL(file);
-                    } else {
+                    }else {
                         // Limpa a pré-visualização se nenhum arquivo for selecionado
                         $("#image-preview").empty();
                     }
-                }
-
-
-                function uploadProfile(input) {
-                    var file = input.files[0];
-                    console.log(file);
                 }
                 $("#remove").click(function() {
                     alert("estou a remover");
                     $("#image-preview").text("");
                 })
-
-                $("#upload-profile").click(function() {
-                    var file = $("#fileInput")[0].files[0];
-                    var formData = new FormData();
-                    formData.append('userProfile', file);
-                    fetch('/user/upload', {
-                            method: 'PUT',
-                            body: formData
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            console.log(data)
-                        })
-                        .catch(error => {
-                            console.error('Erro ao enviar arquivo:', error);
-                        });
-
-                });
             });
         </script>

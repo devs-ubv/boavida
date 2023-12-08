@@ -25,24 +25,6 @@ module.exports = {
         }
     },
     
-    videoPage(req, res) {
-        if(req.params.id){
-            if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
-              
-                return res.render("admin/video", { session: req.session.user, videoId: req.params.id});
-            } else {
-                return res.redirect("/login")
-            }
-        }
-
-        if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
-            res.render("admin/video", { session: req.session.user, videoId:''});
-        } else {
-            res.redirect("/login")
-        } 
-        
-    },
-    
     async newId(req, res) {
         if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
             const idNew = req.params.id;
@@ -56,6 +38,42 @@ module.exports = {
     },
     async findOne(req, res) {
         res.render("admin/index");
+    },
+
+    bannerPage(req, res) {
+        if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
+            const { page, id } = req.params;
+            res.render("admin/banners", { session: req.session.user,  params:{page, id} });
+        } else {
+            res.redirect("/login")
+        }
+    },
+    async bannerPageId(req, res) {
+        if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
+            const bannerId = req.params.id;
+            console.log(bannerId);
+            res.render("admin/banner", { session: req.session.user, bannerId});
+        } else {
+            res.redirect("/login")
+        }
+    },
+
+    videoPage(req, res) {
+        if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
+            const { page, id } = req.params;
+            res.render("admin/videos", { session: req.session.user,  params:{page, id} });
+        } else {
+            res.redirect("/login")
+        }
+    },
+    async videoPageId(req, res) {
+        if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
+            const videoId = req.params.id;
+            console.log(videoId);
+            res.render("admin/video", { session: req.session.user, videoId});
+        } else {
+            res.redirect("/login")
+        }
     },
 
 }

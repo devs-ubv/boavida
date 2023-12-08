@@ -35,7 +35,6 @@ $(document).ready(function () {
             var conteudo = quill.root.innerHTML;
             const cover = $('#fileInput')[0].files[0]
             let dataForm = $("#update-new-form").serializeObject();
-            console.log(dataForm);
         
            var formData = new FormData();
             formData.append('title', dataForm.title);

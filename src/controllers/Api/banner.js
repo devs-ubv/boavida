@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const Banner = require("../../models/Banner");
+const { deleteFileInDataBase } = require('../../utils/function');
 
 module.exports = {
     async addHandler(req, res) {
@@ -40,16 +41,38 @@ module.exports = {
             return res.status(409).send(e.message);
         }
     },
+
     async updateBannerHandler(req, res) {
         try {
+            
+            console.log("Estou entrar aqui")
             const id = parseInt(req.params.id);
             const value = req.body;
-            const banner = await Banner.update(id, value);
-            return res.send(banner);
+            const file = req.file;
+            console.log(value, file);
+            if (file) {
+                value.banner = file.filename;
+                const bannerData = await Banner.findById(id);
+
+                if (bannerData) {
+                    const resultDelete = await deleteFileInDataBase('banner', bannerData?.banner);
+                    console.log(resultDelete);
+                    if (!resultDelete) return res.status(409).send({ message: 'Ocorreu um erro ao excluir o arquivo' });
+                    const not = await Banner.update(id, value);
+                    return res.send(not);
+                }
+            } else {
+                delete value.banner;
+                const not = await Banner.update(id, value);
+                return res.send(not);
+            }
         } catch (e) {
+            console.log(e);
             return res.status(409).send(e.message);
         }
     },
+
+
     async deleteHanler(req, res) {
         try {
             const id = parseInt(req.params.id);

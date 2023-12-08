@@ -58,27 +58,20 @@
 .picture_image_add_photo img {
     width: 300px;
     height: 200px;
-    margin: 5px;
     display: flex;
     justify-content: start;
     align-items: start;
 }
 
 .remove_photo {
-    background-color: #f00;
+    background-color: #ccc;
     width: 30px;
     height: 30px;
-    border-radius: 50%;
+    border-radius: 3px;
+    border: 2px solid #091E3E;
     margin-top: 10px;
-}
-
-.profile-user:hover .profile-photo {
-    display: block;
-    cursor: pointer;
-    transition: ease-in-out 2s;
-}
-
-.profile-photo {
-    background: rgba(0, 0, 0, 0.7);
-    display: none;
+    margin-left: -50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
