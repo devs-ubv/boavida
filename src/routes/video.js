@@ -12,7 +12,7 @@ videoRouter.post("/video_api", multer(upload).single('image'), videoController.a
 videoRouter.delete("/video_api/file/:filename", videoController.deleteHanlerFile);
 videoRouter.get("/video_api", videoController.findAllVideoHandler);
 videoRouter.get("/video_api/:id", videoController.getVideoById);
-videoRouter.put("/video_api/:id", videoController.updateVideoHandler);
+videoRouter.put("/video_api/:id",multer(upload).single('image'), videoController.updateVideoHandler);
 videoRouter.delete("/video_api/:id", videoController.deleteVideoHanler);
 videoRouter.delete("/video_api/:id", videoController.deleteHanlerFile);
 

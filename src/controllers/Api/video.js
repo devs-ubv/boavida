@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const Video = require("../../models/Video");
+const { deleteFileInDataBase } = require('../../utils/function');
 
 module.exports = {
     async addHandler(req, res) {
@@ -40,17 +41,35 @@ module.exports = {
             return res.status(409).send(e.message);
         }
     },
+
     async updateVideoHandler(req, res) {
         try {
             const id = parseInt(req.params.id);
             const value = req.body;
-            console.log(value);
-            const video = await Video.update(id, value);
-            return res.send(video);
+            const file = req.file;
+
+            if (file) {
+                value.image = file.filename;
+                const videoData = await Video.findById(id);
+
+                if (videoData) {
+                    const resultDelete = await deleteFileInDataBase('video', videoData?.image);
+                    console.log(resultDelete);
+                    if (!resultDelete) return res.status(409).send({ message: 'Ocorreu um erro ao excluir o arquivo' });
+                    const not = await Video.update(id, value);
+                    return res.send(not);
+                }
+            } else {
+                delete value.image;
+                const not = await Video.update(id, value);
+                return res.send(not);
+            }
         } catch (e) {
+            console.log(e);
             return res.status(409).send(e.message);
         }
     },
+
     async deleteVideoHanler(req, res) {
         try {
             const id = parseInt(req.params.id);

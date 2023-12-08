@@ -24,7 +24,7 @@ $(document).ready(function () {
         }
     });
 
-    function ImageLoading(image) {
+    function bannerImageLoading(image) {
         if (image) {
             const img = document.createElement("img");
             img.src = `/assets/img/banner/${image}`;
@@ -46,7 +46,7 @@ $(document).ready(function () {
             success: function (data) {
                 $('#title').val(data.title);
                 $('#type').val(data.type);
-                ImageLoading(data.banner)
+                bannerImageLoading(data.banner)
             },
             error: function (error) {
                 console.error('Erro ao carregar dados da API: ' + error.statusText);
