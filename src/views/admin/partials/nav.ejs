@@ -1,15 +1,14 @@
-<div class="topbar border py-3 pr-24">
+<div class="topbar border py-3 pr-24 w-full ">
     <div class="toggle">
         <ion-icon name="menu-outline"></ion-icon>
     </div>
 
-    <div class="relative w-[40px] h-[20px] rounded-full overflow-visible cursor-pointer ">
+    <div class="cursor-pointer flex flex-row justify-end">
         <a href="/dashboard/profile" class="flex items-center">
-            <div class="px-5">
+            <div class="px-3">
                 <%=session.fullName %>
             </div>
-            <img class="rounded-full" src="/assets/img/user/<%=session.userProfile %>" alt="user">
         </a>
-
+        <img class="w-[45px] h-[45px] rounded-full" src="/assets/img/user/<%=session.userProfile %>" alt="user">
     </div>
 </div>

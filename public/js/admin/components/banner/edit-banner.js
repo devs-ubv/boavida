@@ -76,6 +76,10 @@ $(document).ready(function () {
                 .then(response => response.json())
                 .then(data => {
                     console.log("Data: ", data);
+
+                    var voltar = "/dashboard/banner/listar/default";
+                    window.location.href = voltar;                    
+                    
                     //if (data) return window.location.href = `/dashboard/news/${data.insertId}`;
                 })
                 .catch(error => {

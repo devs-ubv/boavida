@@ -27,9 +27,8 @@ $(document).ready(function() {
                     <td>  ${item.title}  </td> 
                     <td>  ${item.dataId}  </td> 
                     <td>  ${item.fullName}  </td> 
-                    <td> <a href='/dashboard/video/${item.id}'> <i class="bi bi-box-arrow-up-right"></i> </a> </td> 
-                    <td> <a href='/dashboard/video/editar/${item.id}'> <i class="bi bi-pencil-square"></i> </a></td> 
-                    <td> <a href='/dashboard/video/deletar/${item.id}'> <i class="bi bi-trash3"></i></a> </td> 
+                    <td style="text-align: center;"> <a href='/dashboard/video/editar/${item.id}'> <i class="bi bi-pencil-square"></i> </a></td> 
+                    <td style="text-align: center;"> <a href='/dashboard/video/deletar/${item.id}'> <i class="bi bi-trash3"></i></a> </td> 
                 </tr>`
             );
         });

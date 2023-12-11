@@ -75,6 +75,8 @@ $(document).ready(function () {
                 .then(response => response.json())
                 .then(data => {
                     console.log("Dados atualizados com sucesso! ", data);
+                    var voltar = "/dashboard/video/listar/default";
+                    window.location.href = voltar;
                     //if (data) return window.location.href = `/dashboard/news/${data.insertId}`;
                 })
                 .catch(error => {

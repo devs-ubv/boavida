@@ -26,6 +26,16 @@ $(document).ready(function () {
     });
 
 
+    /* ---------------------------- FUNÇÃO PARA FORMATAÇÃO DA DATA NA APRESENTAÇÃO ---------------------- */
+
+    function formatDate(dataString) {
+        const data = new Date(dataString);
+
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        return data.toLocaleDateString('pt-BR', options);
+    }
+    
+
     /* ------------------CADASTRO DE BANNER ---------------------- */
 
     $("#register-banner").click((event) => {
@@ -100,7 +110,7 @@ $(document).ready(function () {
                     <td> ${item.title} </td>
                     <td> ${item.type}</td>
                     <td> ${item.fullName}</td>
-                    <td> ${simplifyDate(item.createdAt)} </td>
+                    <td> ${formatDate(item.createdAt)} </td>
                     <td> <a href='/dashboard/banner/${item.id}'> <i class="bi bi-box-arrow-up-right"></i> </a> </td> +
                     <td> <a href='/dashboard/banner/editar/${item.id}'> <i class="bi bi-pencil-square"></i> </a></td> 
                     <td> <a href='/dashboard/banner/deletar/${item.id}'> <i class="bi bi-trash3"></i></a> </td> 

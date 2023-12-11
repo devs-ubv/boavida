@@ -1,4 +1,5 @@
 <div id="myModalDelete" class="modal_delete_news">
+
     <div class="modal_content_delete_news">
         <div class="modal-header">
             <p class="title">EDITAR NOTÍCIA</p>
@@ -9,15 +10,14 @@
                 <h2>Preencha o Formulário Com <br> As Novas Informações</h2>
             </div>
             <form class="form-edit-new" id="update-new-form">
-                <div class="profile-user flex flex-col relative  w-[100%] h-[300px] bottom-8 border">
-                    <button id="remove" class="-top-6 absolute right-2">X</button>
-                    <img id="image-preview" class=" rounded-md h-[100%] w-[100%]" src="/assets/img/news/new-prototype.jpg" alt="user">
-                    <label for="fileInput" class="profile-photo absolute h-[50%] w-100 left-0 bottom-0 right-0 "></label>
-                    <input type="file" id="fileInput" style="display: none;">
-                </div>
+                <div class="input_wrap w-full">
+                    <label class="picture-edit-banner" for="picture-edit-banner" tabIndex="0">
+                            <span class="picture-image-banner-edit"></span>
+                        </label>
+                    <input type="file" name="banner" id="picture-edit-banner" class="input">
+                </div> 
                 <input type="text" name="title" id="title" placeholder="Título">
                 <input type="text" name="typeOfNew" id="typeOfNew" placeholder="Tipo de Notícia">
-                <input type="date" name="datePublished" id="datePublished">
                 <div class="input_wrap">
                     <div id="editContent" style="height: 300px;">
                     </div>
