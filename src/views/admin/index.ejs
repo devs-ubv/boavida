@@ -1,22 +1,62 @@
 <%- include('./partials/head'); -%>
     <!-- =============== Navigation ================ -->
-    <%
-    function formatDate(dataString) {
-        const data = new Date(dataString);
-
-        const options = { day: 'numeric', month: 'long', year: 'numeric' };
-        return data.toLocaleDateString('pt-BR', options);
-    }
-    function reduceText(texto, comprimentoDesejado) {
-        if (texto.length <= comprimentoDesejado) {
-            return texto;
-        } else {
-            const novoTexto = texto.slice(0, comprimentoDesejado) + "...";
-            return novoTexto;
-        }
-    }
-
-    %>
+    <% function formatDate(dataString) { const data=new Date(dataString); const options={ day: 'numeric' , month: 'long'
+        , year: 'numeric' }; return data.toLocaleDateString('pt-BR', options); } function reduceText(texto,
+        comprimentoDesejado) { if (texto.length <=comprimentoDesejado) { return texto; } else { const
+        novoTexto=texto.slice(0, comprimentoDesejado) + "..." ; return novoTexto; } } %>
+        <style>
+            /* Estilos básicos do botão toggle */
+            
+            .toggle-button {
+                position: relative;
+                display: inline-block;
+                width: 60px;
+                height: 34px;
+            }
+            /* Estilos do input escondido */
+            
+            .toggle-button input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+            /* Estilos da alça deslizante */
+            
+            .slider {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #ccc;
+                transition: 0.4s;
+                border-radius: 34px;
+            }
+            /* Estilos da alça deslizante quando ativada */
+            
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 26px;
+                width: 26px;
+                left: 4px;
+                bottom: 4px;
+                background-color: white;
+                transition: 0.4s;
+                border-radius: 50%;
+            }
+            /* Estilos do input quando marcado */
+            
+            input:checked+.slider {
+                background-color: #2196F3;
+            }
+            /* Estilos da alça deslizante quando ativada */
+            
+            input:checked+.slider:before {
+                transform: translateX(26px);
+            }
+        </style>
 
         <div class="container">
             <%- include('./partials/sidebar'); -%>
@@ -106,11 +146,16 @@
                                                 <td>
                                                     <%=formatDate(newItem.datePublished)%>
                                                 </td>
-                                                <td>
-                                                    <span class="status <%=newItem.visible ==1?' delivered': 'pending'%>"><%=newItem.visible ==1?'Activo': 'Desativado'%> </span>
+                                                <td id="checkboc-td">
+                                                    <label class="toggle-button">
+                                                        <input type="checkbox" <% if (newItem.visible) { %>checked<% }
+                                                            %>
+                                                            onclick="toggleAtivo('<%= newItem.id %>', this.checked)" />
+                                                                <span class="slider"></span>
+                                                    </label>
                                                 </td>
                                             </tr>
-                                        <% }); %>
+                                            <% }); %>
                                     </tbody>
                                 </table>
                             </div>
@@ -125,7 +170,8 @@
                                         <% previws?.userPreview?.forEach(function(user) { %>
                                             <tr>
                                                 <td width="60px ">
-                                                    <div class="imgBx "> <img src="/assets/img/user/<%=user.userProfile %> " alt=" "></div>
+                                                    <div class="imgBx "> <img src="/assets/img/user/<%=user.userProfile %> " alt=" ">
+                                                    </div>
                                                 </td>
                                                 <td>
                                                     <h4>
@@ -133,7 +179,7 @@
                                                     </h4>
                                                 </td>
                                             </tr>
-                                        <% }) %>
+                                            <% }) %>
                                     </tbody>
                                 </table>
                                 <div class="cardHeader mt-4">
@@ -145,3 +191,36 @@
         </div>
 
         <%- include('./partials/footer'); -%>
+
+            <script>
+                function toggleAtivo(itemId, currentAtivoState) {
+                    const newAtivoState = currentAtivoState; // Inverte o estado atual
+                    console.log('Novo estado Ativo:', newAtivoState);
+                    fetch(`/new/${itemId}`, {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({
+                                visible: newAtivoState,
+                            }),
+                        })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`
+                    HTTP error!Status: $ {
+                        response.status
+                    }
+                    `);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            console.log('Atualização bem-sucedida:', data);
+                        })
+                        .catch(error => {
+                            console.error('Erro na atualização:', error);
+                        });
+
+                }
+            </script>

@@ -46,7 +46,6 @@ function showSuccessMessage(){
 
 function ErrorMessage(responseText){
   if (responseText && responseText.error) {
-      console.log(responseText);
       return responseText.error;
   }
 }

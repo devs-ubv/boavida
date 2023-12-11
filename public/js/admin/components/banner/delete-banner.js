@@ -9,7 +9,6 @@ $(document).ready(function () {
             url: `/banner/${idNew}`,
             method: 'DELETE',
             success: function (response) {
-                console.log("Deletar Banner Resposta: ",response);
                 window.history.back();
             },
             error: function (e) {

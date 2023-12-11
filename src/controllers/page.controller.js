@@ -4,14 +4,14 @@ const New = require("../models/New");
 const Video = require("../models/video");
 const { infoSiteData } = require('../utils/siteInfo');
 module.exports = {
-    indexPage(req, res) {
+    async indexPage(req, res) {
+        const allNews = await New.findAllSite();
         const data = infoSiteData(req);
-        
-        const news4 = news.map(objeto => ({
+
+        const news4 = allNews.map(objeto => ({
             ...objeto
         })).slice(0, 4);
-
-        const news3 = news.map(objeto => ({
+        const news3 = allNews.map(objeto => ({
             ...objeto
         })).slice(0, 3);
 

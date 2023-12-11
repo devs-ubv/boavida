@@ -11,7 +11,6 @@ $(document).ready(function() {
                 method: "POST",
                 data: dateForm,
                 success: function(data) {
-                    console.log("Resultado no Jquery: ",data)
                     $("#role").val("");
                     showSuccessMessage();
                 },
