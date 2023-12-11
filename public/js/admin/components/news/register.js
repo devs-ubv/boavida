@@ -48,8 +48,8 @@ $(document).ready(function () {
         
         if (dataForm.title == "" || dataForm.typeOfNew == "" || dataForm.datePublished == "" ) {
             
-            $("#message").delay(100).fadeIn("slow");
-            $("#message").delay(3000).fadeOut("slow");
+            $("#alerta").delay(100).fadeIn("slow");
+            $("#alerta").delay(3000).fadeOut("slow");
 
         } else {
             console.log("DataForm",dataForm);
@@ -105,7 +105,7 @@ $(document).ready(function () {
             localStorage.removeItem("newId");
             $("#sucesso").delay(100).fadeIn("slow");
             $("#sucesso").delay(3000).fadeOut("slow");
-            showSuccessMessage();
+            showErrorMessage();
             return;
         }
 
