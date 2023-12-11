@@ -6,7 +6,7 @@ $(document).ready(function () {
 
     const bannerFileCover = document.querySelector("#picture-edit-banner");
     const pictureEditImageCover = document.querySelector(".picture-image-banner-edit");
-    const pictureEditImageBannerTxt = "Carregar a Imagem da Notícia";
+    const pictureEditImageBannerTxt = "Carregar a Imagem da Noticia";
     pictureEditImageCover.innerHTML = pictureEditImageBannerTxt;
     bannerFileCover.addEventListener("change", function (e) {
         const inputTarget = e.target;

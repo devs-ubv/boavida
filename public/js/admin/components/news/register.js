@@ -35,18 +35,20 @@ $(document).ready(function () {
             return false;
         } else return true;
     }
+    
     form_1_next_btn.addEventListener("click",   function (event) {
 
          //OBTER O CONTEUDO DO EDITOR DE TEXTO
         var quill = new Quill('#editor');
         var conteudoQuill = quill.root.innerHTML;
         let dataForm = $("#news-register").serializeObject();
+        var conteudo = quill.root.innerHTML.trim();
         
         const cover = $('#picture__input-newsCover')[0].files[0];
         console.log("Foto",cover);
         dataForm.content = conteudoQuill;
         
-        if (dataForm.title == "" || dataForm.typeOfNew == "" || dataForm.datePublished == "" ) {
+        if (dataForm.title == "" || dataForm.typeOfNew == "" || dataForm.datePublished == ""  || conteudo.length == 0) {
             
             $("#alerta").delay(100).fadeIn("slow");
             $("#alerta").delay(3000).fadeOut("slow");
@@ -105,7 +107,7 @@ $(document).ready(function () {
             localStorage.removeItem("newId");
             $("#sucesso").delay(100).fadeIn("slow");
             $("#sucesso").delay(3000).fadeOut("slow");
-            showErrorMessage();
+            showSuccessMessage();
             return;
         }
 
