@@ -69,8 +69,8 @@ $(document).ready(function() {
                     <td>${item.firstName }</td> +
                     <td>${item.email}</td> +
                     <td>${item.role}</td> +
-                    <td> <a href="#"> <i class="bi bi-pencil-square"></i> </a></td> 
-                    <td> <a href="/dashboard/user/deletar/${item.id}"> <i class="bi bi-trash3"></i></a> </td>
+                    <td style="text-align: center;"> <a href="#"> <i class="bi bi-pencil-square"></i> </a></td> 
+                    <td style="text-align: center;"> <a href="/dashboard/user/deletar/${item.id}"> <i class="bi bi-trash3"></i></a> </td>
                 </tr>
                 `
             );

@@ -24,7 +24,7 @@ $(document).ready(function () {
         }
     });
 
-    function ImageLoading(image) {
+    function bannerImageLoading(image) {
         if (image) {
             const img = document.createElement("img");
             img.src = `/assets/img/banner/${image}`;
@@ -46,7 +46,7 @@ $(document).ready(function () {
             success: function (data) {
                 $('#title').val(data.title);
                 $('#type').val(data.type);
-                ImageLoading(data.banner)
+                bannerImageLoading(data.banner)
             },
             error: function (error) {
                 console.error('Erro ao carregar dados da API: ' + error.statusText);
@@ -76,6 +76,10 @@ $(document).ready(function () {
                 .then(response => response.json())
                 .then(data => {
                     console.log("Data: ", data);
+
+                    var voltar = "/dashboard/banner/listar/default";
+                    window.location.href = voltar;                    
+                    
                     //if (data) return window.location.href = `/dashboard/news/${data.insertId}`;
                 })
                 .catch(error => {

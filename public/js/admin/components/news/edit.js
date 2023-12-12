@@ -4,6 +4,41 @@ $(document).ready(function () {
         theme: 'snow'
     });
 
+    const bannerFileCover = document.querySelector("#picture-edit-banner");
+    const pictureEditImageCover = document.querySelector(".picture-image-banner-edit");
+    const pictureEditImageBannerTxt = "Carregar a Imagem da Noticia";
+    pictureEditImageCover.innerHTML = pictureEditImageBannerTxt;
+    bannerFileCover.addEventListener("change", function (e) {
+        const inputTarget = e.target;
+        const file = inputTarget.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.addEventListener("load", function (e) {
+                const readerTarget = e.target;
+                const img = document.createElement("img");
+                img.src = readerTarget.result;
+                img.classList.add("picture-img-edit-cover");
+                pictureEditImageCover.innerHTML = "";
+                pictureEditImageCover.appendChild(img);
+            });
+            reader.readAsDataURL(file);
+        } else {
+            pictureEditImageCover.innerHTML = pictureEditImageBannerTxt;
+        }
+    });
+
+    function newsImageLoading(image) {
+        if (image) {
+            const img = document.createElement("img");
+            img.src = `/assets/img/news/${image}`;
+            img.classList.add("picture-img-edit-cover");
+            pictureEditImageCover.innerHTML = "";
+            pictureEditImageCover.appendChild(img);
+        } else {
+            pictureEditImageCover.innerHTML = pictureEditImageBannerTxt;
+        }
+    }
+
     function loadAPIData(idNew) {
         $.ajax({
             url: `/new/${idNew}`,
@@ -13,8 +48,7 @@ $(document).ready(function () {
                 // Preencher os campos do formulário com dados da API
                 $('#title').val(data.title);
                 $('#typeOfNew').val(data.typeOfNew);
-                $('#datePublished').val(data.datePublished);
-                $('#image-preview').attr('src', '/assets/img/news/'+data.cover);
+                newsImageLoading(data.cover);
                 quill.clipboard.dangerouslyPasteHTML(data.content);
             },
             error: function (error) {
@@ -33,13 +67,12 @@ $(document).ready(function () {
         function updateAPIData(idNew) {
             // Obter dados do formulário
             var conteudo = quill.root.innerHTML;
-            const cover = $('#fileInput')[0].files[0]
+            const cover = $('#picture-edit-banner')[0].files[0];
             let dataForm = $("#update-new-form").serializeObject();
         
-           var formData = new FormData();
+            var formData = new FormData();
             formData.append('title', dataForm.title);
             formData.append('typeOfNew', dataForm.typeOfNew);
-            formData.append('datePublished', dataForm.datePublished);
             formData.append('cover', cover);
             formData.append('content', conteudo);
          // Enviar dados atualizados para a API
@@ -50,6 +83,8 @@ $(document).ready(function () {
             .then(response => response.json())
             .then(data => {
                 console.log("Data: ",data);
+                var voltar = "/dashboard/news/listar/default";
+                window.location.href = voltar;
                 //if (data) return window.location.href = `/dashboard/news/${data.insertId}`;
             })
             .catch(error => {

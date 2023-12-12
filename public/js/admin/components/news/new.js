@@ -7,6 +7,15 @@ $(document).ready(function () {
         theme: 'snow'
     });
 
+    /* ---------------------------- FUNÇÃO PARA FORMATAÇÃO DA DATA NA APRESENTAÇÃO ---------------------- */
+
+    function formatDate(dataString) {
+        const data = new Date(dataString);
+
+        const options = { day: 'numeric', month: 'long', year: 'numeric' };
+        return data.toLocaleDateString('pt-BR', options);
+    }
+
     /* ------------------LISTAGEM DE TODAS AS NOTICIAS ---------------------- */
 
     function fetchDataNews() {
@@ -58,7 +67,7 @@ $(document).ready(function () {
                     <td> ${imageTag}</td> +
                     <td> ${item.title} </td> +
                     <td> ${item.typeOfNew}</td> +
-                    <td> ${item.datePublished} </td> +
+                    <td> ${formatDate(item.datePublished)} </td> +
                     <td> <a href='/dashboard/news/${item.id}'> <i class="bi bi-box-arrow-up-right"></i> </a> </td> +
                     <td> <a href='/dashboard/news/editar/${item.id}'> <i class="bi bi-pencil-square"></i> </a></td> +
                     <td> <a href='/dashboard/news/deletar/${item.id}'> <i class="bi bi-trash3"></i></a> </td> +
@@ -78,7 +87,7 @@ $(document).ready(function () {
                     <td> ${imageTag}</td> +
                     <td> ${item.title} </td> +
                     <td> ${item.typeOfNew}</td> +
-                    <td> ${item.datePublished} </td> +
+                    <td> ${formatDate(item.datePublished)} </td> +
                     <td> <a href='/dashboard/news/${item.id}'> <i class="bi bi-box-arrow-up-right"></i> </a> </td> +
                     <td> <a href="#"> <i class="bi bi-pencil-square"></i> </a></td> +
                     <td> <a href=""> <i class="bi bi-trash3"></i></a> </td> +
@@ -98,7 +107,7 @@ $(document).ready(function () {
                 <div class="topo">
                     <div class="type_data">
                         <span>${data?.typeOfNew} - </span>  
-                        <span>${data?.datePublished}</span>
+                        <span>${formatDate(data?.datePublished)}</span>
                     </div>
                     <h1>${data?.title}</h1>
                     </div>

@@ -117,7 +117,9 @@ module.exports = {
     
     findAllSite() {
         return new Promise(async function (resolve, reject) {
-            const sql = `SELECT n.id, n.title, n.content, n.typeOfNew, n.title, n.datePublished, n.cover, us.fullName, n.createdAt FROM tb_new as n LEFT JOIN tb_users as us ON n.userId = us.id ORDER BY n.createdAt DESC
+            const sql = `SELECT n.id, n.title, n.content, n.typeOfNew, n.title, n.datePublished, n.cover, us.fullName, n.createdAt FROM tb_new as n LEFT JOIN tb_users as us ON n.userId = us.id 
+            where  n.visible=1
+            ORDER BY n.createdAt DESC
     LIMIT ${25} OFFSET ${0}`
             
             connection.query(sql, (err, results) => {
