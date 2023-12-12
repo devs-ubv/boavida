@@ -20,7 +20,7 @@
     $(window).scroll(function() {
         if ($(this).scrollTop() > 45) {
             $('.navbar').addClass('sticky-top shadow-sm');
-            $('.white-logo').css({ "display": "flex" });
+            $('.white-logo').css({ "display": "none" });
             $('.blue-logo').css({ "display": "flex" });
         } else {
             $('.navbar').removeClass('sticky-top shadow-sm');
