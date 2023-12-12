@@ -44,7 +44,6 @@ $(document).ready(function() {
                         $("#phoneNumber").val("");
                         $("#password").val("");
                         $("#passConfirm").val("");
-                        pictureImage.innerHTML = "Escolha uma Imagem de Perfil";
                         showSuccessMessage();
                     },
                     error: function(e) {

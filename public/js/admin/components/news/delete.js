@@ -33,7 +33,8 @@ $(document).ready(function () {
             method: 'DELETE',
             success: function (response) {
                 console.log("Deletar Noticia Resposta: ",response);
-                window.history.back();
+                var voltar = "/dashboard/news/listar/default";
+                window.location.href = voltar;
             },
             error: function (e) {
                 console.log(e.responseText);

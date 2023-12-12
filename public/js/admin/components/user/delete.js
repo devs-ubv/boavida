@@ -11,6 +11,8 @@ function deletarUser(idUser) {
          method: 'PUT',
          success: function (response) {
             console.log("Deletar Usuario Resposta: ",response);
+            var voltar = "/dashboard/user";
+            window.location.href = voltar;
          },
          error: function (e) {
              console.log(e.responseText);

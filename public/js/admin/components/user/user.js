@@ -66,7 +66,7 @@ $(document).ready(function() {
                 <tr>
                     <td>${(index+1)} </td> +
                     <td>${imageTag } </td> +
-                    <td>${item.firstName }</td> +
+                    <td>${item.fullName }</td> +
                     <td>${item.email}</td> +
                     <td>${item.role}</td> +
                     <td style="text-align: center;"> <a href="#"> <i class="bi bi-pencil-square"></i> </a></td> 

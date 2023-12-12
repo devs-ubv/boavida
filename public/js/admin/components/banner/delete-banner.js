@@ -9,7 +9,8 @@ $(document).ready(function () {
             url: `/banner/${idNew}`,
             method: 'DELETE',
             success: function (response) {
-                window.history.back();
+                var voltar = "/dashboard/banner/listar/default";
+                window.location.href = voltar;
             },
             error: function (e) {
                 console.log(e.responseText);

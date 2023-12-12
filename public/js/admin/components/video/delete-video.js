@@ -10,7 +10,8 @@ $(document).ready(function () {
             method: 'DELETE',
             success: function (response) {
                 console.log("Deletar Video Resposta: ",response);
-                window.history.back();
+                var voltar = "/dashboard/video/listar/default";
+                window.location.href = voltar;
             },
             error: function (e) {
                 console.log(e.responseText);
