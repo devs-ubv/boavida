@@ -1,9 +1,9 @@
-(function($) {
+(function ($) {
     "use strict";
 
     // Spinner
-    var spinner = function() {
-        setTimeout(function() {
+    var spinner = function () {
+        setTimeout(function () {
             if ($('#spinner').length > 0) {
                 $('#spinner').removeClass('show');
             }
@@ -14,18 +14,27 @@
 
     // Initiate the wowjs
     new WOW().init();
-
-
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (isMobile) {
+        $('.blue-logo').css({ "display": "flex" });
+        $('.white-logo').css({ "display": "none" });
+    }
     // Sticky Navbar
-    $(window).scroll(function() {
-        if ($(this).scrollTop() > 45) {
-            $('.navbar').addClass('sticky-top shadow-sm');
-            $('.white-logo').css({ "display": "none" });
+    $(window).scroll(function () {
+        var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        if (isMobile) {
             $('.blue-logo').css({ "display": "flex" });
+            $('.white-logo').css({ "display": "none" });
         } else {
-            $('.navbar').removeClass('sticky-top shadow-sm');
-            $('.blue-logo').css({ "display": "none" });
-            $('.white-logo').css({ "display": "flex" });
+            if ($(this).scrollTop() > 45) {
+                $('.navbar').addClass('sticky-top shadow-sm');
+                $('.white-logo').css({ "display": "none" });
+                $('.blue-logo').css({ "display": "flex" });
+            } else {
+                $('.navbar').removeClass('sticky-top shadow-sm');
+                $('.blue-logo').css({ "display": "none" });
+                $('.white-logo').css({ "display": "flex" });
+            }
         }
     });
 
@@ -35,16 +44,16 @@
     const $dropdownMenu = $(".dropdown-menu");
     const showClass = "show";
 
-    $(window).on("load resize", function() {
+    $(window).on("load resize", function () {
         if (this.matchMedia("(min-width: 992px)").matches) {
             $dropdown.hover(
-                function() {
+                function () {
                     const $this = $(this);
                     $this.addClass(showClass);
                     $this.find($dropdownToggle).attr("aria-expanded", "true");
                     $this.find($dropdownMenu).addClass(showClass);
                 },
-                function() {
+                function () {
                     const $this = $(this);
                     $this.removeClass(showClass);
                     $this.find($dropdownToggle).attr("aria-expanded", "false");
@@ -65,14 +74,14 @@
 
 
     // Back to top button
-    $(window).scroll(function() {
+    $(window).scroll(function () {
         if ($(this).scrollTop() > 100) {
             $('.back-to-top').fadeIn('slow');
         } else {
             $('.back-to-top').fadeOut('slow');
         }
     });
-    $('.back-to-top').click(function() {
+    $('.back-to-top').click(function () {
         $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
         return false;
     });
@@ -125,16 +134,16 @@
             }
         }
     });
-    $(".imgbx").click(function() {
+    $(".imgbx").click(function () {
         var idDaDiv = $(this).attr("id");
         switch (idDaDiv) {
 
         }
     });
-    $(".linguagem").click(function() {
+    $(".linguagem").click(function () {
         $('.drawn-menu').slideToggle();
     })
-    $("#play-video").click(function() {
+    $("#play-video").click(function () {
         $('.popup-video').css({
             display: 'block'
         });
@@ -149,7 +158,7 @@
     function getVimeoPlayer() {
         return new Vimeo.Player(document.getElementById('meu-video-vimeo'));
     }
-    $(".popup-close").click(function() {
+    $(".popup-close").click(function () {
         $('.popup-video').css({
             display: 'none'
         });
@@ -158,7 +167,7 @@
         player.pause(); // Pausa o vídeo
 
     })
-    $("#playvideo").click(function() {
+    $("#playvideo").click(function () {
         $('.popup-video').css({
             display: 'block'
         });

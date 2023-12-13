@@ -23,7 +23,12 @@ module.exports = {
     },
 
     loginPage(req, res) {
-        res.render("admin/login");
+        if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
+            res.redirect("/dashboard")
+        }else{
+            res.render("admin/login");
+        }
+      
     },
 
     async accessLevel(req, res) {

@@ -9,6 +9,6 @@
                 <%=session.fullName %>
             </div>
         </a>
-        <img class="w-[45px] h-[45px] rounded-full" src="/assets/img/user/<%=session.userProfile %>" alt="user">
+        <img class="w-[45px] h-[45px] rounded-full" src="/assets/img/user/<%=session.userProfile?session.userProfile:'profile.jpeg'  %>" alt="user">
     </div>
 </div>
