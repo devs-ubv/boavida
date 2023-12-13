@@ -4,6 +4,7 @@ const Video = require("../models/Video");
 
 module.exports = {
    async indexPage(req, res) {
+       try {
         if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
             const {user_acount} = await User.countUser();
             const {video_acount} =  await Video.countVideo();
@@ -14,6 +15,9 @@ module.exports = {
         } else {
             res.redirect("/login")
         }
+       } catch (error) {
+        res.redirect("/login")
+       }
     },
     new(req, res) {
         if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
@@ -25,7 +29,7 @@ module.exports = {
         }
     },
     
-    async newId(req, res) {
+     newId(req, res) {
         if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
             const idNew = req.params.id;
             res.render("admin/new", { session: req.session.user, idNew});
@@ -51,7 +55,6 @@ module.exports = {
     async bannerPageId(req, res) {
         if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
             const bannerId = req.params.id;
-            console.log(bannerId);
             res.render("admin/banner", { session: req.session.user, bannerId});
         } else {
             res.redirect("/login")
@@ -66,7 +69,7 @@ module.exports = {
             res.redirect("/login")
         }
     },
-    async videoPageId(req, res) {
+     videoPageId(req, res) {
         if (req.session.autorizado && req.session?.user?.type === 'admin' || req.session?.user?.type === 'manager' || req.session?.user?.type === 'assistent') {
             const videoId = req.params.id;
             console.log(videoId);
