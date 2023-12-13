@@ -1,7 +1,7 @@
 const { leadership, news, project } = require('../utils/project');
 const { navegateRouter } = require("../utils/pagesRouter");
 const New = require("../models/New");
-const Video = require("../models/video");
+const Video = require("../models/Video");
 const { infoSiteData } = require('../utils/siteInfo');
 module.exports = {
     async indexPage(req, res) {
@@ -40,6 +40,7 @@ module.exports = {
     },
 
     async newsPage(req, res) {
+       try {
         const allNews = await New.findAllSite();
         const data = infoSiteData(req);
         const news4 = allNews.map(objeto => ({
@@ -49,6 +50,9 @@ module.exports = {
             ...objeto
         })).slice(0, 3);
         res.render("pt/news", { data, smollNews: news4, fullNews: allNews, news3 });
+       } catch (error) {
+        
+       }
     },
     
    /*  async videoPage(req, res) {
