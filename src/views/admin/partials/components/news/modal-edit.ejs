@@ -23,7 +23,10 @@
                     </div>
                 </div>
                 <div class="mt-10 flex gap-2.5">
-                    <a id="editar" class="editar" data-content="<%= params.id %>" style="cursor: pointer;">EDITAR NOTÍCIA</a>
+                    <a id="editar" class="editar" data-content="<%= params.id %>" style="cursor: pointer;">
+                        <p id="button-text">Editar Notícia</p>
+                        <ion-spinner id="loading" style="display: none; color: #fff;" name="circular"></ion-spinner>
+                    </a>
                     <a class="cancel" href="/dashboard/news/listar/default">Cancelar</a>
                 </div>
 
