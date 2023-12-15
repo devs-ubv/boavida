@@ -54,7 +54,6 @@ module.exports = {
 
                 if (videoData) {
                     const resultDelete = await deleteFileInDataBase('video', videoData?.image);
-                    console.log(resultDelete);
                     if (!resultDelete) return res.status(409).send({ message: 'Ocorreu um erro ao excluir o arquivo' });
                     const not = await Video.update(id, value);
                     return res.send(not);
@@ -65,7 +64,6 @@ module.exports = {
                 return res.send(not);
             }
         } catch (e) {
-            console.log(e);
             return res.status(409).send(e.message);
         }
     },
@@ -73,25 +71,14 @@ module.exports = {
     async deleteVideoHanler(req, res) {
         try {
             const id = parseInt(req.params.id);
-            const video = await Video.delete(id);
-            return res.send(video);
-        } catch (e) {
-            return res.status(409).send(e.message);
-        }
-    },
-    async deleteHanlerFile(req, res) {
-        try {
-            const filename = req.params.filename;
-            const filepath = path.resolve(__dirname, '..', '..', 'public', 'img', 'video', filename);
-            fs.unlink(filepath, function (err) {
-                if (err) {
-                    res.status(500).send('Ocorreu um erro ao excluir o arquivo');
-                } else {
-
-                    res.send('Arquivo excluído com sucesso');
-                }
-            })
-
+            const result = await Video.findById(id);
+            const video = await Video.delete(result.id);
+            if(result.image) {
+                await deleteFileInDataBase('video', result.image);
+                return res.send(video);
+            }else{
+                return res.send(video);
+            }
         } catch (e) {
             return res.status(409).send(e.message);
         }

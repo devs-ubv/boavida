@@ -68,21 +68,4 @@ module.exports = {
             return res.status(409).send(e.message);
         }
     },
-    /* async deleteHanlerFile(req, res) {
-        try {
-            const filename = req.params.filename;
-            const filepath = path.resolve(__dirname, '..', '..', 'public', 'img', 'news-images', filename);
-            fs.unlink(filepath, function (err) {
-                if (err) {
-                    res.status(500).send('Ocorreu um erro ao excluir o arquivo');
-                } else {
-
-                    res.send('Arquivo excluído com sucesso');
-                }
-            })
-
-        } catch (e) {
-            return res.status(409).send(e.message);
-        }
-    }, */
 }

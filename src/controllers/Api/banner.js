@@ -76,8 +76,14 @@ module.exports = {
     async deleteHanler(req, res) {
         try {
             const id = parseInt(req.params.id);
-            const banner = await Banner.delete(id);
-            return res.send(banner);
+            const result = await Banner.findById(id);
+            const banner = await Banner.delete(result.id);
+            if(result.banner) {
+                await deleteFileInDataBase('banner', result.banner);
+                return res.send(banner);
+            }else{
+                return res.send(banner);
+            }
         } catch (e) {
             return res.status(409).send(e.message);
         }

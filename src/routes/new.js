@@ -12,7 +12,6 @@ const newRouter = express.Router();
 
 //////all action from user //////////////////////////////////////
 newRouter.post("/new", multer(uploadCover).single('cover'), newController.addHandler);
-newRouter.delete("/new/file/:filename", newController.deleteHanlerFile);
 newRouter.get("/new", newController.findAllNewHandler);
 newRouter.get("/new/:id", newController.getNewById);
 newRouter.get("/new/upload:id", newController.getNewById);
@@ -26,7 +25,6 @@ newRouter.delete("/new/:id", newController.deleteHanler);
 
 //////all action from user //////////////////////////////////////
 newRouter.post("/upload", multer(uploadImage).single('image'), photoController.addHandler);
-/* newRouter.delete("/upload/file/:filename", photoController.deleteHanlerFile); */
 newRouter.get("/upload", photoController.findAllPhotoHandler);
 newRouter.get("/upload/:id", photoController.getPhotoById);
 newRouter.put("/upload/:id", photoController.updatePhotoHandler);
