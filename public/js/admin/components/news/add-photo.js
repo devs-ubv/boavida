@@ -14,13 +14,16 @@ $(document).ready(function () {
         async function uploadFile(files, index) {
             if (index >= files.length) {
                 console.log('Envio concluído.');
+                $("#loading").hide();
+                $("#button-text").show();
                 localStorage.removeItem("newId");
                 $("#sucesso").delay(100).fadeIn("slow");
                 $("#sucesso").delay(3000).fadeOut("slow");
                 showSuccessMessage();
                 return;
             }
-    
+            $("#loading").show();
+            $("#button-text").hide();
             const file = files[index];
             const newId = localStorage.getItem('idNew');
             const formData = new FormData();

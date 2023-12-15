@@ -60,6 +60,8 @@ $(document).ready(function () {
     
     $('#editar-video').on('click', function () {
         function updateAPIVideo(idVideo) {
+            $("#loading").show();
+            $("#button-text").hide();
             let dataForm = $("#video-edit-form").serializeObject();
             const file = $('#picture-edit-banner')[0].files[0];
 
@@ -75,6 +77,8 @@ $(document).ready(function () {
                 .then(response => response.json())
                 .then(data => {
                     console.log("Dados atualizados com sucesso! ", data);
+                    $("#loading").hide();
+                    $("#button-text").show();
                     var voltar = "/dashboard/video/listar/default";
                     window.location.href = voltar;
                 })

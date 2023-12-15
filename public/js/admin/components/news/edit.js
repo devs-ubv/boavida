@@ -65,6 +65,8 @@ $(document).ready(function () {
 
     $('#editar').on('click', function () {
         function updateAPIData(idNew) {
+            $("#loading").show();
+            $("#button-text").hide();
             // Obter dados do formulário
             var conteudo = quill.root.innerHTML;
             const cover = $('#picture-edit-banner')[0].files[0];
@@ -83,6 +85,8 @@ $(document).ready(function () {
             .then(response => response.json())
             .then(data => {
                 console.log("Data: ",data);
+                $("#loading").hide();
+                $("#button-text").show();
                 var voltar = "/dashboard/news/listar/default";
                 window.location.href = voltar;
                 //if (data) return window.location.href = `/dashboard/news/${data.insertId}`;

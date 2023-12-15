@@ -42,6 +42,13 @@ $(document).ready(function() {
             }
           });
     })
+    
+    $("#logout-modal-open").click((event) => {
+        $("#modal-logout").show();
+    })
+    $("#close-modal-logout").click((event) => {
+        $("#modal-logout").hide();
+    })
 });
 
 function ErrorMessage(responseText){

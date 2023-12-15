@@ -3,6 +3,8 @@ $(document).ready(function() {
     /* ------------------ REGISTO DE NOVO USUARIO -------------------------- */
     $("#registerButton").click((event) => {
         event.preventDefault();
+        $("#loading").show();
+        $("#button-text").hide()
         let dateForm = $("#registrationForm").serializeObject();
         const file = $('#picture__input')[0].files[0];
 
@@ -36,6 +38,8 @@ $(document).ready(function() {
                     contentType: false,  // Não configurar automaticamente o Content-Type
                     success: function(data) {
                         console.log("Resultado no Jquery: ",data)
+                        $("#loading").hide();
+                        $("#button-text").show();
                         $("#success").delay(100).fadeIn("slow");
                         $("#success").delay(3000).fadeOut("slow");
                         $("#firstName").val("");

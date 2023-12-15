@@ -61,6 +61,8 @@ $(document).ready(function () {
 
     $('#edit-banner').on('click', function () {
         function updateAPIBanner(idBanner) {
+            $("#loading").show();
+            $("#button-text").hide();
             let dataForm = $("#banner-edit-form").serializeObject();
             const file = $('#picture-edit-banner')[0].files[0];
 
@@ -76,6 +78,8 @@ $(document).ready(function () {
                 .then(response => response.json())
                 .then(data => {
                     console.log("Data: ", data);
+                    $("#loading").hide();
+                    $("#button-text").show();
 
                     var voltar = "/dashboard/banner/listar/default";
                     window.location.href = voltar;                    

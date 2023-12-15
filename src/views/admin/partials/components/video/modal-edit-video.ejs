@@ -39,7 +39,10 @@
                 </div>
                 
                 <div class="flex flex-row gap-2 mt-2">
-                    <a class="save" data-content="<%= params.id %>" id="editar-video">Gravar</a>
+                    <a class="save" data-content="<%= params.id %>" id="editar-video">
+                        <p id="button-text">Gravar</p>
+                        <ion-spinner id="loading" style="display: none; color: #fff;" name="circular"></ion-spinner>
+                    </a>
                     <a class="cancel" href="/dashboard/video/listar/default">Cancelar</a>
                 </div>
                 
