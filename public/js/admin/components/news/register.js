@@ -39,6 +39,8 @@ $(document).ready(function () {
     form_1_next_btn.addEventListener("click",   function (event) {
 
          //OBTER O CONTEUDO DO EDITOR DE TEXTO
+        $("#loading").show();
+        $("#button-text").hide();
         var quill = new Quill('#editor');
         var conteudoQuill = quill.root.innerHTML;
         let dataForm = $("#news-register").serializeObject();
@@ -71,6 +73,10 @@ $(document).ready(function () {
             .then(response => response.json())
             .then(data => {
                 console.log("Data: ",data);
+
+                $("#loading").hide();
+                $("#button-text").show();
+                
                 localStorage.setItem("idNew", data.insertId)
                 //if (data) return window.location.href = `/dashboard/news/${data.insertId}`;
             })
@@ -107,10 +113,13 @@ $(document).ready(function () {
             localStorage.removeItem("newId");
             $("#sucesso").delay(100).fadeIn("slow");
             $("#sucesso").delay(3000).fadeOut("slow");
+            $("#loading").hide();
+            $("#button-text").show();
             showSuccessMessage();
             return;
         }
-
+        $("#loading").show();
+        $("#button-text").hide();
         const file = files[index];
         const newId = localStorage.getItem('idNew');
         const formData = new FormData();

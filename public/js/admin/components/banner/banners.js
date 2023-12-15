@@ -40,6 +40,10 @@ $(document).ready(function () {
 
     $("#register-banner").click((event) => {
         event.preventDefault();
+        /* APRESENTAR O LOADING NO BOTÃO */
+        $("#loading").show();
+        $("#button-text").hide();
+
         let dateForm = $("#banner-register").serializeObject();
         const file = $('#picture-input-banner')[0].files[0];
 
@@ -63,6 +67,9 @@ $(document).ready(function () {
                     contentType: false,  // Não configurar automaticamente o Content-Type
                     success: function(data) {
                         console.log("Resultado no Jquery: ",data);
+                        /* APRESENTAR O LOADING NO BOTÃO */
+                        $("#loading").hide();
+                        $("#button-text").show();
                         $("#success").delay(100).fadeIn("slow");
                         $("#success").delay(3000).fadeOut("slow");
                         $(".title").val("");
