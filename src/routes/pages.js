@@ -12,6 +12,9 @@ pagesRouter.get("/company/:id", pageController.companyPage);
 pagesRouter.get("/video", pageController.videoPage)
 pagesRouter.get("/video/:id", pageController.companyPage);
 pagesRouter.get("/contacto", pageController.contactPage);
+pagesRouter.get("/centro-de-midea/acessoria-de-imprensa", pageController.pressOfficePage);
+pagesRouter.get("/centro-de-midea/releases", pageController.releasesPage);
+pagesRouter.get("/sobre/conselho-e-diretoria", pageController.managementPage);
 pagesRouter.get("/sac", pageController.sacPage);
 
 

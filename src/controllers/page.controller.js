@@ -85,6 +85,30 @@ module.exports = {
         res.render(navegateRouter(req.params.id), { data, leadership, news3 });
     },
 
+    async pressOfficePage(req, res) {
+        const data = infoSiteData(req);
+        const news3 = news.map(objeto => ({
+            ...objeto
+        })).slice(0, 3);
+        res.render("pt/press-office", { data, news3 });
+    },
+
+    async releasesPage(req, res) {
+        const data = infoSiteData(req);
+        const news3 = news.map(objeto => ({
+            ...objeto
+        })).slice(0, 3);
+        res.render("pt/releases", { data, news3 });
+    },
+
+    async managementPage(req, res) {
+        const data = infoSiteData(req);
+        const news3 = news.map(objeto => ({
+            ...objeto
+        })).slice(0, 3);
+        res.render("pt/management", { data, news3 });
+    },
+
     async contactPage(req, res) {
         const data = infoSiteData(req);
         const news3 = news.map(objeto => ({

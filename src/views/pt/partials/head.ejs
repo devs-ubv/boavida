@@ -115,8 +115,18 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
                         <a href="/" class="nav-item nav-link <%= data?.path==='/' ? 'active' : '' %>">Home</a>
-                        <a href="/sobre-nos" class="nav-item nav-link <%= data?.path==='/sobre-nos' ? 'active' : '' %>">Sobre</a>
-                        <a href="/noticias" class="nav-item nav-link <%= data?.path==='/noticias' || data?.path === '/video' ? 'active' : '' %>">Notícias</a>
+                        
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle <%= data?.path==='/sobre-nos' || data?.path==='/sobre/conselho-e-diretoria' ? 'active' : '' %>"
+                                data-bs-toggle="dropdown">Sobre
+                            </a>
+                            <div class="dropdown-menu m-0">
+                                <a href="/sobre-nos" class="dropdown-item <%= data?.path==='/sobre-nos' ? 'active' : '' %>">
+                                    Sobre Nós</a>
+                                <a href="/sobre/conselho-e-diretoria" class="dropdown-item <%= data?.path==='/sobre/conselho-e-diretoria' ? 'active' : '' %>">
+                                    Conselho e Diretoria</a>
+                            </div>
+                        </div>
 
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle <%= data?.path==='/unidade-de-negocios/incorporacao-imobiliaria' || data?.path==='/company/'+data?.pathName || data?.path==='/unidade-de-negocios/leadership-institutel' || data?.path==='/unidade-de-negocios/outras' ? 'active' : '' %>"
@@ -131,6 +141,23 @@
                                     Instituto de Liderança</a>
                             </div>
                         </div>
+
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle <%= data?.path==='/centro-de-midea/acessoria-de-imprensa' || data?.path==='/noticias' || data?.path==='/video' || data?.path==='/centro-de-midea/releases' ? 'active' : '' %>"
+                                data-bs-toggle="dropdown">Centro de Mídea
+                            </a>
+                            <div class="dropdown-menu m-0">
+                                <a href="/centro-de-midea/acessoria-de-imprensa" class="dropdown-item <%= data?.path==='/centro-de-midea/acessoria-de-imprensa' ? 'active' : '' %>">
+                                    Acessoria de Imprensa</a>
+                                <a href="/noticias" class="dropdown-item <%= data?.path==='/noticias' ? 'active' : '' %>">
+                                    Notícias</a>
+                                <a href="/video" class="dropdown-item <%= data?.path==='/video' ? 'active' : '' %>">
+                                    Vídeos</a>
+                                <a href="/centro-de-midea/releases" class="dropdown-item <%= data?.path==='/centro-de-midea/releases' ? 'active' : '' %>">
+                                    Atividades a Realizar</a>
+                            </div>
+                        </div>
+
                         <a href="/contacto" class="nav-item nav-link <%= data?.path==='/contacto' ? 'active' : '' %>"> Contacto</a>
                         <a href="https://sac.grupoboavida.co.ao/" target="_blank" class="nav-item nav-link">SAC</a>
                     </div>
