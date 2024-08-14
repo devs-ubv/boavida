@@ -10,7 +10,7 @@
 %>
     <link rel="stylesheet" href="/assets/css/header.css">
     <!-- ======= Header ======= -->
-    <div class="breadcrumbs d-flex align-items-center" style="background-image: url('/assets/img/news/<%=featured.cover %>');">
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url(<%=featured.url%>);">
         <div class="container position-relative d-flex flex-column align-items-center" data-aos="fade">
             <h2>Notícia</h2>
             <ol>
@@ -49,10 +49,10 @@
                     <div class="position-relative mb-3">
                         <div class="col-lg-12 p-2">
                             <div class="owl-carousel main-carousel position-relative">
-                                <% featured?.fotos.forEach(function(item, index) { %>
+                                <% featured?.photos.forEach(function(item, index) { %>
                                     <% if (index <= 4) { %>
                                         <div class="position-relative overflow-hidden" style="height: 500px;">
-                                            <img class="img-fluid h-100" src="/assets/img/news-images/<%= item?.image %>" style="object-fit: cover;">
+                                            <img class="img-fluid h-100" src=<%=item?.thumbnail %>"style="object-fit: cover;">
                                             <div class="overlay">
                                                 <div class="mb-2">
                                                 </div>
@@ -127,7 +127,7 @@
                                     <% if (indice <=2) { %>
                                         <div class="position-relative overflow-hidden py-2" style="height: 150px;">
                                             <a href="/noticia/<%= item?.id %>">
-                                <img class="img-fluid w-100 h-100" src="/assets/img/news/<%= item?.cover %>" style="object-fit: cover;">
+                                <img class="img-fluid w-100 h-100" src="<%= item?.url %>" style="object-fit: cover;">
                                 <div class="overlay">
                                     <div class="mb-2">
                                         <a  href="/noticia/<%= item?.id %>" class="badge badge-info text-uppercase font-weight-semi-bold p-2 mr-2"><%= formatDate(featured?.datePublished) %></a>

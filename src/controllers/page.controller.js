@@ -14,7 +14,6 @@ module.exports = {
         const news3 = allNews.map(objeto => ({
             ...objeto
         })).slice(0, 3);
-
         res.render("pt/index", { data, smollNews: news4, fullNews: news, news3 });
     },
 
@@ -28,8 +27,9 @@ module.exports = {
     
     async newPage(req, res) {
         const data = infoSiteData(req);
-        const featured = await New.findById(req.params.id);
         const allNews = await New.findAllSite();
+        const featured = await New.findById(req.params.id, allNews);
+
         const news = allNews.map(objeto => ({
             ...objeto
         })).slice(0, 4);

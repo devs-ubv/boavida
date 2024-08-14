@@ -1,71 +1,36 @@
-const connection = require('../database/connection')
+const connection = require('../database/connection');
+const { api }  = require('../utils/api');
 
 module.exports = {
     findAll({ page = 0, limit = 1, search: text }) {
         return new Promise(async function (resolve, reject) {
-            const sql = `SELECT n.id, n.title, n.content, n.typeOfNew, n.title, n.datePublished, n.cover, us.fullName, n.createdAt FROM tb_new as n LEFT JOIN tb_users as us ON n.userId = us.id ORDER BY n.createdAt DESC
-    LIMIT ${limit} OFFSET ${page}`
-            
-            connection.query(sql, (err, results) => {
-                if (err) reject(err.message);
-                resolve(results);   
-            });
+            return []
         });
     },
     
     findAllPreview() {
         return new Promise(async function (resolve, reject) {
-            const sql = `SELECT n.visible, n.id, n.title, n.content, n.typeOfNew, n.title, n.datePublished, n.cover, us.fullName, n.createdAt FROM tb_new as n LEFT JOIN tb_users as us ON n.userId = us.id ORDER BY n.createdAt DESC
-    LIMIT 10;`
-            
-            connection.query(sql, (err, results) => {
-                if (err) reject(err.message);
-                resolve(results);   
-            });
+            return []
         });
     },
     
     countNew() {
         return new Promise(async function(resolve, reject) {
-            const sql = `SELECT COUNT(*) AS new_acount FROM tb_new WHERE active = '1';`
-            connection.query(sql, (err, result) => {
-                if (err) reject(err.message);
-                resolve(result[0]);
-            });
+            return { }
         });
     },
 
-    findById(id) {
+    findById(id, data) {
         return new Promise(async function (resolve, reject) {
-            const sql = `SELECT n.id, 
-            n.title, 
-            n.content, n.typeOfNew,
-            n.datePublished, 
-            n.cover, n.createdAt, 
-            ph.image,
-            ph.id as photoId
-            FROM tb_new as n 
-            LEFT JOIN tb_photo as ph ON n.id= ph.newId where n.id=${id}`;
-            connection.query(sql, (err, results) => {
-                if (err) reject(err);
-               if(results.length > 0){
-                const newResulted = {
-                    id: results[0].id,
-                    title: results[0].title,
-                    content: results[0].content,
-                    typeOfNew: results[0].typeOfNew,
-                    datePublished: results[0].datePublished,
-                    cover: results[0].cover,
-                    createdAt: results[0].createdAt,
-                    fotos: results.map(result => ({ image: result.image, id: result.photoId }))
-                  };
-                  resolve(newResulted);
-               }else{
-                reject({ message: "Não foi encontrado nenhuma notícia." });
-               }
-                
-            });
-           
+            try {
+                const item = data.find(item => item.id === id);
+                resolve(item);
+            } catch (error) {
+                if (error.response) {
+                    const { status, data } = error.response;
+                    throw new Error(`Erro ao buscar o item com ID ${id}: ${status} - ${data.message || 'Erro no servidor'}`);
+                }
+            }
         });
     },
     add(dataNew) {
@@ -117,15 +82,8 @@ module.exports = {
     
     findAllSite() {
         return new Promise(async function (resolve, reject) {
-            const sql = `SELECT n.id, n.title, n.content, n.typeOfNew, n.title, n.datePublished, n.cover, us.fullName, n.createdAt FROM tb_new as n LEFT JOIN tb_users as us ON n.userId = us.id 
-            where  n.visible=1
-            ORDER BY n.createdAt DESC
-    LIMIT ${25} OFFSET ${0}`
-            
-            connection.query(sql, (err, results) => {
-                if (err) reject(err.message);
-                resolve(results);   
-            });
+            const { data } = await api.get("/new");
+            resolve(data.news);
         });
     },
 
